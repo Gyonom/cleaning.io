@@ -730,7 +730,7 @@
         }
 
         // ─── SEND RESPONSE ───
-        function sendContractorResponse(response) {
+        function sendContractorResponse(response, confirmedArrival = null) {
             if (!assignmentCode) {
                 alert('Error: No assignment code found.');
                 return;
@@ -744,7 +744,8 @@
             const payload = {
                 assignmentCode: assignmentCode,
                 response: response,
-                submittedAt: new Date().toISOString()
+                submittedAt: new Date().toISOString(),
+                confirmedArrival: confirmedArrival
             };
 
             console.log('📤 Sending payload:', payload);
@@ -797,18 +798,136 @@
 
         // ─── ACCEPT ───
         acceptBtn.addEventListener('click', function() {
-            showModal(
-                '✅',
-                'success',
-                'Accept Assignment?',
-                'You are about to accept this assignment. Confirm your decision.',
-                '',
-                [
-                    { label: 'Cancel', class: 'secondary', action: () => { acceptBtn.disabled = false; declineBtn.disabled = false; } },
-                    { label: 'Yes, Accept', action: () => { sendContractorResponse('Accepted'); } }
-                ]
-            );
+            showArrivalTimePopup();
         });
+
+        function showArrivalTimePopup() {
+            const scheduledDate = cleaningDate.textContent;
+            const preferredTimeText = preferredTime.textContent;
+
+            let datePart = scheduledDate;
+            if (datePart.includes('Morning') || datePart.includes('Afternoon') || datePart.includes('Evening')) {
+                datePart = datePart.split(' Morning')[0] || datePart.split(' Afternoon')[0] || datePart.split(' Evening')[0];
+            }
+
+            let timeWindow = 'Morning (8:00 AM – 12:00 PM)';
+            let startHour = 8;
+            let endHour = 12;
+
+            if (scheduledDate.includes('Afternoon') || preferredTimeText.includes('Afternoon')) {
+                timeWindow = 'Afternoon (12:00 PM – 4:00 PM)';
+                startHour = 12;
+                endHour = 16;
+            } else if (scheduledDate.includes('Evening') || preferredTimeText.includes('Evening')) {
+                timeWindow = 'Evening (4:00 PM – 7:00 PM)';
+                startHour = 16;
+                endHour = 19;
+            } else if (scheduledDate.includes('Morning') || preferredTimeText.includes('Morning')) {
+                timeWindow = 'Morning (8:00 AM – 12:00 PM)';
+                startHour = 8;
+                endHour = 12;
+            }
+
+            let timeOptions = '';
+            for (let h = startHour; h < endHour; h++) {
+                for (let m = 0; m < 60; m += 30) {
+                    let hour12 = h > 12 ? h - 12 : h;
+                    let ampm = h >= 12 ? 'PM' : 'AM';
+                    let timeStr = hour12 + ':' + (m === 0 ? '00' : '30') + ' ' + ampm;
+                    let valueStr = h.toString().padStart(2, '0') + ':' + (m === 0 ? '00' : '30');
+                    timeOptions += `<option value="${valueStr}">${timeStr}</option>`;
+                }
+            }
+
+            const popupHTML = `
+                <div style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(6px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;">
+                    <div style="background:#ffffff;border-radius:24px;max-width:480px;width:100%;padding:32px;box-shadow:0 24px 64px rgba(0,0,0,0.18);">
+                        <div style="text-align:center;margin-bottom:20px;">
+                            <div style="font-size:40px;margin-bottom:8px;">⏰</div>
+                            <h2 style="font-size:20px;font-weight:800;color:#111827;margin-bottom:4px;">Confirm Your Arrival Time</h2>
+                            <p style="color:#667085;font-size:14px;">Please choose the exact time you expect to arrive for this booking.</p>
+                        </div>
+
+                        <div style="background:#f5f9f8;border-radius:16px;padding:16px;margin-bottom:20px;">
+                            <div style="display:flex;justify-content:space-between;padding:4px 0;">
+                                <span style="color:#536477;">Cleaning Date:</span>
+                                <span style="font-weight:600;color:#111827;">${datePart}</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;padding:4px 0;">
+                                <span style="color:#536477;">Preferred Time Window:</span>
+                                <span style="font-weight:600;color:#111827;">${timeWindow}</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom:24px;">
+                            <label style="display:block;font-weight:600;font-size:14px;color:#111827;margin-bottom:8px;">Expected Arrival Time</label>
+                            <select id="arrivalTimeSelect" style="width:100%;padding:12px 16px;border:1px solid #e1eeeb;border-radius:14px;font-size:16px;background:#fbfefd;font-weight:600;color:#111827;cursor:pointer;">
+                                <option value="">Select a time...</option>
+                                ${timeOptions}
+                            </select>
+                        </div>
+
+                        <div style="display:flex;gap:12px;justify-content:center;">
+                            <button id="arrivalBackBtn" style="padding:12px 32px;border:1px solid rgba(11,94,90,0.2);border-radius:30px;background:white;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;">Back</button>
+                            <button id="arrivalConfirmBtn" style="padding:12px 32px;border:none;border-radius:30px;background:linear-gradient(135deg,#0a7a34,#066c2e);color:white;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;box-shadow:0 10px 30px rgba(8,122,52,0.26);" disabled>Confirm & Accept</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const popupContainer = document.createElement('div');
+            popupContainer.id = 'arrivalPopup';
+            popupContainer.innerHTML = popupHTML;
+            document.body.appendChild(popupContainer);
+
+            const timeSelect = document.getElementById('arrivalTimeSelect');
+            const confirmBtn = document.getElementById('arrivalConfirmBtn');
+            const backBtn = document.getElementById('arrivalBackBtn');
+
+            timeSelect.addEventListener('change', function() {
+                confirmBtn.disabled = !this.value;
+            });
+
+            backBtn.addEventListener('click', function() {
+                popupContainer.remove();
+            });
+
+            confirmBtn.addEventListener('click', function() {
+                const selectedTime = timeSelect.value;
+                if (!selectedTime) return;
+
+                // Parse date safely using numeric components
+                let dateStr = datePart.trim();
+                // Try to parse in YYYY-MM-DD format (if not, try DD/MM/YYYY)
+                let year, month, day;
+                if (dateStr.includes('-')) {
+                    const parts = dateStr.split('-');
+                    year = parseInt(parts[0], 10);
+                    month = parseInt(parts[1], 10);
+                    day = parseInt(parts[2], 10);
+                } else if (dateStr.includes('/')) {
+                    const parts = dateStr.split('/');
+                    // Assume DD/MM/YYYY
+                    day = parseInt(parts[0], 10);
+                    month = parseInt(parts[1], 10);
+                    year = parseInt(parts[2], 10);
+                } else {
+                    // fallback: try to parse as Date and extract parts
+                    const d = new Date(dateStr);
+                    year = d.getFullYear();
+                    month = d.getMonth() + 1;
+                    day = d.getDate();
+                }
+
+                const [hours, minutes] = selectedTime.split(':').map(Number);
+
+                const localDate = new Date(year, month - 1, day, hours, minutes, 0, 0);
+                const confirmedArrival = localDate.toISOString();
+
+                popupContainer.remove();
+                sendContractorResponse('Accepted', confirmedArrival);
+            });
+        }
 
         // ─── DECLINE ───
         declineBtn.addEventListener('click', function() {
