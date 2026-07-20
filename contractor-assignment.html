@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Contractor Assignment | Dr SparkClean</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ─── YOUR ORIGINAL CSS — 100% UNCHANGED ─── */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f2f8f6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(11, 94, 90, 0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 50%, rgba(11, 94, 90, 0.04) 0%, transparent 60%);
+        }
+        .container { max-width: 720px; width: 100%; }
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 8px 32px rgba(6, 75, 70, 0.08), 0 24px 64px rgba(6, 75, 70, 0.05);
+            overflow: hidden;
+            animation: fadeIn 0.35s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .header {
+            background: linear-gradient(135deg, #064b46, #0a5f58, #0f756b);
+            padding: 20px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .header-left { display: flex; align-items: center; gap: 15px; }
+        .header-logo { height: 54px; width: auto; border-radius: 4px; display: block; }
+        .header-brand { line-height: 1.2; }
+        .header-brand strong { display: block; font-size: 16px; font-weight: 800; color: #ffffff; letter-spacing: -0.2px; }
+        .header-brand span { display: block; font-size: 11px; color: rgba(255, 255, 255, 0.68); font-weight: 500; margin-top: 2px; }
+        .header-badge { font-size: 12px; font-weight: 700; color: rgba(255, 255, 255, 0.95); background: rgba(255, 255, 255, 0.14); padding: 6px 16px; border-radius: 30px; letter-spacing: 0.2px; white-space: nowrap; }
+        .body { padding: 28px 30px 26px; }
+        .title {
+            display: flex; justify-content: space-between; align-items: flex-start; gap: 18px;
+            margin-bottom: 22px; border-bottom: 1px solid #e7efed; padding-bottom: 18px;
+        }
+        .title h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; color: #111827; }
+        .title h1 span { color: #0d635c; }
+        .title p { font-size: 14px; color: #667085; font-weight: 500; margin-top: 3px; }
+        .title-ref { text-align: right; font-size: 12px; color: #536477; font-weight: 500; line-height: 1.4; flex-shrink: 0; }
+        .title-ref strong { display: block; color: #111827; font-size: 15px; font-weight: 700; }
+        .details {
+            background: #fbfefd; border: 1px solid #e1eeeb; border-radius: 20px;
+            padding: 22px 26px 20px; margin-bottom: 12px;
+        }
+        .section { margin-bottom: 16px; }
+        .section:last-of-type { margin-bottom: 0; }
+        .section-header {
+            font-size: 14px; font-weight: 700; color: #064b46;
+            display: flex; align-items: center; gap: 8px;
+            padding-bottom: 6px; border-bottom: 1px solid #0d635c;
+            margin-bottom: 10px; letter-spacing: -0.2px;
+        }
+        .section-header svg { width: 14px; height: 14px; stroke: #0d635c; stroke-width: 2; fill: none; flex-shrink: 0; }
+        .section-divider { height: 1px; background: #e7efed; margin: 14px 0 16px; }
+        .table { width: 100%; border-collapse: collapse; }
+        .table tr { border-bottom: 1px solid rgba(0, 0, 0, 0.04); }
+        .table tr:last-child { border-bottom: none; }
+        .table td { padding: 6px 0; font-size: 14px; vertical-align: top; }
+        .table .label { font-weight: 500; color: #344b49; width: 40%; }
+        .table .value { font-weight: 600; color: #111827; width: 60%; text-align: right; }
+        .table .property-address { font-weight: 700; color: #111827; }
+        .service-list {
+            list-style: none; display: grid; grid-template-columns: 1fr 1fr;
+            column-gap: 34px; row-gap: 7px; padding: 6px 0 2px;
+        }
+        .service-list li { font-size: 14px; color: #1f2937; display: flex; align-items: center; gap: 7px; }
+        .service-list li::before { content: "✓"; color: #0d635c; font-weight: 800; font-size: 14px; }
+        .notes {
+            font-size: 14px; color: #1f2937; line-height: 1.6;
+            background: #f5f9f8; border-radius: 10px; padding: 12px 16px; margin-top: 4px;
+        }
+        .fee {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 22px; margin-top: 16px; border-radius: 18px;
+            background: linear-gradient(135deg, #e8f3f1, #d4e8e5);
+            border: 1px solid rgba(11, 94, 90, 0.12);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.55);
+        }
+        .fee .label { font-size: 13px; font-weight: 800; color: #064b46; letter-spacing: -0.1px; }
+        .fee .label small { font-weight: 500; color: #4d6b68; font-size: 12px; display: block; margin-top: 2px; }
+        .fee .amount { font-size: 44px; font-weight: 900; color: #054b46; letter-spacing: -1.2px; line-height: 1; }
+        .notice {
+            background: #fff6dc; border: 1px solid #e8d48a; border-radius: 18px;
+            padding: 14px 20px; margin: 10px 0 14px;
+            display: flex; align-items: flex-start; gap: 12px;
+        }
+        .notice-icon { width: 24px; height: 24px; border-radius: 999px; background: #f3d06a; color: #5f4810; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+        .notice h2 { font-size: 14px; color: #5f4810; font-weight: 800; margin-bottom: 2px; }
+        .notice p { font-size: 13.5px; color: #6b5418; line-height: 1.58; font-weight: 500; }
+        .response {
+            border: 1px solid #e1eeeb; border-radius: 20px;
+            padding: 24px 22px 26px; text-align: center;
+            background: linear-gradient(180deg, #fbfefd, #f5f9f8);
+        }
+        .response h2 { font-size: 20px; font-weight: 800; letter-spacing: -0.4px; color: #064b46; margin-bottom: 2px; }
+        .response p { color: #667085; font-size: 14px; font-weight: 500; margin-bottom: 18px; }
+        .response .buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+        .response .buttons button {
+            height: 52px; border: none; border-radius: 30px; font-size: 15px; font-weight: 700;
+            color: #ffffff; cursor: pointer; transition: all 0.2s ease;
+            font-family: "Inter", sans-serif;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            min-width: 195px;
+        }
+        .btn-decline { background: #cf2b2b; box-shadow: 0 8px 22px rgba(207, 43, 43, 0.16); }
+        .btn-decline:hover:not(:disabled) { transform: translateY(-2px); background: #b91c1c; box-shadow: 0 12px 30px rgba(207, 43, 43, 0.22); }
+        .btn-accept { background: linear-gradient(135deg, #0a7a34, #066c2e); box-shadow: 0 10px 30px rgba(8, 122, 52, 0.26); }
+        .btn-accept:hover:not(:disabled) { transform: translateY(-2px); background: linear-gradient(135deg, #0b883a, #087a34); box-shadow: 0 14px 38px rgba(8, 122, 52, 0.36), 0 0 0 4px rgba(8, 122, 52, 0.08); }
+        .response .buttons button:disabled { opacity: 0.7; cursor: not-allowed; transform: none !important; }
+        .btn-accept.accepted { background: #0d635c; box-shadow: none; }
+        .btn-decline.declined { background: #6b6b6b; box-shadow: none; }
+        .contact { text-align: center; padding-top: 24px; }
+        .contact strong { display: block; color: #0d635c; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+        .contact .links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .contact .links a { color: #0d635c; font-weight: 700; font-size: 14px; text-decoration: none; transition: color 0.2s ease; }
+        .contact .links a:hover { color: #064b46; text-decoration: underline; }
+
+        /* ─── MODAL ─── */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(6px);
+            display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 24px;
+            opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal {
+            background: #ffffff; border-radius: 24px; max-width: 460px; width: 100%;
+            padding: 36px 32px 32px; text-align: center;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+            transform: scale(0.94) translateY(12px); transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { width: 56px; height: 56px; border-radius: 999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 28px; }
+        .modal-icon.success { background: #e8f3f1; color: #0d635c; }
+        .modal-icon.error { background: #fde8e8; color: #b91c1c; }
+        .modal-icon.warning { background: #fff6dc; color: #b8860b; }
+        .modal h2 { font-size: 20px; font-weight: 800; color: #111827; letter-spacing: -0.3px; margin-bottom: 6px; }
+        .modal p { font-size: 14px; color: #536477; line-height: 1.6; margin-bottom: 6px; }
+        .modal .highlight { background: #f5f9f8; border-radius: 10px; padding: 12px 16px; margin: 14px 0 16px; font-size: 14px; color: #1f2937; text-align: left; line-height: 1.7; }
+        .modal .highlight strong { color: #064b46; }
+        .modal .btn-close {
+            height: 48px; padding: 0 32px; border: none; border-radius: 30px;
+            font-size: 15px; font-weight: 700; color: #ffffff;
+            background: linear-gradient(135deg, #0B5E5A, #064442);
+            box-shadow: 0 8px 22px rgba(11, 94, 90, 0.22);
+            cursor: pointer; transition: all 0.2s ease;
+            font-family: "Inter", sans-serif; margin-top: 8px;
+        }
+        .modal .btn-close:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(11, 94, 90, 0.30); }
+        .modal .btn-close.secondary { background: #e7efed; color: #1f2937; box-shadow: none; margin-right: 10px; }
+        .modal .btn-close.secondary:hover { background: #d5e0dd; transform: translateY(-2px); box-shadow: none; }
+        .modal .btn-group { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+        .modal .btn-group .btn-close { min-width: 130px; }
+        .spinner { display: inline-block; width: 18px; height: 18px; border: 2.5px solid rgba(255,255,255,0.25); border-top-color: #ffffff; border-radius: 50%; animation: spin 0.6s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ─── LOADING STATE ─── */
+        .loading-state { text-align: center; padding: 40px 20px; color: #536477; }
+        .loading-state .spinner { display: inline-block; width: 30px; height: 30px; border: 3px solid #e7efed; border-top-color: #064b46; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 12px; }
+        .hidden { display: none; }
+
+        @media (max-width: 640px) {
+            body { padding: 12px; align-items: flex-start; }
+            .header { flex-direction: column; align-items: flex-start; padding: 16px 20px; }
+            .header-left { width: 100%; }
+            .header-badge { white-space: normal; font-size: 12px; }
+            .title { flex-direction: column; align-items: flex-start; gap: 6px; }
+            .title-ref { text-align: left; width: 100%; }
+            .body { padding: 18px 16px 20px; }
+            .details { padding: 16px 14px 14px; }
+            .table td { font-size: 13px; padding: 5px 0; }
+            .table .label { width: 45%; }
+            .table .value { width: 55%; }
+            .service-list { grid-template-columns: 1fr; row-gap: 5px; }
+            .response .buttons { flex-direction: column; align-items: center; }
+            .response .buttons button { width: 100%; min-width: unset; height: 48px; }
+            .fee { flex-direction: column; align-items: flex-start; gap: 6px; padding: 16px 18px; }
+            .fee .amount { font-size: 32px; }
+            .contact { padding-top: 22px; }
+            .contact .links { flex-direction: column; gap: 4px; }
+            .modal { padding: 28px 20px 24px; }
+        }
+        @media (max-width: 400px) {
+            .title h1 { font-size: 20px; }
+            .response h2 { font-size: 17px; }
+            .notice p { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="header">
+                <div class="header-left">
+                    <img src="logo1.png" alt="Dr SparkClean" class="header-logo" />
+                    <div class="header-brand">
+                        <strong>Dr SparkClean</strong>
+                        <span>Contractor Assignment Portal</span>
+                    </div>
+                </div>
+                <span class="header-badge" id="assignmentBadge">Assignment: Loading...</span>
+            </div>
+
+            <div class="body">
+
+                <!-- LOADING STATE -->
+                <div id="loadingState" class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Loading assignment details...</p>
+                </div>
+
+                <!-- MAIN CONTENT (hidden until loaded) -->
+                <div id="contentArea" class="hidden">
+
+                    <div class="title">
+                        <div>
+                            <h1 id="serviceTitle">Residential Cleaning <span>Job Offer</span></h1>
+                            <p>Please review the job details below and respond.</p>
+                        </div>
+                        <div class="title-ref">
+                            Booking reference
+                            <strong id="bookingRef">—</strong>
+                        </div>
+                    </div>
+
+                    <div class="details">
+
+                        <!-- PROPERTY DETAILS -->
+                        <div class="section" id="propertySection">
+                            <div class="section-header">
+                                <svg viewBox="0 0 24 24"><path d="M3 11.5L12 4l9 7.5"/><path d="M5 10.5V20h14v-9.5"/><path d="M9 20v-6h6v6"/></svg>
+                                Property Details
+                            </div>
+                            <table class="table">
+                                <tbody id="propertyRows"></tbody>
+                            </table>
+                        </div>
+
+                        <!-- ACCESS INSTRUCTIONS -->
+                        <div id="accessSection" class="section" style="display:none;">
+                            <div class="section-divider"></div>
+                            <div class="section-header">
+                                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                Access Instructions
+                            </div>
+                            <div class="notes" id="accessInstructions">
+                                No access instructions provided.
+                            </div>
+                        </div>
+
+                        <!-- SCHEDULE -->
+                        <div class="section-divider"></div>
+                        <div class="section">
+                            <div class="section-header">
+                                <svg viewBox="0 0 24 24"><path d="M7 3v3"/><path d="M17 3v3"/><path d="M4 8h16"/><path d="M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1z"/></svg>
+                                Schedule
+                            </div>
+                            <table class="table">
+                                <tr><td class="label">Cleaning date</td><td class="value" id="cleaningDate">—</td></tr>
+                                <tr><td class="label">Preferred time</td><td class="value" id="preferredTime">—</td></tr>
+                            </table>
+                        </div>
+
+                        <!-- ADDITIONAL SERVICES -->
+                        <div class="section-divider"></div>
+                        <div class="section">
+                            <div class="section-header">
+                                <svg viewBox="0 0 24 24"><path d="M5 7h14"/><path d="M5 12h14"/><path d="M5 17h14"/></svg>
+                                Additional Services
+                            </div>
+                            <ul class="service-list" id="addonsList">
+                                <li>No additional services listed.</li>
+                            </ul>
+                        </div>
+
+                        <!-- CUSTOMER NOTES -->
+                        <div class="section-divider"></div>
+                        <div class="section">
+                            <div class="section-header">
+                                <svg viewBox="0 0 24 24"><path d="M6 4h12v16H6z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h4"/></svg>
+                                Customer Notes
+                            </div>
+                            <div class="notes" id="customerNotes">
+                                No customer notes.
+                            </div>
+                        </div>
+
+                        <!-- CONTRACTOR FEE -->
+                        <div class="fee">
+                            <div class="label">
+                                Contractor fee
+                                <small>Includes all additional services</small>
+                            </div>
+                            <span class="amount" id="contractorFee">£0.00</span>
+                        </div>
+
+                    </div>
+
+                    <div class="notice">
+                        <span class="notice-icon">!</span>
+                        <div>
+                            <h2>Important</h2>
+                            <p>
+                                Please respond within 1 hour of this assignment being sent.
+                                If we do not receive a response, we may offer this assignment to another available contractor.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="response">
+                        <h2>Respond to this Assignment</h2>
+                        <p>Please let us know whether you are available to take this job.</p>
+                        <div class="buttons">
+                            <button class="btn-decline" id="declineBtn">Decline Assignment</button>
+                            <button class="btn-accept" id="acceptBtn">✓ Accept Assignment</button>
+                        </div>
+                    </div>
+
+                    <div class="contact">
+                        <strong>Need help?</strong>
+                        <div class="links">
+                            <a href="tel:+447786912425">+44 7786 912425</a>
+                            <a href="mailto:info@drsparkclean.co.uk">info@drsparkclean.co.uk</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ─── MODAL ─── -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <div class="modal-icon" id="modalIcon"></div>
+            <h2 id="modalTitle"></h2>
+            <p id="modalText"></p>
+            <div id="modalExtra" class="highlight" style="display:none;"></div>
+            <div id="modalButtons"></div>
+        </div>
+    </div>
+
+    <script>
+        // ─── DOM REFS ───
+        const loadingState = document.getElementById('loadingState');
+        const contentArea = document.getElementById('contentArea');
+        const assignmentBadge = document.getElementById('assignmentBadge');
+        const serviceTitle = document.getElementById('serviceTitle');
+        const bookingRef = document.getElementById('bookingRef');
+        const cleaningDate = document.getElementById('cleaningDate');
+        const preferredTime = document.getElementById('preferredTime');
+        const propertyRows = document.getElementById('propertyRows');
+        const addonsList = document.getElementById('addonsList');
+        const customerNotes = document.getElementById('customerNotes');
+        const accessInstructions = document.getElementById('accessInstructions');
+        const accessSection = document.getElementById('accessSection');
+        const contractorFee = document.getElementById('contractorFee');
+        const acceptBtn = document.getElementById('acceptBtn');
+        const declineBtn = document.getElementById('declineBtn');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modal = document.getElementById('modal');
+        const modalIcon = document.getElementById('modalIcon');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalText = document.getElementById('modalText');
+        const modalExtra = document.getElementById('modalExtra');
+        const modalButtons = document.getElementById('modalButtons');
+
+        // ─── CONFIG ───
+        const FETCH_ENDPOINT_URL = 'https://default9677c98995364c8db14d72fa9aa124.c6.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/03/workflows/93906939fcbb46c7af22628a8aa92586/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=QjTFwRX2Wyu-2MsIh0V7j95-0f3v9qM62aFWxlrEW7g';
+        const UPDATE_WEBHOOK_URL = 'https://default9677c98995364c8db14d72fa9aa124.c6.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/22/workflows/1c2c6e8f9f3b4a008c0a14282e04a774/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=n_d0sc5-qLTe3d_ILsN7XThNS5T1ZTs9WZ6Hc81K_7c';
+
+        // ─── GET ASSIGNMENT FROM URL ───
+        const urlParams = new URLSearchParams(window.location.search);
+        const assignmentCode = urlParams.get('assignment');
+
+        // ─── SERVICE FIELD MAPPINGS ───
+        function getFieldsForService(service) {
+            const mappings = {
+                'Residential Cleaning': {
+                    title: 'Residential Cleaning',
+                    fields: [
+                        { label: 'Property address', key: 'propertyAddress', className: 'property-address' },
+                        { label: 'Property size', key: 'propertySize' },
+                        { label: 'Extra bathrooms', key: 'extraBathrooms' },
+                        { label: 'Property condition', key: 'propertyCondition' }
+                    ],
+                    showAddons: true
+                },
+                'End of Tenancy': {
+                    title: 'End of Tenancy',
+                    fields: [
+                        { label: 'Property address', key: 'propertyAddress', className: 'property-address' },
+                        { label: 'Property size', key: 'propertySize' },
+                        { label: 'Extra bathrooms', key: 'extraBathrooms' },
+                        { label: 'Property condition', key: 'propertyCondition' }
+                    ],
+                    showAddons: true
+                },
+                'End of Tenancy Cleaning': {
+                    title: 'End of Tenancy Cleaning',
+                    fields: [
+                        { label: 'Property address', key: 'propertyAddress', className: 'property-address' },
+                        { label: 'Property size', key: 'propertySize' },
+                        { label: 'Extra bathrooms', key: 'extraBathrooms' },
+                        { label: 'Property condition', key: 'propertyCondition' }
+                    ],
+                    showAddons: true
+                },
+                'Commercial Cleaning': {
+                    title: 'Commercial Cleaning',
+                    fields: [
+                        { label: 'Property address', key: 'propertyAddress', className: 'property-address' },
+                        { label: 'Business name', key: 'businessName' },
+                        { label: 'Business type', key: 'businessType' },
+                        { label: 'Property type', key: 'propertyType' },
+                        { label: 'Approximate size', key: 'approximateSize' },
+                        { label: 'Cleaning frequency', key: 'cleaningFrequency' }
+                    ],
+                    showAddons: true
+                },
+                'Post-Construction': {
+                    title: 'Post-Construction',
+                    fields: [
+                        { label: 'Property address', key: 'propertyAddress', className: 'property-address' },
+                        { label: 'Property type', key: 'propertyType' },
+                        { label: 'Property size', key: 'propertySize' },
+                        { label: 'Property condition', key: 'propertyCondition' },
+                        { label: 'Project type', key: 'projectType' }
+                    ],
+                    showAddons: false
+                },
+                'Post-Construction Cleaning': {
+                    title: 'Post-Construction Cleaning',
+                    fields: [
+                        { label: 'Property address', key: 'propertyAddress', className: 'property-address' },
+                        { label: 'Property type', key: 'propertyType' },
+                        { label: 'Property size', key: 'propertySize' },
+                        { label: 'Property condition', key: 'propertyCondition' },
+                        { label: 'Project type', key: 'projectType' }
+                    ],
+                    showAddons: false
+                },
+                'Carpet & Upholstery': {
+                    title: 'Carpet & Upholstery',
+                    fields: [
+                        { label: 'Property address', key: 'propertyAddress', className: 'property-address' },
+                        { label: 'Carpet rooms', key: 'carpetRooms' },
+                        { label: 'Armchairs', key: 'armchairs' },
+                        { label: '2-seater sofas', key: 'sofa2Seater' },
+                        { label: '3-seater sofas', key: 'sofa3Seater' },
+                        { label: 'Corner sofas', key: 'cornerSofa' },
+                        { label: 'Single mattresses', key: 'singleMattress' },
+                        { label: 'Double mattresses', key: 'doubleMattress' },
+                        { label: 'King mattresses', key: 'kingMattress' }
+                    ],
+                    showAddons: true
+                },
+                'Carpet & Upholstery Cleaning': {
+                    title: 'Carpet & Upholstery Cleaning',
+                    fields: [
+                        { label: 'Property address', key: 'propertyAddress', className: 'property-address' },
+                        { label: 'Carpet rooms', key: 'carpetRooms' },
+                        { label: 'Armchairs', key: 'armchairs' },
+                        { label: '2-seater sofas', key: 'sofa2Seater' },
+                        { label: '3-seater sofas', key: 'sofa3Seater' },
+                        { label: 'Corner sofas', key: 'cornerSofa' },
+                        { label: 'Single mattresses', key: 'singleMattress' },
+                        { label: 'Double mattresses', key: 'doubleMattress' },
+                        { label: 'King mattresses', key: 'kingMattress' }
+                    ],
+                    showAddons: true
+                },
+                'Home Organisation': {
+                    title: 'Home Organisation',
+                    fields: [
+                        { label: 'Property address', key: 'propertyAddress', className: 'property-address' },
+                        { label: 'Areas to organise', key: 'areasToOrganise' },
+                        { label: 'Estimated hours', key: 'estimatedHours' }
+                    ],
+                    showAddons: true
+                },
+                'Home Organisation & Household Assistance': {
+                    title: 'Home Organisation & Household Assistance',
+                    fields: [
+                        { label: 'Property address', key: 'propertyAddress', className: 'property-address' },
+                        { label: 'Areas to organise', key: 'areasToOrganise' },
+                        { label: 'Estimated hours', key: 'estimatedHours' }
+                    ],
+                    showAddons: true
+                }
+            };
+
+            return mappings[service] || {
+                title: service || 'Cleaning Service',
+                fields: [
+                    { label: 'Property address', key: 'propertyAddress', className: 'property-address' }
+                ],
+                showAddons: true
+            };
+        }
+
+        // ─── RENDER FUNCTIONS (MODULAR) ───
+
+        function renderHeader(data, mapping) {
+            assignmentBadge.textContent = 'Assignment: ' + (data.assignmentCode || assignmentCode);
+            serviceTitle.innerHTML = mapping.title + ' <span>Job Offer</span>';
+            bookingRef.textContent = data.bookingRef || '—';
+        }
+
+        function renderSchedule(data) {
+            cleaningDate.textContent = data.scheduledDate || '—';
+            preferredTime.textContent = data.scheduledTime || '—';
+        }
+
+        function renderPropertyDetails(data, mapping) {
+            propertyRows.innerHTML = '';
+
+            const fieldsToShow = mapping.fields.filter(field => {
+                const value = data[field.key];
+                return value !== undefined && value !== null && String(value).trim() !== '';
+            });
+
+            if (fieldsToShow.length === 0) {
+                propertyRows.innerHTML = `
+                    <tr>
+                        <td colspan="2" style="text-align:center;color:#9aa6b2;font-style:italic;padding:10px 0;">
+                            No property details available.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            fieldsToShow.forEach(field => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="label">${field.label}</td>
+                    <td class="value ${field.className || ''}">${data[field.key]}</td>
+                `;
+                propertyRows.appendChild(tr);
+            });
+        }
+
+        function renderAdditionalServices(data, mapping) {
+            addonsList.innerHTML = '';
+
+            if (!mapping.showAddons) {
+                addonsList.innerHTML = '<li class="empty" style="color:#9aa6b2;font-style:italic;list-style:none;grid-column:1/-1;">No additional services available for this service.</li>';
+                return;
+            }
+
+            const addons = data.additionalServices;
+            if (addons && String(addons).trim() !== '') {
+                const items = String(addons).split(',').map(s => s.trim()).filter(s => s);
+                if (items.length === 0) {
+                    addonsList.innerHTML = '<li class="empty" style="color:#9aa6b2;font-style:italic;list-style:none;grid-column:1/-1;">No additional services listed.</li>';
+                } else {
+                    items.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        addonsList.appendChild(li);
+                    });
+                }
+            } else {
+                addonsList.innerHTML = '<li class="empty" style="color:#9aa6b2;font-style:italic;list-style:none;grid-column:1/-1;">No additional services listed.</li>';
+            }
+        }
+
+        function renderAccessInstructions(data) {
+            const instructions = data.accessInstructions;
+            if (instructions && String(instructions).trim() !== '') {
+                accessInstructions.textContent = instructions;
+                accessSection.style.display = 'block';
+            } else {
+                accessSection.style.display = 'none';
+            }
+        }
+
+        function renderCustomerNotes(data) {
+            customerNotes.textContent = data.customerNotes || 'No customer notes.';
+        }
+
+        function renderContractorFee(data) {
+            const fee = parseFloat(data.contractorFee) || 0;
+            contractorFee.textContent = '£' + fee.toFixed(2);
+        }
+
+        function renderAssignmentStatus(data) {
+            if (data.assignmentStatus === 'Accepted') {
+                acceptBtn.disabled = true;
+                declineBtn.disabled = true;
+                acceptBtn.innerHTML = '✓ Accepted';
+                acceptBtn.className = 'btn-accept accepted';
+                declineBtn.style.display = 'none';
+            } else if (data.assignmentStatus === 'Declined') {
+                acceptBtn.disabled = true;
+                declineBtn.disabled = true;
+                declineBtn.innerHTML = 'Declined';
+                declineBtn.className = 'btn-decline declined';
+                acceptBtn.style.display = 'none';
+            } else {
+                acceptBtn.disabled = false;
+                declineBtn.disabled = false;
+                acceptBtn.innerHTML = '✓ Accept Assignment';
+                acceptBtn.className = 'btn-accept';
+                declineBtn.innerHTML = 'Decline Assignment';
+                declineBtn.className = 'btn-decline';
+                acceptBtn.style.display = '';
+                declineBtn.style.display = '';
+            }
+        }
+
+        // ─── MAIN RENDER FUNCTION ───
+        function renderAssignment(data) {
+            const service = data.service || 'Cleaning Service';
+            const mapping = getFieldsForService(service);
+
+            renderHeader(data, mapping);
+            renderSchedule(data);
+            renderPropertyDetails(data, mapping);
+            renderAdditionalServices(data, mapping);
+            renderAccessInstructions(data);
+            renderCustomerNotes(data);
+            renderContractorFee(data);
+            renderAssignmentStatus(data);
+
+            loadingState.classList.add('hidden');
+            contentArea.classList.remove('hidden');
+        }
+
+        // ─── LOAD ASSIGNMENT ───
+        async function loadAssignment() {
+            if (!assignmentCode) {
+                loadingState.innerHTML = `
+                    <p style="color:#B71C1C;font-weight:600;font-size:18px;">No assignment specified</p>
+                    <p style="color:#536477;font-size:14px;margin-top:4px;">Please check the link in your email.</p>
+                `;
+                return;
+            }
+
+            const separator = FETCH_ENDPOINT_URL.includes('?') ? '&' : '?';
+
+            try {
+                const response = await fetch(
+                    FETCH_ENDPOINT_URL +
+                    separator +
+                    'assignment=' +
+                    encodeURIComponent(assignmentCode),
+                    {
+                        method: 'GET'
+                    }
+                );
+
+                if (response.status === 404) {
+                    loadingState.innerHTML = `
+                        <p style="color:#B71C1C;font-weight:600;font-size:18px;">Assignment not found</p>
+                        <p style="color:#536477;font-size:14px;margin-top:4px;">Please check the link or contact Dr SparkClean.</p>
+                    `;
+                    return;
+                }
+
+                if (!response.ok) throw new Error('Failed to fetch assignment data');
+
+                const data = await response.json();
+                renderAssignment(data);
+
+            } catch (error) {
+                console.error('Error loading assignment:', error);
+                loadingState.innerHTML = `
+                    <p style="color:#B71C1C;font-weight:600;">We couldn't load this assignment.</p>
+                    <p style="color:#536477;font-size:14px;margin-top:4px;">Please refresh the page or contact Dr SparkClean if the problem continues.</p>
+                    <button onclick="location.reload()" style="margin-top:16px;padding:10px 24px;border:none;border-radius:12px;background:#064b46;color:white;font-weight:600;cursor:pointer;">Try again</button>
+                `;
+            }
+        }
+
+        // ─── MODAL HELPERS ───
+        function showModal(icon, iconClass, title, text, extraHTML, buttons) {
+            modalIcon.innerHTML = icon;
+            modalIcon.className = 'modal-icon ' + iconClass;
+            modalTitle.textContent = title;
+            modalText.textContent = text;
+            if (extraHTML) {
+                modalExtra.innerHTML = extraHTML;
+                modalExtra.style.display = 'block';
+            } else {
+                modalExtra.style.display = 'none';
+            }
+            modalButtons.innerHTML = '';
+            buttons.forEach(b => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-close ' + (b.class || '');
+                btn.textContent = b.label;
+                btn.onclick = () => {
+                    if (b.action) b.action();
+                    closeModal();
+                };
+                modalButtons.appendChild(btn);
+            });
+            modalOverlay.classList.add('active');
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+        }
+
+        // ─── SEND RESPONSE ───
+        function sendContractorResponse(response) {
+            if (!assignmentCode) {
+                alert('Error: No assignment code found.');
+                return;
+            }
+
+            acceptBtn.disabled = true;
+            declineBtn.disabled = true;
+            acceptBtn.innerHTML = '<span class="spinner"></span> Sending...';
+            declineBtn.innerHTML = '<span class="spinner"></span> Sending...';
+
+            const payload = {
+                assignmentCode: assignmentCode,
+                response: response,
+                submittedAt: new Date().toISOString()
+            };
+
+            console.log('📤 Sending payload:', payload);
+
+            fetch(UPDATE_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(res => {
+                if (!res.ok) throw new Error('HTTP error! Status: ' + res.status);
+                return res.text();
+            })
+            .then(() => {
+                if (response === 'Accepted') {
+                    showModal(
+                        '✅',
+                        'success',
+                        'Assignment Accepted',
+                        'Thank you. Your acceptance has been recorded successfully.',
+                        'The Dr SparkClean Operations Team will contact you shortly with any further instructions.',
+                        [{ label: 'Close' }]
+                    );
+                    acceptBtn.innerHTML = '✓ Accepted';
+                    acceptBtn.className = 'btn-accept accepted';
+                    declineBtn.style.display = 'none';
+                } else {
+                    showModal(
+                        '❌',
+                        'error',
+                        'Assignment Declined',
+                        'Your response has been recorded.',
+                        'Thank you for informing us of your availability.',
+                        [{ label: 'Close' }]
+                    );
+                    declineBtn.innerHTML = 'Declined';
+                    declineBtn.className = 'btn-decline declined';
+                    acceptBtn.style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('❌ Error:', error);
+                alert('Error submitting response. Please try again.\n\n' + error.message);
+                acceptBtn.disabled = false;
+                declineBtn.disabled = false;
+                acceptBtn.innerHTML = '✓ Accept Assignment';
+                declineBtn.innerHTML = 'Decline Assignment';
+            });
+        }
+
+        // ─── ACCEPT ───
+        acceptBtn.addEventListener('click', function() {
+            showModal(
+                '✅',
+                'success',
+                'Accept Assignment?',
+                'You are about to accept this assignment. Confirm your decision.',
+                '',
+                [
+                    { label: 'Cancel', class: 'secondary', action: () => { acceptBtn.disabled = false; declineBtn.disabled = false; } },
+                    { label: 'Yes, Accept', action: () => { sendContractorResponse('Accepted'); } }
+                ]
+            );
+        });
+
+        // ─── DECLINE ───
+        declineBtn.addEventListener('click', function() {
+            showModal(
+                '⚠️',
+                'warning',
+                'Decline Assignment?',
+                'Are you sure you want to decline this assignment?',
+                '',
+                [
+                    { label: 'Cancel', class: 'secondary', action: () => { acceptBtn.disabled = false; declineBtn.disabled = false; } },
+                    { label: 'Yes, Decline', action: () => { sendContractorResponse('Declined'); } }
+                ]
+            );
+        });
+
+        // ─── CLOSE MODAL ON OVERLAY ───
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) closeModal();
+        });
+
+        // ─── LOAD ───
+        loadAssignment();
+    </script>
+
+</body>
+</html>
