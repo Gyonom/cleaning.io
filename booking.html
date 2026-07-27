@@ -1426,7 +1426,7 @@
 
         function updatePrice() {
             if (selectedService === 'residential' || selectedService === 'tenancy') {
-                const basePrice = parseInt(document.getElementById('property-size')?.value) || (selectedService === 'tenancy' ? 210 : 200);
+                const basePrice = parseInt(document.getElementById('property-size')?.value) || 0;
                 const extraBathrooms = parseInt(document.getElementById('extra-bathrooms')?.value) || 0;
                 let addonTotal = 0;
 
@@ -1506,7 +1506,9 @@
                     <div class="form-group">
                         <label>Property Size</label>
                         <select id="property-size">
-                            <option value="200">Studio (1 bathroom) — £200</option>
+                            <option value="" selected>Select property size (optional)</option>
+                            <option value="120">Kitchen Deep Clean (Appliances Not Included) — £135</option>
+                            <option value="200">Studio (1 Bathroom) — £200</option>
                             <option value="230">1 Bedroom / 1 Bathroom — £230</option>
                             <option value="270">2 Bedrooms / 1 Bathroom — £270</option>
                             <option value="330">3 Bedrooms / 1 Bathroom — £330</option>
@@ -1521,7 +1523,7 @@
                     </div>
                 </div>
                 ${getConditionBlock()}
-                ${getAddonsBlock('£200')}
+                ${getAddonsBlock('£0')}
             `;
         }
 
@@ -1531,7 +1533,9 @@
                     <div class="form-group">
                         <label>Property Size</label>
                         <select id="property-size">
-                            <option value="210">Studio (1 bathroom) — £210</option>
+                            <option value="" selected>Select property size (optional)</option>
+                            <option value="120">Kitchen Deep Clean (Appliances Not Included) — £135</option>
+                            <option value="210">Studio (1 Bathroom) — £210</option>
                             <option value="250">1 Bedroom / 1 Bathroom — £250</option>
                             <option value="300">2 Bedrooms / 1 Bathroom — £300</option>
                             <option value="360">3 Bedrooms / 1 Bathroom — £360</option>
@@ -1544,7 +1548,7 @@
                     </div>
                 </div>
                 ${getConditionBlock()}
-                ${getAddonsBlock('£210')}
+                ${getAddonsBlock('£0')}
             `;
         }
 
@@ -1726,7 +1730,7 @@
 
         function getEstimatedTotal() {
             if (selectedService === 'residential' || selectedService === 'tenancy') {
-                return document.getElementById('estimated-total')?.textContent || (selectedService === 'tenancy' ? '£210' : '£200');
+                return document.getElementById('estimated-total')?.textContent || '£0';
             }
 
             if (selectedService === 'carpet') {
