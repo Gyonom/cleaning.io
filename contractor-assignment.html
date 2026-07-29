@@ -398,6 +398,18 @@
         const urlParams = new URLSearchParams(window.location.search);
         const assignmentCode = urlParams.get('assignment');
 
+        // ─── CONTRACTOR DISPLAY TRANSLATIONS ───
+        // Customer-facing values → Contractor-facing display values
+        function translateValue(field, value) {
+            const translations = {
+                propertySize: {
+                    'Kitchen Only (No Appliances)': 'Kitchen Only'
+                }
+            };
+
+            return translations[field]?.[value] ?? value;
+        }
+
         // ─── SERVICE FIELD MAPPINGS ───
         function getFieldsForService(service) {
             const mappings = {
@@ -558,9 +570,18 @@
 
             fieldsToShow.forEach(field => {
                 const tr = document.createElement('tr');
+                let label = field.label;
+
+                const displayValue = translateValue(field.key, data[field.key]);
+
+                // If the translated value is "Kitchen Only", change the label
+                if (field.key === 'propertySize' && displayValue === 'Kitchen Only') {
+                    label = 'Area to Clean';
+                }
+
                 tr.innerHTML = `
-                    <td class="label">${field.label}</td>
-                    <td class="value ${field.className || ''}">${data[field.key]}</td>
+                    <td class="label">${label}</td>
+                    <td class="value ${field.className || ''}">${displayValue}</td>
                 `;
                 propertyRows.appendChild(tr);
             });
