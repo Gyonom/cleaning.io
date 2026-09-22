@@ -640,7 +640,10 @@
             #services { display: none !important; }
 
             /* ---------- BOOKING ---------- */
-            #book { padding: 34px 0 32px !important; }
+            #book {
+                padding: 34px 0 32px !important;
+                background: #FFFFFF;
+            }
             #book .section-title { margin-bottom: 6px; text-align: left; font-size: 1.65rem; }
             #book .section-subhead {
                 max-width: none; margin: 0 0 18px; padding: 0;
@@ -661,10 +664,12 @@
             .service-option {
                 min-height: 112px;
                 padding: 15px 8px 13px;
-                border: 1px solid rgba(11,94,90,0.10);
+                border: 1px solid rgba(11, 94, 90, 0.12);
                 border-radius: 10px;
-                background: white;
-                box-shadow: none;
+                background: #FFFFFF;
+                box-shadow:
+                    0 5px 14px rgba(19, 43, 48, 0.055),
+                    0 1px 3px rgba(19, 43, 48, 0.035);
                 transform: none;
                 text-align: center;
                 display: flex;
@@ -672,7 +677,12 @@
                 align-items: center;
                 justify-content: center;
             }
-            .service-option:hover { transform: none; box-shadow: none; }
+            .service-option:hover {
+                transform: none;
+                box-shadow:
+                    0 5px 14px rgba(19, 43, 48, 0.055),
+                    0 1px 3px rgba(19, 43, 48, 0.035);
+            }
             .service-option i { margin: 0 0 8px; color: var(--primary); font-size: 1.25rem; }
             .service-option h4 { margin: 0 0 4px; text-align: center; font-size: 0.75rem; line-height: 1.2; font-weight: 700; }
             .service-option p { margin: 0; text-align: center; color: var(--text-light); font-size: 0.62rem; line-height: 1.3; }
