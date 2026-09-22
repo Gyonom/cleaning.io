@@ -541,13 +541,37 @@
             .trust-card-text { font-size: 0.68rem; }
         }
 
+        /* MOBILE: flat trust strip — no cards, no shadows, no descriptions */
         @media (max-width: 768px) {
-            .trust-strip { margin-top: -40px; }
-            .trust-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .trust-card { padding: 10px 8px; }
-            .trust-icon-wrapper { width: 40px; height: 40px; font-size: 1.1rem; margin-bottom: 5px; }
-            .trust-card-title { font-size: 0.8rem; }
-            .trust-card-text { font-size: 0.65rem; }
+            .trust-strip { margin-top: -28px; }
+            .trust-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 4px 8px; }
+            .trust-card {
+                flex-direction: row;
+                justify-content: center;
+                gap: 8px;
+                padding: 8px 4px;
+                background: transparent;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
+            .trust-card::before { display: none; }
+            .trust-card:nth-child(n) { border-top: none; }
+            .trust-icon-wrapper {
+                width: 22px;
+                height: 22px;
+                font-size: 0.85rem;
+                margin: 0;
+                border-radius: 0;
+                background: transparent;
+            }
+            .trust-card:nth-child(n) .trust-icon-wrapper { background: transparent; }
+            .trust-icon-wrapper i { color: var(--primary); }
+            .trust-card-title { font-size: 0.72rem; font-weight: 600; margin: 0; }
+            .trust-card-text { display: none; }
         }
 
         /* ===== SERVICES SECTION ===== */
@@ -714,7 +738,7 @@
             gap: 16px;
             margin-bottom: 0;
         }
-        @media (max-width: 768px) { .service-selector { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+        @media (max-width: 768px) { .service-selector { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
         
         .service-option {
             padding: 20px 16px;
@@ -759,6 +783,23 @@
             margin: 0;
         }
 
+        /* MOBILE: compact rectangular 2-column service options */
+        @media (max-width: 768px) {
+            .service-option {
+                padding: 12px 12px;
+                border-radius: 10px;
+                text-align: left;
+                min-height: 92px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+            .service-option i { font-size: 1.3rem; margin-bottom: 6px; }
+            .service-option h4 { font-size: 0.82rem; margin-bottom: 2px; }
+            .service-option p { font-size: 0.68rem; line-height: 1.3; }
+        }
+
         /* ===== PRICING SECTION ===== */
         .pricing-section {
             background: transparent !important;
@@ -783,7 +824,7 @@
             width: 100%;
             box-sizing: border-box;
         }
-        @media (max-width: 768px) { .pricing-section .pricing-container { padding: 28px 20px; } }
+        @media (max-width: 768px) { .pricing-section .pricing-container { padding: 24px 16px; } }
         
         .pricing-grid {
             display: grid;
@@ -852,6 +893,78 @@
         .pricing-features li { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; color: var(--text-soft); font-size: 0.85rem; }
         .pricing-features i { color: var(--primary); font-size: 0.8rem; width: 16px; text-align: center; }
         
+        /* MOBILE: flat scannable pricing list */
+        .mobile-pricing-list {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .pricing-grid { display: none; }
+            .mobile-pricing-list {
+                display: block;
+                background: #FFFFFF;
+                border: 1px solid rgba(11, 94, 90, 0.08);
+                border-radius: 10px;
+                padding: 4px 0;
+                box-shadow: 0 2px 6px rgba(19, 43, 48, 0.04);
+                margin: 0 auto 24px;
+            }
+            .mobile-pricing-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px 16px;
+                border-bottom: 1px solid var(--gray-100);
+                text-decoration: none;
+                transition: background 0.2s ease;
+            }
+            .mobile-pricing-item:last-child { border-bottom: none; }
+            .mobile-pricing-item:hover { background: var(--primary-soft); }
+            .mobile-pricing-item .mp-name {
+                font-size: 0.86rem;
+                font-weight: 600;
+                color: var(--text-dark);
+                letter-spacing: -0.01em;
+            }
+            .mobile-pricing-item .mp-price {
+                font-size: 0.9rem;
+                font-weight: 800;
+                color: var(--primary);
+                white-space: nowrap;
+                margin-left: 12px;
+            }
+            .mobile-pricing-header {
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--text-faint);
+                padding: 12px 16px 4px;
+            }
+            .mobile-pricing-divider {
+                height: 1px;
+                background: var(--gray-150);
+                margin: 4px 16px;
+            }
+            .mobile-pricing-note {
+                font-size: 0.68rem;
+                color: var(--text-faint);
+                padding: 0 16px 8px;
+                font-style: italic;
+            }
+            .mobile-pricing-cta {
+                display: block;
+                text-align: center;
+                padding: 12px 16px 14px;
+                font-size: 0.82rem;
+                font-weight: 600;
+                color: var(--primary);
+                text-decoration: none;
+                transition: color 0.2s ease;
+            }
+            .mobile-pricing-cta:hover { color: var(--primary-dark); }
+            .mobile-pricing-cta i { margin-left: 6px; font-size: 0.7rem; }
+        }
+
         .pricing-section .addons-heading {
             text-align: center;
             font-size: 1.2rem;
@@ -866,7 +979,7 @@
             gap: 14px;
             margin-top: 20px;
         }
-        @media (max-width: 768px) { .addons-showcase { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+        @media (max-width: 768px) { .addons-showcase { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
 
         .addon-card {
             background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%);
@@ -910,6 +1023,17 @@
         .addon-card h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 2px; color: var(--primary-dark); }
         .addon-card p { color: var(--text-light); font-size: 0.65rem; line-height: 1.3; margin-bottom: 4px; }
         .addon-card .price { font-size: 0.9rem; font-weight: 800; color: var(--primary); }
+
+        /* MOBILE: compact 2-col add-ons */
+        @media (max-width: 768px) {
+            .addons-showcase { gap: 10px; }
+            .addon-card { padding: 12px 10px; border-radius: 10px; }
+            .addon-icon-wrapper { width: 32px; height: 32px; margin-bottom: 6px; border-radius: 8px; }
+            .addon-icon-wrapper i { font-size: 0.9rem; }
+            .addon-card h4 { font-size: 0.78rem; margin-bottom: 2px; }
+            .addon-card p { font-size: 0.64rem; }
+            .addon-card .price { font-size: 0.82rem; }
+        }
 
         /* ===== CONTACT SECTION ===== */
         .contact-grid {
@@ -1339,7 +1463,7 @@
 
 .nav-links { top: 64px; height: calc(100vh - 64px); }
 
-  /* UPDATED HERO (fixed spacing for mobile nav) */
+  /* HERO */
   .hero { 
     padding: 78px 0 34px 0;
     min-height: auto; 
@@ -1350,13 +1474,18 @@
   .hero p { font-size: 0.78rem; line-height: 1.4; margin-bottom: 0.75rem; max-width: 290px; color: rgba(255,255,255,0.92); }
   .hero-buttons { flex-direction: column; gap: 8px; width: 100%; max-width: 260px; }
   .hero-buttons .btn { width: 100%; padding: 9px 14px; font-size: 0.78rem; min-height: 40px; }
+  /* Hide secondary CTA on small mobile — keep one clear primary action */
+  .hero-buttons .btn-outline { display: none; }
 
   .trust-strip { margin-top: -12px; margin-bottom: 8px; padding: 0; }
   .trust-cards-container { padding: 0 16px; }
-  .trust-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .trust-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 6px 8px; }
 
-  .service-selector { grid-template-columns: 1fr; gap: 10px; }
-  .service-option { display: flex; align-items: center; text-align: left; gap: 12px; padding: 12px 10px; border-radius: 16px; min-height: 56px; }
+  .service-selector { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .service-option { display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 4px; padding: 12px 10px; border-radius: 10px; min-height: 84px; }
+  .service-option i { font-size: 1.1rem; margin-bottom: 2px; }
+  .service-option h4 { font-size: 0.78rem; margin-bottom: 2px; }
+  .service-option p { font-size: 0.64rem; line-height: 1.3; }
 
   .pricing-card.most-popular-card,
   .pricing-card.most-popular-card:hover {
@@ -1368,7 +1497,6 @@
     border-radius: 16px;
   }
 
-  /* SLIGHT NAV POSITION TWEAK */
   .mobile-bottom-nav {
     left: 10px;
     right: 10px;
@@ -1466,7 +1594,29 @@
         </div></div></div></section>
 
     <!-- PRICING SECTION -->
-    <section id="pricing" class="pricing-section"><div class="container"><div class="pricing-container"><h2 class="section-title">Transparent <span class="primary">Pricing</span></h2><p class="section-subhead">Fixed rates, no hidden fees. Know exactly what you'll pay before you book.</p><div class="pricing-grid"><div class="pricing-card"><h3>Studio</h3><div class="pricing-price">£200</div><ul class="pricing-features"><li><i class="fas fa-check"></i> Includes 1 bathroom</li><li><i class="fas fa-check"></i> All living areas</li><li><i class="fas fa-check"></i> Kitchen cleaning</li><li><i class="fas fa-check"></i> Photo proof included</li></ul><button class="btn-service" onclick="goToBookingPage('residential')">Book Now</button></div><div class="pricing-card most-popular-card"><div class="popular-badge">Most Popular</div><h3>1 Bedroom</h3><div class="pricing-price">£230</div><ul class="pricing-features"><li><i class="fas fa-check"></i> 1 Bedroom / 1 Bathroom</li><li><i class="fas fa-check"></i> All living areas</li><li><i class="fas fa-check"></i> Kitchen cleaning</li><li><i class="fas fa-check"></i> Photo proof included</li></ul><button class="btn-service" onclick="goToBookingPage('residential')">Book Now</button></div><div class="pricing-card"><h3>2 Bedrooms</h3><div class="pricing-price">£270</div><ul class="pricing-features"><li><i class="fas fa-check"></i> 2 Bedrooms / 1 Bathroom</li><li><i class="fas fa-check"></i> All living areas</li><li><i class="fas fa-check"></i> Kitchen cleaning</li><li><i class="fas fa-check"></i> Photo proof included</li></ul><button class="btn-service" onclick="goToBookingPage('residential')">Book Now</button></div></div><h3 class="addons-heading">Popular Add-ons</h3><div class="addons-showcase"><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-temperature-high"></i></div><h4>Oven Cleaning</h4><p>Single oven inside</p><div class="price">£70</div></div><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-fan"></i></div><h4>Extractor Hood</h4><p>Professional cleaning</p><div class="price">£35</div></div><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-thermometer-half"></i></div><h4>Fridge Cleaning</h4><p>Inside &amp; out</p><div class="price">£40</div></div><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-paw"></i></div><h4>Pet Hair Removal</h4><p>Thorough removal</p><div class="price">£30</div></div></div></div></div></section>
+    <section id="pricing" class="pricing-section"><div class="container"><div class="pricing-container"><h2 class="section-title">Transparent <span class="primary">Pricing</span></h2><p class="section-subhead">Fixed rates, no hidden fees. Know exactly what you'll pay before you book.</p>
+
+        <!-- MOBILE-ONLY PRICING LIST (shown ≤768px, hidden on desktop) -->
+        <div class="mobile-pricing-list">
+            <div class="mobile-pricing-header">Deep Cleaning</div>
+            <a href="index.html#book" class="mobile-pricing-item"><span class="mp-name">Studio</span><span class="mp-price">£200</span></a>
+            <a href="index.html#book" class="mobile-pricing-item"><span class="mp-name">1 Bedroom</span><span class="mp-price">£230</span></a>
+            <a href="index.html#book" class="mobile-pricing-item"><span class="mp-name">2 Bedrooms</span><span class="mp-price">£270</span></a>
+            <a href="index.html#book" class="mobile-pricing-item"><span class="mp-name">3 Bedrooms</span><span class="mp-price">£330</span></a>
+            <a href="index.html#book" class="mobile-pricing-item"><span class="mp-name">4 Bedrooms</span><span class="mp-price">£415</span></a>
+            <div class="mobile-pricing-note">Extra bathroom: £45</div>
+
+            <div class="mobile-pricing-divider"></div>
+            <div class="mobile-pricing-header">End of Tenancy</div>
+            <a href="index.html#book" class="mobile-pricing-item"><span class="mp-name">Studio</span><span class="mp-price">£210</span></a>
+            <a href="index.html#book" class="mobile-pricing-item"><span class="mp-name">1 Bedroom</span><span class="mp-price">£250</span></a>
+            <a href="index.html#book" class="mobile-pricing-item"><span class="mp-name">2 Bedrooms</span><span class="mp-price">£300</span></a>
+            <a href="index.html#book" class="mobile-pricing-item"><span class="mp-name">3 Bedrooms</span><span class="mp-price">£360</span></a>
+            <a href="index.html#book" class="mobile-pricing-item"><span class="mp-name">4 Bedrooms</span><span class="mp-price">£450</span></a>
+        </div>
+
+        <!-- DESKTOP PRICING GRID -->
+        <div class="pricing-grid"><div class="pricing-card"><h3>Studio</h3><div class="pricing-price">£200</div><ul class="pricing-features"><li><i class="fas fa-check"></i> Includes 1 bathroom</li><li><i class="fas fa-check"></i> All living areas</li><li><i class="fas fa-check"></i> Kitchen cleaning</li><li><i class="fas fa-check"></i> Photo proof included</li></ul><button class="btn-service" onclick="goToBookingPage('residential')">Book Now</button></div><div class="pricing-card most-popular-card"><div class="popular-badge">Most Popular</div><h3>1 Bedroom</h3><div class="pricing-price">£230</div><ul class="pricing-features"><li><i class="fas fa-check"></i> 1 Bedroom / 1 Bathroom</li><li><i class="fas fa-check"></i> All living areas</li><li><i class="fas fa-check"></i> Kitchen cleaning</li><li><i class="fas fa-check"></i> Photo proof included</li></ul><button class="btn-service" onclick="goToBookingPage('residential')">Book Now</button></div><div class="pricing-card"><h3>2 Bedrooms</h3><div class="pricing-price">£270</div><ul class="pricing-features"><li><i class="fas fa-check"></i> 2 Bedrooms / 1 Bathroom</li><li><i class="fas fa-check"></i> All living areas</li><li><i class="fas fa-check"></i> Kitchen cleaning</li><li><i class="fas fa-check"></i> Photo proof included</li></ul><button class="btn-service" onclick="goToBookingPage('residential')">Book Now</button></div></div><h3 class="addons-heading">Popular Add-ons</h3><div class="addons-showcase"><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-temperature-high"></i></div><h4>Oven Cleaning</h4><p>Single oven inside</p><div class="price">£70</div></div><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-fan"></i></div><h4>Extractor Hood</h4><p>Professional cleaning</p><div class="price">£35</div></div><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-thermometer-half"></i></div><h4>Fridge Cleaning</h4><p>Inside &amp; out</p><div class="price">£40</div></div><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-paw"></i></div><h4>Pet Hair Removal</h4><p>Thorough removal</p><div class="price">£30</div></div></div></div></div></section>
 
     <!-- GOOGLE RATING SECTION -->
     <div class="container">
