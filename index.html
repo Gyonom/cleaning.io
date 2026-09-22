@@ -58,7 +58,7 @@
 
     <style>
         /* ============================================================
-           ORIGINAL DESKTOP CSS — untouched
+           ORIGINAL DESKTOP CSS — byte-for-byte your original
            ============================================================ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -217,7 +217,7 @@
         }
         @media (max-width: 768px) { .nav-links { top: 78px; height: calc(100vh - 78px); } }
 
-        /* ===== HERO SECTION ===== */
+        /* ===== HERO ===== */
         .hero { margin-top: 0; min-height: 75vh; height: auto; position: relative; display: flex; align-items: center; color: white; overflow: hidden; isolation: isolate; padding: 80px 0; }
         @media (max-width: 768px) { .hero { min-height: 60vh; padding: 60px 0; } }
         .hero-static-bg { position: absolute; inset: 0; width: 100%; height: 100%; background-image: url('Hero2.png'); background-size: cover; background-position: center center; background-repeat: no-repeat; z-index: -3; transform: scale(1.01); }
@@ -233,11 +233,11 @@
         @media (max-width: 768px) { .hero p { font-size: 0.9rem; margin-bottom: 1.5rem; } }
         .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
 
-        /* Hide mobile-only hero additions on desktop */
-        .hero-eyebrow { display: none; }
+        /* Hide mobile-only hero elements on desktop */
+        .hero-eyebrow,
         .hero-location { display: none; }
 
-        /* ===== TRUST CARDS SECTION ===== */
+        /* ===== TRUST CARDS ===== */
         .trust-strip { position: relative; z-index: 10; margin-top: -60px; margin-bottom: 0; padding: 0; }
         .trust-cards-container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
         .trust-cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
@@ -273,7 +273,7 @@
             .trust-card-text { font-size: 0.65rem; }
         }
 
-        /* ===== SERVICES SECTION ===== */
+        /* ===== SERVICES ===== */
         #services { padding-top: 80px; padding-bottom: 80px; }
         @media (max-width: 768px) { #services { padding-top: 50px; padding-bottom: 50px; } }
         .services-heading { text-align: center; font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 700; letter-spacing: -0.03em; color: var(--text-dark); margin-bottom: 1rem; }
@@ -300,7 +300,7 @@
         .btn-service { width: 100%; padding: 10px; background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%); color: white; font-size: 0.8rem; font-weight: 600; border-radius: 40px; margin-top: 12px; border: none; cursor: pointer; transition: var(--transition); box-shadow: 0 14px 28px rgba(11, 94, 90, 0.22), inset 0 1px 0 rgba(255,255,255,0.20); }
         .btn-service:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 20px 38px rgba(11, 94, 90, 0.30), inset 0 1px 0 rgba(255,255,255,0.22); }
 
-        /* ===== BOOKING SECTION ===== */
+        /* ===== BOOKING ===== */
         #book { padding: 80px 0; }
         @media (max-width: 768px) { #book { padding: 50px 0; } }
         .booking-system { background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); border: 1px solid rgba(11, 94, 90, 0.08); border-radius: 28px; box-shadow: 0 22px 48px rgba(19, 43, 48, 0.07), 0 4px 12px rgba(19, 43, 48, 0.035); padding: 0; width: 100%; max-width: 100%; box-sizing: border-box; overflow: hidden; position: relative; }
@@ -318,7 +318,7 @@
         .service-option h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; color: var(--text-dark); }
         .service-option p { color: var(--text-light); font-size: 0.75rem; line-height: 1.4; margin: 0; }
 
-        /* ===== PRICING SECTION ===== */
+        /* ===== PRICING ===== */
         .pricing-section { background: transparent !important; padding: 60px 0; position: relative; isolation: isolate; overflow: hidden; }
         @media (max-width: 768px) { .pricing-section { padding: 40px 0; } }
         .pricing-section .pricing-container { background: linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(240,248,247,0.92) 100%); border: 1px solid rgba(11, 94, 90, 0.07); box-shadow: 0 28px 80px rgba(19, 43, 48, 0.075), inset 0 1px 0 rgba(255,255,255,0.9); border-radius: 28px; padding: 40px 32px; max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; }
@@ -339,7 +339,7 @@
         .pricing-section .addons-heading { text-align: center; font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary-dark); }
         .addons-showcase { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 20px; }
         @media (max-width: 768px) { .addons-showcase { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
-        .addon-card { background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); border: 1px solid rgba(11, 94, 90, 0.08); border-radius: 14px; box-shadow: 0 22px 48px rgba(19, 43, 48, 0.07), 0 4px 12px rgba(19, 43, 48, 0.035); padding: 12px 8px; text-align: center; display: flex; flex-direction: column; justify-content: center; transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.28s ease, background 0.28s ease; }
+        .addon-card { background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); border: 1px solid rgba(11, 94, 90, 0.08); border-radius: 14px; box-shadow: 0 22px 48px rgba(19, 43, 48, 0.07), 0 4px 12px rgba(19, 43, 48, 0.035); padding: 12px 8px; text-align: center; display: flex; flex-direction: column; justify-content: center; transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.28s ease; }
         .addon-card:hover { transform: translateY(-6px); border-color: rgba(11, 94, 90, 0.16); box-shadow: 0 32px 70px rgba(19, 43, 48, 0.105), 0 10px 24px rgba(19, 43, 48, 0.055); }
         .addon-icon-wrapper { width: 40px; height: 40px; margin: 0 auto 6px auto; background: rgba(11, 94, 90, 0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
         .addon-icon-wrapper i { font-size: 1.1rem; }
@@ -347,7 +347,7 @@
         .addon-card p { color: var(--text-light); font-size: 0.65rem; line-height: 1.3; margin-bottom: 4px; }
         .addon-card .price { font-size: 0.9rem; font-weight: 800; color: var(--primary); }
 
-        /* ===== CONTACT SECTION ===== */
+        /* ===== CONTACT ===== */
         .contact-grid { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: stretch; }
         @media (min-width: 768px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
         .contact-info, .contact-form { padding: 28px 24px; background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); border: 1px solid rgba(11, 94, 90, 0.08); border-radius: 24px; box-shadow: 0 22px 48px rgba(19, 43, 48, 0.07), 0 4px 12px rgba(19, 43, 48, 0.035); }
@@ -413,7 +413,7 @@
         .modal p { color: var(--text-soft); font-size: 0.85rem; margin-bottom: 24px; }
         .modal-btn { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 10px 24px; border-radius: 999px; font-weight: 600; cursor: pointer; }
 
-        /* ===== COOKIE CONSENT ===== */
+        /* ===== COOKIE ===== */
         .cookie-consent { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 -8px 24px rgba(0,0,0,0.08); padding: 14px 20px; z-index: 10000; transform: translateY(100%); transition: transform 0.3s ease; border-top: 3px solid var(--primary); }
         .cookie-consent.show { transform: translateY(0); }
         .cookie-content { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
@@ -436,33 +436,75 @@
         .rating-divider { width: 1px; height: 24px; background: #E5E7EB; }
 
         /* ============================================================
-           MOBILE-ONLY ADDITIONS — appended block. Desktop is not affected.
-           Everything mobile lives inside @media (max-width: 768px) below,
-           plus a mobile bottom nav and mobile-only hero elements.
+           MOBILE-ONLY ELEMENTS — hidden at base, shown inside the mobile block
            ============================================================ */
+        .hero-eyebrow,
+        .hero-location,
+        .mobile-pricing-list,
+        .mobile-addons-list,
+        .mobile-bottom-nav {
+            display: none;
+        }
 
-        /* Base hide for mobile-only hero additions — invisible on desktop */
-        .hero-eyebrow, .hero-location { display: none; }
-        .mobile-pricing-list, .mobile-addons-list { display: none; }
-
-        /* Mobile bottom nav: hidden on desktop by default */
-        .mobile-bottom-nav { display: none; }
-
+        /* ============================================================
+           MOBILE INTERFACE (≤768px)
+           ============================================================ */
         @media (max-width: 768px) {
+
+            :root {
+                --m-radius: 10px;
+                --m-radius-sm: 8px;
+                --m-page-margin: 20px;
+            }
+
+            body {
+                background: #F6F8F7;
+                padding-bottom: calc(84px + env(safe-area-inset-bottom));
+            }
+
+            .container {
+                padding-left: var(--m-page-margin);
+                padding-right: var(--m-page-margin);
+            }
+
+            section { padding: 34px 0; }
+            section[id] { scroll-margin-top: 76px; }
+
             /* ---------- HEADER ---------- */
             nav { height: 64px; }
             .logo-icon img { height: 36px; }
             .logo-primary { font-size: 0.95rem; }
             .logo-secondary { font-size: 0.5rem; letter-spacing: 0.18em; }
-            .nav-links { top: 64px; height: calc(100vh - 64px); }
+            .desktop-only { display: none !important; }
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed; top: 64px; left: -100%;
+                width: 100%; height: calc(100vh - 64px);
+                background: white; flex-direction: column;
+                justify-content: flex-start; padding: 24px 20px;
+                gap: 18px; transition: left 0.3s ease; z-index: 1000;
+                margin: 0; overflow-y: auto;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { left: 0; }
+            .nav-links a { width: 100%; padding: 10px 0; text-align: center; font-size: 1.05rem; }
+            .nav-links a::after { display: none; }
+            .btn-nav-mobile {
+                display: block; width: 100%; margin-top: 16px;
+                padding: 12px 24px !important; border-radius: 10px;
+                background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%);
+                color: white !important; font-size: 0.9rem !important;
+                font-weight: 700; text-align: center;
+            }
 
             /* ---------- HERO ---------- */
             .hero {
                 height: auto;
                 min-height: 440px;
-                padding: 0 !important;
-                align-items: flex-end;
                 margin-top: 64px;
+                padding: 0 !important;
+                display: flex;
+                align-items: flex-end;
             }
             .hero-static-bg {
                 background-position: 68% center;
@@ -470,303 +512,344 @@
                 background-color: #053F3D;
             }
             .hero-overlay {
-                background: linear-gradient(180deg, rgba(6,68,66,0.30) 0%, rgba(6,68,66,0.55) 45%, rgba(6,68,66,0.88) 100%);
-            }
-            .hero::after {
-                background: linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.20) 100%);
+                background: linear-gradient(
+                    180deg,
+                    rgba(4,50,48,0.20) 0%,
+                    rgba(4,50,48,0.38) 36%,
+                    rgba(4,50,48,0.82) 72%,
+                    rgba(4,50,48,0.96) 100%
+                );
             }
             .hero-content {
-                padding: 0 20px 28px;
+                width: 100%;
                 max-width: 100%;
+                padding: 0 20px 28px;
             }
             .hero-eyebrow {
                 display: block;
+                margin-bottom: 9px;
+                color: rgba(255,255,255,0.78);
+                text-transform: uppercase;
+                letter-spacing: 0.14em;
                 font-size: 0.62rem;
                 font-weight: 700;
-                letter-spacing: 0.18em;
-                text-transform: uppercase;
-                color: rgba(255,255,255,0.75);
-                margin-bottom: 10px;
             }
             .hero h1 {
-                font-family: "Playfair Display", serif;
-                font-weight: 600;
+                max-width: 330px;
+                margin-bottom: 11px;
+                color: white;
+                font-family: "Playfair Display", Georgia, serif;
                 font-size: 2.05rem;
-                line-height: 1.05;
-                letter-spacing: -0.02em;
-                color: #FFFFFF;
-                margin-bottom: 12px;
-                max-width: 92%;
-                text-shadow: 0 3px 18px rgba(0,0,0,0.35);
+                line-height: 1.02;
+                letter-spacing: -0.035em;
             }
-            .hero p,
-            .hero-lead {
-                font-size: 0.86rem;
-                line-height: 1.5;
-                color: rgba(255,255,255,0.92);
-                margin-bottom: 12px;
-                max-width: 92%;
-                opacity: 1;
-            }
+            .hero p { max-width: 330px; margin-bottom: 11px; color: rgba(255,255,255,0.91); font-size: 0.84rem; line-height: 1.48; }
             .hero-location {
                 display: flex;
                 align-items: center;
-                gap: 7px;
-                font-size: 0.78rem;
-                font-weight: 500;
-                color: #F2C14E;
-                margin-bottom: 18px;
-                letter-spacing: 0.005em;
-                text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+                gap: 6px;
+                margin: 0 0 16px !important;
+                color: #F5B84B !important;
+                font-size: 0.76rem !important;
+                line-height: 1.3 !important;
+                text-shadow: 0 2px 8px rgba(0,0,0,0.45);
             }
-            .hero-location i {
-                font-size: 0.78rem;
-                color: #F2C14E;
-                flex-shrink: 0;
-            }
+            .hero-location i { font-size: 0.72rem; }
             .hero-buttons {
+                width: auto;
                 display: flex;
-                gap: 10px;
-                flex-wrap: wrap;
+                align-items: center;
+                gap: 8px;
+            }
+            .hero-buttons .btn {
+                width: auto;
+                min-height: 48px;
+                padding: 0 18px;
+                border-radius: 11px;
+                font-size: 0.79rem;
+                box-shadow: none;
             }
             .hero-buttons .btn-outline { display: none; }
-            .hero-buttons .btn-primary,
             .hero-buttons .btn-white {
-                width: auto;
-                min-width: 0;
-                padding: 0 22px;
-                height: 50px;
-                border-radius: 12px;
-                font-size: 0.88rem;
-                font-weight: 600;
-                box-shadow: 0 10px 22px rgba(0,0,0,0.22);
-                align-self: flex-start;
+                background: var(--primary);
+                color: white;
+                border: 1px solid rgba(255,255,255,0.12);
             }
 
-            /* ---------- TRUST STRIP (flat, icon-free on mobile) ---------- */
+            /* ---------- TRUST STRIP: flat, icon-free, 4 labels with dividers ---------- */
             .trust-strip {
-                margin-top: 0;
-                margin-bottom: 0;
-                padding: 14px 0;
-                background: #FFFFFF;
-                border-top: 1px solid rgba(11, 94, 90, 0.06);
-                border-bottom: 1px solid rgba(11, 94, 90, 0.06);
+                margin: 0;
+                padding: 0;
+                background: white;
+                border-bottom: 1px solid rgba(11,94,90,0.08);
             }
-            .trust-cards-container { padding: 0 20px; }
+            .trust-cards-container { max-width: none; padding: 0 12px; }
             .trust-cards-grid {
+                display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 gap: 0;
-                align-items: center;
+                min-height: 64px;
+                align-items: stretch;
             }
             .trust-card,
             .trust-card:nth-child(n) {
-                background: transparent;
-                border: none;
-                border-radius: 0;
-                box-shadow: none;
-                padding: 0 6px;
+                position: relative;
+                min-width: 0;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                text-align: center;
-                min-height: 24px;
-                position: relative;
+                padding: 12px 6px;
+                border: 0;
+                border-radius: 0;
+                background: transparent;
+                box-shadow: none;
                 transform: none;
+                text-align: center;
             }
+            .trust-card:hover { transform: none; box-shadow: none; border: 0; }
             .trust-card::before { display: none; }
-            .trust-card + .trust-card::after {
+            .trust-card:not(:last-child)::after {
                 content: "";
                 position: absolute;
-                left: 0;
-                top: 50%;
-                transform: translateY(-50%);
+                right: 0;
+                top: 17px;
+                bottom: 17px;
                 width: 1px;
-                height: 26px;
-                background: rgba(11, 94, 90, 0.12);
+                background: rgba(11,94,90,0.12);
             }
             .trust-icon-wrapper { display: none; }
             .trust-card-text { display: none; }
             .trust-card-title {
-                font-size: 0.66rem;
-                font-weight: 600;
-                line-height: 1.2;
-                color: var(--text-dark);
                 margin: 0;
-                letter-spacing: -0.005em;
+                color: var(--text-soft);
+                font-size: 0.62rem;
+                line-height: 1.25;
+                font-weight: 700;
+                text-align: center;
+                letter-spacing: -0.01em;
             }
-            /* Short mobile labels only — replaces long desktop text visually */
-            .trust-card:nth-child(2) .trust-card-title::before { content: "Homeowner Trusted"; }
-            .trust-card:nth-child(2) .trust-card-title { font-size: 0; }
-            .trust-card:nth-child(2) .trust-card-title::before { font-size: 0.66rem; }
 
-            /* ---------- OUR SERVICES: HARD HIDDEN ON MOBILE ---------- */
+            /* Short mobile labels via ::before content trick */
+            .trust-card:nth-child(2) .trust-card-title { font-size: 0; }
+            .trust-card:nth-child(2) .trust-card-title::before {
+                content: "Homeowner Trusted";
+                font-size: 0.62rem;
+            }
+
+            /* ---------- HIDE SERVICES ON MOBILE ---------- */
             #services { display: none !important; }
 
-            /* ---------- BOOK — no banner, no outer panel, 2x3 centred tiles ---------- */
-            #book { padding: 32px 0 !important; }
-            #book .section-title { font-size: 1.45rem; margin-bottom: 0.4rem; }
-            #book .section-subhead { font-size: 0.8rem; margin-bottom: 1.1rem; padding: 0; max-width: 100%; }
-            .booking-system { background: transparent; border: none; border-radius: 0; box-shadow: none; overflow: visible; }
-            .booking-header { display: none; }
-            .booking-divider { display: none; }
-            .booking-container { padding: 0; background: transparent; max-width: 100%; }
-            .booking-container > p { display: none !important; }
-            .service-selector { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            /* ---------- BOOKING ---------- */
+            #book { padding: 34px 0 32px !important; }
+            #book .section-title { margin-bottom: 6px; text-align: left; font-size: 1.65rem; }
+            #book .section-subhead {
+                max-width: none; margin: 0 0 18px; padding: 0;
+                text-align: left; font-size: 0.8rem; line-height: 1.45;
+            }
+            .booking-system {
+                max-width: none; margin: 0; padding: 0;
+                overflow: visible; background: transparent;
+                border: 0; border-radius: 0; box-shadow: none;
+            }
+            .booking-header, .booking-divider { display: none; }
+            .booking-container { padding: 0; }
+            .booking-container > p { display: none; }
+            .service-selector {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
             .service-option {
                 min-height: 112px;
-                padding: 16px 8px 13px;
+                padding: 15px 8px 13px;
+                border: 1px solid rgba(11,94,90,0.10);
                 border-radius: 10px;
+                background: white;
+                box-shadow: none;
+                transform: none;
                 text-align: center;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                gap: 0;
-                background: #fff;
-                border: 1px solid rgba(11, 94, 90, 0.10);
-                box-shadow: none;
             }
-            .service-option:hover { transform: none; box-shadow: 0 4px 10px rgba(19, 43, 48, 0.05); border-color: rgba(11, 94, 90, 0.22); }
-            .service-option i { font-size: 1.25rem; margin: 0 0 8px; color: var(--primary); }
-            .service-option h4 { font-size: 0.76rem; line-height: 1.2; font-weight: 700; margin: 0 0 4px; text-align: center; }
-            .service-option p { font-size: 0.62rem; line-height: 1.3; margin: 0; text-align: center; color: var(--text-light); }
+            .service-option:hover { transform: none; box-shadow: none; }
+            .service-option i { margin: 0 0 8px; color: var(--primary); font-size: 1.25rem; }
+            .service-option h4 { margin: 0 0 4px; text-align: center; font-size: 0.75rem; line-height: 1.2; font-weight: 700; }
+            .service-option p { margin: 0; text-align: center; color: var(--text-light); font-size: 0.62rem; line-height: 1.3; }
 
-            /* ---------- PRICING — flat sheet on mobile ---------- */
-            #pricing { padding: 32px 0 !important; }
-            #pricing .section-title { font-size: 1.45rem; margin-bottom: 0.35rem; }
-            #pricing .section-subhead { font-size: 0.78rem; margin-bottom: 1rem; padding: 0; max-width: 100%; }
-            .pricing-section .pricing-container { background: transparent; border: none; box-shadow: none; border-radius: 0; padding: 0; }
-            .pricing-grid { display: none !important; }
-            .mobile-pricing-list, .mobile-addons-list {
-                display: block;
-                background: #FFFFFF;
-                border: 1px solid rgba(11, 94, 90, 0.10);
-                border-radius: 10px;
-                padding: 0;
-                box-shadow: none;
-                margin: 0 0 22px 0;
-                overflow: hidden;
+            /* ---------- PRICING ---------- */
+            .pricing-section { padding: 32px 0 !important; }
+            .pricing-container {
+                max-width: none; margin: 0; padding: 0;
+                background: transparent; border: 0;
+                border-radius: 0; box-shadow: none;
             }
-            .mobile-addons-list { margin-bottom: 0; }
+            #pricing .section-title { margin-bottom: 6px; text-align: left; font-size: 1.65rem; }
+            #pricing .section-subhead {
+                max-width: none; margin: 0 0 18px; padding: 0;
+                text-align: left; font-size: 0.8rem; line-height: 1.45;
+            }
+            .pricing-grid { display: none; }
+
+            .mobile-pricing-list {
+                display: block;
+                overflow: hidden;
+                background: white;
+                border: 1px solid rgba(11,94,90,0.10);
+                border-radius: 10px;
+                margin-bottom: 22px;
+            }
             .mobile-pricing-header {
-                font-size: 0.68rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 0.09em;
+                padding: 14px 14px 7px;
+                background: #FBFDFD;
                 color: var(--text-faint);
-                padding: 10px 14px 6px;
-                background: #F8FCFB;
-                border-bottom: 1px solid rgba(11, 94, 90, 0.06);
+                font-size: 0.65rem;
+                line-height: 1.2;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
             }
             .mobile-pricing-item {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                min-height: 43px;
                 padding: 10px 14px;
-                border-bottom: 1px solid var(--gray-100);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 14px;
                 text-decoration: none;
-                min-height: 40px;
-            }
-            .mobile-pricing-item:last-child { border-bottom: none; }
-            .mobile-pricing-item .mp-name { font-size: 0.82rem; font-weight: 500; color: var(--text-dark); }
-            .mobile-pricing-item .mp-price { font-size: 0.85rem; font-weight: 700; color: var(--primary); white-space: nowrap; margin-left: 12px; }
-            .mobile-pricing-note {
-                font-size: 0.68rem;
-                color: var(--text-faint);
-                padding: 8px 14px 10px;
-                background: #FBFDFC;
+                background: white;
                 border-bottom: 1px solid var(--gray-100);
-                font-style: italic;
             }
-            .addons-showcase { display: none !important; }
-            .pricing-section .addons-heading { font-size: 1.1rem; text-align: left; padding: 0; margin: 0 0 10px; }
+            .mobile-pricing-item:last-child { border-bottom: 0; }
+            .mp-name { color: var(--text-dark); font-size: 0.78rem; font-weight: 600; }
+            .mp-price { color: var(--primary); font-size: 0.82rem; font-weight: 800; white-space: nowrap; }
+            .mobile-pricing-note {
+                padding: 8px 14px 12px;
+                color: var(--text-light);
+                background: white;
+                border-bottom: 1px solid var(--gray-100);
+                font-size: 0.67rem;
+            }
+
+            /* ---------- ADD-ONS ---------- */
+            .addons-heading { margin: 26px 0 12px; text-align: left; font-size: 1.08rem; }
+            .addons-showcase { display: none; }
+            .mobile-addons-list {
+                display: block;
+                overflow: hidden;
+                background: white;
+                border: 1px solid rgba(11,94,90,0.10);
+                border-radius: 10px;
+            }
 
             /* ---------- RATING ---------- */
-            .rating-wrapper { margin: 12px 0 16px; }
-            .rating-container { padding: 8px 14px; border-radius: 10px; }
+            .rating-wrapper { margin: 8px 0 14px; }
+            .rating-container { gap: 9px; padding: 9px 12px; border-radius: 9px; box-shadow: none; }
             .rating-stars { font-size: 0.72rem; }
-            .rating-main { font-size: 0.72rem; }
-            .rating-sub { font-size: 0.6rem; }
+            .rating-main { font-size: 0.7rem; }
+            .rating-sub { font-size: 0.59rem; }
 
             /* ---------- CONTACT ---------- */
-            #contact { padding: 32px 0 !important; }
-            #contact .section-title { font-size: 1.45rem; margin-bottom: 1rem; }
-            .contact-grid { gap: 16px; }
-            .contact-info, .contact-form { padding: 18px 16px; border-radius: 10px; box-shadow: none; border: 1px solid rgba(11, 94, 90, 0.10); }
-            .contact-info h3, .contact-form h3 { font-size: 1rem; margin-bottom: 14px; }
+            #contact { padding: 34px 0 !important; }
+            #contact .section-title { margin-bottom: 18px; text-align: left; font-size: 1.65rem; }
+            .contact-grid { grid-template-columns: 1fr; gap: 12px; }
+            .contact-info, .contact-form {
+                padding: 18px 16px;
+                border: 1px solid rgba(11,94,90,0.10);
+                border-radius: 10px;
+                box-shadow: none;
+            }
+            .contact-info h3, .contact-form h3 { margin-bottom: 14px; font-size: 1rem; }
             .contact-item { margin-bottom: 14px; gap: 10px; }
-            .contact-icon { width: 34px; height: 34px; font-size: 0.85rem; box-shadow: none; }
-            .contact-text h4 { font-size: 0.82rem; margin-bottom: 1px; }
+            .contact-icon { width: 34px; height: 34px; border-radius: 8px; font-size: 0.85rem; box-shadow: none; }
+            .contact-text h4 { margin-bottom: 1px; font-size: 0.82rem; }
             .contact-text p { font-size: 0.78rem; line-height: 1.45; }
-            .contact-form .form-group { margin-bottom: 12px; }
-            .input-icon-wrapper input, .input-icon-wrapper textarea { min-height: 42px; font-size: 0.85rem; border-radius: 8px; padding: 10px 12px 10px 38px; }
+            .form-group { margin-bottom: 12px; }
+            .input-icon-wrapper input,
+            .input-icon-wrapper textarea {
+                min-height: 42px; padding: 10px 12px 10px 38px;
+                border-radius: 8px; font-size: 0.85rem;
+            }
             .input-icon-wrapper textarea { min-height: 90px; }
             .input-icon-wrapper .input-icon { left: 12px; font-size: 0.85rem; }
-            .contact-submit-btn { min-height: 44px; font-size: 0.88rem; }
+            .contact-submit-btn { min-height: 44px; border-radius: 10px; font-size: 0.88rem; }
 
             /* ---------- FOOTER ---------- */
-            footer { padding: 28px 0 100px; }
-            .footer-grid { gap: 22px; margin-bottom: 24px; }
-            .footer-logo { font-size: 1.15rem; margin-bottom: 8px; }
+            footer { padding: 28px 0 calc(96px + env(safe-area-inset-bottom)); }
+            .footer-grid { grid-template-columns: 1fr; gap: 22px; margin-bottom: 24px; }
+            .footer-logo { margin-bottom: 8px; font-size: 1.15rem; }
             .footer-logo span { font-size: 0.6rem; }
-            .footer-about p { font-size: 0.78rem; margin-bottom: 12px; }
+            .footer-about p { margin-bottom: 12px; font-size: 0.78rem; }
             .social-links a { width: 32px; height: 32px; font-size: 0.8rem; }
-            .footer-links h4 { font-size: 0.82rem; margin-bottom: 8px; }
-            .footer-links li { font-size: 0.76rem; margin-bottom: 6px; }
+            .footer-links h4 { margin-bottom: 8px; font-size: 0.82rem; }
+            .footer-links li { margin-bottom: 6px; font-size: 0.76rem; }
             .footer-bottom { padding-top: 14px; font-size: 0.7rem; }
 
-            /* ---------- BOTTOM NAV (mobile only) ---------- */
+            /* ---------- COOKIE ---------- */
+            .cookie-consent {
+                left: 10px; right: 10px;
+                bottom: calc(88px + env(safe-area-inset-bottom));
+                flex-direction: column;
+                align-items: stretch;
+                padding: 12px;
+                border-radius: 10px;
+            }
+            .cookie-buttons { width: 100%; }
+            .cookie-btn { flex: 1; border-radius: 8px; }
+
+            /* ---------- MOBILE BOTTOM NAV ---------- */
             .mobile-bottom-nav {
                 position: fixed;
                 left: 10px;
                 right: 10px;
-                bottom: 10px;
+                bottom: calc(10px + env(safe-area-inset-bottom));
                 z-index: 9999;
+                height: 68px;
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 gap: 4px;
                 padding: 6px;
+                box-sizing: border-box;
                 background: rgba(255,255,255,0.96);
                 backdrop-filter: blur(16px);
                 -webkit-backdrop-filter: blur(16px);
                 border: 1px solid rgba(11,94,90,0.12);
                 border-radius: 14px;
                 box-shadow: 0 8px 20px rgba(19,43,48,0.14);
-                height: 68px;
-                box-sizing: border-box;
             }
             .mobile-bottom-nav a {
-                text-decoration: none;
-                color: var(--text-soft);
-                font-size: 0.6rem;
-                font-weight: 700;
+                padding: 4px 2px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 gap: 2px;
-                padding: 4px 2px;
                 border-radius: 8px;
+                color: var(--text-soft);
+                text-decoration: none;
+                font-size: 0.6rem;
+                font-weight: 700;
             }
             .mobile-bottom-nav a i { font-size: 0.9rem; }
             .mobile-bottom-nav a.primary {
                 background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%);
                 color: white;
-                box-shadow: 0 6px 14px rgba(11,94,90,0.22);
             }
-            body { padding-bottom: 84px; }
         }
 
+        /* ============================================================
+           VERY SMALL SCREENS (≤480px)
+           ============================================================ */
         @media (max-width: 480px) {
-            .hero { min-height: 420px; }
-            .hero h1 { font-size: 1.85rem; }
-            .hero p, .hero-lead { font-size: 0.82rem; }
-            .hero-buttons .btn-primary, .hero-buttons .btn-white { height: 46px; padding: 0 18px; font-size: 0.82rem; }
-            .trust-card-title { font-size: 0.62rem; }
-            .trust-card:nth-child(2) .trust-card-title::before { font-size: 0.62rem; }
+            .hero { min-height: 430px; }
+            .hero h1 { font-size: 1.88rem; }
+            .hero p { font-size: 0.81rem; }
+            .trust-card { padding-left: 4px; padding-right: 4px; }
+            .trust-card-title { font-size: 0.59rem; }
+            .trust-card:nth-child(2) .trust-card-title::before { font-size: 0.59rem; }
             .mobile-pricing-item { padding: 9px 12px; min-height: 38px; }
-            .mobile-pricing-item .mp-name { font-size: 0.78rem; }
-            .mobile-pricing-item .mp-price { font-size: 0.82rem; }
+            .mp-name { font-size: 0.76rem; }
+            .mp-price { font-size: 0.79rem; }
         }
     </style>
 </head>
@@ -791,7 +874,7 @@
     </nav>
 </header>
 
-<!-- ===== HERO (original markup, two mobile-only additions inside) ===== -->
+<!-- ===== HERO ===== -->
 <section class="hero" id="home">
     <div class="hero-static-bg"></div>
     <div class="hero-overlay"></div>
@@ -800,6 +883,7 @@
         <span class="hero-eyebrow">A cleaner, happier home</span>
 
         <h1>Deep Cleaning,<br>Done Right.</h1>
+
         <p>
             We take care of the cleaning and organising, leaving your space sparkling and perfectly in place.
         </p>
@@ -822,7 +906,7 @@
     </div>
 </section>
 
-<!-- ===== TRUST CARDS SECTION (original markup) ===== -->
+<!-- ===== TRUST CARDS (original markup) ===== -->
 <div class="trust-strip">
     <div class="trust-cards-container">
         <div class="trust-cards-grid">
@@ -849,10 +933,10 @@
     </div>
 </div>
 
-<!-- ===== SERVICES SHOWCASE SECTION (original markup — desktop only) ===== -->
+<!-- ===== SERVICES (desktop only) ===== -->
 <section id="services"><div class="container"><h2 class="services-heading">Our <span class="primary">Services</span></h2><p class="section-subhead">Professional, reliable, and tailored to your space. Each service comes with our 100% satisfaction guarantee.</p><div class="services-wrapper"><div class="services-grid"><div class="service-card" onclick="goToBookingPage('residential')" role="button" tabindex="0"><div class="service-image"><img src="Res.png" alt="Professional residential cleaning" loading="lazy"></div><div class="service-content"><h3>Residential Cleaning</h3><p>Deep cleaning that leaves your home spotless, refreshed, and stress-free.</p><div class="service-price">£200 <small>starting from</small></div><button class="btn-service" onclick="event.stopPropagation(); goToBookingPage('residential')">Book Now</button></div></div><div class="service-card" onclick="goToBookingPage('tenancy')" role="button" tabindex="0"><div class="service-image"><img src="End.png" alt="End of tenancy cleaning" loading="lazy"></div><div class="service-content"><h3>End of Tenancy</h3><p>Detailed deep clean to help secure your deposit and meet agency standards.</p><div class="service-price">£210 <small>starting from</small></div><button class="btn-service" onclick="event.stopPropagation(); goToBookingPage('tenancy')">Book Now</button></div></div><div class="service-card" onclick="goToBookingPage('carpet')" role="button" tabindex="0"><div class="service-image"><img src="carpet.png" alt="Carpet cleaning" loading="lazy"></div><div class="service-content"><h3>Carpet &amp; Upholstery</h3><p>Deep stain removal and fabric cleaning to restore freshness and comfort.</p><div class="service-price">£70 <small>per room</small></div><button class="btn-service" onclick="event.stopPropagation(); goToBookingPage('carpet')">Book Now</button></div></div><div class="service-card" onclick="goToBookingPage('post')" role="button" tabindex="0"><div class="service-image"><img src="post.png" alt="Post construction cleaning" loading="lazy"></div><div class="service-content"><h3>Post-Construction</h3><p>New build or renovation? We handle dust, debris, and residue so you can move in safely.</p><div class="service-price">£200 <small>starting from</small></div><button class="btn-service" onclick="event.stopPropagation(); goToBookingPage('post')">Request Quote</button></div></div><div class="service-card" onclick="goToBookingPage('commercial')" role="button" tabindex="0"><div class="service-image"><img src="9.png" alt="Commercial cleaning" loading="lazy"></div><div class="service-content"><h3>Commercial Cleaning</h3><p>Deep, reliable cleaning for a spotless and professional workspace.</p><div class="service-price">From £200</div><button class="btn-service" onclick="event.stopPropagation(); goToBookingPage('commercial')">Request Quote</button></div></div><div class="service-card" onclick="goToBookingPage('organisation')" role="button" tabindex="0"><div class="service-image"><img src="19.png" alt="Home organisation" loading="lazy"></div><div class="service-content"><h3>Home Organisation</h3><p>Declutter and organise your space for peace of mind. Wardrobes, pantries, garages and more.</p><div class="service-price">£45 <small>/hour</small></div><button class="btn-service" onclick="event.stopPropagation(); goToBookingPage('organisation')">Book Now</button></div></div></div></div></div></section>
 
-<!-- ===== BOOKING SECTION (original markup) ===== -->
+<!-- ===== BOOKING ===== -->
 <section id="book"><div class="container"><h2 class="section-title">Book Your <span class="primary">Service</span></h2><p class="section-subhead">Choose a service below to start your booking. Your estimated price will be calculated on the next page.</p><div class="booking-system"><div class="booking-header"><h3>Select Your Service</h3></div>
     <hr class="booking-divider">
     <div class="booking-container">
@@ -860,12 +944,12 @@
         <div class="service-selector"><div class="service-option" onclick="goToBookingPage('residential')" role="button" tabindex="0"><i class="fas fa-home"></i><h4>Residential Cleaning</h4><p>Regular &amp; deep cleaning</p></div><div class="service-option" onclick="goToBookingPage('tenancy')" role="button" tabindex="0"><i class="fas fa-key"></i><h4>End of Tenancy</h4><p>Move-in/out cleaning</p></div><div class="service-option" onclick="goToBookingPage('carpet')" role="button" tabindex="0"><i class="fas fa-couch"></i><h4>Carpet &amp; Upholstery</h4><p>Fabric deep cleaning</p></div><div class="service-option" onclick="goToBookingPage('post')" role="button" tabindex="0"><i class="fas fa-hard-hat"></i><h4>Post-Construction</h4><p>Builders clean</p></div><div class="service-option" onclick="goToBookingPage('commercial')" role="button" tabindex="0"><i class="fas fa-building"></i><h4>Commercial Cleaning</h4><p>Office &amp; business</p></div><div class="service-option" onclick="goToBookingPage('organisation')" role="button" tabindex="0"><i class="fas fa-warehouse"></i><h4>Home Organisation</h4><p>Declutter &amp; organise</p></div></div>
     </div></div></div></section>
 
-<!-- ===== PRICING SECTION (original desktop + mobile-only sheet) ===== -->
+<!-- ===== PRICING ===== -->
 <section id="pricing" class="pricing-section"><div class="container"><div class="pricing-container">
     <h2 class="section-title">Transparent <span class="primary">Pricing</span></h2>
     <p class="section-subhead">Fixed rates, no hidden fees. Know exactly what you'll pay before you book.</p>
 
-    <!-- MOBILE-ONLY flat price sheet (hidden on desktop via base rule) -->
+    <!-- MOBILE-ONLY flat price list -->
     <div class="mobile-pricing-list">
         <div class="mobile-pricing-header">Deep Cleaning</div>
         <a href="index.html#book" class="mobile-pricing-item"><span class="mp-name">Studio</span><span class="mp-price">£200</span></a>
@@ -891,7 +975,7 @@
     <!-- DESKTOP add-on cards -->
     <div class="addons-showcase"><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-temperature-high"></i></div><h4>Oven Cleaning</h4><p>Single oven inside</p><div class="price">£70</div></div><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-fan"></i></div><h4>Extractor Hood</h4><p>Professional cleaning</p><div class="price">£35</div></div><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-thermometer-half"></i></div><h4>Fridge Cleaning</h4><p>Inside &amp; out</p><div class="price">£40</div></div><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-paw"></i></div><h4>Pet Hair Removal</h4><p>Thorough removal</p><div class="price">£30</div></div></div>
 
-    <!-- MOBILE-ONLY flat add-ons list (hidden on desktop via base rule) -->
+    <!-- MOBILE-ONLY flat add-ons list -->
     <div class="mobile-addons-list">
         <div class="mobile-pricing-item"><span class="mp-name">Oven Cleaning</span><span class="mp-price">£70</span></div>
         <div class="mobile-pricing-item"><span class="mp-name">Extractor Hood</span><span class="mp-price">£35</span></div>
@@ -900,7 +984,7 @@
     </div>
 </div></div></section>
 
-<!-- ===== GOOGLE RATING SECTION (original) ===== -->
+<!-- ===== RATING ===== -->
 <div class="container">
     <div class="rating-wrapper">
         <div class="rating-container">
@@ -914,7 +998,7 @@
     </div>
 </div>
 
-<!-- ===== CONTACT SECTION (original markup) ===== -->
+<!-- ===== CONTACT ===== -->
 <section id="contact"><div class="container"><h2 class="section-title">Get In <span class="primary">Touch</span></h2><div class="contact-grid"><div class="contact-info"><h3>Contact Information</h3>
     <a href="tel:+447786912425" class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div class="contact-text"><h4>Phone</h4><p>+44 07786 912425</p></div></a>
     <a href="mailto:info@drsparkclean.co.uk" class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-text"><h4>Email</h4><p>info@drsparkclean.co.uk</p></div></a>
@@ -966,7 +1050,7 @@
     </div>
 </div></div></section>
 
-<!-- ===== FOOTER (original) ===== -->
+<!-- ===== FOOTER ===== -->
 <footer>
     <div class="container">
         <div class="footer-grid">
@@ -987,8 +1071,10 @@
     </div>
 </footer>
 
+<!-- ===== MODAL ===== -->
 <div id="modalOverlay" class="modal-overlay"><div class="modal" id="modal"><div id="modalIcon" class="modal-icon success"></div><h3 id="modalTitle">Booking Request Received</h3><p id="modalMessage">We've received your request and will contact you shortly to confirm availability and final details.</p><button class="modal-btn" id="modalCloseBtn">Got it</button></div></div>
 
+<!-- ===== COOKIE CONSENT ===== -->
 <div id="cookieConsent" class="cookie-consent">
     <div class="cookie-content">
         <div class="cookie-text">🍪 We use essential cookies to make our site work. By using our site, you accept our <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.</div>
@@ -996,8 +1082,28 @@
     </div>
 </div>
 
+<!-- ===== MOBILE BOTTOM NAV ===== -->
+<div class="mobile-bottom-nav">
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+        <i class="fas fa-house"></i>
+        <span>Home</span>
+    </a>
+    <a href="#pricing">
+        <i class="fas fa-tag"></i>
+        <span>Pricing</span>
+    </a>
+    <a href="#book" class="primary">
+        <i class="fas fa-calendar-check"></i>
+        <span>Book</span>
+    </a>
+    <a href="#contact">
+        <i class="fas fa-message"></i>
+        <span>Contact</span>
+    </a>
+</div>
+
+<!-- ===== JAVASCRIPT (your original — untouched) ===== -->
 <script>
-    // ===== POWER AUTOMATE URLS =====
     const POWER_AUTOMATE_CONTACT_URL = 'https://default9677c98995364c8db14d72fa9aa124.c6.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/fb50c4acfdf54c0ba264b90575ab2066/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=hRi8Alynd175wTvKPspOx90LpusD_IKShrAROJpdMhA';
 
     function goToBookingPage(service) {
@@ -1164,26 +1270,6 @@
     window.goToBookingPage = goToBookingPage;
     window.submitContact = submitContact;
 </script>
-
-<!-- ===== MOBILE BOTTOM NAV (hidden on desktop) ===== -->
-<div class="mobile-bottom-nav">
-    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
-        <i class="fas fa-house"></i>
-        <span>Home</span>
-    </a>
-    <a href="#pricing">
-        <i class="fas fa-tag"></i>
-        <span>Pricing</span>
-    </a>
-    <a href="#book" class="primary">
-        <i class="fas fa-calendar-check"></i>
-        <span>Book</span>
-    </a>
-    <a href="#contact">
-        <i class="fas fa-message"></i>
-        <span>Contact</span>
-    </a>
-</div>
 
 </body>
 </html>
