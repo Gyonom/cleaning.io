@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, shrink-to-fit=no">
     <title>Book Your Service | Dr Sparkclean Services Ltd</title>
-
     <meta name="description" content="Book your professional cleaning service with Dr Sparkclean. Deep cleaning, end of tenancy cleaning, carpet cleaning, and more.">
     <meta name="keywords" content="booking, cleaning services, deep cleaning, end of tenancy cleaning, carpet cleaning, home organisation, Birmingham">
     <meta name="author" content="Dr Sparkclean Services Ltd">
     <meta name="robots" content="index, follow">
-
     <meta property="og:title" content="Book Your Service | Dr Sparkclean Services Ltd">
     <meta property="og:description" content="Book your professional cleaning service with Dr Sparkclean. Deep cleaning, end of tenancy cleaning, carpet cleaning, and more.">
     <meta property="og:type" content="website">
-
     <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧹</text></svg>">
-
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -40,756 +36,141 @@
         }
     }
     </script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
-            --primary: #0B5E5A;
-            --primary-dark: #064442;
-            --primary-deep: #053634;
-            --primary-light: #C9E6E4;
-            --primary-soft: #E8F3F2;
-            --primary-soft-deeper: #D8ECEA;
-            --white: #FFFFFF;
-            --surface: #F8FBFB;
-            --gray-100: #EAF1F1;
-            --gray-200: #D9E4E4;
-            --text-dark: #132B30;
-            --text-soft: #425D66;
-            --text-light: #708993;
-            --container: 1200px;
-            --transition: 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+            --primary: #0B5E5A; --primary-dark: #064442; --primary-deep: #053634;
+            --primary-light: #C9E6E4; --primary-soft: #E8F3F2; --primary-soft-deeper: #D8ECEA;
+            --white: #FFFFFF; --surface: #F8FBFB; --gray-100: #EAF1F1; --gray-200: #D9E4E4;
+            --text-dark: #132B30; --text-soft: #425D66; --text-light: #708993;
+            --container: 1200px; --transition: 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
-
         html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
-
-        body {
-            font-family: "Inter", sans-serif;
-            color: var(--text-dark);
-            background:
-                radial-gradient(circle at 15% 10%, rgba(201, 230, 228, 0.34), transparent 32%),
-                radial-gradient(circle at 85% 28%, rgba(11, 94, 90, 0.08), transparent 30%),
-                linear-gradient(180deg, #F3F8F7 0%, #EEF5F4 52%, #F7FAF9 100%);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
+        body { font-family: "Inter", sans-serif; color: var(--text-dark); background: radial-gradient(circle at 15% 10%, rgba(201,230,228,0.34), transparent 32%), radial-gradient(circle at 85% 28%, rgba(11,94,90,0.08), transparent 30%), linear-gradient(180deg, #F3F8F7 0%, #EEF5F4 52%, #F7FAF9 100%); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; min-height: 100vh; }
         img { display: block; max-width: 100%; height: auto; }
-
-        .container {
-            width: 100%;
-            max-width: var(--container);
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        h1, h2, h3, h4 {
-            font-weight: 700;
-            line-height: 1.12;
-            letter-spacing: -0.03em;
-            color: var(--text-dark);
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(16px) saturate(160%);
-            -webkit-backdrop-filter: blur(16px) saturate(160%);
-            border-bottom: 1px solid rgba(217, 228, 228, 0.72);
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 84px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0;
-            text-decoration: none;
-            flex-shrink: 0;
-        }
-
-        .logo-icon img {
-            height: 52px;
-            width: auto;
-            filter: drop-shadow(0 1px 2px rgba(11, 94, 90, 0.08));
-            transition: filter 0.2s ease;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-            margin-left: 6px;
-        }
-
-        .logo-primary {
-            font-family: "Inter", sans-serif;
-            font-size: 1rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-            letter-spacing: -0.015em;
-            line-height: 1.2;
-            transition: color 0.2s ease;
-        }
-
-        .logo-secondary {
-            font-family: "Inter", sans-serif;
-            font-size: 0.58rem;
-            font-weight: 500;
-            color: var(--text-light);
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            margin-top: 2px;
-            opacity: 0.7;
-            line-height: 1.3;
-        }
-
-        .logo:hover .logo-icon img { filter: drop-shadow(0 3px 6px rgba(11, 94, 90, 0.12)); }
+        .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.12; letter-spacing: -0.03em; color: var(--text-dark); }
+        header { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%); border-bottom: 1px solid rgba(217,228,228,0.72); z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 84px; }
+        .logo { display: flex; align-items: center; gap: 0; text-decoration: none; flex-shrink: 0; }
+        .logo-icon img { height: 52px; width: auto; filter: drop-shadow(0 1px 2px rgba(11,94,90,0.08)); transition: filter 0.2s ease; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.2; margin-left: 6px; }
+        .logo-primary { font-family: "Inter", sans-serif; font-size: 1rem; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.015em; line-height: 1.2; transition: color 0.2s ease; }
+        .logo-secondary { font-family: "Inter", sans-serif; font-size: 0.58rem; font-weight: 500; color: var(--text-light); letter-spacing: 0.22em; text-transform: uppercase; margin-top: 2px; opacity: 0.7; line-height: 1.3; }
+        .logo:hover .logo-icon img { filter: drop-shadow(0 3px 6px rgba(11,94,90,0.12)); }
         .logo:hover .logo-primary { color: var(--primary); }
-
         .nav-links { display: flex; gap: 2rem; align-items: center; margin-left: auto; margin-right: 1rem; }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 0.94rem;
-            line-height: 1.3;
-            transition: color var(--transition);
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -8px;
-            width: 100%;
-            height: 2px;
-            border-radius: 999px;
-            background: linear-gradient(90deg, var(--primary-light), var(--primary));
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform var(--transition);
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active { color: var(--primary); }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after { transform: scaleX(1); }
-
-        .btn-nav {
-            background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 999px;
-            font-weight: 700;
-            font-size: 0.92rem;
-            letter-spacing: -0.01em;
-            box-shadow: 0 14px 28px rgba(11, 94, 90, 0.22), inset 0 1px 0 rgba(255,255,255,0.20);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform var(--transition), box-shadow var(--transition);
-        }
-
-        .btn-nav:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 38px rgba(11, 94, 90, 0.30), inset 0 1px 0 rgba(255,255,255,0.22);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1001;
-            gap: 5px;
-            padding: 5px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 2.5px;
-            background: var(--primary-dark);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.94rem; line-height: 1.3; transition: color var(--transition); position: relative; }
+        .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 100%; height: 2px; border-radius: 999px; background: linear-gradient(90deg, var(--primary-light), var(--primary)); transform: scaleX(0); transform-origin: center; transition: transform var(--transition); }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+        .btn-nav { background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%); color: white; padding: 12px 24px; border-radius: 999px; font-weight: 700; font-size: 0.92rem; letter-spacing: -0.01em; box-shadow: 0 14px 28px rgba(11,94,90,0.22), inset 0 1px 0 rgba(255,255,255,0.20); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; transition: transform var(--transition), box-shadow var(--transition); }
+        .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 20px 38px rgba(11,94,90,0.30), inset 0 1px 0 rgba(255,255,255,0.22); }
+        .hamburger { display: none; flex-direction: column; cursor: pointer; z-index: 1001; gap: 5px; padding: 5px; }
+        .hamburger span { width: 25px; height: 2.5px; background: var(--primary-dark); border-radius: 2px; transition: all 0.3s ease; }
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-
         .btn-nav-mobile { display: none; }
         .desktop-only { display: inline-flex; }
-
         @media (max-width: 1024px) {
             .desktop-only { display: none !important; }
             .hamburger { display: flex; }
-
-            .btn-nav-mobile {
-                display: block;
-                background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-                color: white !important;
-                padding: 12px 24px;
-                border-radius: 999px;
-                font-weight: 700;
-                font-size: 0.92rem;
-                text-align: center;
-                margin-top: 20px;
-                width: 100%;
-                text-decoration: none;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 84px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 84px);
-                background: white;
-                flex-direction: column;
-                justify-content: flex-start;
-                padding: 40px 20px;
-                gap: 25px;
-                transition: left 0.3s ease;
-                z-index: 1000;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                margin: 0;
-                overflow-y: auto;
-            }
-
+            .btn-nav-mobile { display: block; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white !important; padding: 12px 24px; border-radius: 999px; font-weight: 700; font-size: 0.92rem; text-align: center; margin-top: 20px; width: 100%; text-decoration: none; }
+            .nav-links { position: fixed; top: 84px; left: -100%; width: 100%; height: calc(100vh - 84px); background: white; flex-direction: column; justify-content: flex-start; padding: 40px 20px; gap: 25px; transition: left 0.3s ease; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin: 0; overflow-y: auto; }
             .nav-links.active { left: 0; }
             .nav-links a { font-size: 1.2rem; padding: 10px 0; width: 100%; text-align: center; }
             .nav-links a::after { display: none; }
         }
-
-        .booking-page {
-            padding-top: 110px;
-            padding-bottom: 40px;
-            min-height: calc(100vh - 400px);
-        }
-
-        .booking-system {
-            background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%);
-            border: 1px solid rgba(11, 94, 90, 0.08);
-            border-radius: 28px;
-            box-shadow: 0 22px 48px rgba(19, 43, 48, 0.07), 0 4px 12px rgba(19, 43, 48, 0.035);
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .booking-header {
-            background:
-                radial-gradient(circle at 12% 0%, rgba(255,255,255,0.12), transparent 30%),
-                linear-gradient(135deg, #075E58 0%, #053F3D 100%);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px 36px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .booking-header h3 {
-            margin: 0;
-            font-size: 1.4rem;
-            color: white;
-            letter-spacing: -0.035em;
-        }
-
+        .booking-page { padding-top: 110px; padding-bottom: 40px; min-height: calc(100vh - 400px); }
+        .booking-system { background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); border: 1px solid rgba(11,94,90,0.08); border-radius: 28px; box-shadow: 0 22px 48px rgba(19,43,48,0.07), 0 4px 12px rgba(19,43,48,0.035); width: 100%; max-width: 1000px; margin: 0 auto; overflow: hidden; }
+        .booking-header { background: radial-gradient(circle at 12% 0%, rgba(255,255,255,0.12), transparent 30%), linear-gradient(135deg, #075E58 0%, #053F3D 100%); display: flex; justify-content: space-between; align-items: center; padding: 24px 36px; flex-wrap: wrap; gap: 12px; }
+        .booking-header h3 { margin: 0; font-size: 1.4rem; color: white; letter-spacing: -0.035em; }
         .booking-progress { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-
-        .progress-step {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1.5px solid rgba(255, 255, 255, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.8rem;
-            color: white;
-            transition: var(--transition);
-        }
-
-        .progress-step.active {
-            background: white;
-            border-color: white;
-            color: var(--primary-dark);
-            box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
-        }
-
-        .progress-step.completed {
-            background: rgba(255, 255, 255, 0.4);
-            border-color: rgba(255, 255, 255, 0.6);
-            color: white;
-        }
-
-        .booking-divider {
-            height: 2px;
-            width: 100%;
-            background-color: #D1D5DB;
-            margin: 0;
-            border: none;
-        }
-
-        .booking-container {
-            padding: 28px 32px;
-            width: 100%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(245,250,249,0.96) 100%);
-        }
-
+        .progress-step { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.2); border: 1.5px solid rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; color: white; transition: var(--transition); }
+        .progress-step.active { background: white; border-color: white; color: var(--primary-dark); box-shadow: 0 0 0 2px rgba(255,255,255,0.3); }
+        .progress-step.completed { background: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.6); color: white; }
+        .booking-divider { height: 2px; width: 100%; background-color: #D1D5DB; margin: 0; border: none; }
+        .booking-container { padding: 28px 32px; width: 100%; background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(245,250,249,0.96) 100%); }
         .booking-step { display: none; }
         .booking-step.active { display: block; animation: slideIn 0.28s ease; }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(14px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 24px;
-        }
-
+        @keyframes slideIn { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: translateX(0); } }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 24px; }
         .form-group { margin-bottom: 0; }
         .form-group.full-width { grid-column: span 2; }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-dark);
-            font-size: 0.85rem;
-        }
-
-        .condition-title {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text-dark);
-            letter-spacing: -0.02em;
-            display: block;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            min-height: 46px;
-            padding: 10px 14px;
-            border: 1px solid rgba(11, 94, 90, 0.13);
-            border-radius: 14px;
-            font-family: "Inter", sans-serif;
-            font-size: 0.9rem;
-            transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
-            background: #FBFEFD;
-            color: var(--text-dark);
-            box-shadow: inset 0 1px 2px rgba(11, 94, 90, 0.035), 0 1px 0 rgba(255,255,255,0.9);
-        }
-
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-dark); font-size: 0.85rem; }
+        .condition-title { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--text-dark); letter-spacing: -0.02em; display: block; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; min-height: 46px; padding: 10px 14px; border: 1px solid rgba(11,94,90,0.13); border-radius: 14px; font-family: "Inter", sans-serif; font-size: 0.9rem; transition: border-color var(--transition), box-shadow var(--transition), background var(--transition); background: #FBFEFD; color: var(--text-dark); box-shadow: inset 0 1px 2px rgba(11,94,90,0.035), 0 1px 0 rgba(255,255,255,0.9); }
         .form-group textarea { min-height: 90px; resize: vertical; }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(11, 94, 90, 0.10), inset 0 1px 2px rgba(11, 94, 90, 0.035);
-            background: white;
-        }
-
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(11,94,90,0.10), inset 0 1px 2px rgba(11,94,90,0.035); background: white; }
         .postcode-autocomplete-container { position: relative; width: 100%; }
-
-        .postcode-suggestions {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border: 1px solid rgba(11, 94, 90, 0.2);
-            border-radius: 12px;
-            max-height: 180px;
-            overflow-y: auto;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            display: none;
-        }
-
+        .postcode-suggestions { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid rgba(11,94,90,0.2); border-radius: 12px; max-height: 180px; overflow-y: auto; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: none; }
         .postcode-suggestions.show { display: block; }
-
-        .postcode-suggestion-item {
-            padding: 10px 14px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            border-bottom: 1px solid rgba(11, 94, 90, 0.08);
-            transition: background 0.2s;
-        }
-
-        .postcode-suggestion-item:hover { background: rgba(11, 94, 90, 0.05); }
+        .postcode-suggestion-item { padding: 10px 14px; cursor: pointer; font-size: 0.85rem; border-bottom: 1px solid rgba(11,94,90,0.08); transition: background 0.2s; }
+        .postcode-suggestion-item:hover { background: rgba(11,94,90,0.05); }
         .postcode-suggestion-item:last-child { border-bottom: none; }
-
         #form-group-address-postcode.error input { border-color: #e74c3c; }
-
-        .condition-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            margin: 0 0 20px 0;
-        }
-
-        .condition-option {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 10px 8px;
-            border-radius: 14px;
-            min-height: 70px;
-            cursor: pointer;
-            background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%);
-            border: 1px solid rgba(11, 94, 90, 0.08);
-            transition: all 0.25s ease;
-            box-shadow: 0 22px 48px rgba(19, 43, 48, 0.07), 0 4px 12px rgba(19, 43, 48, 0.035);
-            position: relative;
-        }
-
-        .condition-option:hover {
-            border-color: rgba(11, 94, 90, 0.16);
-            background: rgba(11, 94, 90, 0.02);
-            transform: translateY(-4px);
-        }
-
-        .condition-option.selected {
-            border: 2px solid rgba(11, 94, 90, 0.88);
-            background: linear-gradient(180deg, #FFFFFF 0%, #ECF7F5 100%);
-            box-shadow: 0 18px 42px rgba(11, 94, 90, 0.13), 0 0 0 4px rgba(11, 94, 90, 0.08);
-        }
-
-        .condition-option.selected::after {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            color: var(--primary);
-            font-size: 10px;
-            background: white;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-        }
-
+        .condition-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 0 20px 0; }
+        .condition-option { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 10px 8px; border-radius: 14px; min-height: 70px; cursor: pointer; background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); border: 1px solid rgba(11,94,90,0.08); transition: all 0.25s ease; box-shadow: 0 22px 48px rgba(19,43,48,0.07), 0 4px 12px rgba(19,43,48,0.035); position: relative; }
+        .condition-option:hover { border-color: rgba(11,94,90,0.16); background: rgba(11,94,90,0.02); transform: translateY(-4px); }
+        .condition-option.selected { border: 2px solid rgba(11,94,90,0.88); background: linear-gradient(180deg, #FFFFFF 0%, #ECF7F5 100%); box-shadow: 0 18px 42px rgba(11,94,90,0.13), 0 0 0 4px rgba(11,94,90,0.08); }
+        .condition-option.selected::after { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; top: 8px; right: 8px; color: var(--primary); font-size: 10px; background: white; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
         .condition-option h4 { font-size: 0.85rem; margin-bottom: 4px; font-weight: 700; }
         .condition-option p { font-size: 0.7rem; line-height: 1.3; color: var(--text-light); }
-
-        .price-calculator {
-            background: linear-gradient(180deg, #FFFFFF 0%, #F2F8F7 100%);
-            border-radius: 20px;
-            padding: 24px;
-            margin: 24px 0 8px;
-            border: 1px solid rgba(11, 94, 90, 0.08);
-            box-shadow: 0 22px 48px rgba(19, 43, 48, 0.07), 0 4px 12px rgba(19, 43, 48, 0.035);
-        }
-
+        .price-calculator { background: linear-gradient(180deg, #FFFFFF 0%, #F2F8F7 100%); border-radius: 20px; padding: 24px; margin: 24px 0 8px; border: 1px solid rgba(11,94,90,0.08); box-shadow: 0 22px 48px rgba(19,43,48,0.07), 0 4px 12px rgba(19,43,48,0.035); }
         .price-calculator h4 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
-
-        .addons-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin: 0 0 20px 0;
-        }
-
-        .addon-checkbox {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 10px;
-            padding: 10px 12px;
-            background: linear-gradient(180deg, #FFFFFF 0%, #FAFDFC 100%);
-            border-radius: 14px;
-            border: 1px solid rgba(11, 94, 90, 0.12);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            min-height: 56px;
-            width: 100%;
-            box-shadow: 0 6px 16px rgba(19, 43, 48, 0.035);
-        }
-
-        .addon-checkbox:hover {
-            border-color: rgba(11, 94, 90, 0.3);
-            background: rgba(11, 94, 90, 0.02);
-            transform: translateY(-1px);
-        }
-
-        .addon-checkbox:has(input:checked) {
-            border: 2px solid rgba(11, 94, 90, 0.88);
-            background: linear-gradient(180deg, #FFFFFF 0%, #ECF7F5 100%);
-            box-shadow: 0 18px 42px rgba(11, 94, 90, 0.13), 0 0 0 4px rgba(11, 94, 90, 0.08);
-        }
-
-        .addon-checkbox input {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--primary);
-            flex-shrink: 0;
-            margin: 0;
-            cursor: pointer;
-        }
-
-        .addon-icon {
-            flex-shrink: 0;
-            width: 32px;
-            height: 32px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
+        .addons-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 0 0 20px 0; }
+        .addon-checkbox { display: flex; align-items: center; justify-content: flex-start; gap: 10px; padding: 10px 12px; background: linear-gradient(180deg, #FFFFFF 0%, #FAFDFC 100%); border-radius: 14px; border: 1px solid rgba(11,94,90,0.12); cursor: pointer; transition: all 0.2s ease; min-height: 56px; width: 100%; box-shadow: 0 6px 16px rgba(19,43,48,0.035); }
+        .addon-checkbox:hover { border-color: rgba(11,94,90,0.3); background: rgba(11,94,90,0.02); transform: translateY(-1px); }
+        .addon-checkbox:has(input:checked) { border: 2px solid rgba(11,94,90,0.88); background: linear-gradient(180deg, #FFFFFF 0%, #ECF7F5 100%); box-shadow: 0 18px 42px rgba(11,94,90,0.13), 0 0 0 4px rgba(11,94,90,0.08); }
+        .addon-checkbox input { width: 18px; height: 18px; accent-color: var(--primary); flex-shrink: 0; margin: 0; cursor: pointer; }
+        .addon-icon { flex-shrink: 0; width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
         .addon-icon i { font-size: 0.9rem; }
-
-        .oven-icon { background: rgba(217, 119, 6, 0.12); color: #D97706; }
-        .extractor-icon { background: rgba(37, 99, 235, 0.12); color: #2563EB; }
-        .fridge-icon { background: rgba(5, 150, 105, 0.12); color: #059669; }
-        .pet-icon, .stairs-icon { background: rgba(13, 148, 136, 0.12); color: #0D9488; }
-        .declutter-icon { background: rgba(217, 119, 6, 0.12); color: #D97706; }
-        .combo-icon { background: rgba(124, 58, 237, 0.12); color: #7C3AED; }
-
+        .oven-icon { background: rgba(217,119,6,0.12); color: #D97706; }
+        .extractor-icon { background: rgba(37,99,235,0.12); color: #2563EB; }
+        .fridge-icon { background: rgba(5,150,105,0.12); color: #059669; }
+        .pet-icon, .stairs-icon { background: rgba(13,148,136,0.12); color: #0D9488; }
+        .declutter-icon { background: rgba(217,119,6,0.12); color: #D97706; }
+        .combo-icon { background: rgba(124,58,237,0.12); color: #7C3AED; }
         .addon-content { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
         .addon-title { font-size: 0.8rem; font-weight: 600; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .addon-price { font-size: 0.7rem; font-weight: 800; color: var(--primary-dark); background: rgba(11, 94, 90, 0.08); padding: 2px 8px; border-radius: 20px; width: fit-content; }
-
-        .total-display {
-            background: linear-gradient(135deg, #E8F3F2 0%, #DFF0EE 100%);
-            padding: 16px 20px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 24px;
-            margin-bottom: 8px;
-            font-weight: 600;
-            flex-wrap: wrap;
-            gap: 12px;
-            border: 1px solid rgba(11, 94, 90, 0.16);
-            box-shadow: 0 16px 36px rgba(11, 94, 90, 0.12), inset 0 1px 0 rgba(255,255,255,0.65);
-        }
-
+        .addon-price { font-size: 0.7rem; font-weight: 800; color: var(--primary-dark); background: rgba(11,94,90,0.08); padding: 2px 8px; border-radius: 20px; width: fit-content; }
+        .total-display { background: linear-gradient(135deg, #E8F3F2 0%, #DFF0EE 100%); padding: 16px 20px; border-radius: 20px; display: flex; justify-content: space-between; align-items: center; margin-top: 24px; margin-bottom: 8px; font-weight: 600; flex-wrap: wrap; gap: 12px; border: 1px solid rgba(11,94,90,0.16); box-shadow: 0 16px 36px rgba(11,94,90,0.12), inset 0 1px 0 rgba(255,255,255,0.65); }
         .total-display span:first-child { font-size: 0.9rem; color: var(--text-soft); font-weight: 600; }
         .total-display .amount { font-size: 1.6rem; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.03em; }
-
-        .info-note {
-            font-size: 0.7rem;
-            color: var(--text-light);
-            margin-top: 16px;
-            padding: 10px 12px;
-            background: rgba(11, 94, 90, 0.04);
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .btn-next, .btn-prev {
-            padding: 12px 28px;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            border: none;
-            min-width: 130px;
-            min-height: 46px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .btn-next {
-            background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%);
-            color: white;
-            box-shadow: 0 14px 28px rgba(11, 94, 90, 0.22), inset 0 1px 0 rgba(255,255,255,0.20);
-        }
-
+        .info-note { font-size: 0.7rem; color: var(--text-light); margin-top: 16px; padding: 10px 12px; background: rgba(11,94,90,0.04); border-radius: 12px; text-align: center; }
+        .btn-next, .btn-prev { padding: 12px 28px; border-radius: 999px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.25s ease; border: none; min-width: 130px; min-height: 46px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-next { background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%); color: white; box-shadow: 0 14px 28px rgba(11,94,90,0.22), inset 0 1px 0 rgba(255,255,255,0.20); }
         .btn-next:hover { transform: translateX(2px); }
-
-        .btn-prev {
-            background: #FFFFFF;
-            color: var(--text-dark);
-            border: 1px solid rgba(11, 94, 90, 0.2);
-        }
-
-        .btn-prev:hover { transform: translateX(-2px); border-color: var(--primary); background: rgba(11, 94, 90, 0.02); }
-
-        .booking-navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 28px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .assessment-note {
-            font-size: 0.75rem;
-            color: var(--text-light);
-            margin-top: 20px;
-            padding: 12px 16px;
-            background: rgba(11, 94, 90, 0.04);
-            border-radius: 14px;
-            border-left: 3px solid var(--primary);
-        }
-
-        .file-upload-area {
-            border: 1.5px dashed rgba(11, 94, 90, 0.25);
-            border-radius: 16px;
-            padding: 24px 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            background: linear-gradient(180deg, #ffffff 0%, #fbfdfd 100%);
-        }
-
-        .file-upload-area:hover,
-        .file-upload-area.dragover {
-            border-color: var(--primary);
-            background: linear-gradient(180deg, #ffffff 0%, var(--primary-soft) 100%);
-            box-shadow: 0 0 0 4px rgba(11, 94, 90, 0.10);
-        }
-
+        .btn-prev { background: #FFFFFF; color: var(--text-dark); border: 1px solid rgba(11,94,90,0.2); }
+        .btn-prev:hover { transform: translateX(-2px); border-color: var(--primary); background: rgba(11,94,90,0.02); }
+        .booking-navigation { display: flex; justify-content: space-between; margin-top: 28px; flex-wrap: wrap; gap: 12px; }
+        .assessment-note { font-size: 0.75rem; color: var(--text-light); margin-top: 20px; padding: 12px 16px; background: rgba(11,94,90,0.04); border-radius: 14px; border-left: 3px solid var(--primary); }
+        .file-upload-area { border: 1.5px dashed rgba(11,94,90,0.25); border-radius: 16px; padding: 24px 20px; text-align: center; cursor: pointer; transition: all 0.25s ease; background: linear-gradient(180deg, #ffffff 0%, #fbfdfd 100%); }
+        .file-upload-area:hover, .file-upload-area.dragover { border-color: var(--primary); background: linear-gradient(180deg, #ffffff 0%, var(--primary-soft) 100%); box-shadow: 0 0 0 4px rgba(11,94,90,0.10); }
         .file-upload-area i { font-size: 1.5rem; color: var(--primary); margin-bottom: 8px; }
-
         .file-list { margin-top: 12px; text-align: left; width: 100%; }
-
-        .file-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            justify-content: flex-start;
-            padding: 6px 10px;
-            background: rgba(11, 94, 90, 0.04);
-            border-radius: 10px;
-            margin-bottom: 6px;
-            font-size: 0.7rem;
-        }
-
-        .file-thumb {
-            width: 42px;
-            height: 42px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid rgba(11, 94, 90, 0.12);
-            flex-shrink: 0;
-        }
-
+        .file-item { display: flex; align-items: center; gap: 10px; justify-content: flex-start; padding: 6px 10px; background: rgba(11,94,90,0.04); border-radius: 10px; margin-bottom: 6px; font-size: 0.7rem; }
+        .file-thumb { width: 42px; height: 42px; object-fit: cover; border-radius: 10px; border: 1px solid rgba(11,94,90,0.12); flex-shrink: 0; }
         .error-message { color: #e74c3c; font-size: 0.7rem; margin-top: 6px; display: block; }
-
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
         .modal-overlay.active { opacity: 1; visibility: visible; }
-
-        .modal {
-            background: white;
-            border-radius: 24px;
-            max-width: 400px;
-            width: 90%;
-            padding: 28px 24px;
-            text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-
-        .modal-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px auto;
-        }
-
-        .modal-icon.success { background: rgba(11, 94, 90, 0.12); }
+        .modal { background: white; border-radius: 24px; max-width: 400px; width: 90%; padding: 28px 24px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+        .modal-icon { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; }
+        .modal-icon.success { background: rgba(11,94,90,0.12); }
         .modal-icon.success i { font-size: 28px; color: var(--primary); }
-        .modal-icon.error { background: rgba(231, 76, 60, 0.12); }
+        .modal-icon.error { background: rgba(231,76,60,0.12); }
         .modal-icon.error i { font-size: 28px; color: #e74c3c; }
         .modal h3 { font-size: 1.3rem; margin-bottom: 10px; }
         .modal p { color: var(--text-soft); font-size: 0.85rem; margin-bottom: 24px; }
-
-        .modal-btn {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            border: none;
-            padding: 10px 24px;
-            border-radius: 999px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .loading-spinner {
-            display: inline-block;
-            width: 14px;
-            height: 14px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 0.6s linear infinite;
-            margin-right: 6px;
-        }
-
+        .modal-btn { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 10px 24px; border-radius: 999px; font-weight: 600; cursor: pointer; }
+        .loading-spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: white; animation: spin 0.6s linear infinite; margin-right: 6px; }
         @keyframes spin { to { transform: rotate(360deg); } }
-
-        footer {
-            background: linear-gradient(180deg, #0a4d4a 0%, var(--primary-deep) 100%);
-            color: white;
-            padding: 30px 0 24px;
-            margin-top: 40px;
-            overflow: hidden;
-        }
-
+        footer { background: linear-gradient(180deg, #0a4d4a 0%, var(--primary-deep) 100%); color: white; padding: 30px 0 24px; margin-top: 40px; overflow: hidden; }
         .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px; }
         .footer-about p { color: rgba(255,255,255,0.74); margin-bottom: 12px; line-height: 1.7; font-size: 0.85rem; max-width: 280px; }
         .social-links { display: flex; gap: 10px; }
@@ -804,953 +185,130 @@
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.10); padding-top: 16px; text-align: center; color: rgba(255,255,255,0.58); font-size: 0.75rem; }
         .footer-logo { font-size: 1.3rem; font-weight: 800; color: white; margin-bottom: 8px; }
         .footer-logo span { color: rgba(255,255,255,0.72); font-size: 0.65rem; display: block; font-weight: 500; margin-top: 4px; }
-
         .org-area-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-
-        .org-area-option {
-            display: flex !important;
-            align-items: center;
-            gap: 10px;
-            min-height: 46px;
-            padding: 10px 14px;
-            border: 1px solid rgba(11, 94, 90, 0.13);
-            border-radius: 14px;
-            background: #FBFEFD;
-            cursor: pointer;
-            font-size: 0.85rem !important;
-            color: var(--text-dark) !important;
-            transition: all 0.2s ease;
-            box-shadow: inset 0 1px 2px rgba(11, 94, 90, 0.035), 0 1px 0 rgba(255,255,255,0.9);
-        }
-
-        .org-area-option:hover { border-color: rgba(11, 94, 90, 0.3); background: #FFFFFF; }
+        .org-area-option { display: flex !important; align-items: center; gap: 10px; min-height: 46px; padding: 10px 14px; border: 1px solid rgba(11,94,90,0.13); border-radius: 14px; background: #FBFEFD; cursor: pointer; font-size: 0.85rem !important; color: var(--text-dark) !important; transition: all 0.2s ease; box-shadow: inset 0 1px 2px rgba(11,94,90,0.035), 0 1px 0 rgba(255,255,255,0.9); }
+        .org-area-option:hover { border-color: rgba(11,94,90,0.3); background: #FFFFFF; }
         .org-area-checkbox { display: none; }
-
-        .org-area-circle {
-            width: 18px;
-            height: 18px;
-            border: 2px solid rgba(11, 94, 90, 0.35);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .org-area-checkbox:checked + .org-area-circle {
-            border-color: var(--primary);
-            background: radial-gradient(circle, var(--primary) 45%, transparent 48%);
-        }
-
-        .org-area-option:has(.org-area-checkbox:checked) {
-            border-color: var(--primary);
-            background: linear-gradient(180deg, #FFFFFF 0%, #ECF7F5 100%);
-            box-shadow: 0 0 0 3px rgba(11, 94, 90, 0.08);
-        }
-
-        /* ============================================================
-           MOBILE-ONLY BOOKING REDESIGN (≤768px)
-           Desktop ≥769px is not affected by anything in this block.
-           ============================================================ */
-
-        .m-shell,
-        .m-service-intro,
-        .m-step-title,
-        .m-progress-bar,
-        .m-review-block,
-        .m-review-trigger,
-        .m-show-more,
-        .m-trust,
-        .m-accordion,
-        .m-mobile-only,
-        .m-stepper,
-        .m-carpet-desktop-hide,
-        .m-desktop-number-input { display: none !important; }
-
+        .org-area-circle { width: 18px; height: 18px; border: 2px solid rgba(11,94,90,0.35); border-radius: 50%; flex-shrink: 0; }
+        .org-area-checkbox:checked + .org-area-circle { border-color: var(--primary); background: radial-gradient(circle, var(--primary) 45%, transparent 48%); }
+        .org-area-option:has(.org-area-checkbox:checked) { border-color: var(--primary); background: linear-gradient(180deg, #FFFFFF 0%, #ECF7F5 100%); box-shadow: 0 0 0 3px rgba(11,94,90,0.08); }
+        .m-carpet-group { margin-bottom: 16px; }
+        .m-carpet-group-title { font-size: 0.9rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .m-carpet-group-title i { color: var(--primary); font-size: 0.85rem; }
+        .m-carpet-group .form-grid { margin-bottom: 0; }
+        .m-mobile-shell, .m-review-block, .m-show-more, .m-trust, .m-step-btn, .m-step-wrap-label, .m-accordion-chev, .m-accordion-toggle { display: none; }
         @media (max-width: 768px) {
-
             html, body { overflow-x: hidden; width: 100%; max-width: 100%; }
-
             .container { padding: 0 18px; }
             nav { height: 64px; }
             .logo-icon img { height: 36px; }
             .logo-primary { font-size: 0.92rem; }
             .logo-secondary { font-size: 0.48rem; letter-spacing: 0.18em; }
             .nav-links { top: 64px; height: calc(100vh - 64px); }
-
-            .booking-page {
-                padding-top: 76px;
-                padding-bottom: 28px;
-                min-height: calc(100vh - 260px);
-            }
-
-            .booking-system {
-                background: transparent;
-                border: none;
-                border-radius: 0;
-                box-shadow: none;
-                max-width: 100%;
-                overflow: visible;
-            }
-
+            .booking-page { padding-top: 76px; padding-bottom: 24px; min-height: calc(100vh - 260px); }
+            .booking-system { background: transparent; border: none; border-radius: 0; box-shadow: none; max-width: 100%; overflow: visible; }
             .booking-header { display: none; }
             .booking-divider { display: none; }
-
-            /* Reveal mobile-only elements inside the mobile media query */
-            .m-shell { display: block !important; }
-            .m-service-intro { display: flex !important; }
-            .m-step-title { display: block !important; }
-            .m-progress-bar { display: flex !important; }
-            .m-review-trigger { display: inline-flex !important; }
-            .m-show-more { display: inline-flex !important; }
-            .m-trust { display: flex !important; }
-            .m-accordion { display: block !important; }
-            .m-stepper { display: grid !important; }
-            .m-mobile-only { display: block !important; }
-
-            .m-service-intro.m-hidden { display: none !important; }
-            .m-review-block.active { display: block !important; }
-
-            /* ---------- MOBILE SHELL ---------- */
-            .m-shell {
-                padding: 6px 0 14px;
-                margin-bottom: 6px;
-            }
-
-            .m-shell-top {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 12px;
-                margin-bottom: 14px;
-            }
-
-            .m-shell-back {
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-                color: var(--text-dark);
-                font-size: 0.9rem;
-                font-weight: 500;
-                text-decoration: none;
-                background: none;
-                border: none;
-                padding: 4px 0;
-                cursor: pointer;
-                font-family: inherit;
-            }
-
-            .m-shell-back i { font-size: 0.75rem; color: var(--text-soft); }
-
-            .m-shell-step {
-                font-size: 0.82rem;
-                font-weight: 600;
-                color: var(--text-soft);
-                white-space: nowrap;
-            }
-
-            .m-step-title {
-                font-size: 1.05rem;
-                font-weight: 700;
-                letter-spacing: -0.02em;
-                color: var(--text-dark);
-                margin-bottom: 12px;
-            }
-
-            .m-progress-bar {
-                gap: 6px;
-                width: 100%;
-            }
-
-            .m-progress-bar .m-seg {
-                flex: 1;
-                height: 3px;
-                border-radius: 999px;
-                background: rgba(11, 94, 90, 0.14);
-                transition: background 0.25s ease;
-            }
-
-            .m-progress-bar .m-seg.done,
-            .m-progress-bar .m-seg.active { background: var(--primary); }
-
-            /* ---------- SERVICE INTRO ---------- */
-            .m-service-intro {
-                align-items: center;
-                gap: 14px;
-                padding: 16px 0 18px;
-                border-bottom: 1px solid rgba(11, 94, 90, 0.08);
-                margin-bottom: 18px;
-            }
-
-            .m-service-intro-icon {
-                flex-shrink: 0;
-                width: 52px;
-                height: 52px;
-                border-radius: 50%;
-                background: rgba(11, 94, 90, 0.08);
-                color: var(--primary);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.2rem;
-            }
-
-            .m-service-intro-text { min-width: 0; }
-            .m-service-intro-title {
-                font-size: 1.15rem;
-                font-weight: 700;
-                letter-spacing: -0.025em;
-                line-height: 1.2;
-                color: var(--text-dark);
-                margin-bottom: 3px;
-            }
-            .m-service-intro-sub {
-                font-size: 0.82rem;
-                line-height: 1.35;
-                color: var(--text-light);
-            }
-
-            /* ---------- CONTAINER ---------- */
-            .booking-container {
-                padding: 0;
-                background: transparent;
-            }
-
-            /* ---------- FORM LAYOUT ---------- */
-            .form-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-                margin-bottom: 16px;
-            }
-
+            .m-mobile-shell { display: block; padding: 4px 0 12px; margin-bottom: 4px; }
+            .m-mobile-shell-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+            .m-mobile-shell-back { display: inline-flex; align-items: center; gap: 5px; color: var(--text-dark); font-size: 0.88rem; font-weight: 500; background: none; border: none; padding: 4px 0; cursor: pointer; font-family: inherit; }
+            .m-mobile-shell-back i { font-size: 0.72rem; color: var(--text-soft); }
+            .m-mobile-shell-step { font-size: 0.8rem; font-weight: 600; color: var(--text-soft); white-space: nowrap; }
+            .m-mobile-shell-title { display: block; font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-dark); margin-bottom: 10px; }
+            .m-mobile-progress { display: flex; gap: 6px; width: 100%; }
+            .m-mobile-progress .m-seg { flex: 1; height: 3px; border-radius: 999px; background: rgba(11,94,90,0.14); transition: background 0.25s ease; }
+            .m-mobile-progress .m-seg.done, .m-mobile-progress .m-seg.active { background: var(--primary); }
+            .booking-container { padding: 0; background: transparent; }
+            .form-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 14px; }
             .form-group.full-width { grid-column: span 1; }
-
-            .form-group label {
-                font-size: 0.85rem;
-                font-weight: 700;
-                margin-bottom: 8px;
-            }
-
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                min-height: 48px;
-                padding: 12px 14px;
-                border-radius: 10px;
-                font-size: 16px;
-                border: 1px solid rgba(11, 94, 90, 0.16);
-                background: #FFFFFF;
-                box-shadow: none;
-                width: 100%;
-                max-width: 100%;
-                box-sizing: border-box;
-            }
-
-            .form-group textarea { min-height: 96px; font-size: 16px; }
-
-            .form-group input:focus,
-            .form-group select:focus,
-            .form-group textarea:focus {
-                border-color: var(--primary);
-                box-shadow: 0 0 0 3px rgba(11, 94, 90, 0.10);
-                background: #FFFFFF;
-            }
-
-            /* Hide desktop-only number inputs when mobile steppers are active */
-            .m-desktop-number-input { display: none !important; }
-
-            /* ---------- SECTION LABEL ---------- */
-            .condition-title,
-            .m-section-label {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                font-size: 0.78rem;
-                font-weight: 700;
-                letter-spacing: 0.05em;
-                text-transform: uppercase;
-                color: var(--text-soft);
-                margin-bottom: 12px;
-                margin-top: 4px;
-            }
-
-            .m-section-label i {
-                font-size: 0.85rem;
-                color: var(--primary);
-            }
-
-            /* ---------- STEPPER ---------- */
-            .m-stepper {
-                grid-template-columns: 56px 1fr 56px;
-                align-items: center;
-                gap: 0;
-                border: 1px solid rgba(11, 94, 90, 0.16);
-                border-radius: 10px;
-                background: #FFFFFF;
-                overflow: hidden;
-                max-width: 100%;
-            }
-
-            .m-stepper button {
-                background: #F4F8F7;
-                border: none;
-                height: 48px;
-                font-size: 1.15rem;
-                color: var(--primary-dark);
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: 500;
-                -webkit-tap-highlight-color: transparent;
-                font-family: inherit;
-            }
-
-            .m-stepper button:active { background: #E4EFEC; }
-
-            .m-stepper-value {
-                text-align: center;
-                font-size: 1rem;
-                font-weight: 700;
-                color: var(--text-dark);
-                height: 48px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: #FFFFFF;
-            }
-
-            /* ---------- CONDITION TILES ---------- */
-            .condition-options {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 8px;
-                margin-bottom: 18px;
-            }
-
-            .condition-option {
-                min-height: 96px;
-                padding: 12px 6px;
-                border-radius: 10px;
-                background: #FFFFFF;
-                border: 1px solid rgba(11, 94, 90, 0.12);
-                box-shadow: none;
-                transform: none;
-            }
-
+            .form-group label { font-size: 0.84rem; font-weight: 700; margin-bottom: 7px; }
+            .form-group input, .form-group select, .form-group textarea { min-height: 52px; padding: 13px 14px; border-radius: 10px; font-size: 16px; border: 1px solid rgba(11,94,90,0.16); background: #FFFFFF; box-shadow: none; width: 100%; max-width: 100%; box-sizing: border-box; }
+            .form-group textarea { min-height: 110px; font-size: 16px; }
+            .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(11,94,90,0.10); background: #FFFFFF; }
+            .m-step-wrap { display: grid !important; grid-template-columns: 48px minmax(0, 1fr) 48px; align-items: stretch; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; overflow: hidden; }
+            .m-step-btn { display: flex !important; background: #F4F8F7; border: none; height: 52px; font-size: 1.1rem; color: var(--primary-dark); cursor: pointer; align-items: center; justify-content: center; font-family: inherit; -webkit-tap-highlight-color: transparent; }
+            .m-step-btn:active { background: #E4EFEC; }
+            .m-step-wrap input[type="number"] { border: none; border-radius: 0; min-height: 52px; padding: 0; text-align: center; font-size: 16px; font-weight: 700; background: #FFFFFF; box-shadow: none; color: var(--text-dark); -moz-appearance: textfield; width: 100%; max-width: 100%; grid-column: 2; }
+            .m-step-wrap input[type="number"]:focus { outline: none; box-shadow: inset 0 0 0 2px var(--primary); }
+            .m-step-wrap input[type="number"]::-webkit-outer-spin-button, .m-step-wrap input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+            .condition-options { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-bottom: 16px; }
+            .condition-option { min-height: 78px; padding: 10px 4px; border-radius: 10px; background: #FFFFFF; border: 1px solid rgba(11,94,90,0.14); box-shadow: none; transform: none; }
             .condition-option:hover { transform: none; box-shadow: none; }
-
-            .condition-option.selected {
-                border: 2px solid var(--primary);
-                background: #EAF6F4;
-                box-shadow: 0 0 0 3px rgba(11, 94, 90, 0.10);
-            }
-
+            .condition-option.selected { border: 2px solid var(--primary); background: #EAF6F4; box-shadow: 0 0 0 2px rgba(11,94,90,0.10); }
             .condition-option.selected::after { display: none; }
-
-            .condition-option.selected::before {
-                content: '\f00c';
-                font-family: 'Font Awesome 6 Free';
-                font-weight: 900;
-                position: absolute;
-                top: 6px;
-                right: 6px;
-                width: 16px;
-                height: 16px;
-                background: var(--primary);
-                color: #FFFFFF;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 8px;
-                z-index: 2;
-            }
-
-            .condition-option .m-cond-icon {
-                font-size: 1.1rem;
-                color: var(--primary);
-                margin-bottom: 6px;
-                display: block;
-            }
-
-            .condition-option h4 {
-                font-size: 0.78rem;
-                font-weight: 700;
-                margin-bottom: 2px;
-                color: var(--text-dark);
-            }
-
-            .condition-option p {
-                font-size: 0.62rem;
-                line-height: 1.25;
-                color: var(--text-light);
-            }
-
-            /* ---------- ADDONS ---------- */
-            .price-calculator {
-                background: transparent;
-                border: none;
-                box-shadow: none;
-                padding: 0;
-                margin: 20px 0 8px;
-                border-radius: 0;
-            }
-
-            .price-calculator h4 {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                font-size: 0.78rem;
-                font-weight: 700;
-                letter-spacing: 0.05em;
-                text-transform: uppercase;
-                color: var(--text-soft);
-                margin-bottom: 12px;
-            }
-
-            .price-calculator h4 i { font-size: 0.85rem; color: var(--primary); }
-
-            .addons-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 8px;
-                margin-bottom: 6px;
-            }
-
-            .addon-checkbox {
-                min-height: 64px;
-                padding: 10px;
-                gap: 8px;
-                border-radius: 10px;
-                background: #FFFFFF;
-                border: 1px solid rgba(11, 94, 90, 0.12);
-                box-shadow: none;
-                transform: none;
-                align-items: center;
-            }
-
+            .condition-option.selected::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; top: 5px; right: 5px; width: 15px; height: 15px; background: var(--primary); color: #FFFFFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 7px; z-index: 2; }
+            .condition-option h4 { font-size: 0.72rem; font-weight: 700; line-height: 1.15; margin-bottom: 2px; }
+            .condition-option p { font-size: 0.6rem; line-height: 1.2; color: var(--text-light); }
+            .price-calculator { background: transparent; border: none; box-shadow: none; padding: 0; margin: 14px 0 6px; border-radius: 0; }
+            .price-calculator h4 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 10px; }
+            .addons-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-bottom: 4px; }
+            .addon-checkbox { min-height: 56px; padding: 8px 10px; gap: 8px; border-radius: 10px; background: #FFFFFF; border: 1px solid rgba(11,94,90,0.14); box-shadow: none; transform: none; align-items: center; }
             .addon-checkbox:hover { transform: none; box-shadow: none; }
-
-            .addon-checkbox:has(input:checked) {
-                border: 2px solid var(--primary);
-                background: #EAF6F4;
-                box-shadow: 0 0 0 3px rgba(11, 94, 90, 0.08);
-            }
-
-            .addon-checkbox input {
-                order: 2;
-                margin-left: auto;
-                width: 20px;
-                height: 20px;
-                border-radius: 6px;
-                accent-color: var(--primary);
-                flex-shrink: 0;
-            }
-
-            .addon-icon {
-                width: 34px;
-                height: 34px;
-                border-radius: 9px;
-                flex-shrink: 0;
-                order: 0;
-            }
-
-            .addon-icon i { font-size: 0.85rem; }
-
-            .addon-content {
-                order: 1;
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                gap: 2px;
-                min-width: 0;
-            }
-
-            .addon-title {
-                font-size: 0.78rem;
-                font-weight: 600;
-                line-height: 1.2;
-                white-space: normal;
-                overflow: visible;
-                text-overflow: unset;
-                color: var(--text-dark);
-            }
-
-            .addon-price {
-                font-size: 0.78rem;
-                font-weight: 800;
-                color: var(--primary);
-                background: none;
-                padding: 0;
-                border-radius: 0;
-                width: auto;
-            }
-
-            .m-addon-hidden { display: none !important; }
-
-            .m-show-more {
-                align-items: center;
-                gap: 6px;
-                background: none;
-                border: none;
-                color: var(--primary);
-                font-family: inherit;
-                font-size: 0.82rem;
-                font-weight: 700;
-                padding: 10px 0;
-                margin-bottom: 4px;
-                cursor: pointer;
-                -webkit-tap-highlight-color: transparent;
-            }
-
-            .m-show-more i {
-                font-size: 0.72rem;
-                transition: transform 0.2s ease;
-            }
-
+            .addon-checkbox:has(input:checked) { border: 2px solid var(--primary); background: #EAF6F4; box-shadow: 0 0 0 2px rgba(11,94,90,0.08); }
+            .addon-checkbox input { order: 2; margin-left: auto; width: 18px; height: 18px; border-radius: 6px; accent-color: var(--primary); flex-shrink: 0; }
+            .addon-icon { width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0; order: 0; }
+            .addon-icon i { font-size: 0.8rem; }
+            .addon-content { order: 1; flex: 1; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+            .addon-title { font-size: 0.74rem; font-weight: 600; line-height: 1.15; white-space: normal; overflow: visible; text-overflow: unset; color: var(--text-dark); }
+            .addon-price { font-size: 0.74rem; font-weight: 800; color: var(--primary); background: none; padding: 0; border-radius: 0; width: auto; }
+            .m-addon-extra-mobile-hide { display: none !important; }
+            .m-show-more { display: inline-flex !important; align-items: center; gap: 6px; background: none; border: none; color: var(--primary); font-family: inherit; font-size: 0.82rem; font-weight: 700; padding: 8px 0; margin-bottom: 2px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+            .m-show-more i { font-size: 0.7rem; transition: transform 0.2s ease; }
             .m-show-more.open i { transform: rotate(180deg); }
-
-            /* ---------- TOTALS ---------- */
-            .total-display {
-                padding: 14px 16px;
-                border-radius: 10px;
-                background: #EAF6F4;
-                border: 1px solid rgba(11, 94, 90, 0.14);
-                box-shadow: none;
-                margin-top: 16px;
-                margin-bottom: 4px;
-            }
-
-            .total-display span:first-child {
-                font-size: 0.85rem;
-                font-weight: 700;
-                color: var(--text-dark);
-            }
-
-            .total-display .amount {
-                font-size: 1.35rem;
-                font-weight: 800;
-                color: var(--primary-dark);
-            }
-
-            .info-note {
-                font-size: 0.7rem;
-                padding: 10px 12px;
-                margin-top: 10px;
-                border-radius: 10px;
-                background: rgba(11, 94, 90, 0.05);
-                text-align: left;
-                line-height: 1.4;
-            }
-
-            /* ---------- ACCORDION (CARPET) ---------- */
-            .m-accordion { margin-bottom: 10px; }
-
-            .m-acc-row {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 12px;
-                padding: 14px;
-                background: #FFFFFF;
-                border: 1px solid rgba(11, 94, 90, 0.12);
-                border-radius: 10px;
-                cursor: pointer;
-                -webkit-tap-highlight-color: transparent;
-                transition: background 0.2s ease;
-                width: 100%;
-                font-family: inherit;
-                text-align: left;
-            }
-
-            .m-acc-row:active { background: #F4F8F7; }
-
-            .m-acc-left {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                min-width: 0;
-                flex: 1;
-            }
-
-            .m-acc-icon {
-                flex-shrink: 0;
-                width: 38px;
-                height: 38px;
-                border-radius: 9px;
-                background: rgba(11, 94, 90, 0.08);
-                color: var(--primary);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 0.9rem;
-            }
-
-            .m-acc-text { min-width: 0; flex: 1; }
-
-            .m-acc-name {
-                font-size: 0.88rem;
-                font-weight: 700;
-                color: var(--text-dark);
-                line-height: 1.2;
-                margin-bottom: 2px;
-            }
-
-            .m-acc-sub {
-                font-size: 0.72rem;
-                color: var(--text-light);
-                line-height: 1.3;
-            }
-
-            .m-acc-summary {
-                font-size: 0.74rem;
-                color: var(--primary);
-                font-weight: 600;
-                line-height: 1.3;
-                margin-top: 3px;
-            }
-
-            .m-acc-chev {
-                color: var(--text-light);
-                font-size: 0.8rem;
-                transition: transform 0.2s ease;
-                flex-shrink: 0;
-            }
-
-            .m-accordion.open .m-acc-chev { transform: rotate(180deg); }
-
-            .m-acc-body {
-                display: none;
-                padding: 8px 0 4px 19px;
-                border-left: 2px solid rgba(11, 94, 90, 0.12);
-                margin-left: 19px;
-                margin-top: 8px;
-            }
-
-            .m-accordion.open .m-acc-body { display: block; }
-
-            .m-acc-item {
-                display: grid;
-                grid-template-columns: 1fr auto;
-                align-items: center;
-                gap: 10px;
-                padding: 10px 12px;
-                background: #FFFFFF;
-                border: 1px solid rgba(11, 94, 90, 0.10);
-                border-radius: 10px;
-                margin-bottom: 8px;
-            }
-
-            .m-acc-item-info { min-width: 0; }
-
-            .m-acc-item-name {
-                font-size: 0.82rem;
-                font-weight: 600;
-                color: var(--text-dark);
-                line-height: 1.2;
-                margin-bottom: 2px;
-            }
-
-            .m-acc-item-price {
-                font-size: 0.75rem;
-                font-weight: 700;
-                color: var(--primary);
-            }
-
-            .m-acc-item .m-stepper {
-                grid-template-columns: 40px 44px 40px;
-                border-radius: 9px;
-            }
-
-            .m-acc-item .m-stepper button { height: 40px; font-size: 1rem; }
-            .m-acc-item .m-stepper-value { height: 40px; font-size: 0.9rem; }
-
-            /* ---------- ORG AREA TILES ---------- */
-            .org-area-options {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 8px;
-            }
-
-            .org-area-option {
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: center !important;
-                text-align: center;
-                padding: 14px 8px !important;
-                min-height: 96px !important;
-                border-radius: 10px !important;
-                background: #FFFFFF !important;
-                border: 1px solid rgba(11, 94, 90, 0.12) !important;
-                gap: 8px !important;
-                font-size: 0.75rem !important;
-                line-height: 1.2 !important;
-                box-shadow: none !important;
-                position: relative;
-                color: var(--text-dark) !important;
-            }
-
-            .org-area-option > span:last-child {
-                font-weight: 600;
-            }
-
-            .org-area-circle {
-                position: absolute;
-                top: 8px;
-                right: 8px;
-                width: 18px;
-                height: 18px;
-                border: 2px solid rgba(11, 94, 90, 0.28);
-                border-radius: 50%;
-                background: #FFFFFF;
-                flex-shrink: 0;
-            }
-
-            .org-area-option:has(.org-area-checkbox:checked) {
-                border: 2px solid var(--primary) !important;
-                background: #EAF6F4 !important;
-                box-shadow: 0 0 0 3px rgba(11, 94, 90, 0.08) !important;
-            }
-
-            .org-area-checkbox:checked + .org-area-circle {
-                background: var(--primary);
-                border-color: var(--primary);
-            }
-
-            .org-area-checkbox:checked + .org-area-circle::after {
-                content: '\f00c';
-                font-family: 'Font Awesome 6 Free';
-                font-weight: 900;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                color: #FFFFFF;
-                font-size: 9px;
-            }
-
-            /* ---------- NAVIGATION ---------- */
-            .booking-navigation {
-                flex-direction: column-reverse;
-                margin-top: 20px;
-                gap: 10px;
-            }
-
-            .btn-next {
-                width: 100%;
-                border-radius: 10px !important;
-                padding: 15px 20px;
-                font-size: 0.95rem;
-                font-weight: 700;
-                box-shadow: 0 4px 12px rgba(11, 94, 90, 0.16);
-                min-height: 52px;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                gap: 10px;
-            }
-
+            .total-display { padding: 14px 16px; border-radius: 10px; background: #EAF6F4; border: 1px solid rgba(11,94,90,0.14); box-shadow: none; margin-top: 14px; margin-bottom: 4px; gap: 8px; }
+            .total-display span:first-child { font-size: 0.84rem; font-weight: 700; color: var(--text-dark); }
+            .total-display .amount { font-size: 1.3rem; font-weight: 800; color: var(--primary-dark); }
+            .info-note { font-size: 0.7rem; padding: 10px 12px; margin-top: 10px; border-radius: 10px; background: rgba(11,94,90,0.05); text-align: left; line-height: 1.4; }
+            .booking-navigation { flex-direction: column-reverse; margin-top: 16px; gap: 8px; }
+            .btn-next { width: 100%; border-radius: 10px !important; padding: 15px 20px; font-size: 0.94rem; font-weight: 700; box-shadow: 0 4px 12px rgba(11,94,90,0.16); min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
             .btn-next:hover { transform: none; }
-
-            .btn-prev {
-                width: auto;
-                align-self: center;
-                background: transparent;
-                border: none;
-                box-shadow: none;
-                padding: 8px 12px;
-                font-size: 0.85rem;
-                font-weight: 500;
-                color: var(--text-soft);
-                min-height: auto;
-                border-radius: 8px;
-            }
-
-            .btn-prev i { font-size: 0.75rem; }
-
-            .btn-prev:hover { background: rgba(11, 94, 90, 0.04); transform: none; }
-
-            .m-trust {
-                align-items: center;
-                justify-content: center;
-                gap: 6px;
-                font-size: 0.7rem;
-                color: var(--text-light);
-                margin-top: 14px;
-                padding-bottom: 6px;
-                text-align: center;
-                line-height: 1.3;
-            }
-
+            .btn-prev { width: auto; align-self: center; background: transparent; border: none; box-shadow: none; padding: 8px 12px; font-size: 0.85rem; font-weight: 500; color: var(--text-soft); min-height: auto; border-radius: 8px; }
+            .btn-prev i { font-size: 0.72rem; }
+            .btn-prev:hover { background: rgba(11,94,90,0.04); transform: none; }
+            .m-trust { display: flex !important; align-items: center; justify-content: center; gap: 6px; font-size: 0.7rem; color: var(--text-light); margin-top: 12px; padding-bottom: 4px; text-align: center; line-height: 1.3; }
             .m-trust i { color: var(--primary); font-size: 0.75rem; }
-
-            /* ---------- REVIEW STATE ---------- */
-            .m-review-block.active { display: block; }
-
-            .m-review-section {
-                background: #FFFFFF;
-                border: 1px solid rgba(11, 94, 90, 0.10);
-                border-radius: 10px;
-                padding: 14px;
-                margin-bottom: 10px;
-            }
-
-            .m-review-section-head {
-                display: flex;
-                align-items: flex-start;
-                justify-content: space-between;
-                gap: 12px;
-                margin-bottom: 6px;
-            }
-
-            .m-review-label {
-                font-size: 0.7rem;
-                font-weight: 700;
-                letter-spacing: 0.05em;
-                text-transform: uppercase;
-                color: var(--text-soft);
-                display: flex;
-                align-items: center;
-                gap: 6px;
-            }
-
-            .m-review-label i { color: var(--primary); font-size: 0.78rem; }
-
-            .m-review-edit {
-                background: none;
-                border: none;
-                color: var(--primary);
-                font-family: inherit;
-                font-size: 0.8rem;
-                font-weight: 600;
-                padding: 2px 0;
-                cursor: pointer;
-                -webkit-tap-highlight-color: transparent;
-            }
-
-            .m-review-value {
-                font-size: 0.88rem;
-                color: var(--text-dark);
-                line-height: 1.45;
-            }
-
-            .m-review-list {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                font-size: 0.85rem;
-                color: var(--text-dark);
-            }
-
-            .m-review-list li {
-                display: flex;
-                justify-content: space-between;
-                gap: 10px;
-                padding: 4px 0;
-                line-height: 1.35;
-            }
-
-            .m-review-list li span:last-child {
-                font-weight: 700;
-                color: var(--primary-dark);
-                white-space: nowrap;
-            }
-
-            .m-review-trigger {
-                align-items: center;
-                gap: 6px;
-                background: none;
-                border: none;
-                color: var(--primary);
-                font-family: inherit;
-                font-size: 0.88rem;
-                font-weight: 700;
-                padding: 12px 0 4px;
-                cursor: pointer;
-                -webkit-tap-highlight-color: transparent;
-            }
-
-            .m-review-trigger i { font-size: 0.75rem; }
-
-            .m-step-fill-hidden { display: none !important; }
-
-            /* ---------- STEP 2 & STEP 3 MOBILE ---------- */
-            #step2 .form-group,
-            #step3 .form-group { margin-bottom: 16px; }
-
-            #step2 .booking-navigation,
-            #step3 .booking-navigation {
-                flex-direction: column-reverse;
-                margin-top: 18px;
-                gap: 10px;
-            }
-
-            #step2 .booking-navigation .btn-prev,
-            #step3 .booking-navigation .btn-prev {
-                align-self: center;
-                background: transparent;
-                border: none;
-                padding: 8px 12px;
-                font-size: 0.85rem;
-                font-weight: 500;
-                color: var(--text-soft);
-                min-height: auto;
-                border-radius: 8px;
-            }
-
-            #step2 .booking-navigation .btn-next,
-            #step3 .booking-navigation .btn-next {
-                width: 100%;
-                border-radius: 10px !important;
-                min-height: 52px;
-                padding: 15px 20px;
-                font-size: 0.95rem;
-                font-weight: 700;
-            }
-
-            .file-upload-area {
-                padding: 22px 16px;
-                border-radius: 10px;
-                background: #FFFFFF;
-                border: 1.5px dashed rgba(11, 94, 90, 0.24);
-            }
-
-            .file-upload-area i { font-size: 1.4rem; margin-bottom: 6px; }
-
-            .file-upload-area p { font-size: 0.85rem; }
-
-            .file-upload-area p:last-of-type { font-size: 0.72rem !important; line-height: 1.4; }
-
-            .file-item {
-                padding: 8px 10px;
-                border-radius: 10px;
-                font-size: 0.72rem;
-            }
-
-            .file-thumb { width: 40px; height: 40px; border-radius: 8px; }
-
-            .assessment-note {
-                font-size: 0.75rem;
-                padding: 12px 14px;
-                border-radius: 10px;
-                margin-top: 14px;
-                line-height: 1.4;
-            }
-
-            #step3 .form-grid { gap: 16px; margin-bottom: 18px; }
-
-            footer { padding: 26px 0 20px; margin-top: 32px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 18px; margin-bottom: 18px; }
+            .m-carpet-group { background: #FFFFFF; border: 1px solid rgba(11,94,90,0.14); border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
+            .m-carpet-group-title { display: flex !important; align-items: center; gap: 12px; padding: 14px 14px; cursor: pointer; -webkit-tap-highlight-color: transparent; background: #FFFFFF; border: none; width: 100%; font-family: inherit; text-align: left; margin-bottom: 0; font-size: 0.88rem; font-weight: 700; color: var(--text-dark); }
+            .m-carpet-group-title > .m-carpet-icon { flex-shrink: 0; width: 36px; height: 36px; border-radius: 9px; background: rgba(11,94,90,0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.88rem; }
+            .m-carpet-group-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+            .m-carpet-group-sub { font-size: 0.72rem; color: var(--text-light); font-weight: 400; line-height: 1.25; }
+            .m-accordion-chev { color: var(--text-light); font-size: 0.78rem; transition: transform 0.2s ease; flex-shrink: 0; display: inline-block !important; }
+            .m-carpet-group.open .m-accordion-chev { transform: rotate(180deg); }
+            .m-carpet-group .form-grid { display: none; padding: 0 12px 10px; margin-bottom: 0; gap: 8px; }
+            .m-carpet-group.open .form-grid { display: grid; }
+            #step2 .form-group, #step3 .form-group { margin-bottom: 14px; }
+            .file-upload-area { padding: 16px 14px; border-radius: 10px; background: #FFFFFF; border: 1.5px dashed rgba(11,94,90,0.24); }
+            .file-upload-area i { font-size: 1.3rem; margin-bottom: 6px; }
+            .file-upload-area p { font-size: 0.84rem; margin-bottom: 2px; }
+            .file-upload-area p:last-of-type { font-size: 0.7rem !important; line-height: 1.35; margin-bottom: 0; }
+            .file-item { padding: 6px 9px; border-radius: 8px; font-size: 0.72rem; }
+            .file-thumb { width: 36px; height: 36px; border-radius: 8px; }
+            .assessment-note { font-size: 0.74rem; padding: 10px 12px; border-radius: 10px; margin-top: 12px; line-height: 1.4; }
+            #step3 .form-grid { gap: 14px; margin-bottom: 14px; }
+            .m-review-block.active { display: block !important; }
+            .m-review-section { background: #FFFFFF; border: 1px solid rgba(11,94,90,0.10); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
+            .m-review-section-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+            .m-review-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-soft); }
+            .m-review-edit { background: none; border: none; color: var(--primary); font-family: inherit; font-size: 0.78rem; font-weight: 600; padding: 2px 0; cursor: pointer; }
+            .m-review-value { font-size: 0.86rem; color: var(--text-dark); line-height: 1.4; }
+            .m-review-list { list-style: none; margin: 0; padding: 0; font-size: 0.84rem; color: var(--text-dark); }
+            .m-review-list li { display: flex; justify-content: space-between; gap: 10px; padding: 3px 0; line-height: 1.3; }
+            .m-review-list li span:last-child { font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+            .m-review-trigger { display: inline-flex !important; align-items: center; gap: 5px; background: none; border: none; color: var(--primary); font-family: inherit; font-size: 0.86rem; font-weight: 700; padding: 10px 0 2px; cursor: pointer; }
+            .m-review-trigger i { font-size: 0.72rem; }
+            .m-fill-hidden { display: none !important; }
+            footer { display: none; }
         }
-
         @media (max-width: 380px) {
             .container { padding: 0 14px; }
-            .m-service-intro-icon { width: 46px; height: 46px; font-size: 1.05rem; }
-            .m-service-intro-title { font-size: 1.05rem; }
-            .addons-grid { gap: 6px; }
-            .addon-checkbox { min-height: 60px; padding: 8px; }
-            .addon-icon { width: 30px; height: 30px; }
-            .addon-title { font-size: 0.72rem; }
-            .addon-price { font-size: 0.72rem; }
-            .condition-option { min-height: 88px; padding: 10px 4px; }
-            .condition-option h4 { font-size: 0.72rem; }
-            .condition-option p { font-size: 0.58rem; }
-            .m-stepper { grid-template-columns: 48px 1fr 48px; }
+            .condition-option { min-height: 72px; padding: 8px 3px; }
+            .condition-option h4 { font-size: 0.68rem; }
+            .condition-option p { font-size: 0.56rem; }
+            .addon-checkbox { min-height: 52px; padding: 7px 8px; }
+            .addon-icon { width: 26px; height: 26px; border-radius: 7px; }
+            .addon-title { font-size: 0.7rem; }
+            .addon-price { font-size: 0.7rem; }
+            .m-step-wrap { grid-template-columns: 42px minmax(0, 1fr) 42px; }
         }
     </style>
 </head>
@@ -1764,11 +322,9 @@
                     <span class="logo-secondary">Services Ltd</span>
                 </div>
             </a>
-
             <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
                 <span></span><span></span><span></span>
             </div>
-
             <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="index.html#services">Services</a>
@@ -1776,7 +332,6 @@
                 <a href="index.html#contact">Contact</a>
                 <a href="booking.html" class="btn-nav-mobile active">Book Now</a>
             </div>
-
             <a href="booking.html" class="btn-nav desktop-only">Book Now</a>
         </nav>
     </header>
@@ -1784,23 +339,21 @@
     <div class="booking-page">
         <div class="container">
             <div class="booking-system">
-
-                <div class="m-shell">
-                    <div class="m-shell-top">
-                        <button type="button" class="m-shell-back" id="mobileBackBtn" onclick="mobileBackAction()">
+                <div class="m-mobile-shell">
+                    <div class="m-mobile-shell-top">
+                        <button type="button" class="m-mobile-shell-back" onclick="mobileBackAction()">
                             <i class="fas fa-chevron-left"></i>
                             <span id="mobileBackLabel">Change service</span>
                         </button>
-                        <span class="m-shell-step" id="mobileStepLabel">Step 1 of 3</span>
+                        <span class="m-mobile-shell-step" id="mobileStepLabel">Step 1 of 3</span>
                     </div>
-                    <div class="m-step-title" id="mobileStepTitle">Service Details</div>
-                    <div class="m-progress-bar" id="mobileProgressBar">
+                    <div class="m-mobile-shell-title" id="mobileStepTitle">Service Details</div>
+                    <div class="m-mobile-progress" id="mobileProgressBar">
                         <span class="m-seg active" data-seg="1"></span>
                         <span class="m-seg" data-seg="2"></span>
                         <span class="m-seg" data-seg="3"></span>
                     </div>
                 </div>
-
                 <div class="booking-header">
                     <h3 id="stepTitleHeader">Step 1 — Service Details</h3>
                     <div class="booking-progress">
@@ -1809,33 +362,16 @@
                         <div class="progress-step" id="step3-indicator">3</div>
                     </div>
                 </div>
-
                 <hr class="booking-divider">
-
                 <div class="booking-container">
-
-                    <div class="m-service-intro m-hidden" id="mobileServiceIntro">
-                        <div class="m-service-intro-icon">
-                            <i class="fas fa-broom" id="mobileServiceIntroIcon"></i>
-                        </div>
-                        <div class="m-service-intro-text">
-                            <div class="m-service-intro-title" id="mobileServiceIntroTitle">Residential Cleaning</div>
-                            <div class="m-service-intro-sub" id="mobileServiceIntroSub">Tell us a little about your property.</div>
-                        </div>
-                    </div>
-
                     <div class="booking-step active" id="step1">
                         <div id="dynamic-form-container"></div>
                         <div class="booking-navigation">
                             <a href="index.html" class="btn-prev"><i class="fas fa-arrow-left"></i> Change Service</a>
                             <button class="btn-next" onclick="goToStep(2)">Continue <i class="fas fa-arrow-right"></i></button>
                         </div>
-                        <div class="m-trust">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Your details are used to process your booking request.</span>
-                        </div>
+                        <div class="m-trust"><i class="fas fa-shield-alt"></i><span>Your details are used to process your booking request.</span></div>
                     </div>
-
                     <div class="booking-step" id="step2">
                         <div class="form-group">
                             <label>Upload Photos (Optional)</label>
@@ -1847,59 +383,44 @@
                                 <div class="file-list" id="booking-file-list"></div>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label>Additional Notes</label>
                             <textarea id="booking-notes" rows="2" placeholder="Please mention any access instructions, parking information, pets in the property, clutter or additional areas, special requests..."></textarea>
                         </div>
-
-                        <div class="assessment-note">
-                            <i class="fas fa-clipboard-check"></i> Final price subject to review after site assessment
-                        </div>
-
+                        <div class="assessment-note"><i class="fas fa-clipboard-check"></i> Final price subject to review after site assessment</div>
                         <div class="booking-navigation">
                             <button class="btn-prev" onclick="goToStep(1)"><i class="fas fa-arrow-left"></i> Previous</button>
                             <button class="btn-next" onclick="goToStep(3)">Continue <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
-
                     <div class="booking-step" id="step3">
                         <div class="form-grid">
                             <div class="form-group full-width" id="form-group-name">
                                 <label>Full Name *</label>
                                 <input type="text" id="booking-name" required>
                             </div>
-
                             <div class="form-group" id="form-group-phone">
                                 <label>Phone Number *</label>
                                 <input type="tel" id="booking-phone" required>
                             </div>
-
                             <div class="form-group" id="form-group-email">
                                 <label>Email *</label>
                                 <input type="email" id="booking-email" required>
                             </div>
-
                             <div class="form-group full-width address-postcode-group" id="form-group-address-postcode">
                                 <label>Postcode *</label>
                                 <div class="postcode-autocomplete-container" style="margin-bottom: 14px;">
                                     <input type="text" id="booking-postcode" placeholder="Enter your postcode" autocomplete="off" required>
                                     <div id="postcode-suggestions" class="postcode-suggestions"></div>
                                 </div>
-
                                 <label>Address *</label>
                                 <input type="text" id="booking-address" placeholder="Add house/flat number before the address" required>
-
-                                <small style="color: var(--text-light); font-size: 0.7rem; display: block; margin-top: 6px;">
-                                    <i class="fas fa-info-circle"></i> Select your address, then add your house or flat number before it.
-                                </small>
+                                <small style="color: var(--text-light); font-size: 0.7rem; display: block; margin-top: 6px;"><i class="fas fa-info-circle"></i> Select your address, then add your house or flat number before it.</small>
                             </div>
-
                             <div class="form-group">
                                 <label>Preferred Date</label>
                                 <input type="date" id="booking-date">
                             </div>
-
                             <div class="form-group">
                                 <label>Preferred Time</label>
                                 <select id="booking-time">
@@ -1909,15 +430,11 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="booking-navigation">
                             <button class="btn-prev" onclick="goToStep(2)"><i class="fas fa-arrow-left"></i> Previous</button>
                             <button class="btn-next" onclick="submitBooking()">Submit Booking <i class="fas fa-check"></i></button>
                         </div>
-                        <div class="m-trust">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Your details are used to process your booking request.</span>
-                        </div>
+                        <div class="m-trust"><i class="fas fa-shield-alt"></i><span>Your details are used to process your booking request.</span></div>
                     </div>
                 </div>
             </div>
@@ -1935,7 +452,6 @@
                         <a href="https://www.tiktok.com/@drsparkclean" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
@@ -1945,7 +461,6 @@
                         <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-links">
                     <h4>Legal</h4>
                     <ul>
@@ -1956,10 +471,7 @@
                     </ul>
                 </div>
             </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 Dr Sparkclean Services Ltd. All rights reserved.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Dr Sparkclean Services Ltd. All rights reserved.</p></div>
         </div>
     </footer>
 
@@ -1975,38 +487,28 @@
     <script>
         const POWER_AUTOMATE_URL = 'https://default9677c98995364c8db14d72fa9aa124.c6.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/8a635880b66340db8aff0587b7ef7598/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=WrWFSRHaC14qisKW8ko3W9x5f1uU8LYinCe4blpLAvg';
         const IMGBB_API_KEY = '10f9f4598300a1dafce1b60d16671f8a';
-
         let lastSubmissionTime = 0;
         let selectedService = '';
         let selectedCondition = '';
         let uploadedImageUrls = [];
         let currentStep = 1;
-
         const params = new URLSearchParams(window.location.search);
         const selectedFromUrl = params.get('service');
         const validServices = ['residential', 'tenancy', 'carpet', 'post', 'commercial', 'organisation'];
-
         if (validServices.includes(selectedFromUrl)) {
             selectedService = selectedFromUrl;
         } else {
             document.addEventListener('DOMContentLoaded', function() {
                 showModal('error', 'Service Not Selected', 'Please choose a service from our homepage first.');
-                document.getElementById('dynamic-form-container').innerHTML = `
-                    <div style="text-align:center; padding: 20px;">
-                        <p style="color: var(--text-soft); margin-bottom: 20px;">No service was selected. Please go back and choose a service.</p>
-                        <a href="index.html" class="btn-next" style="display: inline-flex; text-decoration: none; padding: 14px 28px;">← Back to Services</a>
-                    </div>
-                `;
+                document.getElementById('dynamic-form-container').innerHTML = '<div style="text-align:center; padding: 20px;"><p style="color: var(--text-soft); margin-bottom: 20px;">No service was selected. Please go back and choose a service.</p><a href="index.html" class="btn-next" style="display: inline-flex; text-decoration: none; padding: 14px 28px;">← Back to Services</a></div>';
             });
         }
-
         function showModal(type, title, message) {
             const overlay = document.getElementById('modalOverlay');
             const iconDiv = document.getElementById('modalIcon');
             const titleEl = document.getElementById('modalTitle');
             const messageEl = document.getElementById('modalMessage');
             const closeBtn = document.getElementById('modalCloseBtn');
-
             if (type === 'success') {
                 iconDiv.className = 'modal-icon success';
                 iconDiv.innerHTML = '<i class="fas fa-check-circle"></i>';
@@ -2020,37 +522,28 @@
                 messageEl.textContent = message || 'Something went wrong. Please try again.';
                 closeBtn.textContent = 'Okay';
             }
-
             overlay.classList.add('active');
             closeBtn.onclick = () => overlay.classList.remove('active');
             overlay.onclick = (e) => { if (e.target === overlay) overlay.classList.remove('active'); };
         }
-
-        function validateEmail(email) {
-            return /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/.test(email);
-        }
-
+        function validateEmail(email) { return /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/.test(email); }
         function validatePhone(phone) {
             const clean = phone.replace(/[\s\-\(\)]/g, '');
             const ukPattern = /^(07\d{9}|447\d{9})$/;
             const internationalPattern = /^\+\d{8,15}$/;
             return ukPattern.test(clean) || internationalPattern.test(clean) || clean.length >= 10;
         }
-
         function validatePostcode(postcode) {
             if (!postcode || postcode.trim() === '') return false;
             const ukPostcodePattern = /^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/i;
             return ukPostcodePattern.test(postcode.trim().toUpperCase());
         }
-
         function validateBookingPostcodeField(showError = true) {
             const postcodeInput = document.getElementById('booking-postcode');
             const formGroup = document.getElementById('form-group-address-postcode');
             if (!postcodeInput || !formGroup) return false;
-
             const postcode = postcodeInput.value.trim();
             const existingError = formGroup.querySelector('.error-message');
-
             if (!postcode) {
                 formGroup.classList.add('error');
                 if (showError && !existingError) {
@@ -2061,12 +554,10 @@
                 }
                 return false;
             }
-
             if (!validatePostcode(postcode)) {
                 formGroup.classList.add('error');
-                if (existingError) {
-                    existingError.textContent = 'Please enter a valid UK postcode';
-                } else if (showError) {
+                if (existingError) { existingError.textContent = 'Please enter a valid UK postcode'; }
+                else if (showError) {
                     const errorMsg = document.createElement('span');
                     errorMsg.className = 'error-message';
                     errorMsg.textContent = 'Please enter a valid UK postcode';
@@ -2074,12 +565,10 @@
                 }
                 return false;
             }
-
             formGroup.classList.remove('error');
             if (existingError) existingError.remove();
             return true;
         }
-
         function clearFieldErrors() {
             document.querySelectorAll('.form-group.error').forEach(el => {
                 el.classList.remove('error');
@@ -2087,44 +576,30 @@
                 if (existingError) existingError.remove();
             });
         }
-
         function markFieldError(fieldId, labelText) {
-            const formGroup = document.getElementById(`form-group-${fieldId}`);
+            const formGroup = document.getElementById('form-group-' + fieldId);
             if (!formGroup) return;
-
             formGroup.classList.add('error');
-
             if (!formGroup.querySelector('.error-message')) {
                 const errorMsg = document.createElement('span');
                 errorMsg.className = 'error-message';
-                errorMsg.textContent = `${labelText} is required`;
+                errorMsg.textContent = labelText + ' is required';
                 formGroup.appendChild(errorMsg);
             }
         }
-
         async function fetchPostcodeSuggestions(query) {
             if (query.length < 2) return [];
-
             try {
-                const res = await fetch(`https://api.postcodes.io/postcodes/${encodeURIComponent(query)}/autocomplete`);
+                const res = await fetch('https://api.postcodes.io/postcodes/' + encodeURIComponent(query) + '/autocomplete');
                 const data = await res.json();
                 if (data.status === 200) return data.result || [];
-            } catch (err) {
-                console.error(err);
-            }
-
+            } catch (err) { console.error(err); }
             return [];
         }
-
         function showPostcodeSuggestions(list) {
             const container = document.getElementById('postcode-suggestions');
             container.innerHTML = '';
-
-            if (!list.length) {
-                container.classList.remove('show');
-                return;
-            }
-
+            if (!list.length) { container.classList.remove('show'); return; }
             list.forEach(pc => {
                 const item = document.createElement('div');
                 item.className = 'postcode-suggestion-item';
@@ -2136,738 +611,98 @@
                 };
                 container.appendChild(item);
             });
-
             container.classList.add('show');
         }
-
         async function fetchAddresses(postcode) {
             try {
-                const res = await fetch(`https://api.postcodes.io/postcodes/${encodeURIComponent(postcode)}`);
+                const res = await fetch('https://api.postcodes.io/postcodes/' + encodeURIComponent(postcode));
                 const data = await res.json();
-
                 if (data.status !== 200 || !data.result) return;
-
-                const addressParts = [
-                    data.result.admin_ward,
-                    data.result.admin_district,
-                    data.result.region,
-                    data.result.postcode
-                ].filter(Boolean);
-
+                const addressParts = [data.result.admin_ward, data.result.admin_district, data.result.region, data.result.postcode].filter(Boolean);
                 const autoAddress = addressParts.join(', ');
                 const addressField = document.getElementById('booking-address');
-
                 if (addressField) {
                     addressField.value = autoAddress;
                     addressField.focus();
                     addressField.setSelectionRange(0, 0);
                 }
-
                 const formGroup = document.getElementById('form-group-address-postcode');
                 if (formGroup) {
                     formGroup.classList.remove('error');
                     const error = formGroup.querySelector('.error-message');
                     if (error) error.remove();
                 }
-            } catch (err) {
-                console.error('Postcode lookup error:', err);
-            }
+            } catch (err) { console.error('Postcode lookup error:', err); }
         }
-
         async function uploadImageToImgBB(file) {
-            if (!IMGBB_API_KEY || IMGBB_API_KEY === 'PASTE_YOUR_IMGBB_API_KEY_HERE') {
-                console.warn('ImgBB API key missing.');
-                return null;
-            }
-
+            if (!IMGBB_API_KEY || IMGBB_API_KEY === 'PASTE_YOUR_IMGBB_API_KEY_HERE') return null;
             const formData = new FormData();
             formData.append('image', file);
             formData.append('key', IMGBB_API_KEY);
-
             try {
                 const response = await fetch('https://api.imgbb.com/1/upload', { method: 'POST', body: formData });
                 const result = await response.json();
                 if (result.success) return result.data.url;
-                console.error('ImgBB upload failed:', result);
-            } catch (error) {
-                console.error('Upload error:', error);
-            }
-
+            } catch (error) { console.error('Upload error:', error); }
             return null;
         }
-
         function compressImage(file) {
             return new Promise(resolve => {
                 const img = new Image();
                 const reader = new FileReader();
-
                 reader.onload = e => img.src = e.target.result;
-
                 img.onload = () => {
                     const canvas = document.createElement('canvas');
                     const ctx = canvas.getContext('2d');
                     const maxWidth = 1200;
                     const scale = Math.min(1, maxWidth / img.width);
-
                     canvas.width = img.width * scale;
                     canvas.height = img.height * scale;
-
                     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
                     canvas.toBlob(blob => {
                         resolve(new File([blob], file.name.replace(/\.[^/.]+$/, '.jpg'), { type: 'image/jpeg' }));
                     }, 'image/jpeg', 0.72);
                 };
-
                 reader.readAsDataURL(file);
             });
         }
-
         async function handleImageFiles(files) {
             const fileList = document.getElementById('booking-file-list');
             if (!fileList) return;
-
             const selectedFiles = Array.from(files).filter(file => file.type.startsWith('image/'));
-
-            if (!selectedFiles.length) {
-                showModal('error', 'Invalid files', 'Please upload image files only.');
-                return;
-            }
-
-            if (selectedFiles.length > 5) {
-                showModal('error', 'Too many images', 'You can upload up to 5 images only.');
-                return;
-            }
-
+            if (!selectedFiles.length) { showModal('error', 'Invalid files', 'Please upload image files only.'); return; }
+            if (selectedFiles.length > 5) { showModal('error', 'Too many images', 'You can upload up to 5 images only.'); return; }
             fileList.innerHTML = '';
             uploadedImageUrls = [];
-
             const loadingItem = document.createElement('div');
             loadingItem.className = 'file-item';
             loadingItem.innerHTML = '<span><i class="fas fa-spinner fa-pulse"></i> Uploading images...</span>';
             fileList.appendChild(loadingItem);
-
             const results = await Promise.all(selectedFiles.map(async file => {
                 const compressedFile = await compressImage(file);
                 const url = await uploadImageToImgBB(compressedFile);
                 return { file, url };
             }));
-
             if (loadingItem.parentNode) loadingItem.remove();
-
             results.forEach(({ file, url }) => {
                 const fileItem = document.createElement('div');
                 fileItem.className = 'file-item';
                 const previewUrl = URL.createObjectURL(file);
-
                 if (url) {
                     uploadedImageUrls.push(url);
-                    fileItem.innerHTML = `
-                        <img src="${previewUrl}" class="file-thumb" alt="${file.name}">
-                        <span><i class="fas fa-image"></i> ${file.name} <span style="color:#0B5E5A;font-size:0.75rem;">✓ Uploaded</span></span>
-                    `;
+                    fileItem.innerHTML = '<img src="' + previewUrl + '" class="file-thumb" alt="' + file.name + '"><span><i class="fas fa-image"></i> ' + file.name + ' <span style="color:#0B5E5A;font-size:0.75rem;">✓ Uploaded</span></span>';
                 } else {
-                    fileItem.innerHTML = `
-                        <img src="${previewUrl}" class="file-thumb" alt="${file.name}">
-                        <span><i class="fas fa-exclamation-triangle"></i> ${file.name} - Upload failed</span>
-                    `;
+                    fileItem.innerHTML = '<img src="' + previewUrl + '" class="file-thumb" alt="' + file.name + '"><span><i class="fas fa-exclamation-triangle"></i> ' + file.name + ' - Upload failed</span>';
                 }
-
                 fileList.appendChild(fileItem);
             });
         }
-
         function mobileBackAction() {
-            if (currentStep === 1) {
-                window.location.href = 'index.html';
-            } else if (currentStep === 2) {
-                goToStep(1);
-            } else if (currentStep === 3) {
-                goToStep(2);
-            }
+            if (currentStep === 1) { window.location.href = 'index.html'; }
+            else if (currentStep === 2) { goToStep(1); }
+            else if (currentStep === 3) { goToStep(2); }
         }
-
-        function goToStep(step) {
-            currentStep = step;
-
-            for (let i = 1; i <= 3; i++) {
-                document.getElementById(`step${i}`)?.classList.remove('active');
-                document.getElementById(`step${i}-indicator`)?.classList.remove('active', 'completed');
-            }
-
-            document.getElementById(`step${step}`)?.classList.add('active');
-
-            for (let i = 1; i <= step; i++) {
-                const indicator = document.getElementById(`step${i}-indicator`);
-                if (!indicator) continue;
-                if (i < step) indicator.classList.add('completed');
-                else indicator.classList.add('active');
-            }
-
-            const stepTitles = {
-                1: 'Step 1 — Service Details',
-                2: 'Step 2 — Photos & Notes',
-                3: 'Step 3 — Contact Details'
-            };
-
-            document.getElementById('stepTitleHeader').textContent = stepTitles[step] || `Step ${step}`;
-
-            const mobileStepTitleMap = {
-                1: 'Service Details',
-                2: 'Photos & Notes',
-                3: 'Contact Details'
-            };
-            const mTitle = document.getElementById('mobileStepTitle');
-            if (mTitle) mTitle.textContent = mobileStepTitleMap[step] || `Step ${step}`;
-            const mLabel = document.getElementById('mobileStepLabel');
-            if (mLabel) mLabel.textContent = `Step ${step} of 3`;
-
-            const segs = document.querySelectorAll('#mobileProgressBar .m-seg');
-            segs.forEach(seg => {
-                const n = parseInt(seg.getAttribute('data-seg'));
-                seg.classList.remove('active', 'done');
-                if (n < step) seg.classList.add('done');
-                else if (n === step) seg.classList.add('active');
-            });
-
-            const mBackLabel = document.getElementById('mobileBackLabel');
-            if (mBackLabel) {
-                mBackLabel.textContent = step === 1 ? 'Change service' : 'Back';
-            }
-
-            if (step === 1 && typeof enterFillMode === 'function') {
-                enterFillMode();
-            }
-
-            const intro = document.getElementById('mobileServiceIntro');
-            if (intro) {
-                if (step === 1 && selectedService) {
-                    intro.classList.remove('m-hidden');
-                } else {
-                    intro.classList.add('m-hidden');
-                }
-            }
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function updatePrice() {
-            if (selectedService === 'residential' || selectedService === 'tenancy') {
-                const basePrice = parseInt(document.getElementById('property-size')?.value) || 0;
-                const extraBathrooms = parseInt(document.getElementById('extra-bathrooms')?.value) || 0;
-                let addonTotal = 0;
-
-                document.querySelectorAll('.addon:checked').forEach(addon => addonTotal += parseInt(addon.value));
-
-                const total = basePrice + (extraBathrooms * 45) + addonTotal;
-                const totalEl = document.getElementById('estimated-total');
-                if (totalEl) totalEl.textContent = '£' + total;
-            }
-
-            if (selectedService === 'carpet') {
-                const total =
-                    ((parseInt(document.getElementById('carpet-rooms')?.value) || 0) * 70) +
-                    ((parseInt(document.getElementById('armchair')?.value) || 0) * 45) +
-                    ((parseInt(document.getElementById('sofa2')?.value) || 0) * 60) +
-                    ((parseInt(document.getElementById('sofa3')?.value) || 0) * 80) +
-                    ((parseInt(document.getElementById('corner')?.value) || 0) * 100) +
-                    ((parseInt(document.getElementById('mattress-single')?.value) || 0) * 40) +
-                    ((parseInt(document.getElementById('mattress-double')?.value) || 0) * 50) +
-                    ((parseInt(document.getElementById('mattress-king')?.value) || 0) * 60);
-
-                const totalEl = document.getElementById('carpet-total');
-                if (totalEl) {
-                    totalEl.textContent = '£' + total;
-                    totalEl.setAttribute('data-value', total);
-                }
-
-                updateCarpetAccordionSummaries();
-            }
-
-            if (selectedService === 'organisation') {
-                const hours = parseInt(document.getElementById('org-hours')?.value) || 3;
-                const total = Math.max(hours, 3) * 45;
-
-                const totalEl = document.getElementById('org-total');
-                if (totalEl) {
-                    totalEl.textContent = '£' + total;
-                    totalEl.setAttribute('data-value', total);
-                }
-            }
-        }
-
-        function selectCondition(condition, element) {
-            selectedCondition = condition;
-            document.querySelectorAll('.condition-option').forEach(opt => opt.classList.remove('selected'));
-            if (element) element.classList.add('selected');
-        }
-
-        function loadServiceForm() {
-            const container = document.getElementById('dynamic-form-container');
-            let formHtml = '';
-
-            switch (selectedService) {
-                case 'residential': formHtml = getResidentialForm(); break;
-                case 'tenancy': formHtml = getTenancyForm(); break;
-                case 'carpet': formHtml = getCarpetForm(); break;
-                case 'post': formHtml = getPostConstructionForm(); break;
-                case 'commercial': formHtml = getCommercialForm(); break;
-                case 'organisation': formHtml = getOrganisationForm(); break;
-                default: formHtml = '<p>Please select a service first.</p>';
-            }
-
-            container.innerHTML = formHtml;
-
-            updateMobileServiceIntro();
-
-            setTimeout(() => {
-                document.querySelectorAll('#property-size, #extra-bathrooms, .addon, #carpet-rooms, #armchair, #sofa2, #sofa3, #corner, #mattress-single, #mattress-double, #mattress-king, #org-hours')
-                    .forEach(el => el.addEventListener('input', updatePrice));
-
-                document.querySelectorAll('#property-size, .addon')
-                    .forEach(el => el.addEventListener('change', updatePrice));
-
-                attachMobileHelpers();
-
-                updatePrice();
-            }, 50);
-        }
-
-        const SERVICE_META = {
-            residential: { icon: 'fa-home', title: 'Residential Cleaning', sub: 'Tell us a little about your property.' },
-            tenancy: { icon: 'fa-key', title: 'End of Tenancy Cleaning', sub: 'Help us prepare your quote. Tell us about the property.' },
-            carpet: { icon: 'fa-couch', title: 'Carpet & Upholstery Cleaning', sub: 'Select a category to add items to your quote.' },
-            post: { icon: 'fa-hard-hat', title: 'Post-Construction Cleaning', sub: 'Tell us about the project.' },
-            commercial: { icon: 'fa-building', title: 'Commercial Cleaning', sub: 'Tell us about your business.' },
-            organisation: { icon: 'fa-box', title: 'Home Organisation', sub: 'Tell us what you need help with and we\'ll get everything in order.' }
-        };
-
-        function updateMobileServiceIntro() {
-            const meta = SERVICE_META[selectedService];
-            if (!meta) return;
-            const icon = document.getElementById('mobileServiceIntroIcon');
-            const title = document.getElementById('mobileServiceIntroTitle');
-            const sub = document.getElementById('mobileServiceIntroSub');
-            const intro = document.getElementById('mobileServiceIntro');
-            if (icon) icon.className = `fas ${meta.icon}`;
-            if (title) title.textContent = meta.title;
-            if (sub) sub.textContent = meta.sub;
-            if (intro) {
-                if (currentStep === 1) {
-                    intro.classList.remove('m-hidden');
-                } else {
-                    intro.classList.add('m-hidden');
-                }
-            }
-        }
-
-        function getResidentialForm() {
-            return `
-                <div class="form-grid m-fill-section">
-                    <div class="form-group">
-                        <label>Property Size</label>
-                        <select id="property-size">
-                            <option value="" selected>Select property size (optional)</option>
-                            <option value="135">Kitchen Only (No Appliances) — £135</option>
-                            <option value="200">Studio (1 Bathroom) — £200</option>
-                            <option value="230">1 Bedroom / 1 Bathroom — £230</option>
-                            <option value="270">2 Bedrooms / 1 Bathroom — £270</option>
-                            <option value="330">3 Bedrooms / 1 Bathroom — £330</option>
-                            <option value="415">4 Bedrooms / 1 Bathroom — £415</option>
-                            <option value="490">5 Bedrooms / 1 Bathroom — £490</option>
-                            <option value="570">6 Bedrooms / 1 Bathroom — £570</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Extra Bathrooms (£45 each)</label>
-                        <div class="m-stepper m-mobile-only" data-stepper="extra-bathrooms">
-                            <button type="button" aria-label="Decrease bathrooms" onclick="stepperChange('extra-bathrooms', -1)">−</button>
-                            <span class="m-stepper-value" id="extra-bathrooms-display">0</span>
-                            <button type="button" aria-label="Increase bathrooms" onclick="stepperChange('extra-bathrooms', 1)">+</button>
-                        </div>
-                        <input type="number" id="extra-bathrooms" min="0" value="0">
-                    </div>
-                </div>
-                ${getConditionBlock()}
-                ${getAddonsBlock('£0')}
-                ${getReviewBlockTemplate()}
-            `;
-        }
-
-        function getTenancyForm() {
-            return `
-                <div class="form-grid m-fill-section">
-                    <div class="form-group">
-                        <label>Property Size</label>
-                        <select id="property-size">
-                            <option value="" selected>Select property size (optional)</option>
-                            <option value="135">Kitchen Only (No Appliances) — £135</option>
-                            <option value="210">Studio (1 Bathroom) — £210</option>
-                            <option value="250">1 Bedroom / 1 Bathroom — £250</option>
-                            <option value="300">2 Bedrooms / 1 Bathroom — £300</option>
-                            <option value="360">3 Bedrooms / 1 Bathroom — £360</option>
-                            <option value="450">4 Bedrooms / 1 Bathroom — £450</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Extra Bathrooms (£45 each)</label>
-                        <div class="m-stepper m-mobile-only" data-stepper="extra-bathrooms">
-                            <button type="button" aria-label="Decrease bathrooms" onclick="stepperChange('extra-bathrooms', -1)">−</button>
-                            <span class="m-stepper-value" id="extra-bathrooms-display">0</span>
-                            <button type="button" aria-label="Increase bathrooms" onclick="stepperChange('extra-bathrooms', 1)">+</button>
-                        </div>
-                        <input type="number" id="extra-bathrooms" min="0" value="0">
-                    </div>
-                </div>
-                ${getConditionBlock()}
-                ${getAddonsBlock('£0')}
-                ${getReviewBlockTemplate()}
-            `;
-        }
-
-        function getConditionBlock() {
-            return `
-                <div class="form-group full-width m-fill-section">
-                    <label class="condition-title"><i class="fas fa-sparkles"></i> Property Condition</label>
-                    <div class="condition-options">
-                        <div class="condition-option" onclick="selectCondition('light', this)" role="button" tabindex="0">
-                            <i class="fas fa-home m-cond-icon"></i>
-                            <h4>Lightly Used</h4><p>Minimal wear and tear</p>
-                        </div>
-                        <div class="condition-option" onclick="selectCondition('average', this)" role="button" tabindex="0">
-                            <i class="fas fa-house-chimney m-cond-icon"></i>
-                            <h4>Average Condition</h4><p>Normal everyday use</p>
-                        </div>
-                        <div class="condition-option" onclick="selectCondition('heavy', this)" role="button" tabindex="0">
-                            <i class="fas fa-house-chimney-window m-cond-icon"></i>
-                            <h4>Heavily Soiled</h4><p>Requires extra attention</p>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function getAddonsBlock(startingTotal) {
-            return `
-                <div class="price-calculator m-fill-section">
-                    <h4><i class="fas fa-plus"></i> Optional Add-Ons</h4>
-                    <div class="addons-grid">
-                        ${addon('70', 'oven-icon', 'fa-fire', 'Single Oven', '£70', 0)}
-                        ${addon('85', 'oven-icon', 'fa-fire', 'Double Oven', '£85', 1)}
-                        ${addon('35', 'extractor-icon', 'fa-wind', 'Extractor Hood', '£35', 2)}
-                        ${addon('40', 'fridge-icon', 'fa-temperature-low', 'Fridge', '£40', 3)}
-                        ${addon('30', 'pet-icon', 'fa-dog', 'Pet Hair Removal', '£30', 4)}
-                        ${addon('30', 'stairs-icon', 'fa-stairs', 'Stairs', '£30', 5)}
-                        ${addon('45', 'declutter-icon', 'fa-box-open', 'Declutter', '£45/hr', 6)}
-                        ${addon('100', 'combo-icon', 'fa-fire', 'Oven + Hood', '£100', 7)}
-                    </div>
-                    <button type="button" class="m-show-more m-mobile-only" onclick="toggleShowMore(this)">
-                        <span class="m-show-more-label">Show 4 more</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="total-display">
-                        <span>Estimated Total:</span>
-                        <span class="amount" id="estimated-total">${startingTotal}</span>
-                    </div>
-                    <div class="info-note"><i class="fas fa-info-circle"></i> If your property includes areas not listed in the standard pricing, please contact us for a custom quote.</div>
-                </div>
-            `;
-        }
-
-        function addon(value, iconClass, icon, title, price, index) {
-            const hideClass = index >= 4 ? ' m-addon-hidden' : '';
-            return `
-                <label class="addon-checkbox${hideClass}" data-addon-index="${index}">
-                    <input type="checkbox" class="addon" value="${value}">
-                    <div class="addon-icon ${iconClass}"><i class="fas ${icon}"></i></div>
-                    <div class="addon-content">
-                        <span class="addon-title">${title}</span>
-                        <span class="addon-price">${price}</span>
-                    </div>
-                </label>
-            `;
-        }
-
-        function getCarpetForm() {
-            return `
-                <div class="m-mobile-only">
-                    <div class="m-accordion" data-acc="carpet">
-                        <button type="button" class="m-acc-row" onclick="toggleAccordion(this)">
-                            <div class="m-acc-left">
-                                <div class="m-acc-icon"><i class="fas fa-rug"></i></div>
-                                <div class="m-acc-text">
-                                    <div class="m-acc-name">Carpet Cleaning</div>
-                                    <div class="m-acc-sub">£70 per room</div>
-                                    <div class="m-acc-summary" id="acc-summary-carpet"></div>
-                                </div>
-                            </div>
-                            <i class="fas fa-chevron-down m-acc-chev"></i>
-                        </button>
-                        <div class="m-acc-body">
-                            <div class="m-acc-item">
-                                <div class="m-acc-item-info">
-                                    <div class="m-acc-item-name">Carpet (per room)</div>
-                                    <div class="m-acc-item-price">£70</div>
-                                </div>
-                                <div class="m-stepper">
-                                    <button type="button" onclick="stepperChange('carpet-rooms', -1)">−</button>
-                                    <span class="m-stepper-value" id="carpet-rooms-display">0</span>
-                                    <button type="button" onclick="stepperChange('carpet-rooms', 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="m-accordion" data-acc="upholstery">
-                        <button type="button" class="m-acc-row" onclick="toggleAccordion(this)">
-                            <div class="m-acc-left">
-                                <div class="m-acc-icon"><i class="fas fa-couch"></i></div>
-                                <div class="m-acc-text">
-                                    <div class="m-acc-name">Upholstery Cleaning</div>
-                                    <div class="m-acc-sub">Armchairs &amp; sofas</div>
-                                    <div class="m-acc-summary" id="acc-summary-upholstery"></div>
-                                </div>
-                            </div>
-                            <i class="fas fa-chevron-down m-acc-chev"></i>
-                        </button>
-                        <div class="m-acc-body">
-                            <div class="m-acc-item">
-                                <div class="m-acc-item-info">
-                                    <div class="m-acc-item-name">Armchair</div>
-                                    <div class="m-acc-item-price">£45</div>
-                                </div>
-                                <div class="m-stepper">
-                                    <button type="button" onclick="stepperChange('armchair', -1)">−</button>
-                                    <span class="m-stepper-value" id="armchair-display">0</span>
-                                    <button type="button" onclick="stepperChange('armchair', 1)">+</button>
-                                </div>
-                            </div>
-                            <div class="m-acc-item">
-                                <div class="m-acc-item-info">
-                                    <div class="m-acc-item-name">2-Seater Sofa</div>
-                                    <div class="m-acc-item-price">£60</div>
-                                </div>
-                                <div class="m-stepper">
-                                    <button type="button" onclick="stepperChange('sofa2', -1)">−</button>
-                                    <span class="m-stepper-value" id="sofa2-display">0</span>
-                                    <button type="button" onclick="stepperChange('sofa2', 1)">+</button>
-                                </div>
-                            </div>
-                            <div class="m-acc-item">
-                                <div class="m-acc-item-info">
-                                    <div class="m-acc-item-name">3-Seater Sofa</div>
-                                    <div class="m-acc-item-price">£80</div>
-                                </div>
-                                <div class="m-stepper">
-                                    <button type="button" onclick="stepperChange('sofa3', -1)">−</button>
-                                    <span class="m-stepper-value" id="sofa3-display">0</span>
-                                    <button type="button" onclick="stepperChange('sofa3', 1)">+</button>
-                                </div>
-                            </div>
-                            <div class="m-acc-item">
-                                <div class="m-acc-item-info">
-                                    <div class="m-acc-item-name">Corner Sofa</div>
-                                    <div class="m-acc-item-price">£100</div>
-                                </div>
-                                <div class="m-stepper">
-                                    <button type="button" onclick="stepperChange('corner', -1)">−</button>
-                                    <span class="m-stepper-value" id="corner-display">0</span>
-                                    <button type="button" onclick="stepperChange('corner', 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="m-accordion" data-acc="mattress">
-                        <button type="button" class="m-acc-row" onclick="toggleAccordion(this)">
-                            <div class="m-acc-left">
-                                <div class="m-acc-icon"><i class="fas fa-bed"></i></div>
-                                <div class="m-acc-text">
-                                    <div class="m-acc-name">Mattress Cleaning</div>
-                                    <div class="m-acc-sub">Single, double &amp; king</div>
-                                    <div class="m-acc-summary" id="acc-summary-mattress"></div>
-                                </div>
-                            </div>
-                            <i class="fas fa-chevron-down m-acc-chev"></i>
-                        </button>
-                        <div class="m-acc-body">
-                            <div class="m-acc-item">
-                                <div class="m-acc-item-info">
-                                    <div class="m-acc-item-name">Single Mattress</div>
-                                    <div class="m-acc-item-price">£40</div>
-                                </div>
-                                <div class="m-stepper">
-                                    <button type="button" onclick="stepperChange('mattress-single', -1)">−</button>
-                                    <span class="m-stepper-value" id="mattress-single-display">0</span>
-                                    <button type="button" onclick="stepperChange('mattress-single', 1)">+</button>
-                                </div>
-                            </div>
-                            <div class="m-acc-item">
-                                <div class="m-acc-item-info">
-                                    <div class="m-acc-item-name">Double Mattress</div>
-                                    <div class="m-acc-item-price">£50</div>
-                                </div>
-                                <div class="m-stepper">
-                                    <button type="button" onclick="stepperChange('mattress-double', -1)">−</button>
-                                    <span class="m-stepper-value" id="mattress-double-display">0</span>
-                                    <button type="button" onclick="stepperChange('mattress-double', 1)">+</button>
-                                </div>
-                            </div>
-                            <div class="m-acc-item">
-                                <div class="m-acc-item-info">
-                                    <div class="m-acc-item-name">King Mattress</div>
-                                    <div class="m-acc-item-price">£60</div>
-                                </div>
-                                <div class="m-stepper">
-                                    <button type="button" onclick="stepperChange('mattress-king', -1)">−</button>
-                                    <span class="m-stepper-value" id="mattress-king-display">0</span>
-                                    <button type="button" onclick="stepperChange('mattress-king', 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="total-display">
-                        <span>Estimated Total:</span>
-                        <span class="amount" id="carpet-total" data-value="0">£0</span>
-                    </div>
-                </div>
-
-                <div class="form-grid">
-                    ${numberField('carpet-rooms', 'fa-rug', 'Carpet Cleaning (per room) — £70')}
-                    ${numberField('armchair', 'fa-chair', 'Armchair — £45')}
-                    ${numberField('sofa2', 'fa-couch', '2-Seater Sofa — £60')}
-                    ${numberField('sofa3', 'fa-couch', '3-Seater Sofa — £80')}
-                    ${numberField('corner', 'fa-couch', 'Corner Sofa — £100')}
-                    ${numberField('mattress-single', 'fa-bed', 'Single Mattress — £40')}
-                    ${numberField('mattress-double', 'fa-bed', 'Double Mattress — £50')}
-                    ${numberField('mattress-king', 'fa-bed', 'King Mattress — £60')}
-                </div>
-            `;
-        }
-
-        function numberField(id, icon, label) {
-            return `
-                <div class="form-group">
-                    <label><i class="fas ${icon}"></i> ${label}</label>
-                    <input type="number" id="${id}" min="0" value="0">
-                </div>
-            `;
-        }
-
-        function getPostConstructionForm() {
-            return `
-                <div class="form-grid m-fill-section">
-                    <div class="form-group full-width">
-                        <label><i class="fas fa-hard-hat"></i> Property Type</label>
-                        <select id="post-property-type">
-                            <option value="">Select property type</option>
-                            <option value="new">Newly built home</option>
-                            <option value="renovated">Renovated property</option>
-                            <option value="development">Property development</option>
-                            <option value="commercial">Commercial renovation</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-ruler-combined"></i> Property Size</label>
-                        <select id="post-size">
-                            <option value="">Select size</option>
-                            <option value="small">Small property / apartment — from £200</option>
-                            <option value="medium">Medium (2–3 bedrooms) — from £300</option>
-                            <option value="large">Large (4+ bedrooms) — from £450</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-tools"></i> Project Type</label>
-                        <input type="text" id="post-project-type" placeholder="e.g., Full renovation">
-                    </div>
-                </div>
-            `;
-        }
-
-        function getCommercialForm() {
-            return `
-                <div class="form-grid m-fill-section">
-                    <div class="form-group full-width">
-                        <label><i class="fas fa-building"></i> Business Name</label>
-                        <input type="text" id="com-business-name" placeholder="Your business name">
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-store"></i> Business Type</label>
-                        <input type="text" id="com-business-type" placeholder="e.g., Office, Retail">
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-ruler-combined"></i> Approximate Size (sq ft)</label>
-                        <input type="text" id="com-size" placeholder="e.g., 1000 sq ft">
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-calendar-alt"></i> Cleaning Frequency</label>
-                        <select id="com-frequency">
-                            <option value="">Select frequency</option>
-                            <option value="oneoff">One-off clean</option>
-                            <option value="weekly">Weekly</option>
-                            <option value="biweekly">Bi-weekly</option>
-                            <option value="monthly">Monthly</option>
-                        </select>
-                    </div>
-                </div>
-            `;
-        }
-
-        function getOrganisationForm() {
-            const areas = [
-                { name: 'Wardrobe / Closet', icon: 'fa-shirt' },
-                { name: 'Kitchen / Pantry', icon: 'fa-utensils' },
-                { name: 'Living Room', icon: 'fa-couch' },
-                { name: 'Bedroom', icon: 'fa-bed' },
-                { name: 'Home Office', icon: 'fa-briefcase' },
-                { name: 'Garage / Storage', icon: 'fa-warehouse' }
-            ];
-            return `
-                <div class="form-grid m-fill-section">
-                    <div class="form-group full-width">
-                        <label><i class="fas fa-clock"></i> Estimated Hours (minimum 3)</label>
-                        <div class="m-stepper m-mobile-only" data-stepper="org-hours">
-                            <button type="button" onclick="stepperChange('org-hours', -1, 3)">−</button>
-                            <span class="m-stepper-value" id="org-hours-display">3</span>
-                            <button type="button" onclick="stepperChange('org-hours', 1, 3)">+</button>
-                        </div>
-                        <input type="number" id="org-hours" min="3" value="3">
-                        <div class="info-note" style="margin-top:10px;">Minimum 3 hours · £45 per hour</div>
-                    </div>
-                    <div class="form-group full-width">
-                        <label><i class="fas fa-warehouse"></i> Areas to Organise</label>
-                        <div class="org-area-options">
-                            ${areas.map(area => `
-                                <label class="org-area-option">
-                                    <input type="checkbox" class="org-area-checkbox" value="${area.name}">
-                                    <span class="org-area-circle"></span>
-                                    <i class="fas ${area.icon}" style="font-size:1rem;color:var(--primary);" aria-hidden="true"></i>
-                                    <span>${area.name}</span>
-                                </label>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-                <div class="total-display">
-                    <span>Estimated Total:</span>
-                    <span class="amount" id="org-total" data-value="135">£135</span>
-                </div>
-                ${getReviewBlockTemplate()}
-            `;
-        }
-
-        function getReviewBlockTemplate() {
-            return `
-                <div class="m-review-block" id="m-review-block"></div>
-                <button type="button" class="m-review-trigger m-mobile-only m-fill-trigger" onclick="enterReviewMode()">
-                    <span>Review selection</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            `;
-        }
-
-        function stepperChange(inputId, delta, min) {
+        function mStepCounter(inputId, delta, min) {
             const input = document.getElementById(inputId);
             if (!input) return;
             const minVal = typeof min === 'number' ? min : (input.min !== '' ? parseInt(input.min) : 0);
@@ -2875,168 +710,67 @@
             val = val + delta;
             if (val < minVal) val = minVal;
             input.value = val;
-
-            const display = document.getElementById(inputId + '-display');
-            if (display) display.textContent = val;
-
-            updatePrice();
-            updateCarpetAccordionSummaries();
-            refreshReviewIfOpen();
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+            input.dispatchEvent(new Event('change', { bubbles: true }));
+            if (typeof updateMobileCarpetSummaries === 'function') updateMobileCarpetSummaries();
         }
-
-        function toggleAccordion(btn) {
-            const acc = btn.closest('.m-accordion');
-            if (!acc) return;
-            acc.classList.toggle('open');
+        function toggleAccordionGroup(headerEl) {
+            const group = headerEl.closest('.m-carpet-group');
+            if (!group) return;
+            group.classList.toggle('open');
+            if (typeof updateMobileCarpetSummaries === 'function') updateMobileCarpetSummaries();
         }
-
-        function toggleShowMore(btn) {
-            btn.classList.toggle('open');
-            const grid = btn.previousElementSibling;
-            if (!grid) return;
-            const hidden = grid.querySelectorAll('.m-addon-hidden');
-            hidden.forEach(el => el.classList.toggle('m-addon-hidden'));
+        function toggleAddonMore(btn) {
+            const wrap = btn.closest('.price-calculator');
+            if (!wrap) return;
+            const extras = wrap.querySelectorAll('.m-addon-extra-mobile-hide');
+            const isOpen = btn.classList.toggle('open');
+            extras.forEach(el => el.classList.toggle('m-addon-extra-mobile-hide', !isOpen));
             const label = btn.querySelector('.m-show-more-label');
-            if (label) {
-                label.textContent = btn.classList.contains('open') ? 'Show less' : 'Show 4 more';
-            }
+            if (label) label.textContent = isOpen ? 'Show less' : 'Show 4 more';
         }
-
-        function updateCarpetAccordionSummaries() {
+        function updateMobileCarpetSummaries() {
             if (selectedService !== 'carpet') return;
-            const rows = [
-                { id: 'carpet-rooms', label: 'Carpet', target: 'acc-summary-carpet', price: 70 },
-                { id: 'armchair', label: 'Armchair', target: 'acc-summary-upholstery', price: 45 },
-                { id: 'sofa2', label: '2-Seater Sofa', target: 'acc-summary-upholstery', price: 60 },
-                { id: 'sofa3', label: '3-Seater Sofa', target: 'acc-summary-upholstery', price: 80 },
-                { id: 'corner', label: 'Corner Sofa', target: 'acc-summary-upholstery', price: 100 },
-                { id: 'mattress-single', label: 'Single Mattress', target: 'acc-summary-mattress', price: 40 },
-                { id: 'mattress-double', label: 'Double Mattress', target: 'acc-summary-mattress', price: 50 },
-                { id: 'mattress-king', label: 'King Mattress', target: 'acc-summary-mattress', price: 60 }
+            const groups = [
+                { titleEl: 'm-carpet-sub-carpet', items: [{ id: 'carpet-rooms', label: 'Carpet' }] },
+                { titleEl: 'm-carpet-sub-upholstery', items: [{ id: 'armchair', label: 'Armchair' }, { id: 'sofa2', label: '2-Seater' }, { id: 'sofa3', label: '3-Seater' }, { id: 'corner', label: 'Corner' }] },
+                { titleEl: 'm-carpet-sub-mattress', items: [{ id: 'mattress-single', label: 'Single' }, { id: 'mattress-double', label: 'Double' }, { id: 'mattress-king', label: 'King' }] }
             ];
-            const buckets = {};
-            rows.forEach(r => {
-                const el = document.getElementById(r.id);
-                const val = parseInt(el?.value) || 0;
-                if (val > 0) {
-                    if (!buckets[r.target]) buckets[r.target] = { count: 0, total: 0, parts: [] };
-                    buckets[r.target].count += val;
-                    buckets[r.target].total += val * r.price;
-                    buckets[r.target].parts.push(`${val} × ${r.label}`);
-                }
-            });
-            ['acc-summary-carpet', 'acc-summary-upholstery', 'acc-summary-mattress'].forEach(id => {
-                const el = document.getElementById(id);
+            groups.forEach(g => {
+                const el = document.getElementById(g.titleEl);
                 if (!el) return;
-                const b = buckets[id];
-                if (b) {
-                    el.textContent = `${b.parts.join(', ')} — £${b.total}`;
-                } else {
-                    el.textContent = '';
-                }
-            });
-        }
-
-        function attachMobileHelpers() {
-            document.querySelectorAll('input[type="number"]').forEach(inp => {
-                if (inp.dataset.mobAttached === '1') return;
-                inp.dataset.mobAttached = '1';
-                inp.addEventListener('input', () => {
-                    const display = document.getElementById(inp.id + '-display');
-                    if (display) display.textContent = parseInt(inp.value) || 0;
+                const parts = [];
+                g.items.forEach(it => {
+                    const v = parseInt(document.getElementById(it.id)?.value) || 0;
+                    if (v > 0) parts.push(v + ' × ' + it.label);
                 });
+                el.textContent = parts.length ? parts.join(', ') : '';
             });
         }
-
-        function enterReviewMode() {
-            const reviewBlock = document.getElementById('m-review-block');
-            if (!reviewBlock) return;
-            reviewBlock.innerHTML = buildReviewHtml();
-            reviewBlock.classList.add('active');
-
-            document.querySelectorAll('.m-fill-section').forEach(el => el.classList.add('m-step-fill-hidden'));
-            document.querySelectorAll('.m-fill-trigger').forEach(el => el.classList.add('m-step-fill-hidden'));
-
-            const intro = document.getElementById('mobileServiceIntro');
-            if (intro) intro.classList.add('m-hidden');
-
-            const stepTitle = document.getElementById('mobileStepTitle');
-            if (stepTitle) stepTitle.textContent = 'Review your selection';
-        }
-
-        function enterFillMode() {
-            const reviewBlock = document.getElementById('m-review-block');
-            if (reviewBlock) {
-                reviewBlock.classList.remove('active');
-                reviewBlock.innerHTML = '';
-            }
-            document.querySelectorAll('.m-fill-section').forEach(el => el.classList.remove('m-step-fill-hidden'));
-            document.querySelectorAll('.m-fill-trigger').forEach(el => el.classList.remove('m-step-fill-hidden'));
-
-            if (selectedService && currentStep === 1) {
-                const intro = document.getElementById('mobileServiceIntro');
-                if (intro) intro.classList.remove('m-hidden');
-            }
-
-            const stepTitle = document.getElementById('mobileStepTitle');
-            if (stepTitle) stepTitle.textContent = 'Service Details';
-        }
-
-        function refreshReviewIfOpen() {
-            const reviewBlock = document.getElementById('m-review-block');
-            if (reviewBlock && reviewBlock.classList.contains('active')) {
-                reviewBlock.innerHTML = buildReviewHtml();
-            }
-        }
-
-        function buildReviewHtml() {
+        function buildMobileReview() {
             if (selectedService === 'residential' || selectedService === 'tenancy') {
                 const propSel = document.getElementById('property-size');
                 const propText = propSel && propSel.value ? propSel.options[propSel.selectedIndex].text : 'Not selected';
                 const baths = parseInt(document.getElementById('extra-bathrooms')?.value) || 0;
                 const condLabels = { light: 'Lightly Used', average: 'Average Condition', heavy: 'Heavily Soiled' };
                 const cond = selectedCondition ? (condLabels[selectedCondition] || selectedCondition) : 'Not selected';
-
                 const addonRows = [];
                 document.querySelectorAll('.addon:checked').forEach(a => {
                     const wrap = a.closest('.addon-checkbox');
                     const t = wrap?.querySelector('.addon-title')?.textContent || '';
                     const p = wrap?.querySelector('.addon-price')?.textContent || '';
-                    addonRows.push(`<li><span>${t}</span><span>${p}</span></li>`);
+                    addonRows.push('<li><span>' + t + '</span><span>' + p + '</span></li>');
                 });
-
                 const total = document.getElementById('estimated-total')?.textContent || '£0';
-
-                return `
-                    <div class="m-review-section">
-                        <div class="m-review-section-head">
-                            <div class="m-review-label"><i class="fas fa-home"></i> Your Property</div>
-                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
-                        </div>
-                        <div class="m-review-value">${propText}<br>Extra bathrooms: ${baths}</div>
-                    </div>
-                    <div class="m-review-section">
-                        <div class="m-review-section-head">
-                            <div class="m-review-label"><i class="fas fa-sparkles"></i> Property Condition</div>
-                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
-                        </div>
-                        <div class="m-review-value">${cond}</div>
-                    </div>
-                    ${addonRows.length ? `
-                    <div class="m-review-section">
-                        <div class="m-review-section-head">
-                            <div class="m-review-label"><i class="fas fa-plus"></i> Add-Ons</div>
-                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
-                        </div>
-                        <ul class="m-review-list">${addonRows.join('')}</ul>
-                    </div>` : ''}
-                    <div class="total-display">
-                        <span>Estimated total</span>
-                        <span class="amount">${total}</span>
-                    </div>
-                `;
+                let html = '';
+                html += '<div class="m-review-section"><div class="m-review-section-head"><div class="m-review-label">Your Property</div><button type="button" class="m-review-edit" onclick="exitMobileReview()">Edit</button></div><div class="m-review-value">' + propText + '<br>Extra bathrooms: ' + baths + '</div></div>';
+                html += '<div class="m-review-section"><div class="m-review-section-head"><div class="m-review-label">Property Condition</div><button type="button" class="m-review-edit" onclick="exitMobileReview()">Edit</button></div><div class="m-review-value">' + cond + '</div></div>';
+                if (addonRows.length) {
+                    html += '<div class="m-review-section"><div class="m-review-section-head"><div class="m-review-label">Add-Ons</div><button type="button" class="m-review-edit" onclick="exitMobileReview()">Edit</button></div><ul class="m-review-list">' + addonRows.join('') + '</ul></div>';
+                }
+                html += '<div class="total-display"><span>Estimated total</span><span class="amount">' + total + '</span></div>';
+                return html;
             }
-
             if (selectedService === 'carpet') {
                 const rows = [
                     { id: 'carpet-rooms', label: 'Carpet', price: 70 },
@@ -3048,147 +782,210 @@
                     { id: 'mattress-double', label: 'Double Mattress', price: 50 },
                     { id: 'mattress-king', label: 'King Mattress', price: 60 }
                 ];
-                const listItems = [];
+                const items = [];
                 rows.forEach(r => {
                     const v = parseInt(document.getElementById(r.id)?.value) || 0;
-                    if (v > 0) listItems.push(`<li><span>${v} × ${r.label}</span><span>£${v * r.price}</span></li>`);
+                    if (v > 0) items.push('<li><span>' + v + ' × ' + r.label + '</span><span>£' + (v * r.price) + '</span></li>');
                 });
                 const total = document.getElementById('carpet-total')?.textContent || '£0';
-                return `
-                    <div class="m-review-section">
-                        <div class="m-review-section-head">
-                            <div class="m-review-label"><i class="fas fa-couch"></i> Selected Items</div>
-                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
-                        </div>
-                        ${listItems.length ? `<ul class="m-review-list">${listItems.join('')}</ul>` : `<div class="m-review-value">No items selected yet.</div>`}
-                    </div>
-                    <div class="total-display">
-                        <span>Estimated total</span>
-                        <span class="amount">${total}</span>
-                    </div>
-                `;
+                let html = '<div class="m-review-section"><div class="m-review-section-head"><div class="m-review-label">Selected Items</div><button type="button" class="m-review-edit" onclick="exitMobileReview()">Edit</button></div>';
+                html += items.length ? '<ul class="m-review-list">' + items.join('') + '</ul>' : '<div class="m-review-value">No items selected yet.</div>';
+                html += '</div>';
+                html += '<div class="total-display"><span>Estimated total</span><span class="amount">' + total + '</span></div>';
+                return html;
             }
-
-            if (selectedService === 'organisation') {
-                const hours = parseInt(document.getElementById('org-hours')?.value) || 3;
-                const areas = Array.from(document.querySelectorAll('.org-area-checkbox:checked')).map(c => c.value);
-                const total = document.getElementById('org-total')?.textContent || '£135';
-                return `
-                    <div class="m-review-section">
-                        <div class="m-review-section-head">
-                            <div class="m-review-label"><i class="fas fa-clock"></i> Hours</div>
-                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
-                        </div>
-                        <div class="m-review-value"><strong>${hours} hours</strong> · £45 per hour</div>
-                    </div>
-                    <div class="m-review-section">
-                        <div class="m-review-section-head">
-                            <div class="m-review-label"><i class="fas fa-list"></i> Areas to Organise</div>
-                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
-                        </div>
-                        ${areas.length ? `<ul class="m-review-list">${areas.map(a => `<li><span>${a}</span><span></span></li>`).join('')}</ul>` : `<div class="m-review-value">No areas selected yet.</div>`}
-                    </div>
-                    <div class="total-display">
-                        <span>Estimated total</span>
-                        <span class="amount">${total}</span>
-                    </div>
-                `;
-            }
-
-            if (selectedService === 'post') {
-                const type = document.getElementById('post-property-type');
-                const typeText = type && type.value ? type.options[type.selectedIndex].text : 'Not selected';
-                const size = document.getElementById('post-size');
-                const sizeText = size && size.value ? size.options[size.selectedIndex].text : 'Not selected';
-                const proj = document.getElementById('post-project-type')?.value || 'Not specified';
-                return `
-                    <div class="m-review-section">
-                        <div class="m-review-section-head">
-                            <div class="m-review-label"><i class="fas fa-hard-hat"></i> Project Details</div>
-                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
-                        </div>
-                        <div class="m-review-value">Property type: ${typeText}<br>Size: ${sizeText}<br>Project: ${proj}</div>
-                    </div>
-                    <div class="total-display">
-                        <span>Estimated total</span>
-                        <span class="amount">Price on request</span>
-                    </div>
-                `;
-            }
-
-            if (selectedService === 'commercial') {
-                const bn = document.getElementById('com-business-name')?.value || 'Not specified';
-                const bt = document.getElementById('com-business-type')?.value || 'Not specified';
-                const sz = document.getElementById('com-size')?.value || 'Not specified';
-                const fr = document.getElementById('com-frequency');
-                const frText = fr && fr.value ? fr.options[fr.selectedIndex].text : 'Not specified';
-                return `
-                    <div class="m-review-section">
-                        <div class="m-review-section-head">
-                            <div class="m-review-label"><i class="fas fa-building"></i> Business Details</div>
-                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
-                        </div>
-                        <div class="m-review-value">Business: ${bn}<br>Type: ${bt}<br>Size: ${sz}<br>Frequency: ${frText}</div>
-                    </div>
-                    <div class="total-display">
-                        <span>Estimated total</span>
-                        <span class="amount">Price on request</span>
-                    </div>
-                `;
-            }
-
             return '';
         }
-
+        function enterMobileReview() {
+            const block = document.getElementById('m-review-block');
+            if (!block) return;
+            block.innerHTML = buildMobileReview();
+            block.classList.add('active');
+            document.querySelectorAll('.m-fill-part').forEach(el => el.classList.add('m-fill-hidden'));
+            const trig = document.querySelector('.m-review-trigger');
+            if (trig) trig.classList.add('m-fill-hidden');
+        }
+        function exitMobileReview() {
+            const block = document.getElementById('m-review-block');
+            if (block) { block.classList.remove('active'); block.innerHTML = ''; }
+            document.querySelectorAll('.m-fill-part').forEach(el => el.classList.remove('m-fill-hidden'));
+            const trig = document.querySelector('.m-review-trigger');
+            if (trig) trig.classList.remove('m-fill-hidden');
+        }
+        function refreshMobileReview() {
+            const block = document.getElementById('m-review-block');
+            if (block && block.classList.contains('active')) block.innerHTML = buildMobileReview();
+        }
+        function goToStep(step) {
+            currentStep = step;
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById('step' + i)?.classList.remove('active');
+                document.getElementById('step' + i + '-indicator')?.classList.remove('active', 'completed');
+            }
+            document.getElementById('step' + step)?.classList.add('active');
+            for (let i = 1; i <= step; i++) {
+                const indicator = document.getElementById('step' + i + '-indicator');
+                if (!indicator) continue;
+                if (i < step) indicator.classList.add('completed');
+                else indicator.classList.add('active');
+            }
+            const stepTitles = { 1: 'Step 1 — Service Details', 2: 'Step 2 — Photos & Notes', 3: 'Step 3 — Contact Details' };
+            document.getElementById('stepTitleHeader').textContent = stepTitles[step] || ('Step ' + step);
+            const mMap = { 1: 'Service Details', 2: 'Photos & Notes', 3: 'Contact Details' };
+            const mTitle = document.getElementById('mobileStepTitle');
+            if (mTitle) mTitle.textContent = mMap[step] || ('Step ' + step);
+            const mLabel = document.getElementById('mobileStepLabel');
+            if (mLabel) mLabel.textContent = 'Step ' + step + ' of 3';
+            document.querySelectorAll('#mobileProgressBar .m-seg').forEach(seg => {
+                const n = parseInt(seg.getAttribute('data-seg'));
+                seg.classList.remove('active', 'done');
+                if (n < step) seg.classList.add('done');
+                else if (n === step) seg.classList.add('active');
+            });
+            const mBack = document.getElementById('mobileBackLabel');
+            if (mBack) mBack.textContent = step === 1 ? 'Change service' : 'Back';
+            if (step === 1 && typeof exitMobileReview === 'function') exitMobileReview();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function updatePrice() {
+            if (selectedService === 'residential' || selectedService === 'tenancy') {
+                const basePrice = parseInt(document.getElementById('property-size')?.value) || 0;
+                const extraBathrooms = parseInt(document.getElementById('extra-bathrooms')?.value) || 0;
+                let addonTotal = 0;
+                document.querySelectorAll('.addon:checked').forEach(addon => addonTotal += parseInt(addon.value));
+                const total = basePrice + (extraBathrooms * 45) + addonTotal;
+                const totalEl = document.getElementById('estimated-total');
+                if (totalEl) totalEl.textContent = '£' + total;
+            }
+            if (selectedService === 'carpet') {
+                const total =
+                    ((parseInt(document.getElementById('carpet-rooms')?.value) || 0) * 70) +
+                    ((parseInt(document.getElementById('armchair')?.value) || 0) * 45) +
+                    ((parseInt(document.getElementById('sofa2')?.value) || 0) * 60) +
+                    ((parseInt(document.getElementById('sofa3')?.value) || 0) * 80) +
+                    ((parseInt(document.getElementById('corner')?.value) || 0) * 100) +
+                    ((parseInt(document.getElementById('mattress-single')?.value) || 0) * 40) +
+                    ((parseInt(document.getElementById('mattress-double')?.value) || 0) * 50) +
+                    ((parseInt(document.getElementById('mattress-king')?.value) || 0) * 60);
+                const totalEl = document.getElementById('carpet-total');
+                if (totalEl) {
+                    totalEl.textContent = '£' + total;
+                    totalEl.setAttribute('data-value', total);
+                }
+            }
+            if (selectedService === 'organisation') {
+                const hours = parseInt(document.getElementById('org-hours')?.value) || 3;
+                const total = Math.max(hours, 3) * 45;
+                const totalEl = document.getElementById('org-total');
+                if (totalEl) {
+                    totalEl.textContent = '£' + total;
+                    totalEl.setAttribute('data-value', total);
+                }
+            }
+            if (typeof refreshMobileReview === 'function') refreshMobileReview();
+        }
+        function selectCondition(condition, element) {
+            selectedCondition = condition;
+            document.querySelectorAll('.condition-option').forEach(opt => opt.classList.remove('selected'));
+            if (element) element.classList.add('selected');
+            if (typeof refreshMobileReview === 'function') refreshMobileReview();
+        }
+        function loadServiceForm() {
+            const container = document.getElementById('dynamic-form-container');
+            let formHtml = '';
+            switch (selectedService) {
+                case 'residential': formHtml = getResidentialForm(); break;
+                case 'tenancy': formHtml = getTenancyForm(); break;
+                case 'carpet': formHtml = getCarpetForm(); break;
+                case 'post': formHtml = getPostConstructionForm(); break;
+                case 'commercial': formHtml = getCommercialForm(); break;
+                case 'organisation': formHtml = getOrganisationForm(); break;
+                default: formHtml = '<p>Please select a service first.</p>';
+            }
+            container.innerHTML = formHtml;
+            setTimeout(() => {
+                document.querySelectorAll('#property-size, #extra-bathrooms, .addon, #carpet-rooms, #armchair, #sofa2, #sofa3, #corner, #mattress-single, #mattress-double, #mattress-king, #org-hours').forEach(el => el.addEventListener('input', updatePrice));
+                document.querySelectorAll('#property-size, .addon').forEach(el => el.addEventListener('change', updatePrice));
+                updatePrice();
+                updateMobileCarpetSummaries();
+            }, 50);
+        }
+        function mStepWrap(inputId, minAttr) {
+            const min = typeof minAttr === 'number' ? minAttr : 0;
+            return '<div class="m-step-wrap"><button type="button" class="m-step-btn" onclick="mStepCounter(\'' + inputId + '\', -1, ' + min + ')">−</button><input type="number" id="' + inputId + '" min="' + min + '" value="' + min + '"><button type="button" class="m-step-btn" onclick="mStepCounter(\'' + inputId + '\', 1, ' + min + ')">+</button></div>';
+        }
+        function getResidentialForm() {
+            return '<div class="form-grid m-fill-part"><div class="form-group"><label>Property Size</label><select id="property-size"><option value="" selected>Select property size (optional)</option><option value="135">Kitchen Only (No Appliances) — £135</option><option value="200">Studio (1 Bathroom) — £200</option><option value="230">1 Bedroom / 1 Bathroom — £230</option><option value="270">2 Bedrooms / 1 Bathroom — £270</option><option value="330">3 Bedrooms / 1 Bathroom — £330</option><option value="415">4 Bedrooms / 1 Bathroom — £415</option><option value="490">5 Bedrooms / 1 Bathroom — £490</option><option value="570">6 Bedrooms / 1 Bathroom — £570</option></select></div><div class="form-group"><label>Extra Bathrooms (£45 each)</label>' + mStepWrap('extra-bathrooms', 0) + '</div></div>' + getConditionBlock() + getAddonsBlock('£0') + '<div class="m-review-block" id="m-review-block"></div><button type="button" class="m-review-trigger m-fill-part" onclick="enterMobileReview()">Review selection <i class="fas fa-arrow-right"></i></button>';
+        }
+        function getTenancyForm() {
+            return '<div class="form-grid m-fill-part"><div class="form-group"><label>Property Size</label><select id="property-size"><option value="" selected>Select property size (optional)</option><option value="135">Kitchen Only (No Appliances) — £135</option><option value="210">Studio (1 Bathroom) — £210</option><option value="250">1 Bedroom / 1 Bathroom — £250</option><option value="300">2 Bedrooms / 1 Bathroom — £300</option><option value="360">3 Bedrooms / 1 Bathroom — £360</option><option value="450">4 Bedrooms / 1 Bathroom — £450</option></select></div><div class="form-group"><label>Extra Bathrooms (£45 each)</label>' + mStepWrap('extra-bathrooms', 0) + '</div></div>' + getConditionBlock() + getAddonsBlock('£0') + '<div class="m-review-block" id="m-review-block"></div><button type="button" class="m-review-trigger m-fill-part" onclick="enterMobileReview()">Review selection <i class="fas fa-arrow-right"></i></button>';
+        }
+        function getConditionBlock() {
+            return '<div class="form-group full-width m-fill-part"><label class="condition-title">Property Condition</label><div class="condition-options"><div class="condition-option" onclick="selectCondition(\'light\', this)" role="button" tabindex="0"><h4>Lightly Used</h4><p>Minimal wear and tear</p></div><div class="condition-option" onclick="selectCondition(\'average\', this)" role="button" tabindex="0"><h4>Average Condition</h4><p>Normal everyday use</p></div><div class="condition-option" onclick="selectCondition(\'heavy\', this)" role="button" tabindex="0"><h4>Heavily Soiled</h4><p>Requires extra attention</p></div></div></div>';
+        }
+        function getAddonsBlock(startingTotal) {
+            const addons = addon('70', 'oven-icon', 'fa-fire', 'Single Oven', '£70', false) + addon('85', 'oven-icon', 'fa-fire', 'Double Oven', '£85', false) + addon('35', 'extractor-icon', 'fa-wind', 'Extractor Hood', '£35', false) + addon('40', 'fridge-icon', 'fa-temperature-low', 'Fridge', '£40', false) + addon('30', 'pet-icon', 'fa-dog', 'Pet Hair Removal', '£30', true) + addon('30', 'stairs-icon', 'fa-stairs', 'Stairs', '£30', true) + addon('45', 'declutter-icon', 'fa-box-open', 'Declutter', '£45/hr', true) + addon('100', 'combo-icon', 'fa-fire', 'Oven + Hood', '£100', true);
+            return '<div class="price-calculator m-fill-part"><h4>Optional Add-Ons</h4><div class="addons-grid">' + addons + '</div><button type="button" class="m-show-more" onclick="toggleAddonMore(this)"><span class="m-show-more-label">Show 4 more</span><i class="fas fa-chevron-down"></i></button><div class="total-display"><span>Estimated Total:</span><span class="amount" id="estimated-total">' + startingTotal + '</span></div><div class="info-note"><i class="fas fa-info-circle"></i> If your property includes areas not listed in the standard pricing, please contact us for a custom quote.</div></div>';
+        }
+        function addon(value, iconClass, icon, title, price, isExtra) {
+            const extraClass = isExtra ? ' m-addon-extra-mobile-hide' : '';
+            return '<label class="addon-checkbox' + extraClass + '"><input type="checkbox" class="addon" value="' + value + '"><div class="addon-icon ' + iconClass + '"><i class="fas ' + icon + '"></i></div><div class="addon-content"><span class="addon-title">' + title + '</span><span class="addon-price">' + price + '</span></div></label>';
+        }
+        function getCarpetForm() {
+            let html = '<div class="m-fill-part">';
+            html += '<div class="m-carpet-group open"><button type="button" class="m-carpet-group-title" onclick="toggleAccordionGroup(this)"><span class="m-carpet-icon"><i class="fas fa-rug"></i></span><span class="m-carpet-group-text"><span>Carpet Cleaning</span><span class="m-carpet-group-sub">£70 per room</span><span class="m-carpet-group-sub" id="m-carpet-sub-carpet"></span></span><i class="fas fa-chevron-down m-accordion-chev"></i></button><div class="form-grid"><div class="form-group"><label><i class="fas fa-rug"></i> Carpet Cleaning (per room) — £70</label>' + mStepWrap('carpet-rooms', 0) + '</div></div></div>';
+            html += '<div class="m-carpet-group"><button type="button" class="m-carpet-group-title" onclick="toggleAccordionGroup(this)"><span class="m-carpet-icon"><i class="fas fa-couch"></i></span><span class="m-carpet-group-text"><span>Upholstery Cleaning</span><span class="m-carpet-group-sub">Armchairs &amp; sofas</span><span class="m-carpet-group-sub" id="m-carpet-sub-upholstery"></span></span><i class="fas fa-chevron-down m-accordion-chev"></i></button><div class="form-grid"><div class="form-group"><label><i class="fas fa-chair"></i> Armchair — £45</label>' + mStepWrap('armchair', 0) + '</div><div class="form-group"><label><i class="fas fa-couch"></i> 2-Seater Sofa — £60</label>' + mStepWrap('sofa2', 0) + '</div><div class="form-group"><label><i class="fas fa-couch"></i> 3-Seater Sofa — £80</label>' + mStepWrap('sofa3', 0) + '</div><div class="form-group"><label><i class="fas fa-couch"></i> Corner Sofa — £100</label>' + mStepWrap('corner', 0) + '</div></div></div>';
+            html += '<div class="m-carpet-group"><button type="button" class="m-carpet-group-title" onclick="toggleAccordionGroup(this)"><span class="m-carpet-icon"><i class="fas fa-bed"></i></span><span class="m-carpet-group-text"><span>Mattress Cleaning</span><span class="m-carpet-group-sub">Single, double &amp; king</span><span class="m-carpet-group-sub" id="m-carpet-sub-mattress"></span></span><i class="fas fa-chevron-down m-accordion-chev"></i></button><div class="form-grid"><div class="form-group"><label><i class="fas fa-bed"></i> Single Mattress — £40</label>' + mStepWrap('mattress-single', 0) + '</div><div class="form-group"><label><i class="fas fa-bed"></i> Double Mattress — £50</label>' + mStepWrap('mattress-double', 0) + '</div><div class="form-group"><label><i class="fas fa-bed"></i> King Mattress — £60</label>' + mStepWrap('mattress-king', 0) + '</div></div></div>';
+            html += '<div class="total-display"><span>Estimated Total:</span><span class="amount" id="carpet-total" data-value="0">£0</span></div>';
+            html += '<div class="m-review-block" id="m-review-block"></div><button type="button" class="m-review-trigger m-fill-part" onclick="enterMobileReview()">Review selection <i class="fas fa-arrow-right"></i></button>';
+            html += '</div>';
+            return html;
+        }
+        function getPostConstructionForm() {
+            return '<div class="form-grid"><div class="form-group full-width"><label><i class="fas fa-hard-hat"></i> Property Type</label><select id="post-property-type"><option value="">Select property type</option><option value="new">Newly built home</option><option value="renovated">Renovated property</option><option value="development">Property development</option><option value="commercial">Commercial renovation</option></select></div><div class="form-group"><label><i class="fas fa-ruler-combined"></i> Property Size</label><select id="post-size"><option value="">Select size</option><option value="small">Small property / apartment — from £200</option><option value="medium">Medium (2–3 bedrooms) — from £300</option><option value="large">Large (4+ bedrooms) — from £450</option></select></div><div class="form-group"><label><i class="fas fa-tools"></i> Project Type</label><input type="text" id="post-project-type" placeholder="e.g., Full renovation"></div></div>';
+        }
+        function getCommercialForm() {
+            return '<div class="form-grid"><div class="form-group full-width"><label><i class="fas fa-building"></i> Business Name</label><input type="text" id="com-business-name" placeholder="Your business name"></div><div class="form-group"><label><i class="fas fa-store"></i> Business Type</label><input type="text" id="com-business-type" placeholder="e.g., Office, Retail"></div><div class="form-group"><label><i class="fas fa-ruler-combined"></i> Approximate Size (sq ft)</label><input type="text" id="com-size" placeholder="e.g., 1000 sq ft"></div><div class="form-group"><label><i class="fas fa-calendar-alt"></i> Cleaning Frequency</label><select id="com-frequency"><option value="">Select frequency</option><option value="oneoff">One-off clean</option><option value="weekly">Weekly</option><option value="biweekly">Bi-weekly</option><option value="monthly">Monthly</option></select></div></div>';
+        }
+        function getOrganisationForm() {
+            const areas = ['Wardrobe / Closet', 'Kitchen / Pantry', 'Living Room', 'Bedroom', 'Home Office', 'Garage / Storage'];
+            let html = '<div class="form-grid"><div class="form-group full-width"><label><i class="fas fa-clock"></i> Estimated Hours (minimum 3)</label><div class="m-step-wrap"><button type="button" class="m-step-btn" onclick="mStepCounter(\'org-hours\', -1, 3)">−</button><input type="number" id="org-hours" min="3" value="3"><button type="button" class="m-step-btn" onclick="mStepCounter(\'org-hours\', 1, 3)">+</button></div><div class="info-note" style="margin-top:10px;">Minimum 3 hours · £45 per hour</div></div><div class="form-group full-width"><label><i class="fas fa-warehouse"></i> Areas to Organise</label><div class="org-area-options">';
+            areas.forEach(area => {
+                html += '<label class="org-area-option"><input type="checkbox" class="org-area-checkbox" value="' + area + '"><span class="org-area-circle"></span><span>' + area + '</span></label>';
+            });
+            html += '</div></div></div>';
+            html += '<div class="total-display"><span>Estimated Total:</span><span class="amount" id="org-total" data-value="135">£135</span></div>';
+            return html;
+        }
         function saveBookingToStorage(bookingData) {
             const bookings = JSON.parse(localStorage.getItem('drsparkclean_bookings') || '[]');
             bookings.push({ id: Date.now(), ...bookingData, timestamp: new Date().toISOString() });
             localStorage.setItem('drsparkclean_bookings', JSON.stringify(bookings));
         }
-
         function getEstimatedTotal() {
-            if (selectedService === 'residential' || selectedService === 'tenancy') {
-                return document.getElementById('estimated-total')?.textContent || '£0';
-            }
-
-            if (selectedService === 'carpet') {
-                const totalElement = document.getElementById('carpet-total');
-                return totalElement?.textContent || '£0';
-            }
-
-            if (selectedService === 'organisation') {
-                const totalElement = document.getElementById('org-total');
-                return totalElement?.textContent || '£135';
-            }
-
+            if (selectedService === 'residential' || selectedService === 'tenancy') return document.getElementById('estimated-total')?.textContent || '£0';
+            if (selectedService === 'carpet') return document.getElementById('carpet-total')?.textContent || '£0';
+            if (selectedService === 'organisation') return document.getElementById('org-total')?.textContent || '£135';
             return 'Price on request';
         }
-
         function getServiceDetails() {
             const serviceDetails = {};
-
             if (selectedService === 'residential' || selectedService === 'tenancy') {
                 const propertySize = document.getElementById('property-size');
                 const selectedOption = propertySize?.options[propertySize.selectedIndex];
-
                 serviceDetails.PropertySize = selectedOption ? selectedOption.text : 'Not specified';
                 serviceDetails.PropertySizeValue = propertySize?.value || 'Not specified';
                 serviceDetails.ExtraBathrooms = document.getElementById('extra-bathrooms')?.value || '0';
                 serviceDetails.Condition = selectedCondition || 'Not specified';
-
                 const addons = [];
                 document.querySelectorAll('.addon:checked').forEach(addon => {
                     const addonCheckbox = addon.closest('.addon-checkbox');
                     const titleSpan = addonCheckbox?.querySelector('.addon-title');
                     const priceSpan = addonCheckbox?.querySelector('.addon-price');
-                    if (titleSpan && priceSpan) {
-                        addons.push(titleSpan.textContent + ' (' + priceSpan.textContent + ')');
-                    }
+                    if (titleSpan && priceSpan) addons.push(titleSpan.textContent + ' (' + priceSpan.textContent + ')');
                 });
-
                 serviceDetails.AddOns = addons.join(', ') || 'None';
             }
-
             if (selectedService === 'carpet') {
                 serviceDetails.CarpetRooms = document.getElementById('carpet-rooms')?.value || '0';
                 serviceDetails.Armchairs = document.getElementById('armchair')?.value || '0';
@@ -3199,7 +996,6 @@
                 serviceDetails.DoubleMattress = document.getElementById('mattress-double')?.value || '0';
                 serviceDetails.KingMattress = document.getElementById('mattress-king')?.value || '0';
             }
-
             if (selectedService === 'post') {
                 const propertyType = document.getElementById('post-property-type');
                 const sizeSelect = document.getElementById('post-size');
@@ -3207,7 +1003,6 @@
                 serviceDetails.PropertySizePost = sizeSelect?.options[sizeSelect.selectedIndex]?.text || 'Not specified';
                 serviceDetails.ProjectType = document.getElementById('post-project-type')?.value || 'Not specified';
             }
-
             if (selectedService === 'commercial') {
                 serviceDetails.BusinessName = document.getElementById('com-business-name')?.value || 'Not specified';
                 serviceDetails.BusinessType = document.getElementById('com-business-type')?.value || 'Not specified';
@@ -3215,36 +1010,27 @@
                 const freqSelect = document.getElementById('com-frequency');
                 serviceDetails.CleaningFrequency = freqSelect?.options[freqSelect.selectedIndex]?.text || 'Not specified';
             }
-
             if (selectedService === 'organisation') {
                 serviceDetails.EstimatedHours = document.getElementById('org-hours')?.value || '3';
-                const selectedAreas = Array.from(document.querySelectorAll('.org-area-checkbox:checked'))
-                    .map(input => input.value)
-                    .join(', ');
+                const selectedAreas = Array.from(document.querySelectorAll('.org-area-checkbox:checked')).map(input => input.value).join(', ');
                 serviceDetails.AreasToOrganise = selectedAreas || 'Not specified';
             }
-
             return serviceDetails;
         }
-
         async function submitBooking() {
             const bookingFormHoneypot = document.querySelector('#honeypot-booking');
             if (bookingFormHoneypot && bookingFormHoneypot.value !== '') return false;
-
             const now = Date.now();
             if (now - lastSubmissionTime < 30000) {
                 showModal('error', 'Too Fast!', 'Please wait 30 seconds before submitting again.');
                 return;
             }
-
             clearFieldErrors();
-
             const name = document.getElementById('booking-name')?.value.trim();
             const phone = document.getElementById('booking-phone')?.value.trim();
             const customerEmail = document.getElementById('booking-email')?.value.trim();
             const address = document.getElementById('booking-address')?.value.trim();
             const postcode = document.getElementById('booking-postcode')?.value.trim();
-
             if (!name) { markFieldError('name', 'Full Name'); showModal('error', 'Missing Information', 'Please enter your full name.'); return; }
             if (!phone) { markFieldError('phone', 'Phone Number'); showModal('error', 'Missing Information', 'Please enter your phone number.'); return; }
             if (!validatePhone(phone)) { markFieldError('phone', 'Valid Phone Number'); showModal('error', 'Invalid Phone Number', 'Please enter a valid UK phone number.'); return; }
@@ -3260,30 +1046,16 @@
                 showModal('error', 'Invalid Postcode', 'Please enter a valid UK postcode.');
                 return;
             }
-
             lastSubmissionTime = now;
-
-            const serviceNames = {
-                residential: 'Residential Cleaning',
-                tenancy: 'End of Tenancy',
-                carpet: 'Carpet & Upholstery',
-                post: 'Post-Construction',
-                commercial: 'Commercial Cleaning',
-                organisation: 'Home Organisation'
-            };
-
+            const serviceNames = { residential: 'Residential Cleaning', tenancy: 'End of Tenancy', carpet: 'Carpet & Upholstery', post: 'Post-Construction', commercial: 'Commercial Cleaning', organisation: 'Home Organisation' };
             const submitBtn = document.querySelector('#step3 .btn-next');
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<span class="loading-spinner"></span> Sending...';
             submitBtn.disabled = true;
-
             const powerAutomateData = {
-                Name: name,
-                Phone: phone,
-                Email: customerEmail,
+                Name: name, Phone: phone, Email: customerEmail,
                 Service: serviceNames[selectedService] || 'Cleaning Service',
-                Address: address,
-                Postcode: postcode,
+                Address: address, Postcode: postcode,
                 PreferredDate: document.getElementById('booking-date')?.value || 'Not specified',
                 PreferredTime: document.getElementById('booking-time')?.value || 'Not specified',
                 Notes: document.getElementById('booking-notes')?.value || '',
@@ -3291,23 +1063,20 @@
                 EstimatedTotal: getEstimatedTotal(),
                 ...getServiceDetails()
             };
-
             try {
                 if (!POWER_AUTOMATE_URL || POWER_AUTOMATE_URL === 'PASTE_YOUR_POWER_AUTOMATE_URL_HERE') {
                     saveBookingToStorage(powerAutomateData);
                     showModal('success', 'Saved Locally', 'Your booking was saved locally. Add your Power Automate URL to enable live submissions.');
                     return;
                 }
-
                 const powerAutomateResponse = await fetch(POWER_AUTOMATE_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(powerAutomateData)
                 });
-
                 if (powerAutomateResponse.ok) {
                     saveBookingToStorage(powerAutomateData);
-                    showModal('success', 'Request Received!', `Thank you ${name}! Your booking request has been received. We will contact you within 24 hours.`);
+                    showModal('success', 'Request Received!', 'Thank you ' + name + '! Your booking request has been received. We will contact you within 24 hours.');
                     resetBookingForm();
                 } else {
                     showModal('error', 'Submission Error', 'There was a problem submitting your request. Please try again or call us directly.');
@@ -3320,36 +1089,22 @@
                 submitBtn.disabled = false;
             }
         }
-
         function resetBookingForm() {
             selectedService = '';
             selectedCondition = '';
             uploadedImageUrls = [];
-
             document.querySelectorAll('.booking-step').forEach(step => step.classList.remove('active'));
             document.getElementById('step1').classList.add('active');
-
             const fileList = document.getElementById('booking-file-list');
             if (fileList) fileList.innerHTML = '';
-
             document.querySelectorAll('input, select, textarea').forEach(input => {
                 if (input.type !== 'file' && input.id !== 'booking-upload') input.value = '';
             });
-
             const uploadInput = document.getElementById('booking-upload');
             if (uploadInput) uploadInput.value = '';
-
-            document.getElementById('step1').innerHTML = `
-                <div style="text-align:center; padding:40px 20px;">
-                    <i class="fas fa-check-circle" style="font-size:3rem;color:var(--primary);margin-bottom:16px;"></i>
-                    <h3>Booking Submitted!</h3>
-                    <p style="color:var(--text-soft);">Thank you! Return to <a href="index.html" style="color:var(--primary);">homepage</a> to book another service.</p>
-                </div>
-            `;
-
+            document.getElementById('step1').innerHTML = '<div style="text-align:center; padding:40px 20px;"><i class="fas fa-check-circle" style="font-size:3rem;color:var(--primary);margin-bottom:16px;"></i><h3>Booking Submitted!</h3><p style="color:var(--text-soft);">Thank you! Return to <a href="index.html" style="color:var(--primary);">homepage</a> to book another service.</p></div>';
             goToStep(1);
         }
-
         document.addEventListener('DOMContentLoaded', function() {
             const bookingFormContainer = document.querySelector('.booking-system');
             if (bookingFormContainer && !document.querySelector('#honeypot-booking')) {
@@ -3362,62 +1117,38 @@
                 honeypotBooking.autocomplete = 'off';
                 bookingFormContainer.appendChild(honeypotBooking);
             }
-
             const postcodeInput = document.getElementById('booking-postcode');
             if (postcodeInput) {
                 postcodeInput.addEventListener('input', async function() {
                     const value = this.value.trim();
-                    if (value.length < 2) {
-                        document.getElementById('postcode-suggestions').classList.remove('show');
-                        return;
-                    }
+                    if (value.length < 2) { document.getElementById('postcode-suggestions').classList.remove('show'); return; }
                     const suggestions = await fetchPostcodeSuggestions(value);
                     showPostcodeSuggestions(suggestions);
                 });
-
                 postcodeInput.addEventListener('blur', function() {
                     let v = this.value.toUpperCase().replace(/\s+/g, '');
                     if (v.length > 3) this.value = v.slice(0, -3) + ' ' + v.slice(-3);
                 });
             }
-
             const uploadArea = document.getElementById('booking-upload-area');
             const uploadInput = document.getElementById('booking-upload');
-
             if (uploadArea && uploadInput) {
                 uploadArea.addEventListener('click', () => uploadInput.click());
                 uploadInput.addEventListener('change', function() { handleImageFiles(this.files); });
-
-                uploadArea.addEventListener('dragover', function(e) {
-                    e.preventDefault();
-                    uploadArea.classList.add('dragover');
-                });
-
-                uploadArea.addEventListener('dragleave', function() {
-                    uploadArea.classList.remove('dragover');
-                });
-
-                uploadArea.addEventListener('drop', function(e) {
-                    e.preventDefault();
-                    uploadArea.classList.remove('dragover');
-                    handleImageFiles(e.dataTransfer.files);
-                });
+                uploadArea.addEventListener('dragover', function(e) { e.preventDefault(); uploadArea.classList.add('dragover'); });
+                uploadArea.addEventListener('dragleave', function() { uploadArea.classList.remove('dragover'); });
+                uploadArea.addEventListener('drop', function(e) { e.preventDefault(); uploadArea.classList.remove('dragover'); handleImageFiles(e.dataTransfer.files); });
             }
-
             if (selectedService) loadServiceForm();
-
             const dateInput = document.getElementById('booking-date');
             if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
-
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('navLinks');
-
             if (hamburger && navLinks) {
                 hamburger.addEventListener('click', () => {
                     hamburger.classList.toggle('active');
                     navLinks.classList.toggle('active');
                 });
-
                 navLinks.querySelectorAll('a').forEach(item => {
                     item.addEventListener('click', () => {
                         hamburger.classList.remove('active');
@@ -3426,21 +1157,17 @@
                 });
             }
         });
-
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.postcode-autocomplete-container')) {
                 document.getElementById('postcode-suggestions')?.classList.remove('show');
             }
         });
-
         document.addEventListener('input', function(e) {
             if (e.target && (e.target.id === 'booking-postcode' || e.target.id === 'booking-address')) {
                 const formGroup = document.getElementById('form-group-address-postcode');
                 if (!formGroup) return;
-
                 const addressValue = document.getElementById('booking-address')?.value.trim() || '';
                 const postcodeValue = document.getElementById('booking-postcode')?.value.trim() || '';
-
                 if (addressValue !== '' && validatePostcode(postcodeValue)) {
                     formGroup.classList.remove('error');
                     const error = formGroup.querySelector('.error-message');
@@ -3448,16 +1175,15 @@
                 }
             }
         });
-
         window.updatePrice = updatePrice;
         window.selectCondition = selectCondition;
         window.goToStep = goToStep;
         window.submitBooking = submitBooking;
-        window.stepperChange = stepperChange;
-        window.toggleAccordion = toggleAccordion;
-        window.toggleShowMore = toggleShowMore;
-        window.enterReviewMode = enterReviewMode;
-        window.enterFillMode = enterFillMode;
+        window.mStepCounter = mStepCounter;
+        window.toggleAccordionGroup = toggleAccordionGroup;
+        window.toggleAddonMore = toggleAddonMore;
+        window.enterMobileReview = enterMobileReview;
+        window.exitMobileReview = exitMobileReview;
         window.mobileBackAction = mobileBackAction;
     </script>
 </body>
