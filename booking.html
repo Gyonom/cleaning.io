@@ -284,15 +284,6 @@
             .m-carpet-group .m-step-btn, .m-carpet-group .m-step-wrap input[type="number"] { height: 42px; min-height: 42px; }
             .org-area-options { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
             .org-area-option { min-height: 46px; padding: 9px 12px; border-radius: 10px; box-shadow: none; font-size: 12px !important; }
-            #step2 .form-group, #step3 .form-group { margin-bottom: 14px; }
-            #step3 .form-grid { gap: 14px; margin-bottom: 24px; }
-            .file-upload-area { padding: 16px 14px; border-radius: 10px; background: #FFFFFF; border: 1.5px dashed rgba(11,94,90,0.24); }
-            .file-upload-area i { font-size: 1.3rem; margin-bottom: 6px; }
-            .file-upload-area p { font-size: 0.84rem; margin-bottom: 2px; }
-            .file-upload-area p:last-of-type { font-size: 0.7rem !important; line-height: 1.35; margin-bottom: 0; }
-            .file-item { padding: 6px 9px; border-radius: 8px; font-size: 0.72rem; }
-            .file-thumb { width: 36px; height: 36px; border-radius: 8px; }
-            .assessment-note { font-size: 0.74rem; padding: 10px 12px; border-radius: 10px; margin-top: 14px; line-height: 1.4; }
             .m-review-block.active { display: block !important; }
             .m-review-section { background: #FFFFFF; border: 1px solid rgba(11,94,90,0.10); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
             .m-review-section-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
@@ -305,6 +296,46 @@
             .m-review-trigger { display: inline-flex !important; align-items: center; gap: 5px; background: none; border: none; color: var(--primary); font-family: inherit; font-size: 13px; font-weight: 650; padding: 10px 0 2px; cursor: pointer; }
             .m-review-trigger i { font-size: 0.72rem; }
             .m-fill-hidden { display: none !important; }
+
+            /* =========================================================
+               STEP 2 + STEP 3 — MOBILE PROPORTION CORRECTION
+               Shared across all six services (they live outside
+               #dynamic-form-container).
+               ========================================================= */
+
+            /* ---------- STEP 2: PHOTOS & NOTES ---------- */
+            #step2 { padding-top: 0; }
+            #step2 .form-group { margin-bottom: 18px; }
+            #step2 .form-group label { margin-bottom: 7px; }
+            #step2 .file-upload-area { min-height: 0; padding: 18px 14px; border-radius: 10px; }
+            #step2 .file-upload-area i { font-size: 1.25rem; margin-bottom: 5px; }
+            #step2 .file-upload-area p { margin: 0; font-size: 13px; line-height: 1.35; }
+            #step2 .file-upload-area p:last-of-type { margin-top: 3px; font-size: 11.5px !important; line-height: 1.35; }
+            #step2 textarea { min-height: 108px; height: 108px; padding: 11px 13px; line-height: 1.45; }
+            #step2 .assessment-note { min-height: 0; margin: 20px 0 0; padding: 9px 11px; border-radius: 8px; font-size: 11.5px; line-height: 1.35; }
+            #step2 .booking-navigation { margin-top: 20px; }
+
+            /* ---------- STEP 3: CONTACT DETAILS ---------- */
+            #step3 { padding-top: 0; }
+            #step3 .form-grid { display: grid; grid-template-columns: 1fr; gap: 0; margin: 0; }
+            #step3 .form-group { margin: 0 0 14px; }
+            #step3 .form-group label { margin: 0 0 6px; font-size: 13px; line-height: 1.2; font-weight: 650; }
+            #step3 .form-group input, #step3 .form-group select { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-sizing: border-box; font-size: 16px; }
+            #step3 #form-group-name { margin-bottom: 14px; }
+            #step3 #form-group-phone { margin-bottom: 14px; }
+            #step3 #form-group-email { margin-bottom: 26px; }
+            #step3 #form-group-address-postcode { margin-bottom: 26px; }
+            #step3 .postcode-autocomplete-container { margin-bottom: 14px !important; }
+            #step3 #form-group-address-postcode label:nth-of-type(2) { margin-top: 0; }
+            #step3 #form-group-address-postcode small { margin-top: 6px !important; font-size: 11px !important; line-height: 1.35; color: var(--text-light) !important; }
+            #step3 #form-group-address-postcode + .form-group { margin-top: 0; }
+            #step3 .form-group:has(#booking-date) { margin-bottom: 14px; }
+            #step3 .form-group:has(#booking-time) { margin-bottom: 26px; }
+            #step3 .booking-navigation { margin-top: 26px; gap: 8px; }
+            #step3 .btn-next { min-height: 48px; height: 48px; padding: 0 18px; border-radius: 10px !important; font-size: 14px; font-weight: 700; }
+            #step3 .btn-prev { padding: 7px 12px; font-size: 13px; }
+            #step3 .m-trust { margin-top: 12px; padding-bottom: 4px; font-size: 11px; line-height: 1.3; }
+
             footer { display: none; }
         }
         @media (max-width: 380px) {
