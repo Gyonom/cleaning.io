@@ -240,10 +240,7 @@
         .mobile-hero-trust,
         .mobile-hero-location,
         .mobile-hero-cta,
-        .mobile-contact-cta,
-        .mobile-pricing-list,
-        .mobile-addons-list,
-        .mobile-bottom-nav { display: none; }
+        .mobile-contact-cta { display: none; }
 
         /* ===== TRUST CARDS ===== */
         .trust-strip { position: relative; z-index: 10; margin-top: -60px; margin-bottom: 0; padding: 0; }
@@ -442,6 +439,26 @@
         .rating-main { font-weight: 700; font-size: 0.8rem; color: var(--text-dark); }
         .rating-sub { font-size: 0.65rem; color: var(--text-light); }
         .rating-divider { width: 1px; height: 24px; background: #E5E7EB; }
+
+        /* ============================================================
+           MOBILE-ONLY ELEMENTS — hidden at base, shown inside the mobile block
+           ============================================================ */
+        .hero-eyebrow,
+        .hero-location,
+        .mobile-hero-content,
+        .mobile-hero-main,
+        .mobile-hero-eyebrow,
+        .mobile-hero-copy,
+        .mobile-hero-actions,
+        .mobile-hero-trust,
+        .mobile-hero-location,
+        .mobile-hero-cta,
+        .mobile-contact-cta,
+        .mobile-pricing-list,
+        .mobile-addons-list,
+        .mobile-bottom-nav {
+            display: none;
+        }
 
         /* ============================================================
            MOBILE INTERFACE (≤768px)
@@ -744,7 +761,7 @@
             /* ---------- HIDE SERVICES ON MOBILE ---------- */
             #services { display: none !important; }
 
-            /* ---------- BOOKING ---------- */
+            /* ---------- BOOKING (unchanged, as currently approved) ---------- */
             #book {
                 padding: 34px 0 32px !important;
                 background: linear-gradient(
