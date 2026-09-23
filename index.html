@@ -53,7 +53,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
@@ -235,7 +235,11 @@
 
         /* Hide mobile-only hero elements on desktop */
         .hero-eyebrow,
-        .hero-location { display: none; }
+        .hero-location,
+        .mobile-hero-content,
+        .mobile-hero-trust,
+        .mobile-hero-location,
+        .mobile-hero-cta { display: none; }
 
         /* ===== TRUST CARDS ===== */
         .trust-strip { position: relative; z-index: 10; margin-top: -60px; margin-bottom: 0; padding: 0; }
@@ -440,6 +444,10 @@
            ============================================================ */
         .hero-eyebrow,
         .hero-location,
+        .mobile-hero-content,
+        .mobile-hero-trust,
+        .mobile-hero-location,
+        .mobile-hero-cta,
         .mobile-pricing-list,
         .mobile-addons-list,
         .mobile-bottom-nav {
@@ -497,149 +505,168 @@
                 font-weight: 700; text-align: center;
             }
 
-            /* ---------- HERO ---------- */
+            /* ---------- HERO (mobile redesign) ---------- */
             .hero {
                 height: auto;
-                min-height: 440px;
+                min-height: 560px;
                 margin-top: 64px;
                 padding: 0 !important;
                 display: flex;
                 align-items: flex-end;
+                background: #053F3D;
             }
             .hero-static-bg {
-                background-position: 68% center;
+                /* Cleaner visible on the right, text room on the left */
+                background-position: 72% center;
                 background-size: cover;
                 background-color: #053F3D;
             }
             .hero-overlay {
+                /* Directional teal overlay — stronger left behind text, lighter right */
                 background: linear-gradient(
-                    180deg,
-                    rgba(4,50,48,0.20) 0%,
-                    rgba(4,50,48,0.38) 36%,
-                    rgba(4,50,48,0.82) 72%,
-                    rgba(4,50,48,0.96) 100%
+                    100deg,
+                    rgba(4, 40, 38, 0.92) 0%,
+                    rgba(4, 40, 38, 0.82) 32%,
+                    rgba(4, 40, 38, 0.55) 58%,
+                    rgba(4, 40, 38, 0.20) 82%,
+                    rgba(4, 40, 38, 0.05) 100%
                 );
             }
+            .hero::after {
+                background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.10) 100%);
+            }
+
+            /* Hide desktop hero content on mobile; show mobile hero content */
+            .hero-desktop-content { display: none !important; }
+            .mobile-hero-content { display: block; width: 100%; }
+
             .hero-content {
                 width: 100%;
                 max-width: 100%;
-                padding: 0 20px 28px;
+                padding: 0 20px 22px;
             }
-            .hero-eyebrow {
-                display: block;
-                margin-bottom: 9px;
-                color: rgba(255,255,255,0.78);
-                text-transform: uppercase;
-                letter-spacing: 0.14em;
-                font-size: 0.62rem;
-                font-weight: 700;
-            }
-            .hero h1 {
-                max-width: 330px;
-                margin-bottom: 11px;
-                color: white;
-                font-family: "Playfair Display", Georgia, serif;
-                font-size: 2.05rem;
+
+            /* Hide old mobile hero pieces we no longer need */
+            .hero-eyebrow { display: none !important; }
+            .hero-location { display: none !important; }
+            .hero-buttons { display: none !important; }
+
+            /* New mobile headline — clean sans-serif, not heavy */
+            .mobile-hero-content h1 {
+                color: #FFFFFF;
+                font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+                font-weight: 650;
+                font-size: 2.55rem;
                 line-height: 1.02;
                 letter-spacing: -0.035em;
+                margin: 0 0 14px 0;
+                max-width: 320px;
+                text-shadow: 0 2px 14px rgba(0,0,0,0.28);
             }
-            .hero p { max-width: 330px; margin-bottom: 11px; color: rgba(255,255,255,0.91); font-size: 0.84rem; line-height: 1.48; }
-            .hero-location {
+
+            /* Single location line */
+            .mobile-hero-location {
                 display: flex;
                 align-items: center;
-                gap: 6px;
-                margin: 0 0 16px !important;
+                gap: 7px;
+                margin: 0 0 18px 0 !important;
                 color: #F5B84B !important;
-                font-size: 0.76rem !important;
+                font-size: 0.82rem !important;
+                font-weight: 500;
                 line-height: 1.3 !important;
                 text-shadow: 0 2px 8px rgba(0,0,0,0.45);
             }
-            .hero-location i { font-size: 0.72rem; }
-            .hero-buttons {
-                width: auto;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-            }
-            .hero-buttons .btn {
-                width: auto;
-                min-height: 48px;
-                padding: 0 18px;
-                border-radius: 11px;
-                font-size: 0.79rem;
-                box-shadow: none;
-            }
-            .hero-buttons .btn-outline { display: none; }
-            .hero-buttons .btn-white {
-                background: var(--primary);
-                color: white;
-                border: 1px solid rgba(255,255,255,0.12);
+            .mobile-hero-location i {
+                font-size: 0.78rem;
+                color: #F5B84B;
             }
 
-            /* ---------- TRUST STRIP: flat, icon-free, 4 labels with dividers ---------- */
-            .trust-strip {
-                margin: 0;
-                padding: 0;
-                background: white;
-                border-bottom: 1px solid rgba(11,94,90,0.08);
-            }
-            .trust-cards-container { max-width: none; padding: 0 12px; }
-            .trust-cards-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 0;
-                min-height: 64px;
-                align-items: stretch;
-            }
-            .trust-card,
-            .trust-card:nth-child(n) {
-                position: relative;
-                min-width: 0;
-                display: flex;
+            /* Compact white CTA with pale-teal arrow inside */
+            .mobile-hero-cta {
+                display: inline-flex;
                 align-items: center;
-                justify-content: center;
-                padding: 12px 6px;
-                border: 0;
-                border-radius: 0;
-                background: transparent;
-                box-shadow: none;
-                transform: none;
-                text-align: center;
+                justify-content: space-between;
+                gap: 12px;
+                height: 46px;
+                padding: 0 8px 0 18px;
+                border-radius: 10px;
+                background: #FFFFFF;
+                color: #0B5E5A;
+                font-size: 0.86rem;
+                font-weight: 600;
+                text-decoration: none;
+                box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+                margin-bottom: 26px;
+                width: auto;
+                max-width: 260px;
+                white-space: nowrap;
+                border: none;
             }
-            .trust-card:hover { transform: none; box-shadow: none; border: 0; }
-            .trust-card::before { display: none; }
-            .trust-card:not(:last-child)::after {
-                content: "";
-                position: absolute;
-                right: 0;
-                top: 17px;
-                bottom: 17px;
-                width: 1px;
-                background: rgba(11,94,90,0.12);
-            }
-            .trust-icon-wrapper { display: none; }
-            .trust-card-text { display: none; }
-            .trust-card-title {
-                margin: 0;
-                color: var(--text-soft);
-                font-size: 0.62rem;
-                line-height: 1.25;
-                font-weight: 700;
-                text-align: center;
+            .mobile-hero-cta .cta-label {
+                color: #0B5E5A;
+                font-weight: 600;
                 letter-spacing: -0.01em;
             }
-
-            /* Short mobile labels via ::before content trick */
-            .trust-card:nth-child(2) .trust-card-title { font-size: 0; }
-            .trust-card:nth-child(2) .trust-card-title::before {
-                content: "Homeowner Trusted";
-                font-size: 0.62rem;
+            .mobile-hero-cta .cta-arrow {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                background: #D8ECEA;
+                color: #0B5E5A;
+                flex-shrink: 0;
             }
+            .mobile-hero-cta .cta-arrow i {
+                font-size: 0.82rem;
+                color: #0B5E5A;
+            }
+
+            /* 3-item trust row inside hero */
+            .mobile-hero-trust {
+                display: grid;
+                grid-template-columns: 1fr 1px 1fr 1px 1fr;
+                align-items: center;
+                gap: 0;
+                width: 100%;
+                margin-top: 4px;
+            }
+            .mobile-hero-trust .trust-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 6px;
+                padding: 0 4px;
+            }
+            .mobile-hero-trust .trust-item i {
+                font-size: 1.05rem;
+                color: #FFFFFF;
+                opacity: 0.95;
+            }
+            .mobile-hero-trust .trust-item span {
+                color: rgba(255,255,255,0.92);
+                font-size: 0.68rem;
+                line-height: 1.2;
+                font-weight: 600;
+                letter-spacing: -0.005em;
+            }
+            .mobile-hero-trust .trust-divider {
+                width: 1px;
+                height: 26px;
+                background: rgba(255,255,255,0.30);
+                justify-self: center;
+                align-self: center;
+            }
+
+            /* ---------- EXISTING 4-ITEM TRUST STRIP: HIDDEN ON MOBILE ---------- */
+            .trust-strip { display: none !important; }
 
             /* ---------- HIDE SERVICES ON MOBILE ---------- */
             #services { display: none !important; }
 
-            /* ---------- BOOKING ---------- */
+            /* ---------- BOOKING (unchanged, as currently approved) ---------- */
             #book {
                 padding: 34px 0 32px !important;
                 background: linear-gradient(
@@ -867,12 +894,11 @@
            VERY SMALL SCREENS (≤480px)
            ============================================================ */
         @media (max-width: 480px) {
-            .hero { min-height: 430px; }
-            .hero h1 { font-size: 1.88rem; }
-            .hero p { font-size: 0.81rem; }
-            .trust-card { padding-left: 4px; padding-right: 4px; }
-            .trust-card-title { font-size: 0.59rem; }
-            .trust-card:nth-child(2) .trust-card-title::before { font-size: 0.59rem; }
+            .hero { min-height: 540px; }
+            .mobile-hero-content h1 { font-size: 2.35rem; max-width: 300px; }
+            .mobile-hero-cta { height: 44px; font-size: 0.82rem; }
+            .mobile-hero-cta .cta-arrow { width: 32px; height: 32px; }
+            .mobile-hero-trust .trust-item span { font-size: 0.64rem; }
             .mobile-pricing-item { padding: 9px 12px; min-height: 38px; }
             .mp-name { font-size: 0.76rem; }
             .mp-price { font-size: 0.79rem; }
@@ -904,7 +930,9 @@
 <section class="hero" id="home">
     <div class="hero-static-bg"></div>
     <div class="hero-overlay"></div>
-    <div class="container hero-content">
+
+    <!-- DESKTOP hero content (unchanged, hidden on mobile via CSS) -->
+    <div class="container hero-content hero-desktop-content">
 
         <span class="hero-eyebrow">A cleaner, happier home</span>
 
@@ -919,10 +947,6 @@
             <span>Serving Birmingham &amp; surrounding areas</span>
         </p>
 
-        <p style="font-size:0.78rem; margin-top:10px; color:#F59E0B; text-shadow:0 2px 10px rgba(0,0,0,0.65); letter-spacing:0.02em;">
-            📍 Serving Birmingham & surrounding areas
-        </p>
-
         <div class="hero-buttons">
             <a href="index.html#book" class="btn btn-white">
                 Book a Deep Clean <i class="fas fa-arrow-right"></i>
@@ -930,9 +954,45 @@
             <a href="#services" class="btn btn-outline">Explore Services</a>
         </div>
     </div>
+
+    <!-- MOBILE hero content (mobile-only, hidden on desktop via CSS) -->
+    <div class="container hero-content mobile-hero-content">
+
+        <h1>Deep Cleaning,<br>Done Right.</h1>
+
+        <p class="mobile-hero-location">
+            <i class="fas fa-location-dot" aria-hidden="true"></i>
+            <span>Birmingham &amp; surrounding areas</span>
+        </p>
+
+        <a href="index.html#book" class="mobile-hero-cta">
+            <span class="cta-label">Book a Deep Clean</span>
+            <span class="cta-arrow" aria-hidden="true">
+                <i class="fas fa-arrow-right"></i>
+            </span>
+        </a>
+
+        <div class="mobile-hero-trust">
+            <div class="trust-item">
+                <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                <span>Fully<br>Insured</span>
+            </div>
+            <div class="trust-divider" aria-hidden="true"></div>
+            <div class="trust-item">
+                <i class="fas fa-leaf" aria-hidden="true"></i>
+                <span>Eco-Friendly<br>Products</span>
+            </div>
+            <div class="trust-divider" aria-hidden="true"></div>
+            <div class="trust-item">
+                <i class="fas fa-home" aria-hidden="true"></i>
+                <span>Trusted Local<br>Service</span>
+            </div>
+        </div>
+
+    </div>
 </section>
 
-<!-- ===== TRUST CARDS (original markup) ===== -->
+<!-- ===== TRUST CARDS (original markup — hidden on mobile, untouched on desktop) ===== -->
 <div class="trust-strip">
     <div class="trust-cards-container">
         <div class="trust-cards-grid">
