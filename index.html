@@ -6,26 +6,22 @@
     <meta name="theme-color" content="#0B5E5A">
     <title>Dr Sparkclean Services Ltd | Premium Cleaning & Home Organisation</title>
 
-    <!-- SEO Meta Tags -->
     <meta name="description" content="Professional cleaning and home organisation services in Birmingham, Wolverhampton, Coventry, and surrounding areas. Book your deep clean today!">
     <meta name="keywords" content="cleaning services, deep cleaning, end of tenancy cleaning, carpet cleaning, home organisation, Birmingham">
     <meta name="author" content="Dr Sparkclean Services Ltd">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / Social Media -->
     <meta property="og:title" content="Dr Sparkclean Services Ltd | Premium Cleaning & Home Organisation">
     <meta property="og:description" content="Professional cleaning services in Birmingham and surrounding areas. Book your deep clean today!">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.drsparkcleanservices.co.uk/Logo-180.png">
     <meta property="og:url" content="https://www.drsparkcleanservices.co.uk/">
 
-    <!-- Favicon -->
     <link rel="icon" href="Favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="Logo-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="Logo-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="Logo-180.png">
 
-    <!-- Schema Markup -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -237,9 +233,17 @@
         .hero-eyebrow,
         .hero-location,
         .mobile-hero-content,
+        .mobile-hero-main,
+        .mobile-hero-eyebrow,
+        .mobile-hero-copy,
+        .mobile-hero-actions,
         .mobile-hero-trust,
         .mobile-hero-location,
-        .mobile-hero-cta { display: none; }
+        .mobile-hero-cta,
+        .mobile-contact-cta,
+        .mobile-pricing-list,
+        .mobile-addons-list,
+        .mobile-bottom-nav { display: none; }
 
         /* ===== TRUST CARDS ===== */
         .trust-strip { position: relative; z-index: 10; margin-top: -60px; margin-bottom: 0; padding: 0; }
@@ -440,21 +444,6 @@
         .rating-divider { width: 1px; height: 24px; background: #E5E7EB; }
 
         /* ============================================================
-           MOBILE-ONLY ELEMENTS — hidden at base, shown inside the mobile block
-           ============================================================ */
-        .hero-eyebrow,
-        .hero-location,
-        .mobile-hero-content,
-        .mobile-hero-trust,
-        .mobile-hero-location,
-        .mobile-hero-cta,
-        .mobile-pricing-list,
-        .mobile-addons-list,
-        .mobile-bottom-nav {
-            display: none;
-        }
-
-        /* ============================================================
            MOBILE INTERFACE (≤768px)
            ============================================================ */
         @media (max-width: 768px) {
@@ -512,17 +501,17 @@
                 margin-top: 64px;
                 padding: 0 !important;
                 display: flex;
-                align-items: flex-end;
+                align-items: stretch;
                 background: #053F3D;
             }
+
             .hero-static-bg {
-                /* Cleaner visible on the right, text room on the left */
                 background-position: 72% center;
                 background-size: cover;
                 background-color: #053F3D;
             }
+
             .hero-overlay {
-                /* Directional teal overlay — stronger left behind text, lighter right */
                 background: linear-gradient(
                     100deg,
                     rgba(4, 40, 38, 0.92) 0%,
@@ -532,106 +521,192 @@
                     rgba(4, 40, 38, 0.05) 100%
                 );
             }
+
             .hero::after {
-                background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.10) 100%);
+                background: linear-gradient(
+                    180deg,
+                    rgba(0,0,0,0.05) 0%,
+                    rgba(0,0,0,0.10) 100%
+                );
             }
 
-            /* Hide desktop hero content on mobile; show mobile hero content */
-            .hero-desktop-content { display: none !important; }
-            .mobile-hero-content { display: block; width: 100%; }
+            .hero-desktop-content {
+                display: none !important;
+            }
 
-            .hero-content {
+            .mobile-hero-content {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                min-height: 560px;
+                position: relative;
+            }
+
+            .hero-content.mobile-hero-content {
                 width: 100%;
                 max-width: 100%;
                 padding: 0 20px 22px;
             }
 
-            /* Hide old mobile hero pieces we no longer need */
-            .hero-eyebrow { display: none !important; }
-            .hero-location { display: none !important; }
-            .hero-buttons { display: none !important; }
+            .hero-eyebrow {
+                display: none !important;
+            }
 
-            /* New mobile headline — clean sans-serif, not heavy */
+            .hero-location {
+                display: none !important;
+            }
+
+            .hero-buttons {
+                display: none !important;
+            }
+
+            .mobile-hero-main {
+                margin-top: 190px;
+                width: 100%;
+            }
+
+            .mobile-hero-eyebrow {
+                display: block;
+                margin: 0 0 10px;
+                color: rgba(255, 255, 255, 0.76);
+                font-family: "Inter", sans-serif;
+                font-size: 0.60rem;
+                font-weight: 600;
+                line-height: 1.2;
+                letter-spacing: 0.17em;
+                text-transform: uppercase;
+                text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            }
+
             .mobile-hero-content h1 {
                 color: #FFFFFF;
-                font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-                font-weight: 650;
-                font-size: 2.55rem;
-                line-height: 1.02;
-                letter-spacing: -0.035em;
-                margin: 0 0 14px 0;
-                max-width: 320px;
-                text-shadow: 0 2px 14px rgba(0,0,0,0.28);
+                font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+                font-size: 1.9rem;
+                font-weight: 500;
+                line-height: 1.08;
+                letter-spacing: -0.025em;
+                max-width: 285px;
+                margin: 0 0 11px;
+                text-shadow: 0 2px 10px rgba(0,0,0,0.18);
             }
 
-            /* Single location line */
-            .mobile-hero-location {
+            .mobile-hero-copy {
+                display: block;
+                max-width: 300px;
+                margin: 0 0 15px !important;
+                color: rgba(255,255,255,0.86) !important;
+                font-family: "Inter", sans-serif;
+                font-size: 0.75rem !important;
+                font-weight: 400;
+                line-height: 1.45 !important;
+                text-shadow: 0 2px 8px rgba(0,0,0,0.20);
+            }
+
+            .mobile-hero-actions {
                 display: flex;
                 align-items: center;
-                gap: 7px;
-                margin: 0 0 18px 0 !important;
-                color: #F5B84B !important;
-                font-size: 0.82rem !important;
-                font-weight: 500;
-                line-height: 1.3 !important;
-                text-shadow: 0 2px 8px rgba(0,0,0,0.45);
-            }
-            .mobile-hero-location i {
-                font-size: 0.78rem;
-                color: #F5B84B;
+                gap: 8px;
+                margin: 0 0 13px;
+                flex-wrap: nowrap;
             }
 
-            /* Compact white CTA with pale-teal arrow inside */
             .mobile-hero-cta {
                 display: inline-flex;
                 align-items: center;
-                justify-content: space-between;
-                gap: 12px;
-                height: 46px;
-                padding: 0 8px 0 18px;
-                border-radius: 10px;
-                background: #FFFFFF;
+                justify-content: center;
+                gap: 7px;
+                height: 38px;
+                padding: 0 13px;
+                border: none;
+                border-radius: 999px;
+                background: rgba(255,255,255,0.98);
                 color: #0B5E5A;
-                font-size: 0.86rem;
+                font-family: "Inter", sans-serif;
+                font-size: 0.73rem;
                 font-weight: 600;
                 text-decoration: none;
-                box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-                margin-bottom: 26px;
-                width: auto;
-                max-width: 260px;
                 white-space: nowrap;
-                border: none;
+                box-shadow: 0 5px 14px rgba(0,0,0,0.14);
+                margin: 0;
+                width: auto;
+                max-width: none;
             }
+
             .mobile-hero-cta .cta-label {
                 color: #0B5E5A;
                 font-weight: 600;
                 letter-spacing: -0.01em;
             }
+
             .mobile-hero-cta .cta-arrow {
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                width: 34px;
-                height: 34px;
-                border-radius: 50%;
-                background: #D8ECEA;
+                width: auto;
+                height: auto;
+                border-radius: 0;
+                background: transparent;
                 color: #0B5E5A;
                 flex-shrink: 0;
             }
+
             .mobile-hero-cta .cta-arrow i {
-                font-size: 0.82rem;
                 color: #0B5E5A;
+                font-size: 0.68rem;
             }
 
-            /* 3-item trust row inside hero */
+            .mobile-contact-cta {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                height: 38px;
+                padding: 0 12px;
+                border-radius: 999px;
+                background: rgba(255,255,255,0.08);
+                border: 1px solid rgba(255,255,255,0.48);
+                color: #FFFFFF;
+                font-family: "Inter", sans-serif;
+                font-size: 0.73rem;
+                font-weight: 600;
+                text-decoration: none;
+                white-space: nowrap;
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+            }
+
+            .mobile-contact-cta i {
+                color: #FFFFFF;
+                font-size: 0.68rem;
+            }
+
+            .mobile-hero-location {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                margin: 0 !important;
+                color: #F5B84B !important;
+                font-family: "Inter", sans-serif;
+                font-size: 0.72rem !important;
+                font-weight: 400;
+                line-height: 1.3 !important;
+                text-shadow: 0 2px 8px rgba(0,0,0,0.40);
+            }
+
+            .mobile-hero-location i {
+                color: #F5B84B;
+                font-size: 0.68rem;
+            }
+
             .mobile-hero-trust {
                 display: grid;
                 grid-template-columns: 1fr 1px 1fr 1px 1fr;
                 align-items: center;
                 gap: 0;
                 width: 100%;
-                margin-top: 4px;
+                margin-top: auto;
             }
+
             .mobile-hero-trust .trust-item {
                 display: flex;
                 flex-direction: column;
@@ -640,11 +715,13 @@
                 gap: 6px;
                 padding: 0 4px;
             }
+
             .mobile-hero-trust .trust-item i {
                 font-size: 1.05rem;
                 color: #FFFFFF;
                 opacity: 0.95;
             }
+
             .mobile-hero-trust .trust-item span {
                 color: rgba(255,255,255,0.92);
                 font-size: 0.68rem;
@@ -652,6 +729,7 @@
                 font-weight: 600;
                 letter-spacing: -0.005em;
             }
+
             .mobile-hero-trust .trust-divider {
                 width: 1px;
                 height: 26px;
@@ -666,7 +744,7 @@
             /* ---------- HIDE SERVICES ON MOBILE ---------- */
             #services { display: none !important; }
 
-            /* ---------- BOOKING (unchanged, as currently approved) ---------- */
+            /* ---------- BOOKING ---------- */
             #book {
                 padding: 34px 0 32px !important;
                 background: linear-gradient(
@@ -895,9 +973,11 @@
            ============================================================ */
         @media (max-width: 480px) {
             .hero { min-height: 540px; }
-            .mobile-hero-content h1 { font-size: 2.35rem; max-width: 300px; }
-            .mobile-hero-cta { height: 44px; font-size: 0.82rem; }
-            .mobile-hero-cta .cta-arrow { width: 32px; height: 32px; }
+            .mobile-hero-content { min-height: 540px; }
+            .mobile-hero-main { margin-top: 175px; }
+            .mobile-hero-content h1 { font-size: 1.8rem; max-width: 270px; }
+            .mobile-hero-cta { height: 36px; font-size: 0.71rem; }
+            .mobile-contact-cta { height: 36px; font-size: 0.71rem; }
             .mobile-hero-trust .trust-item span { font-size: 0.64rem; }
             .mobile-pricing-item { padding: 9px 12px; min-height: 38px; }
             .mp-name { font-size: 0.76rem; }
@@ -931,7 +1011,7 @@
     <div class="hero-static-bg"></div>
     <div class="hero-overlay"></div>
 
-    <!-- DESKTOP hero content (unchanged, hidden on mobile via CSS) -->
+    <!-- DESKTOP hero content -->
     <div class="container hero-content hero-desktop-content">
 
         <span class="hero-eyebrow">A cleaner, happier home</span>
@@ -955,38 +1035,70 @@
         </div>
     </div>
 
-    <!-- MOBILE hero content (mobile-only, hidden on desktop via CSS) -->
+    <!-- MOBILE hero content -->
     <div class="container hero-content mobile-hero-content">
 
-        <h1>Deep Cleaning,<br>Done Right.</h1>
+        <div class="mobile-hero-main">
 
-        <p class="mobile-hero-location">
-            <i class="fas fa-location-dot" aria-hidden="true"></i>
-            <span>Birmingham &amp; surrounding areas</span>
-        </p>
-
-        <a href="index.html#book" class="mobile-hero-cta">
-            <span class="cta-label">Book a Deep Clean</span>
-            <span class="cta-arrow" aria-hidden="true">
-                <i class="fas fa-arrow-right"></i>
+            <span class="mobile-hero-eyebrow">
+                A CLEANER, HAPPIER HOME
             </span>
-        </a>
+
+            <h1>
+                Deep Cleaning,<br>
+                Done Right.
+            </h1>
+
+            <p class="mobile-hero-copy">
+                We take care of the cleaning and organising,
+                leaving your space sparkling and perfectly in place.
+            </p>
+
+            <div class="mobile-hero-actions">
+
+                <a href="index.html#book" class="mobile-hero-cta">
+                    <span class="cta-label">Book a Deep Clean</span>
+
+                    <span class="cta-arrow" aria-hidden="true">
+                        <i class="fas fa-arrow-right"></i>
+                    </span>
+                </a>
+
+                <a href="#contact" class="mobile-contact-cta">
+                    <i class="fas fa-phone" aria-hidden="true"></i>
+                    <span>Contact Us</span>
+                </a>
+
+            </div>
+
+            <p class="mobile-hero-location">
+                <i class="fas fa-location-dot" aria-hidden="true"></i>
+                <span>Birmingham &amp; surrounding areas</span>
+            </p>
+
+        </div>
 
         <div class="mobile-hero-trust">
+
             <div class="trust-item">
                 <i class="fas fa-shield-alt" aria-hidden="true"></i>
                 <span>Fully<br>Insured</span>
             </div>
+
             <div class="trust-divider" aria-hidden="true"></div>
+
             <div class="trust-item">
                 <i class="fas fa-leaf" aria-hidden="true"></i>
                 <span>Eco-Friendly<br>Products</span>
             </div>
+
             <div class="trust-divider" aria-hidden="true"></div>
+
             <div class="trust-item">
                 <i class="fas fa-home" aria-hidden="true"></i>
                 <span>Trusted Local<br>Service</span>
             </div>
+
         </div>
 
     </div>
@@ -1035,7 +1147,6 @@
     <h2 class="section-title">Transparent <span class="primary">Pricing</span></h2>
     <p class="section-subhead">Fixed rates, no hidden fees. Know exactly what you'll pay before you book.</p>
 
-    <!-- MOBILE-ONLY flat price list -->
     <div class="mobile-pricing-list">
         <div class="mobile-pricing-header">Deep Cleaning</div>
         <a href="index.html#book" class="mobile-pricing-item"><span class="mp-name">Studio</span><span class="mp-price">£200</span></a>
@@ -1053,15 +1164,12 @@
         <a href="index.html#book" class="mobile-pricing-item"><span class="mp-name">4 Bedrooms</span><span class="mp-price">£450</span></a>
     </div>
 
-    <!-- DESKTOP pricing cards -->
     <div class="pricing-grid"><div class="pricing-card"><h3>Studio</h3><div class="pricing-price">£200</div><ul class="pricing-features"><li><i class="fas fa-check"></i> Includes 1 bathroom</li><li><i class="fas fa-check"></i> All living areas</li><li><i class="fas fa-check"></i> Kitchen cleaning</li><li><i class="fas fa-check"></i> Photo proof included</li></ul><button class="btn-service" onclick="goToBookingPage('residential')">Book Now</button></div><div class="pricing-card most-popular-card"><div class="popular-badge">Most Popular</div><h3>1 Bedroom</h3><div class="pricing-price">£230</div><ul class="pricing-features"><li><i class="fas fa-check"></i> 1 Bedroom / 1 Bathroom</li><li><i class="fas fa-check"></i> All living areas</li><li><i class="fas fa-check"></i> Kitchen cleaning</li><li><i class="fas fa-check"></i> Photo proof included</li></ul><button class="btn-service" onclick="goToBookingPage('residential')">Book Now</button></div><div class="pricing-card"><h3>2 Bedrooms</h3><div class="pricing-price">£270</div><ul class="pricing-features"><li><i class="fas fa-check"></i> 2 Bedrooms / 1 Bathroom</li><li><i class="fas fa-check"></i> All living areas</li><li><i class="fas fa-check"></i> Kitchen cleaning</li><li><i class="fas fa-check"></i> Photo proof included</li></ul><button class="btn-service" onclick="goToBookingPage('residential')">Book Now</button></div></div>
 
     <h3 class="addons-heading">Popular Add-ons</h3>
 
-    <!-- DESKTOP add-on cards -->
     <div class="addons-showcase"><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-temperature-high"></i></div><h4>Oven Cleaning</h4><p>Single oven inside</p><div class="price">£70</div></div><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-fan"></i></div><h4>Extractor Hood</h4><p>Professional cleaning</p><div class="price">£35</div></div><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-thermometer-half"></i></div><h4>Fridge Cleaning</h4><p>Inside &amp; out</p><div class="price">£40</div></div><div class="addon-card"><div class="addon-icon-wrapper"><i class="fas fa-paw"></i></div><h4>Pet Hair Removal</h4><p>Thorough removal</p><div class="price">£30</div></div></div>
 
-    <!-- MOBILE-ONLY flat add-ons list -->
     <div class="mobile-addons-list">
         <div class="mobile-pricing-item"><span class="mp-name">Oven Cleaning</span><span class="mp-price">£70</span></div>
         <div class="mobile-pricing-item"><span class="mp-name">Extractor Hood</span><span class="mp-price">£35</span></div>
@@ -1188,7 +1296,7 @@
     </a>
 </div>
 
-<!-- ===== JAVASCRIPT (your original — untouched) ===== -->
+<!-- ===== JAVASCRIPT (untouched) ===== -->
 <script>
     const POWER_AUTOMATE_CONTACT_URL = 'https://default9677c98995364c8db14d72fa9aa124.c6.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/fb50c4acfdf54c0ba264b90575ab2066/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=hRi8Alynd175wTvKPspOx90LpusD_IKShrAROJpdMhA';
 
