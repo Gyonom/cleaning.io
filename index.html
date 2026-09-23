@@ -553,6 +553,15 @@
             .hero-location { display: none !important; }
             .hero-buttons { display: none !important; }
 
+            /* ===== RAISE THE UPPER CONTENT BLOCK ===== */
+            .mobile-hero-eyebrow,
+            .mobile-hero-content h1,
+            .mobile-hero-actions,
+            .mobile-hero-location {
+                position: relative;
+                top: -34px;
+            }
+
             /* Eyebrow */
             .mobile-hero-eyebrow {
                 display: block;
@@ -594,33 +603,32 @@
                 flex-wrap: nowrap;
             }
 
-            /* BOTH BUTTONS — same pill system */
+            /* BOTH BUTTONS — matched size */
             .mobile-hero-cta,
             .mobile-contact-cta {
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
+                width: 154px;
                 height: 38px;
+                padding: 0 12px;
                 border-radius: 999px;
                 font-family: "Inter", sans-serif;
                 font-size: 0.70rem;
                 line-height: 1;
                 white-space: nowrap;
                 text-decoration: none;
-                width: auto;
             }
 
-            /* BOOK — primary white pill */
+            /* BOOK */
             .mobile-hero-cta {
-                padding: 0 7px 0 15px;
-                gap: 8px;
+                gap: 7px;
                 background: #FFFFFF;
                 color: #0B5E5A;
                 font-weight: 600;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
                 border: none;
                 margin: 0;
-                max-width: none;
             }
             .mobile-hero-cta .cta-label {
                 color: #0B5E5A;
@@ -645,9 +653,8 @@
                 color: #0B5E5A;
             }
 
-            /* CONTACT — secondary glass pill */
+            /* CONTACT — same size as Book */
             .mobile-contact-cta {
-                padding: 0 15px;
                 gap: 7px;
                 border: 1px solid rgba(255, 255, 255, 0.65);
                 background: rgba(255, 255, 255, 0.08);
@@ -679,7 +686,7 @@
                 color: #F5B84B;
             }
 
-            /* Trust row — separated by location margin above */
+            /* Trust row */
             .mobile-hero-trust {
                 display: grid;
                 grid-template-columns: 1fr 1px 1fr 1px 1fr;
@@ -948,7 +955,7 @@
             .hero { min-height: 540px; }
             .mobile-hero-content h1 { font-size: 1.75rem; max-width: 270px; }
             .mobile-hero-cta,
-            .mobile-contact-cta { height: 36px; font-size: 0.68rem; }
+            .mobile-contact-cta { width: 142px; height: 36px; font-size: 0.68rem; }
             .mobile-hero-arrow { width: 23px; height: 23px; }
             .mobile-hero-trust .trust-item span { font-size: 0.6rem; }
             .mobile-pricing-item { padding: 9px 12px; min-height: 38px; }
