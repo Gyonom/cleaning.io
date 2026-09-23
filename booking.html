@@ -845,71 +845,912 @@
             box-shadow: 0 0 0 3px rgba(11, 94, 90, 0.08);
         }
 
+        /* ============================================================
+           MOBILE-ONLY BOOKING REDESIGN (≤768px)
+           Desktop ≥769px is not affected by anything in this block.
+           ============================================================ */
+
+        .m-shell,
+        .m-service-intro,
+        .m-step-title,
+        .m-progress-bar,
+        .m-review-block,
+        .m-review-trigger,
+        .m-show-more,
+        .m-trust,
+        .m-accordion,
+        .m-mobile-only,
+        .m-stepper,
+        .m-carpet-desktop-hide,
+        .m-desktop-number-input { display: none !important; }
+
         @media (max-width: 768px) {
-            .container { padding: 0 20px; }
-            nav { height: 78px; }
-            .nav-links { top: 78px; height: calc(100vh - 78px); }
-            .booking-page { padding-top: 90px; padding-bottom: 30px; }
-            .booking-header { padding: 20px 24px; flex-direction: column; align-items: flex-start; }
-            .booking-container { padding: 24px 20px; }
-            .form-grid { gap: 16px; }
-            .addons-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .booking-navigation { flex-direction: column; }
-            .btn-next, .btn-prev { width: 100%; }
-            .footer-grid { grid-template-columns: 1fr; }
-        }
 
-        @media (max-width: 640px) {
-            .form-grid { grid-template-columns: 1fr; gap: 14px; }
-            .form-group.full-width { grid-column: span 1; }
-            .condition-options { grid-template-columns: 1fr; gap: 12px; }
-            .org-area-options { grid-template-columns: 1fr; }
-        }
+            html, body { overflow-x: hidden; width: 100%; max-width: 100%; }
 
-        @media (max-width: 480px) {
-            body { background: #F6F8F7; }
-            .container { padding: 0 16px; }
-            .booking-page { padding-top: 80px; padding-bottom: 20px; }
+            .container { padding: 0 18px; }
             nav { height: 64px; }
-            .logo-icon img { height: 34px; }
-            .logo-primary { font-size: 0.86rem; }
-            .logo-secondary { font-size: 0.46rem; letter-spacing: 0.16em; }
+            .logo-icon img { height: 36px; }
+            .logo-primary { font-size: 0.92rem; }
+            .logo-secondary { font-size: 0.48rem; letter-spacing: 0.18em; }
             .nav-links { top: 64px; height: calc(100vh - 64px); }
-            .booking-system { border-radius: 24px; }
-            .booking-header { padding: 16px; gap: 10px; }
-            .booking-header h3 { font-size: 1rem; line-height: 1.25; }
-            .progress-step { width: 30px; height: 30px; font-size: 0.74rem; }
-            .booking-container { padding: 14px; }
-            .form-grid { gap: 12px; margin-bottom: 14px; }
-            .form-group label { font-size: 0.73rem; margin-bottom: 5px; }
-            .form-group input, .form-group select, .form-group textarea { min-height: 42px; font-size: 0.8rem; padding: 9px 10px; border-radius: 12px; }
-            .condition-title { font-size: 0.84rem; margin-bottom: 10px; }
-            .condition-options { gap: 8px; margin-bottom: 14px; }
-            .condition-option { min-height: 56px; padding: 10px 8px; border-radius: 12px; }
-            .condition-option:hover { transform: none; }
-            .condition-option h4 { font-size: 0.74rem; margin-bottom: 2px; }
-            .condition-option p { font-size: 0.6rem; }
-            .price-calculator { padding: 14px; margin: 14px 0 6px; border-radius: 16px; }
-            .price-calculator h4 { font-size: 0.84rem; margin-bottom: 10px; }
-            .addons-grid { grid-template-columns: 1fr; gap: 8px; margin-bottom: 12px; }
-            .addon-checkbox { min-height: 44px; padding: 7px 9px; gap: 6px; border-radius: 12px; }
-            .addon-checkbox input { width: 16px; height: 16px; }
-            .addon-icon { width: 26px; height: 26px; border-radius: 8px; }
-            .addon-title { font-size: 0.68rem; white-space: normal; overflow: visible; text-overflow: unset; }
-            .addon-price { font-size: 0.6rem; padding: 2px 6px; }
-            .total-display { padding: 10px 12px; margin-top: 12px; margin-bottom: 4px; border-radius: 16px; gap: 6px; }
-            .total-display span:first-child { font-size: 0.72rem; }
-            .total-display .amount { font-size: 1.1rem; }
-            .info-note { font-size: 0.62rem; padding: 8px 10px; margin-top: 8px; border-radius: 10px; text-align: left; }
-            .assessment-note { font-size: 0.64rem; padding: 9px 10px; margin-top: 10px; border-radius: 10px; }
-            .file-upload-area { padding: 16px 12px; border-radius: 12px; }
-            .file-upload-area i { font-size: 1.1rem; margin-bottom: 6px; }
-            .file-item { font-size: 0.64rem; padding: 6px 8px; border-radius: 10px; }
-            .file-thumb { width: 38px; height: 38px; }
-            .booking-navigation { margin-top: 10px; gap: 10px; }
-            .btn-next, .btn-prev { min-height: 44px; padding: 10px 16px; font-size: 0.78rem; font-weight: 700; }
-            footer { padding: 20px 0 16px; }
-            .footer-grid { gap: 14px; margin-bottom: 14px; }
+
+            .booking-page {
+                padding-top: 76px;
+                padding-bottom: 28px;
+                min-height: calc(100vh - 260px);
+            }
+
+            .booking-system {
+                background: transparent;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+                max-width: 100%;
+                overflow: visible;
+            }
+
+            .booking-header { display: none; }
+            .booking-divider { display: none; }
+
+            /* Reveal mobile-only elements inside the mobile media query */
+            .m-shell { display: block !important; }
+            .m-service-intro { display: flex !important; }
+            .m-step-title { display: block !important; }
+            .m-progress-bar { display: flex !important; }
+            .m-review-trigger { display: inline-flex !important; }
+            .m-show-more { display: inline-flex !important; }
+            .m-trust { display: flex !important; }
+            .m-accordion { display: block !important; }
+            .m-stepper { display: grid !important; }
+            .m-mobile-only { display: block !important; }
+
+            .m-service-intro.m-hidden { display: none !important; }
+            .m-review-block.active { display: block !important; }
+
+            /* ---------- MOBILE SHELL ---------- */
+            .m-shell {
+                padding: 6px 0 14px;
+                margin-bottom: 6px;
+            }
+
+            .m-shell-top {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                margin-bottom: 14px;
+            }
+
+            .m-shell-back {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                color: var(--text-dark);
+                font-size: 0.9rem;
+                font-weight: 500;
+                text-decoration: none;
+                background: none;
+                border: none;
+                padding: 4px 0;
+                cursor: pointer;
+                font-family: inherit;
+            }
+
+            .m-shell-back i { font-size: 0.75rem; color: var(--text-soft); }
+
+            .m-shell-step {
+                font-size: 0.82rem;
+                font-weight: 600;
+                color: var(--text-soft);
+                white-space: nowrap;
+            }
+
+            .m-step-title {
+                font-size: 1.05rem;
+                font-weight: 700;
+                letter-spacing: -0.02em;
+                color: var(--text-dark);
+                margin-bottom: 12px;
+            }
+
+            .m-progress-bar {
+                gap: 6px;
+                width: 100%;
+            }
+
+            .m-progress-bar .m-seg {
+                flex: 1;
+                height: 3px;
+                border-radius: 999px;
+                background: rgba(11, 94, 90, 0.14);
+                transition: background 0.25s ease;
+            }
+
+            .m-progress-bar .m-seg.done,
+            .m-progress-bar .m-seg.active { background: var(--primary); }
+
+            /* ---------- SERVICE INTRO ---------- */
+            .m-service-intro {
+                align-items: center;
+                gap: 14px;
+                padding: 16px 0 18px;
+                border-bottom: 1px solid rgba(11, 94, 90, 0.08);
+                margin-bottom: 18px;
+            }
+
+            .m-service-intro-icon {
+                flex-shrink: 0;
+                width: 52px;
+                height: 52px;
+                border-radius: 50%;
+                background: rgba(11, 94, 90, 0.08);
+                color: var(--primary);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+            }
+
+            .m-service-intro-text { min-width: 0; }
+            .m-service-intro-title {
+                font-size: 1.15rem;
+                font-weight: 700;
+                letter-spacing: -0.025em;
+                line-height: 1.2;
+                color: var(--text-dark);
+                margin-bottom: 3px;
+            }
+            .m-service-intro-sub {
+                font-size: 0.82rem;
+                line-height: 1.35;
+                color: var(--text-light);
+            }
+
+            /* ---------- CONTAINER ---------- */
+            .booking-container {
+                padding: 0;
+                background: transparent;
+            }
+
+            /* ---------- FORM LAYOUT ---------- */
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                margin-bottom: 16px;
+            }
+
+            .form-group.full-width { grid-column: span 1; }
+
+            .form-group label {
+                font-size: 0.85rem;
+                font-weight: 700;
+                margin-bottom: 8px;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                min-height: 48px;
+                padding: 12px 14px;
+                border-radius: 10px;
+                font-size: 16px;
+                border: 1px solid rgba(11, 94, 90, 0.16);
+                background: #FFFFFF;
+                box-shadow: none;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .form-group textarea { min-height: 96px; font-size: 16px; }
+
+            .form-group input:focus,
+            .form-group select:focus,
+            .form-group textarea:focus {
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px rgba(11, 94, 90, 0.10);
+                background: #FFFFFF;
+            }
+
+            /* Hide desktop-only number inputs when mobile steppers are active */
+            .m-desktop-number-input { display: none !important; }
+
+            /* ---------- SECTION LABEL ---------- */
+            .condition-title,
+            .m-section-label {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 0.78rem;
+                font-weight: 700;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: var(--text-soft);
+                margin-bottom: 12px;
+                margin-top: 4px;
+            }
+
+            .m-section-label i {
+                font-size: 0.85rem;
+                color: var(--primary);
+            }
+
+            /* ---------- STEPPER ---------- */
+            .m-stepper {
+                grid-template-columns: 56px 1fr 56px;
+                align-items: center;
+                gap: 0;
+                border: 1px solid rgba(11, 94, 90, 0.16);
+                border-radius: 10px;
+                background: #FFFFFF;
+                overflow: hidden;
+                max-width: 100%;
+            }
+
+            .m-stepper button {
+                background: #F4F8F7;
+                border: none;
+                height: 48px;
+                font-size: 1.15rem;
+                color: var(--primary-dark);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 500;
+                -webkit-tap-highlight-color: transparent;
+                font-family: inherit;
+            }
+
+            .m-stepper button:active { background: #E4EFEC; }
+
+            .m-stepper-value {
+                text-align: center;
+                font-size: 1rem;
+                font-weight: 700;
+                color: var(--text-dark);
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #FFFFFF;
+            }
+
+            /* ---------- CONDITION TILES ---------- */
+            .condition-options {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 8px;
+                margin-bottom: 18px;
+            }
+
+            .condition-option {
+                min-height: 96px;
+                padding: 12px 6px;
+                border-radius: 10px;
+                background: #FFFFFF;
+                border: 1px solid rgba(11, 94, 90, 0.12);
+                box-shadow: none;
+                transform: none;
+            }
+
+            .condition-option:hover { transform: none; box-shadow: none; }
+
+            .condition-option.selected {
+                border: 2px solid var(--primary);
+                background: #EAF6F4;
+                box-shadow: 0 0 0 3px rgba(11, 94, 90, 0.10);
+            }
+
+            .condition-option.selected::after { display: none; }
+
+            .condition-option.selected::before {
+                content: '\f00c';
+                font-family: 'Font Awesome 6 Free';
+                font-weight: 900;
+                position: absolute;
+                top: 6px;
+                right: 6px;
+                width: 16px;
+                height: 16px;
+                background: var(--primary);
+                color: #FFFFFF;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 8px;
+                z-index: 2;
+            }
+
+            .condition-option .m-cond-icon {
+                font-size: 1.1rem;
+                color: var(--primary);
+                margin-bottom: 6px;
+                display: block;
+            }
+
+            .condition-option h4 {
+                font-size: 0.78rem;
+                font-weight: 700;
+                margin-bottom: 2px;
+                color: var(--text-dark);
+            }
+
+            .condition-option p {
+                font-size: 0.62rem;
+                line-height: 1.25;
+                color: var(--text-light);
+            }
+
+            /* ---------- ADDONS ---------- */
+            .price-calculator {
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                margin: 20px 0 8px;
+                border-radius: 0;
+            }
+
+            .price-calculator h4 {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 0.78rem;
+                font-weight: 700;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: var(--text-soft);
+                margin-bottom: 12px;
+            }
+
+            .price-calculator h4 i { font-size: 0.85rem; color: var(--primary); }
+
+            .addons-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 8px;
+                margin-bottom: 6px;
+            }
+
+            .addon-checkbox {
+                min-height: 64px;
+                padding: 10px;
+                gap: 8px;
+                border-radius: 10px;
+                background: #FFFFFF;
+                border: 1px solid rgba(11, 94, 90, 0.12);
+                box-shadow: none;
+                transform: none;
+                align-items: center;
+            }
+
+            .addon-checkbox:hover { transform: none; box-shadow: none; }
+
+            .addon-checkbox:has(input:checked) {
+                border: 2px solid var(--primary);
+                background: #EAF6F4;
+                box-shadow: 0 0 0 3px rgba(11, 94, 90, 0.08);
+            }
+
+            .addon-checkbox input {
+                order: 2;
+                margin-left: auto;
+                width: 20px;
+                height: 20px;
+                border-radius: 6px;
+                accent-color: var(--primary);
+                flex-shrink: 0;
+            }
+
+            .addon-icon {
+                width: 34px;
+                height: 34px;
+                border-radius: 9px;
+                flex-shrink: 0;
+                order: 0;
+            }
+
+            .addon-icon i { font-size: 0.85rem; }
+
+            .addon-content {
+                order: 1;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                min-width: 0;
+            }
+
+            .addon-title {
+                font-size: 0.78rem;
+                font-weight: 600;
+                line-height: 1.2;
+                white-space: normal;
+                overflow: visible;
+                text-overflow: unset;
+                color: var(--text-dark);
+            }
+
+            .addon-price {
+                font-size: 0.78rem;
+                font-weight: 800;
+                color: var(--primary);
+                background: none;
+                padding: 0;
+                border-radius: 0;
+                width: auto;
+            }
+
+            .m-addon-hidden { display: none !important; }
+
+            .m-show-more {
+                align-items: center;
+                gap: 6px;
+                background: none;
+                border: none;
+                color: var(--primary);
+                font-family: inherit;
+                font-size: 0.82rem;
+                font-weight: 700;
+                padding: 10px 0;
+                margin-bottom: 4px;
+                cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .m-show-more i {
+                font-size: 0.72rem;
+                transition: transform 0.2s ease;
+            }
+
+            .m-show-more.open i { transform: rotate(180deg); }
+
+            /* ---------- TOTALS ---------- */
+            .total-display {
+                padding: 14px 16px;
+                border-radius: 10px;
+                background: #EAF6F4;
+                border: 1px solid rgba(11, 94, 90, 0.14);
+                box-shadow: none;
+                margin-top: 16px;
+                margin-bottom: 4px;
+            }
+
+            .total-display span:first-child {
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: var(--text-dark);
+            }
+
+            .total-display .amount {
+                font-size: 1.35rem;
+                font-weight: 800;
+                color: var(--primary-dark);
+            }
+
+            .info-note {
+                font-size: 0.7rem;
+                padding: 10px 12px;
+                margin-top: 10px;
+                border-radius: 10px;
+                background: rgba(11, 94, 90, 0.05);
+                text-align: left;
+                line-height: 1.4;
+            }
+
+            /* ---------- ACCORDION (CARPET) ---------- */
+            .m-accordion { margin-bottom: 10px; }
+
+            .m-acc-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                padding: 14px;
+                background: #FFFFFF;
+                border: 1px solid rgba(11, 94, 90, 0.12);
+                border-radius: 10px;
+                cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
+                transition: background 0.2s ease;
+                width: 100%;
+                font-family: inherit;
+                text-align: left;
+            }
+
+            .m-acc-row:active { background: #F4F8F7; }
+
+            .m-acc-left {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                min-width: 0;
+                flex: 1;
+            }
+
+            .m-acc-icon {
+                flex-shrink: 0;
+                width: 38px;
+                height: 38px;
+                border-radius: 9px;
+                background: rgba(11, 94, 90, 0.08);
+                color: var(--primary);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.9rem;
+            }
+
+            .m-acc-text { min-width: 0; flex: 1; }
+
+            .m-acc-name {
+                font-size: 0.88rem;
+                font-weight: 700;
+                color: var(--text-dark);
+                line-height: 1.2;
+                margin-bottom: 2px;
+            }
+
+            .m-acc-sub {
+                font-size: 0.72rem;
+                color: var(--text-light);
+                line-height: 1.3;
+            }
+
+            .m-acc-summary {
+                font-size: 0.74rem;
+                color: var(--primary);
+                font-weight: 600;
+                line-height: 1.3;
+                margin-top: 3px;
+            }
+
+            .m-acc-chev {
+                color: var(--text-light);
+                font-size: 0.8rem;
+                transition: transform 0.2s ease;
+                flex-shrink: 0;
+            }
+
+            .m-accordion.open .m-acc-chev { transform: rotate(180deg); }
+
+            .m-acc-body {
+                display: none;
+                padding: 8px 0 4px 19px;
+                border-left: 2px solid rgba(11, 94, 90, 0.12);
+                margin-left: 19px;
+                margin-top: 8px;
+            }
+
+            .m-accordion.open .m-acc-body { display: block; }
+
+            .m-acc-item {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 12px;
+                background: #FFFFFF;
+                border: 1px solid rgba(11, 94, 90, 0.10);
+                border-radius: 10px;
+                margin-bottom: 8px;
+            }
+
+            .m-acc-item-info { min-width: 0; }
+
+            .m-acc-item-name {
+                font-size: 0.82rem;
+                font-weight: 600;
+                color: var(--text-dark);
+                line-height: 1.2;
+                margin-bottom: 2px;
+            }
+
+            .m-acc-item-price {
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: var(--primary);
+            }
+
+            .m-acc-item .m-stepper {
+                grid-template-columns: 40px 44px 40px;
+                border-radius: 9px;
+            }
+
+            .m-acc-item .m-stepper button { height: 40px; font-size: 1rem; }
+            .m-acc-item .m-stepper-value { height: 40px; font-size: 0.9rem; }
+
+            /* ---------- ORG AREA TILES ---------- */
+            .org-area-options {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 8px;
+            }
+
+            .org-area-option {
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center;
+                padding: 14px 8px !important;
+                min-height: 96px !important;
+                border-radius: 10px !important;
+                background: #FFFFFF !important;
+                border: 1px solid rgba(11, 94, 90, 0.12) !important;
+                gap: 8px !important;
+                font-size: 0.75rem !important;
+                line-height: 1.2 !important;
+                box-shadow: none !important;
+                position: relative;
+                color: var(--text-dark) !important;
+            }
+
+            .org-area-option > span:last-child {
+                font-weight: 600;
+            }
+
+            .org-area-circle {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                width: 18px;
+                height: 18px;
+                border: 2px solid rgba(11, 94, 90, 0.28);
+                border-radius: 50%;
+                background: #FFFFFF;
+                flex-shrink: 0;
+            }
+
+            .org-area-option:has(.org-area-checkbox:checked) {
+                border: 2px solid var(--primary) !important;
+                background: #EAF6F4 !important;
+                box-shadow: 0 0 0 3px rgba(11, 94, 90, 0.08) !important;
+            }
+
+            .org-area-checkbox:checked + .org-area-circle {
+                background: var(--primary);
+                border-color: var(--primary);
+            }
+
+            .org-area-checkbox:checked + .org-area-circle::after {
+                content: '\f00c';
+                font-family: 'Font Awesome 6 Free';
+                font-weight: 900;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #FFFFFF;
+                font-size: 9px;
+            }
+
+            /* ---------- NAVIGATION ---------- */
+            .booking-navigation {
+                flex-direction: column-reverse;
+                margin-top: 20px;
+                gap: 10px;
+            }
+
+            .btn-next {
+                width: 100%;
+                border-radius: 10px !important;
+                padding: 15px 20px;
+                font-size: 0.95rem;
+                font-weight: 700;
+                box-shadow: 0 4px 12px rgba(11, 94, 90, 0.16);
+                min-height: 52px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .btn-next:hover { transform: none; }
+
+            .btn-prev {
+                width: auto;
+                align-self: center;
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                padding: 8px 12px;
+                font-size: 0.85rem;
+                font-weight: 500;
+                color: var(--text-soft);
+                min-height: auto;
+                border-radius: 8px;
+            }
+
+            .btn-prev i { font-size: 0.75rem; }
+
+            .btn-prev:hover { background: rgba(11, 94, 90, 0.04); transform: none; }
+
+            .m-trust {
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                font-size: 0.7rem;
+                color: var(--text-light);
+                margin-top: 14px;
+                padding-bottom: 6px;
+                text-align: center;
+                line-height: 1.3;
+            }
+
+            .m-trust i { color: var(--primary); font-size: 0.75rem; }
+
+            /* ---------- REVIEW STATE ---------- */
+            .m-review-block.active { display: block; }
+
+            .m-review-section {
+                background: #FFFFFF;
+                border: 1px solid rgba(11, 94, 90, 0.10);
+                border-radius: 10px;
+                padding: 14px;
+                margin-bottom: 10px;
+            }
+
+            .m-review-section-head {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 12px;
+                margin-bottom: 6px;
+            }
+
+            .m-review-label {
+                font-size: 0.7rem;
+                font-weight: 700;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: var(--text-soft);
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+            .m-review-label i { color: var(--primary); font-size: 0.78rem; }
+
+            .m-review-edit {
+                background: none;
+                border: none;
+                color: var(--primary);
+                font-family: inherit;
+                font-size: 0.8rem;
+                font-weight: 600;
+                padding: 2px 0;
+                cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .m-review-value {
+                font-size: 0.88rem;
+                color: var(--text-dark);
+                line-height: 1.45;
+            }
+
+            .m-review-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                font-size: 0.85rem;
+                color: var(--text-dark);
+            }
+
+            .m-review-list li {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                padding: 4px 0;
+                line-height: 1.35;
+            }
+
+            .m-review-list li span:last-child {
+                font-weight: 700;
+                color: var(--primary-dark);
+                white-space: nowrap;
+            }
+
+            .m-review-trigger {
+                align-items: center;
+                gap: 6px;
+                background: none;
+                border: none;
+                color: var(--primary);
+                font-family: inherit;
+                font-size: 0.88rem;
+                font-weight: 700;
+                padding: 12px 0 4px;
+                cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .m-review-trigger i { font-size: 0.75rem; }
+
+            .m-step-fill-hidden { display: none !important; }
+
+            /* ---------- STEP 2 & STEP 3 MOBILE ---------- */
+            #step2 .form-group,
+            #step3 .form-group { margin-bottom: 16px; }
+
+            #step2 .booking-navigation,
+            #step3 .booking-navigation {
+                flex-direction: column-reverse;
+                margin-top: 18px;
+                gap: 10px;
+            }
+
+            #step2 .booking-navigation .btn-prev,
+            #step3 .booking-navigation .btn-prev {
+                align-self: center;
+                background: transparent;
+                border: none;
+                padding: 8px 12px;
+                font-size: 0.85rem;
+                font-weight: 500;
+                color: var(--text-soft);
+                min-height: auto;
+                border-radius: 8px;
+            }
+
+            #step2 .booking-navigation .btn-next,
+            #step3 .booking-navigation .btn-next {
+                width: 100%;
+                border-radius: 10px !important;
+                min-height: 52px;
+                padding: 15px 20px;
+                font-size: 0.95rem;
+                font-weight: 700;
+            }
+
+            .file-upload-area {
+                padding: 22px 16px;
+                border-radius: 10px;
+                background: #FFFFFF;
+                border: 1.5px dashed rgba(11, 94, 90, 0.24);
+            }
+
+            .file-upload-area i { font-size: 1.4rem; margin-bottom: 6px; }
+
+            .file-upload-area p { font-size: 0.85rem; }
+
+            .file-upload-area p:last-of-type { font-size: 0.72rem !important; line-height: 1.4; }
+
+            .file-item {
+                padding: 8px 10px;
+                border-radius: 10px;
+                font-size: 0.72rem;
+            }
+
+            .file-thumb { width: 40px; height: 40px; border-radius: 8px; }
+
+            .assessment-note {
+                font-size: 0.75rem;
+                padding: 12px 14px;
+                border-radius: 10px;
+                margin-top: 14px;
+                line-height: 1.4;
+            }
+
+            #step3 .form-grid { gap: 16px; margin-bottom: 18px; }
+
+            footer { padding: 26px 0 20px; margin-top: 32px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 18px; margin-bottom: 18px; }
+        }
+
+        @media (max-width: 380px) {
+            .container { padding: 0 14px; }
+            .m-service-intro-icon { width: 46px; height: 46px; font-size: 1.05rem; }
+            .m-service-intro-title { font-size: 1.05rem; }
+            .addons-grid { gap: 6px; }
+            .addon-checkbox { min-height: 60px; padding: 8px; }
+            .addon-icon { width: 30px; height: 30px; }
+            .addon-title { font-size: 0.72rem; }
+            .addon-price { font-size: 0.72rem; }
+            .condition-option { min-height: 88px; padding: 10px 4px; }
+            .condition-option h4 { font-size: 0.72rem; }
+            .condition-option p { font-size: 0.58rem; }
+            .m-stepper { grid-template-columns: 48px 1fr 48px; }
         }
     </style>
 </head>
@@ -943,6 +1784,23 @@
     <div class="booking-page">
         <div class="container">
             <div class="booking-system">
+
+                <div class="m-shell">
+                    <div class="m-shell-top">
+                        <button type="button" class="m-shell-back" id="mobileBackBtn" onclick="mobileBackAction()">
+                            <i class="fas fa-chevron-left"></i>
+                            <span id="mobileBackLabel">Change service</span>
+                        </button>
+                        <span class="m-shell-step" id="mobileStepLabel">Step 1 of 3</span>
+                    </div>
+                    <div class="m-step-title" id="mobileStepTitle">Service Details</div>
+                    <div class="m-progress-bar" id="mobileProgressBar">
+                        <span class="m-seg active" data-seg="1"></span>
+                        <span class="m-seg" data-seg="2"></span>
+                        <span class="m-seg" data-seg="3"></span>
+                    </div>
+                </div>
+
                 <div class="booking-header">
                     <h3 id="stepTitleHeader">Step 1 — Service Details</h3>
                     <div class="booking-progress">
@@ -955,11 +1813,26 @@
                 <hr class="booking-divider">
 
                 <div class="booking-container">
+
+                    <div class="m-service-intro m-hidden" id="mobileServiceIntro">
+                        <div class="m-service-intro-icon">
+                            <i class="fas fa-broom" id="mobileServiceIntroIcon"></i>
+                        </div>
+                        <div class="m-service-intro-text">
+                            <div class="m-service-intro-title" id="mobileServiceIntroTitle">Residential Cleaning</div>
+                            <div class="m-service-intro-sub" id="mobileServiceIntroSub">Tell us a little about your property.</div>
+                        </div>
+                    </div>
+
                     <div class="booking-step active" id="step1">
                         <div id="dynamic-form-container"></div>
                         <div class="booking-navigation">
                             <a href="index.html" class="btn-prev"><i class="fas fa-arrow-left"></i> Change Service</a>
                             <button class="btn-next" onclick="goToStep(2)">Continue <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <div class="m-trust">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Your details are used to process your booking request.</span>
                         </div>
                     </div>
 
@@ -1041,6 +1914,10 @@
                             <button class="btn-prev" onclick="goToStep(2)"><i class="fas fa-arrow-left"></i> Previous</button>
                             <button class="btn-next" onclick="submitBooking()">Submit Booking <i class="fas fa-check"></i></button>
                         </div>
+                        <div class="m-trust">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Your details are used to process your booking request.</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1103,6 +1980,7 @@
         let selectedService = '';
         let selectedCondition = '';
         let uploadedImageUrls = [];
+        let currentStep = 1;
 
         const params = new URLSearchParams(window.location.search);
         const selectedFromUrl = params.get('service');
@@ -1399,7 +2277,19 @@
             });
         }
 
+        function mobileBackAction() {
+            if (currentStep === 1) {
+                window.location.href = 'index.html';
+            } else if (currentStep === 2) {
+                goToStep(1);
+            } else if (currentStep === 3) {
+                goToStep(2);
+            }
+        }
+
         function goToStep(step) {
+            currentStep = step;
+
             for (let i = 1; i <= 3; i++) {
                 document.getElementById(`step${i}`)?.classList.remove('active');
                 document.getElementById(`step${i}-indicator`)?.classList.remove('active', 'completed');
@@ -1421,6 +2311,43 @@
             };
 
             document.getElementById('stepTitleHeader').textContent = stepTitles[step] || `Step ${step}`;
+
+            const mobileStepTitleMap = {
+                1: 'Service Details',
+                2: 'Photos & Notes',
+                3: 'Contact Details'
+            };
+            const mTitle = document.getElementById('mobileStepTitle');
+            if (mTitle) mTitle.textContent = mobileStepTitleMap[step] || `Step ${step}`;
+            const mLabel = document.getElementById('mobileStepLabel');
+            if (mLabel) mLabel.textContent = `Step ${step} of 3`;
+
+            const segs = document.querySelectorAll('#mobileProgressBar .m-seg');
+            segs.forEach(seg => {
+                const n = parseInt(seg.getAttribute('data-seg'));
+                seg.classList.remove('active', 'done');
+                if (n < step) seg.classList.add('done');
+                else if (n === step) seg.classList.add('active');
+            });
+
+            const mBackLabel = document.getElementById('mobileBackLabel');
+            if (mBackLabel) {
+                mBackLabel.textContent = step === 1 ? 'Change service' : 'Back';
+            }
+
+            if (step === 1 && typeof enterFillMode === 'function') {
+                enterFillMode();
+            }
+
+            const intro = document.getElementById('mobileServiceIntro');
+            if (intro) {
+                if (step === 1 && selectedService) {
+                    intro.classList.remove('m-hidden');
+                } else {
+                    intro.classList.add('m-hidden');
+                }
+            }
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1453,6 +2380,8 @@
                     totalEl.textContent = '£' + total;
                     totalEl.setAttribute('data-value', total);
                 }
+
+                updateCarpetAccordionSummaries();
             }
 
             if (selectedService === 'organisation') {
@@ -1489,6 +2418,8 @@
 
             container.innerHTML = formHtml;
 
+            updateMobileServiceIntro();
+
             setTimeout(() => {
                 document.querySelectorAll('#property-size, #extra-bathrooms, .addon, #carpet-rooms, #armchair, #sofa2, #sofa3, #corner, #mattress-single, #mattress-double, #mattress-king, #org-hours')
                     .forEach(el => el.addEventListener('input', updatePrice));
@@ -1496,13 +2427,43 @@
                 document.querySelectorAll('#property-size, .addon')
                     .forEach(el => el.addEventListener('change', updatePrice));
 
+                attachMobileHelpers();
+
                 updatePrice();
-            }, 100);
+            }, 50);
+        }
+
+        const SERVICE_META = {
+            residential: { icon: 'fa-home', title: 'Residential Cleaning', sub: 'Tell us a little about your property.' },
+            tenancy: { icon: 'fa-key', title: 'End of Tenancy Cleaning', sub: 'Help us prepare your quote. Tell us about the property.' },
+            carpet: { icon: 'fa-couch', title: 'Carpet & Upholstery Cleaning', sub: 'Select a category to add items to your quote.' },
+            post: { icon: 'fa-hard-hat', title: 'Post-Construction Cleaning', sub: 'Tell us about the project.' },
+            commercial: { icon: 'fa-building', title: 'Commercial Cleaning', sub: 'Tell us about your business.' },
+            organisation: { icon: 'fa-box', title: 'Home Organisation', sub: 'Tell us what you need help with and we\'ll get everything in order.' }
+        };
+
+        function updateMobileServiceIntro() {
+            const meta = SERVICE_META[selectedService];
+            if (!meta) return;
+            const icon = document.getElementById('mobileServiceIntroIcon');
+            const title = document.getElementById('mobileServiceIntroTitle');
+            const sub = document.getElementById('mobileServiceIntroSub');
+            const intro = document.getElementById('mobileServiceIntro');
+            if (icon) icon.className = `fas ${meta.icon}`;
+            if (title) title.textContent = meta.title;
+            if (sub) sub.textContent = meta.sub;
+            if (intro) {
+                if (currentStep === 1) {
+                    intro.classList.remove('m-hidden');
+                } else {
+                    intro.classList.add('m-hidden');
+                }
+            }
         }
 
         function getResidentialForm() {
             return `
-                <div class="form-grid">
+                <div class="form-grid m-fill-section">
                     <div class="form-group">
                         <label>Property Size</label>
                         <select id="property-size">
@@ -1519,17 +2480,23 @@
                     </div>
                     <div class="form-group">
                         <label>Extra Bathrooms (£45 each)</label>
+                        <div class="m-stepper m-mobile-only" data-stepper="extra-bathrooms">
+                            <button type="button" aria-label="Decrease bathrooms" onclick="stepperChange('extra-bathrooms', -1)">−</button>
+                            <span class="m-stepper-value" id="extra-bathrooms-display">0</span>
+                            <button type="button" aria-label="Increase bathrooms" onclick="stepperChange('extra-bathrooms', 1)">+</button>
+                        </div>
                         <input type="number" id="extra-bathrooms" min="0" value="0">
                     </div>
                 </div>
                 ${getConditionBlock()}
                 ${getAddonsBlock('£0')}
+                ${getReviewBlockTemplate()}
             `;
         }
 
         function getTenancyForm() {
             return `
-                <div class="form-grid">
+                <div class="form-grid m-fill-section">
                     <div class="form-group">
                         <label>Property Size</label>
                         <select id="property-size">
@@ -1544,26 +2511,35 @@
                     </div>
                     <div class="form-group">
                         <label>Extra Bathrooms (£45 each)</label>
+                        <div class="m-stepper m-mobile-only" data-stepper="extra-bathrooms">
+                            <button type="button" aria-label="Decrease bathrooms" onclick="stepperChange('extra-bathrooms', -1)">−</button>
+                            <span class="m-stepper-value" id="extra-bathrooms-display">0</span>
+                            <button type="button" aria-label="Increase bathrooms" onclick="stepperChange('extra-bathrooms', 1)">+</button>
+                        </div>
                         <input type="number" id="extra-bathrooms" min="0" value="0">
                     </div>
                 </div>
                 ${getConditionBlock()}
                 ${getAddonsBlock('£0')}
+                ${getReviewBlockTemplate()}
             `;
         }
 
         function getConditionBlock() {
             return `
-                <div class="form-group full-width">
-                    <label class="condition-title">Condition of the Apartment</label>
+                <div class="form-group full-width m-fill-section">
+                    <label class="condition-title"><i class="fas fa-sparkles"></i> Property Condition</label>
                     <div class="condition-options">
                         <div class="condition-option" onclick="selectCondition('light', this)" role="button" tabindex="0">
+                            <i class="fas fa-home m-cond-icon"></i>
                             <h4>Lightly Used</h4><p>Minimal wear and tear</p>
                         </div>
                         <div class="condition-option" onclick="selectCondition('average', this)" role="button" tabindex="0">
+                            <i class="fas fa-house-chimney m-cond-icon"></i>
                             <h4>Average Condition</h4><p>Normal everyday use</p>
                         </div>
                         <div class="condition-option" onclick="selectCondition('heavy', this)" role="button" tabindex="0">
+                            <i class="fas fa-house-chimney-window m-cond-icon"></i>
                             <h4>Heavily Soiled</h4><p>Requires extra attention</p>
                         </div>
                     </div>
@@ -1573,18 +2549,22 @@
 
         function getAddonsBlock(startingTotal) {
             return `
-                <div class="price-calculator">
-                    <h4>Optional Add-Ons</h4>
+                <div class="price-calculator m-fill-section">
+                    <h4><i class="fas fa-plus"></i> Optional Add-Ons</h4>
                     <div class="addons-grid">
-                        ${addon('70', 'oven-icon', 'fa-fire', 'Single Oven', '£70')}
-                        ${addon('85', 'oven-icon', 'fa-fire', 'Double Oven', '£85')}
-                        ${addon('35', 'extractor-icon', 'fa-wind', 'Extractor Hood', '£35')}
-                        ${addon('40', 'fridge-icon', 'fa-temperature-low', 'Fridge', '£40')}
-                        ${addon('30', 'pet-icon', 'fa-dog', 'Pet Hair Removal', '£30')}
-                        ${addon('30', 'stairs-icon', 'fa-stairs', 'Stairs', '£30')}
-                        ${addon('45', 'declutter-icon', 'fa-box-open', 'Declutter', '£45/hr')}
-                        ${addon('100', 'combo-icon', 'fa-fire', 'Oven + Hood', '£100')}
+                        ${addon('70', 'oven-icon', 'fa-fire', 'Single Oven', '£70', 0)}
+                        ${addon('85', 'oven-icon', 'fa-fire', 'Double Oven', '£85', 1)}
+                        ${addon('35', 'extractor-icon', 'fa-wind', 'Extractor Hood', '£35', 2)}
+                        ${addon('40', 'fridge-icon', 'fa-temperature-low', 'Fridge', '£40', 3)}
+                        ${addon('30', 'pet-icon', 'fa-dog', 'Pet Hair Removal', '£30', 4)}
+                        ${addon('30', 'stairs-icon', 'fa-stairs', 'Stairs', '£30', 5)}
+                        ${addon('45', 'declutter-icon', 'fa-box-open', 'Declutter', '£45/hr', 6)}
+                        ${addon('100', 'combo-icon', 'fa-fire', 'Oven + Hood', '£100', 7)}
                     </div>
+                    <button type="button" class="m-show-more m-mobile-only" onclick="toggleShowMore(this)">
+                        <span class="m-show-more-label">Show 4 more</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
                     <div class="total-display">
                         <span>Estimated Total:</span>
                         <span class="amount" id="estimated-total">${startingTotal}</span>
@@ -1594,9 +2574,10 @@
             `;
         }
 
-        function addon(value, iconClass, icon, title, price) {
+        function addon(value, iconClass, icon, title, price, index) {
+            const hideClass = index >= 4 ? ' m-addon-hidden' : '';
             return `
-                <label class="addon-checkbox">
+                <label class="addon-checkbox${hideClass}" data-addon-index="${index}">
                     <input type="checkbox" class="addon" value="${value}">
                     <div class="addon-icon ${iconClass}"><i class="fas ${icon}"></i></div>
                     <div class="addon-content">
@@ -1609,8 +2590,151 @@
 
         function getCarpetForm() {
             return `
+                <div class="m-mobile-only">
+                    <div class="m-accordion" data-acc="carpet">
+                        <button type="button" class="m-acc-row" onclick="toggleAccordion(this)">
+                            <div class="m-acc-left">
+                                <div class="m-acc-icon"><i class="fas fa-rug"></i></div>
+                                <div class="m-acc-text">
+                                    <div class="m-acc-name">Carpet Cleaning</div>
+                                    <div class="m-acc-sub">£70 per room</div>
+                                    <div class="m-acc-summary" id="acc-summary-carpet"></div>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-down m-acc-chev"></i>
+                        </button>
+                        <div class="m-acc-body">
+                            <div class="m-acc-item">
+                                <div class="m-acc-item-info">
+                                    <div class="m-acc-item-name">Carpet (per room)</div>
+                                    <div class="m-acc-item-price">£70</div>
+                                </div>
+                                <div class="m-stepper">
+                                    <button type="button" onclick="stepperChange('carpet-rooms', -1)">−</button>
+                                    <span class="m-stepper-value" id="carpet-rooms-display">0</span>
+                                    <button type="button" onclick="stepperChange('carpet-rooms', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="m-accordion" data-acc="upholstery">
+                        <button type="button" class="m-acc-row" onclick="toggleAccordion(this)">
+                            <div class="m-acc-left">
+                                <div class="m-acc-icon"><i class="fas fa-couch"></i></div>
+                                <div class="m-acc-text">
+                                    <div class="m-acc-name">Upholstery Cleaning</div>
+                                    <div class="m-acc-sub">Armchairs &amp; sofas</div>
+                                    <div class="m-acc-summary" id="acc-summary-upholstery"></div>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-down m-acc-chev"></i>
+                        </button>
+                        <div class="m-acc-body">
+                            <div class="m-acc-item">
+                                <div class="m-acc-item-info">
+                                    <div class="m-acc-item-name">Armchair</div>
+                                    <div class="m-acc-item-price">£45</div>
+                                </div>
+                                <div class="m-stepper">
+                                    <button type="button" onclick="stepperChange('armchair', -1)">−</button>
+                                    <span class="m-stepper-value" id="armchair-display">0</span>
+                                    <button type="button" onclick="stepperChange('armchair', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="m-acc-item">
+                                <div class="m-acc-item-info">
+                                    <div class="m-acc-item-name">2-Seater Sofa</div>
+                                    <div class="m-acc-item-price">£60</div>
+                                </div>
+                                <div class="m-stepper">
+                                    <button type="button" onclick="stepperChange('sofa2', -1)">−</button>
+                                    <span class="m-stepper-value" id="sofa2-display">0</span>
+                                    <button type="button" onclick="stepperChange('sofa2', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="m-acc-item">
+                                <div class="m-acc-item-info">
+                                    <div class="m-acc-item-name">3-Seater Sofa</div>
+                                    <div class="m-acc-item-price">£80</div>
+                                </div>
+                                <div class="m-stepper">
+                                    <button type="button" onclick="stepperChange('sofa3', -1)">−</button>
+                                    <span class="m-stepper-value" id="sofa3-display">0</span>
+                                    <button type="button" onclick="stepperChange('sofa3', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="m-acc-item">
+                                <div class="m-acc-item-info">
+                                    <div class="m-acc-item-name">Corner Sofa</div>
+                                    <div class="m-acc-item-price">£100</div>
+                                </div>
+                                <div class="m-stepper">
+                                    <button type="button" onclick="stepperChange('corner', -1)">−</button>
+                                    <span class="m-stepper-value" id="corner-display">0</span>
+                                    <button type="button" onclick="stepperChange('corner', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="m-accordion" data-acc="mattress">
+                        <button type="button" class="m-acc-row" onclick="toggleAccordion(this)">
+                            <div class="m-acc-left">
+                                <div class="m-acc-icon"><i class="fas fa-bed"></i></div>
+                                <div class="m-acc-text">
+                                    <div class="m-acc-name">Mattress Cleaning</div>
+                                    <div class="m-acc-sub">Single, double &amp; king</div>
+                                    <div class="m-acc-summary" id="acc-summary-mattress"></div>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-down m-acc-chev"></i>
+                        </button>
+                        <div class="m-acc-body">
+                            <div class="m-acc-item">
+                                <div class="m-acc-item-info">
+                                    <div class="m-acc-item-name">Single Mattress</div>
+                                    <div class="m-acc-item-price">£40</div>
+                                </div>
+                                <div class="m-stepper">
+                                    <button type="button" onclick="stepperChange('mattress-single', -1)">−</button>
+                                    <span class="m-stepper-value" id="mattress-single-display">0</span>
+                                    <button type="button" onclick="stepperChange('mattress-single', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="m-acc-item">
+                                <div class="m-acc-item-info">
+                                    <div class="m-acc-item-name">Double Mattress</div>
+                                    <div class="m-acc-item-price">£50</div>
+                                </div>
+                                <div class="m-stepper">
+                                    <button type="button" onclick="stepperChange('mattress-double', -1)">−</button>
+                                    <span class="m-stepper-value" id="mattress-double-display">0</span>
+                                    <button type="button" onclick="stepperChange('mattress-double', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="m-acc-item">
+                                <div class="m-acc-item-info">
+                                    <div class="m-acc-item-name">King Mattress</div>
+                                    <div class="m-acc-item-price">£60</div>
+                                </div>
+                                <div class="m-stepper">
+                                    <button type="button" onclick="stepperChange('mattress-king', -1)">−</button>
+                                    <span class="m-stepper-value" id="mattress-king-display">0</span>
+                                    <button type="button" onclick="stepperChange('mattress-king', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="total-display">
+                        <span>Estimated Total:</span>
+                        <span class="amount" id="carpet-total" data-value="0">£0</span>
+                    </div>
+                </div>
+
                 <div class="form-grid">
-                    ${numberField('carpet-rooms', 'fa-carpet', 'Carpet Cleaning (per room) — £70')}
+                    ${numberField('carpet-rooms', 'fa-rug', 'Carpet Cleaning (per room) — £70')}
                     ${numberField('armchair', 'fa-chair', 'Armchair — £45')}
                     ${numberField('sofa2', 'fa-couch', '2-Seater Sofa — £60')}
                     ${numberField('sofa3', 'fa-couch', '3-Seater Sofa — £80')}
@@ -1618,10 +2742,6 @@
                     ${numberField('mattress-single', 'fa-bed', 'Single Mattress — £40')}
                     ${numberField('mattress-double', 'fa-bed', 'Double Mattress — £50')}
                     ${numberField('mattress-king', 'fa-bed', 'King Mattress — £60')}
-                </div>
-                <div class="total-display">
-                    <span>Estimated Total:</span>
-                    <span class="amount" id="carpet-total" data-value="0">£0</span>
                 </div>
             `;
         }
@@ -1637,7 +2757,7 @@
 
         function getPostConstructionForm() {
             return `
-                <div class="form-grid">
+                <div class="form-grid m-fill-section">
                     <div class="form-group full-width">
                         <label><i class="fas fa-hard-hat"></i> Property Type</label>
                         <select id="post-property-type">
@@ -1667,7 +2787,7 @@
 
         function getCommercialForm() {
             return `
-                <div class="form-grid">
+                <div class="form-grid m-fill-section">
                     <div class="form-group full-width">
                         <label><i class="fas fa-building"></i> Business Name</label>
                         <input type="text" id="com-business-name" placeholder="Your business name">
@@ -1695,21 +2815,35 @@
         }
 
         function getOrganisationForm() {
-            const areas = ['Wardrobe / Closet', 'Kitchen / Pantry', 'Living Room', 'Bedroom', 'Home Office', 'Garage / Storage'];
+            const areas = [
+                { name: 'Wardrobe / Closet', icon: 'fa-shirt' },
+                { name: 'Kitchen / Pantry', icon: 'fa-utensils' },
+                { name: 'Living Room', icon: 'fa-couch' },
+                { name: 'Bedroom', icon: 'fa-bed' },
+                { name: 'Home Office', icon: 'fa-briefcase' },
+                { name: 'Garage / Storage', icon: 'fa-warehouse' }
+            ];
             return `
-                <div class="form-grid">
-                    <div class="form-group">
+                <div class="form-grid m-fill-section">
+                    <div class="form-group full-width">
                         <label><i class="fas fa-clock"></i> Estimated Hours (minimum 3)</label>
+                        <div class="m-stepper m-mobile-only" data-stepper="org-hours">
+                            <button type="button" onclick="stepperChange('org-hours', -1, 3)">−</button>
+                            <span class="m-stepper-value" id="org-hours-display">3</span>
+                            <button type="button" onclick="stepperChange('org-hours', 1, 3)">+</button>
+                        </div>
                         <input type="number" id="org-hours" min="3" value="3">
+                        <div class="info-note" style="margin-top:10px;">Minimum 3 hours · £45 per hour</div>
                     </div>
                     <div class="form-group full-width">
                         <label><i class="fas fa-warehouse"></i> Areas to Organise</label>
                         <div class="org-area-options">
                             ${areas.map(area => `
                                 <label class="org-area-option">
-                                    <input type="checkbox" class="org-area-checkbox" value="${area}">
+                                    <input type="checkbox" class="org-area-checkbox" value="${area.name}">
                                     <span class="org-area-circle"></span>
-                                    <span>${area}</span>
+                                    <i class="fas ${area.icon}" style="font-size:1rem;color:var(--primary);" aria-hidden="true"></i>
+                                    <span>${area.name}</span>
                                 </label>
                             `).join('')}
                         </div>
@@ -1719,7 +2853,291 @@
                     <span>Estimated Total:</span>
                     <span class="amount" id="org-total" data-value="135">£135</span>
                 </div>
+                ${getReviewBlockTemplate()}
             `;
+        }
+
+        function getReviewBlockTemplate() {
+            return `
+                <div class="m-review-block" id="m-review-block"></div>
+                <button type="button" class="m-review-trigger m-mobile-only m-fill-trigger" onclick="enterReviewMode()">
+                    <span>Review selection</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            `;
+        }
+
+        function stepperChange(inputId, delta, min) {
+            const input = document.getElementById(inputId);
+            if (!input) return;
+            const minVal = typeof min === 'number' ? min : (input.min !== '' ? parseInt(input.min) : 0);
+            let val = parseInt(input.value) || 0;
+            val = val + delta;
+            if (val < minVal) val = minVal;
+            input.value = val;
+
+            const display = document.getElementById(inputId + '-display');
+            if (display) display.textContent = val;
+
+            updatePrice();
+            updateCarpetAccordionSummaries();
+            refreshReviewIfOpen();
+        }
+
+        function toggleAccordion(btn) {
+            const acc = btn.closest('.m-accordion');
+            if (!acc) return;
+            acc.classList.toggle('open');
+        }
+
+        function toggleShowMore(btn) {
+            btn.classList.toggle('open');
+            const grid = btn.previousElementSibling;
+            if (!grid) return;
+            const hidden = grid.querySelectorAll('.m-addon-hidden');
+            hidden.forEach(el => el.classList.toggle('m-addon-hidden'));
+            const label = btn.querySelector('.m-show-more-label');
+            if (label) {
+                label.textContent = btn.classList.contains('open') ? 'Show less' : 'Show 4 more';
+            }
+        }
+
+        function updateCarpetAccordionSummaries() {
+            if (selectedService !== 'carpet') return;
+            const rows = [
+                { id: 'carpet-rooms', label: 'Carpet', target: 'acc-summary-carpet', price: 70 },
+                { id: 'armchair', label: 'Armchair', target: 'acc-summary-upholstery', price: 45 },
+                { id: 'sofa2', label: '2-Seater Sofa', target: 'acc-summary-upholstery', price: 60 },
+                { id: 'sofa3', label: '3-Seater Sofa', target: 'acc-summary-upholstery', price: 80 },
+                { id: 'corner', label: 'Corner Sofa', target: 'acc-summary-upholstery', price: 100 },
+                { id: 'mattress-single', label: 'Single Mattress', target: 'acc-summary-mattress', price: 40 },
+                { id: 'mattress-double', label: 'Double Mattress', target: 'acc-summary-mattress', price: 50 },
+                { id: 'mattress-king', label: 'King Mattress', target: 'acc-summary-mattress', price: 60 }
+            ];
+            const buckets = {};
+            rows.forEach(r => {
+                const el = document.getElementById(r.id);
+                const val = parseInt(el?.value) || 0;
+                if (val > 0) {
+                    if (!buckets[r.target]) buckets[r.target] = { count: 0, total: 0, parts: [] };
+                    buckets[r.target].count += val;
+                    buckets[r.target].total += val * r.price;
+                    buckets[r.target].parts.push(`${val} × ${r.label}`);
+                }
+            });
+            ['acc-summary-carpet', 'acc-summary-upholstery', 'acc-summary-mattress'].forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                const b = buckets[id];
+                if (b) {
+                    el.textContent = `${b.parts.join(', ')} — £${b.total}`;
+                } else {
+                    el.textContent = '';
+                }
+            });
+        }
+
+        function attachMobileHelpers() {
+            document.querySelectorAll('input[type="number"]').forEach(inp => {
+                if (inp.dataset.mobAttached === '1') return;
+                inp.dataset.mobAttached = '1';
+                inp.addEventListener('input', () => {
+                    const display = document.getElementById(inp.id + '-display');
+                    if (display) display.textContent = parseInt(inp.value) || 0;
+                });
+            });
+        }
+
+        function enterReviewMode() {
+            const reviewBlock = document.getElementById('m-review-block');
+            if (!reviewBlock) return;
+            reviewBlock.innerHTML = buildReviewHtml();
+            reviewBlock.classList.add('active');
+
+            document.querySelectorAll('.m-fill-section').forEach(el => el.classList.add('m-step-fill-hidden'));
+            document.querySelectorAll('.m-fill-trigger').forEach(el => el.classList.add('m-step-fill-hidden'));
+
+            const intro = document.getElementById('mobileServiceIntro');
+            if (intro) intro.classList.add('m-hidden');
+
+            const stepTitle = document.getElementById('mobileStepTitle');
+            if (stepTitle) stepTitle.textContent = 'Review your selection';
+        }
+
+        function enterFillMode() {
+            const reviewBlock = document.getElementById('m-review-block');
+            if (reviewBlock) {
+                reviewBlock.classList.remove('active');
+                reviewBlock.innerHTML = '';
+            }
+            document.querySelectorAll('.m-fill-section').forEach(el => el.classList.remove('m-step-fill-hidden'));
+            document.querySelectorAll('.m-fill-trigger').forEach(el => el.classList.remove('m-step-fill-hidden'));
+
+            if (selectedService && currentStep === 1) {
+                const intro = document.getElementById('mobileServiceIntro');
+                if (intro) intro.classList.remove('m-hidden');
+            }
+
+            const stepTitle = document.getElementById('mobileStepTitle');
+            if (stepTitle) stepTitle.textContent = 'Service Details';
+        }
+
+        function refreshReviewIfOpen() {
+            const reviewBlock = document.getElementById('m-review-block');
+            if (reviewBlock && reviewBlock.classList.contains('active')) {
+                reviewBlock.innerHTML = buildReviewHtml();
+            }
+        }
+
+        function buildReviewHtml() {
+            if (selectedService === 'residential' || selectedService === 'tenancy') {
+                const propSel = document.getElementById('property-size');
+                const propText = propSel && propSel.value ? propSel.options[propSel.selectedIndex].text : 'Not selected';
+                const baths = parseInt(document.getElementById('extra-bathrooms')?.value) || 0;
+                const condLabels = { light: 'Lightly Used', average: 'Average Condition', heavy: 'Heavily Soiled' };
+                const cond = selectedCondition ? (condLabels[selectedCondition] || selectedCondition) : 'Not selected';
+
+                const addonRows = [];
+                document.querySelectorAll('.addon:checked').forEach(a => {
+                    const wrap = a.closest('.addon-checkbox');
+                    const t = wrap?.querySelector('.addon-title')?.textContent || '';
+                    const p = wrap?.querySelector('.addon-price')?.textContent || '';
+                    addonRows.push(`<li><span>${t}</span><span>${p}</span></li>`);
+                });
+
+                const total = document.getElementById('estimated-total')?.textContent || '£0';
+
+                return `
+                    <div class="m-review-section">
+                        <div class="m-review-section-head">
+                            <div class="m-review-label"><i class="fas fa-home"></i> Your Property</div>
+                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
+                        </div>
+                        <div class="m-review-value">${propText}<br>Extra bathrooms: ${baths}</div>
+                    </div>
+                    <div class="m-review-section">
+                        <div class="m-review-section-head">
+                            <div class="m-review-label"><i class="fas fa-sparkles"></i> Property Condition</div>
+                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
+                        </div>
+                        <div class="m-review-value">${cond}</div>
+                    </div>
+                    ${addonRows.length ? `
+                    <div class="m-review-section">
+                        <div class="m-review-section-head">
+                            <div class="m-review-label"><i class="fas fa-plus"></i> Add-Ons</div>
+                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
+                        </div>
+                        <ul class="m-review-list">${addonRows.join('')}</ul>
+                    </div>` : ''}
+                    <div class="total-display">
+                        <span>Estimated total</span>
+                        <span class="amount">${total}</span>
+                    </div>
+                `;
+            }
+
+            if (selectedService === 'carpet') {
+                const rows = [
+                    { id: 'carpet-rooms', label: 'Carpet', price: 70 },
+                    { id: 'armchair', label: 'Armchair', price: 45 },
+                    { id: 'sofa2', label: '2-Seater Sofa', price: 60 },
+                    { id: 'sofa3', label: '3-Seater Sofa', price: 80 },
+                    { id: 'corner', label: 'Corner Sofa', price: 100 },
+                    { id: 'mattress-single', label: 'Single Mattress', price: 40 },
+                    { id: 'mattress-double', label: 'Double Mattress', price: 50 },
+                    { id: 'mattress-king', label: 'King Mattress', price: 60 }
+                ];
+                const listItems = [];
+                rows.forEach(r => {
+                    const v = parseInt(document.getElementById(r.id)?.value) || 0;
+                    if (v > 0) listItems.push(`<li><span>${v} × ${r.label}</span><span>£${v * r.price}</span></li>`);
+                });
+                const total = document.getElementById('carpet-total')?.textContent || '£0';
+                return `
+                    <div class="m-review-section">
+                        <div class="m-review-section-head">
+                            <div class="m-review-label"><i class="fas fa-couch"></i> Selected Items</div>
+                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
+                        </div>
+                        ${listItems.length ? `<ul class="m-review-list">${listItems.join('')}</ul>` : `<div class="m-review-value">No items selected yet.</div>`}
+                    </div>
+                    <div class="total-display">
+                        <span>Estimated total</span>
+                        <span class="amount">${total}</span>
+                    </div>
+                `;
+            }
+
+            if (selectedService === 'organisation') {
+                const hours = parseInt(document.getElementById('org-hours')?.value) || 3;
+                const areas = Array.from(document.querySelectorAll('.org-area-checkbox:checked')).map(c => c.value);
+                const total = document.getElementById('org-total')?.textContent || '£135';
+                return `
+                    <div class="m-review-section">
+                        <div class="m-review-section-head">
+                            <div class="m-review-label"><i class="fas fa-clock"></i> Hours</div>
+                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
+                        </div>
+                        <div class="m-review-value"><strong>${hours} hours</strong> · £45 per hour</div>
+                    </div>
+                    <div class="m-review-section">
+                        <div class="m-review-section-head">
+                            <div class="m-review-label"><i class="fas fa-list"></i> Areas to Organise</div>
+                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
+                        </div>
+                        ${areas.length ? `<ul class="m-review-list">${areas.map(a => `<li><span>${a}</span><span></span></li>`).join('')}</ul>` : `<div class="m-review-value">No areas selected yet.</div>`}
+                    </div>
+                    <div class="total-display">
+                        <span>Estimated total</span>
+                        <span class="amount">${total}</span>
+                    </div>
+                `;
+            }
+
+            if (selectedService === 'post') {
+                const type = document.getElementById('post-property-type');
+                const typeText = type && type.value ? type.options[type.selectedIndex].text : 'Not selected';
+                const size = document.getElementById('post-size');
+                const sizeText = size && size.value ? size.options[size.selectedIndex].text : 'Not selected';
+                const proj = document.getElementById('post-project-type')?.value || 'Not specified';
+                return `
+                    <div class="m-review-section">
+                        <div class="m-review-section-head">
+                            <div class="m-review-label"><i class="fas fa-hard-hat"></i> Project Details</div>
+                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
+                        </div>
+                        <div class="m-review-value">Property type: ${typeText}<br>Size: ${sizeText}<br>Project: ${proj}</div>
+                    </div>
+                    <div class="total-display">
+                        <span>Estimated total</span>
+                        <span class="amount">Price on request</span>
+                    </div>
+                `;
+            }
+
+            if (selectedService === 'commercial') {
+                const bn = document.getElementById('com-business-name')?.value || 'Not specified';
+                const bt = document.getElementById('com-business-type')?.value || 'Not specified';
+                const sz = document.getElementById('com-size')?.value || 'Not specified';
+                const fr = document.getElementById('com-frequency');
+                const frText = fr && fr.value ? fr.options[fr.selectedIndex].text : 'Not specified';
+                return `
+                    <div class="m-review-section">
+                        <div class="m-review-section-head">
+                            <div class="m-review-label"><i class="fas fa-building"></i> Business Details</div>
+                            <button type="button" class="m-review-edit" onclick="enterFillMode()">Edit</button>
+                        </div>
+                        <div class="m-review-value">Business: ${bn}<br>Type: ${bt}<br>Size: ${sz}<br>Frequency: ${frText}</div>
+                    </div>
+                    <div class="total-display">
+                        <span>Estimated total</span>
+                        <span class="amount">Price on request</span>
+                    </div>
+                `;
+            }
+
+            return '';
         }
 
         function saveBookingToStorage(bookingData) {
@@ -1746,7 +3164,6 @@
             return 'Price on request';
         }
 
-        // UPDATED FUNCTION WITH PRICES IN ADD-ONS
         function getServiceDetails() {
             const serviceDetails = {};
 
@@ -1759,7 +3176,6 @@
                 serviceDetails.ExtraBathrooms = document.getElementById('extra-bathrooms')?.value || '0';
                 serviceDetails.Condition = selectedCondition || 'Not specified';
 
-                // UPDATED: This now includes prices
                 const addons = [];
                 document.querySelectorAll('.addon:checked').forEach(addon => {
                     const addonCheckbox = addon.closest('.addon-checkbox');
@@ -2037,6 +3453,12 @@
         window.selectCondition = selectCondition;
         window.goToStep = goToStep;
         window.submitBooking = submitBooking;
+        window.stepperChange = stepperChange;
+        window.toggleAccordion = toggleAccordion;
+        window.toggleShowMore = toggleShowMore;
+        window.enterReviewMode = enterReviewMode;
+        window.enterFillMode = enterFillMode;
+        window.mobileBackAction = mobileBackAction;
     </script>
 </body>
 </html>
