@@ -434,8 +434,8 @@
         .ck-settings.is-open,
         .ck-toast.is-open { pointer-events: auto; }
 
-        /* ===== FIRST-VISIT NOTICE (bottom-centre, non-blocking) ===== */
-        .ck-notice { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(16px); width: calc(100% - 32px); max-width: 640px; background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 16px; box-shadow: 0 20px 50px rgba(6, 40, 38, 0.16), 0 6px 18px rgba(6, 40, 38, 0.07); padding: 16px 18px; z-index: 10002; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease; }
+        /* ===== FIRST-VISIT NOTICE (desktop: lower-middle, 65–70% down, ~540px wide) ===== */
+        .ck-notice { position: fixed; left: 50%; bottom: 24vh; transform: translateX(-50%) translateY(16px); width: calc(100% - 32px); max-width: 540px; background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 18px; box-shadow: 0 24px 60px rgba(6, 40, 38, 0.18), 0 8px 22px rgba(6, 40, 38, 0.08); padding: 18px 20px; z-index: 10002; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease; }
         .ck-notice.is-open { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 
         .ck-close { position: absolute; top: 8px; right: 8px; width: 36px; height: 36px; border-radius: 50%; border: none; background: transparent; color: var(--text-light); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background 0.15s ease, color 0.15s ease; padding: 0; }
@@ -443,15 +443,15 @@
         .ck-close i { font-size: 0.9rem; pointer-events: none; }
 
         .ck-row { display: flex; align-items: flex-start; gap: 12px; padding-right: 36px; }
-        .ck-shield { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+        .ck-shield { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
         .ck-text { flex: 1; min-width: 0; }
-        .ck-title { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 3px; letter-spacing: -0.01em; }
-        .ck-body { font-size: 0.82rem; line-height: 1.45; color: var(--text-soft); }
+        .ck-title { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; letter-spacing: -0.01em; }
+        .ck-body { font-size: 0.85rem; line-height: 1.5; color: var(--text-soft); }
         .ck-body a { color: var(--primary); text-decoration: none; font-weight: 600; display: inline-block; }
         .ck-body a:hover { text-decoration: underline; }
 
-        .ck-actions { display: flex; gap: 8px; margin-top: 12px; justify-content: flex-end; flex-wrap: wrap; }
-        .ck-btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; border-radius: 999px; font-family: inherit; font-size: 0.82rem; font-weight: 600; line-height: 1.2; cursor: pointer; border: none; -webkit-tap-highlight-color: transparent; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease; white-space: nowrap; min-height: 40px; }
+        .ck-actions { display: flex; gap: 8px; margin-top: 14px; justify-content: flex-end; flex-wrap: wrap; }
+        .ck-btn { display: inline-flex; align-items: center; justify-content: center; padding: 11px 20px; border-radius: 999px; font-family: inherit; font-size: 0.84rem; font-weight: 600; line-height: 1.2; cursor: pointer; border: none; -webkit-tap-highlight-color: transparent; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease; white-space: nowrap; min-height: 42px; }
         .ck-btn > * { pointer-events: none; }
         .ck-btn-primary { background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%); color: #FFFFFF; box-shadow: 0 8px 18px rgba(11, 94, 90, 0.22), inset 0 1px 0 rgba(255,255,255,0.18); }
         .ck-btn-primary:active { transform: translateY(1px); box-shadow: 0 4px 10px rgba(11, 94, 90, 0.20); }
@@ -459,24 +459,24 @@
         .ck-btn-ghost:active { background: rgba(11, 94, 90, 0.06); }
 
         /* ===== SETTINGS PANEL =====
-           Desktop: centred horizontally, slightly below middle of screen, ~440px wide
-           Mobile: bottom card above the mobile nav (handled in the mobile media query)
+           Desktop: centred (slightly below middle), ~540px wide to match the notice
+           Mobile: bottom card above the mobile nav (mobile media query below)
         */
-        .ck-settings { position: fixed; left: 50%; top: 56%; transform: translate(-50%, -50%) scale(0.98); width: 440px; max-width: calc(100vw - 40px); background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 16px; box-shadow: 0 24px 60px rgba(6, 40, 38, 0.20), 0 8px 22px rgba(6, 40, 38, 0.08); padding: 20px 20px 18px; z-index: 10003; opacity: 0; visibility: hidden; transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease; }
+        .ck-settings { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.98); width: 540px; max-width: calc(100vw - 40px); background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 18px; box-shadow: 0 24px 60px rgba(6, 40, 38, 0.20), 0 8px 22px rgba(6, 40, 38, 0.08); padding: 22px 22px 20px; z-index: 10003; opacity: 0; visibility: hidden; transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease; }
         .ck-settings.is-open { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
 
         .ck-settings-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; padding-right: 36px; }
-        .ck-settings-head .ck-shield { width: 32px; height: 32px; font-size: 0.85rem; }
-        .ck-settings-title { font-size: 0.98rem; font-weight: 700; color: var(--text-dark); letter-spacing: -0.01em; }
-        .ck-settings-sub { font-size: 0.8rem; color: var(--text-light); line-height: 1.4; margin-bottom: 16px; }
-        .ck-cat { display: flex; align-items: center; gap: 12px; padding: 13px 14px; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 12px; background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); }
-        .ck-cat-icon { flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+        .ck-settings-head .ck-shield { width: 34px; height: 34px; font-size: 0.9rem; }
+        .ck-settings-title { font-size: 1rem; font-weight: 700; color: var(--text-dark); letter-spacing: -0.01em; }
+        .ck-settings-sub { font-size: 0.82rem; color: var(--text-light); line-height: 1.45; margin-bottom: 16px; }
+        .ck-cat { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 14px; background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); }
+        .ck-cat-icon { flex-shrink: 0; width: 32px; height: 32px; border-radius: 9px; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; }
         .ck-cat-text { flex: 1; min-width: 0; }
-        .ck-cat-title { font-size: 0.86rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1px; }
-        .ck-cat-desc { font-size: 0.73rem; color: var(--text-light); line-height: 1.35; }
-        .ck-cat-state { flex-shrink: 0; font-size: 0.7rem; font-weight: 700; color: var(--primary); background: var(--primary-soft); padding: 4px 10px; border-radius: 999px; }
+        .ck-cat-title { font-size: 0.88rem; font-weight: 700; color: var(--text-dark); margin-bottom: 2px; }
+        .ck-cat-desc { font-size: 0.75rem; color: var(--text-light); line-height: 1.4; }
+        .ck-cat-state { flex-shrink: 0; font-size: 0.72rem; font-weight: 700; color: var(--primary); background: var(--primary-soft); padding: 4px 10px; border-radius: 999px; }
 
-        .ck-policy { margin-top: 16px; font-size: 0.74rem; color: var(--text-light); display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .ck-policy { margin-top: 16px; font-size: 0.76rem; color: var(--text-light); display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
         .ck-policy a { color: var(--primary); text-decoration: none; font-weight: 600; padding: 6px 4px; display: inline-block; }
         .ck-policy a:hover { text-decoration: underline; }
         .ck-policy .ck-dot { color: var(--text-faint); }
@@ -500,18 +500,18 @@
            ============================================================ */
         @media (max-width: 768px) {
             /* First-visit notice — bottom card above mobile nav */
-            .ck-notice { left: 10px; right: 10px; width: auto; max-width: none; transform: translateY(16px); bottom: calc(88px + env(safe-area-inset-bottom)); padding: 14px 14px 12px; border-radius: 14px; }
+            .ck-notice { left: 10px; right: 10px; width: auto; max-width: none; transform: translateY(16px); bottom: calc(88px + env(safe-area-inset-bottom)); padding: 16px 16px 14px; border-radius: 14px; }
             .ck-notice.is-open { transform: translateY(0); }
             .ck-close { top: 6px; right: 6px; }
             .ck-row { padding-right: 32px; gap: 10px; }
             .ck-shield { width: 34px; height: 34px; font-size: 0.9rem; }
-            .ck-title { font-size: 0.9rem; }
-            .ck-body { font-size: 0.78rem; line-height: 1.4; }
-            .ck-actions { margin-top: 10px; flex-direction: column-reverse; }
-            .ck-btn { width: 100%; padding: 11px 16px; }
+            .ck-title { font-size: 0.92rem; }
+            .ck-body { font-size: 0.8rem; line-height: 1.45; }
+            .ck-actions { margin-top: 12px; flex-direction: column-reverse; }
+            .ck-btn { width: 100%; padding: 12px 16px; }
 
             /* Settings panel — bottom card above mobile nav */
-            .ck-settings { left: 10px; right: 10px; top: auto; width: auto; max-width: none; bottom: calc(88px + env(safe-area-inset-bottom)); transform: translateY(16px) scale(1); padding: 16px 14px 14px; border-radius: 14px; }
+            .ck-settings { left: 10px; right: 10px; top: auto; width: auto; max-width: none; bottom: calc(88px + env(safe-area-inset-bottom)); transform: translateY(16px) scale(1); padding: 18px 16px 16px; border-radius: 14px; }
             .ck-settings.is-open { transform: translateY(0) scale(1); }
             .ck-settings .ck-actions { flex-direction: row; }
 
@@ -523,8 +523,8 @@
         }
 
         @media (max-width: 380px) {
-            .ck-notice { padding: 12px 12px 10px; }
-            .ck-body { font-size: 0.75rem; }
+            .ck-notice { padding: 14px 14px 12px; }
+            .ck-body { font-size: 0.76rem; }
         }
 
         /* ============================================================
@@ -1418,22 +1418,21 @@
     });
 
     /* ============================================================
-       COOKIE CONSENT — two independent states, non-blocking
+       COOKIE CONSENT — session-based notice + manual settings panel
 
-       State A — First-visit notice (auto)
-         Appears when there is no persistent acknowledgement and
-         no session dismissal. Stays visible until the user acts.
+       Notice (State A): shows on every new browser session unless the
+       user already acknowledged ("Got it") or dismissed (X) during
+       the current session.
 
-       State B — Cookie Settings panel (manual)
-         Opens when the user presses "Cookie settings" or the
-         floating cookie icon. Never opens automatically.
+       Settings (State B): opens only when the user clicks
+       "Cookie settings" or the floating cookie icon.
 
-       Persistent acknowledgement → localStorage
-       Session dismissal → sessionStorage
+       Session state is kept in sessionStorage, so:
+       - Closing the tab/browser ends the session.
+       - Reopening the site in a new session shows the notice again.
        ============================================================ */
     (function () {
-        const STORAGE_KEY = 'drsparkclean_cookie_consent';
-        const SESSION_KEY = 'drsparkclean_cookie_dismissed';
+        const SESSION_KEY = 'drsparkclean_cookie_session_v1';
         const CONSENT_VERSION = 1;
 
         const notice = document.getElementById('ckNotice');
@@ -1448,39 +1447,19 @@
 
         if (!notice || !settings || !acceptBtn || !closeBtn || !settingsBtn || !settingsClose || !settingsDone || !toast || !fab) return;
 
-        function safeGet(storage, key) {
-            try { return storage.getItem(key); } catch (e) { return null; }
-        }
-        function safeSet(storage, key, value) {
-            try { storage.setItem(key, value); } catch (e) {}
-        }
-
-        function readAcknowledgement() {
-            const raw = safeGet(localStorage, STORAGE_KEY);
-            if (!raw) return null;
+        function readSession() {
             try {
+                const raw = sessionStorage.getItem(SESSION_KEY);
+                if (!raw) return { dismissed: false, acknowledged: false };
                 const parsed = JSON.parse(raw);
-                if (!parsed || typeof parsed !== 'object') return null;
-                if (parsed.version !== CONSENT_VERSION) return null;
-                return parsed;
-            } catch (e) { return null; }
+                return {
+                    dismissed: parsed && parsed.dismissed === true,
+                    acknowledged: parsed && parsed.acknowledged === true
+                };
+            } catch (e) { return { dismissed: false, acknowledged: false }; }
         }
-
-        function writeAcknowledgement() {
-            const data = {
-                version: CONSENT_VERSION,
-                essential: true,
-                timestamp: new Date().toISOString()
-            };
-            safeSet(localStorage, STORAGE_KEY, JSON.stringify(data));
-            try { window.dispatchEvent(new CustomEvent('cookieConsentChanged', { detail: data })); } catch (e) {}
-        }
-
-        function hasSessionDismissal() {
-            return safeGet(sessionStorage, SESSION_KEY) === '1';
-        }
-        function setSessionDismissal() {
-            safeSet(sessionStorage, SESSION_KEY, '1');
+        function writeSession(state) {
+            try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(state)); } catch (e) {}
         }
 
         function showToast() {
@@ -1495,26 +1474,25 @@
         function closeSettings() { settings.classList.remove('is-open'); }
         function showFab() { fab.classList.add('is-visible'); }
 
-        /* "Got it" — persistent acknowledgement + session dismissal + toast */
+        /* "Got it" — acknowledges the notice for this session */
         acceptBtn.addEventListener('click', function () {
-            writeAcknowledgement();
-            setSessionDismissal();
+            writeSession({ dismissed: true, acknowledged: true });
             closeNotice();
             closeSettings();
             showFab();
             showToast();
         });
 
-        /* X on the first-visit notice — session dismissal only */
+        /* X on the notice — dismisses for this session only */
         closeBtn.addEventListener('click', function () {
-            setSessionDismissal();
+            const s = readSession();
+            writeSession({ dismissed: true, acknowledged: s.acknowledged });
             closeNotice();
             closeSettings();
             showFab();
         });
 
-        /* "Cookie settings" from the first-visit notice — hide the notice,
-           remember we came from it, open settings. Does not record anything. */
+        /* "Cookie settings" from the notice */
         let settingsOpenedFromNotice = false;
         settingsBtn.addEventListener('click', function () {
             settingsOpenedFromNotice = true;
@@ -1522,27 +1500,22 @@
             openSettings();
         });
 
-        /* X or Done inside the settings panel.
-           If we came from the first-visit notice and there is still no
-           persistent acknowledgement or session dismissal, return the
-           user to the notice rather than leaving them with no cookie UI. */
         function closeSettingsAndMaybeReopenNotice() {
             closeSettings();
-            const acknowledged = readAcknowledgement();
-            const sessionDismissed = hasSessionDismissal();
-            if (settingsOpenedFromNotice && !acknowledged && !sessionDismissed) {
+            const s = readSession();
+            if (settingsOpenedFromNotice && !s.dismissed && !s.acknowledged) {
                 settingsOpenedFromNotice = false;
                 openNotice();
                 return;
             }
             settingsOpenedFromNotice = false;
-            if (acknowledged || sessionDismissed) showFab();
+            if (s.dismissed || s.acknowledged) showFab();
         }
 
         settingsClose.addEventListener('click', closeSettingsAndMaybeReopenNotice);
         settingsDone.addEventListener('click', closeSettingsAndMaybeReopenNotice);
 
-        /* FAB always opens Cookie Settings — never the first-visit notice */
+        /* FAB always opens Cookie Settings */
         fab.addEventListener('click', function () {
             settingsOpenedFromNotice = false;
             openSettings();
@@ -1553,22 +1526,15 @@
             if (settings.classList.contains('is-open')) { closeSettingsAndMaybeReopenNotice(); return; }
         });
 
-        /* Initialisation */
+        /* Initialisation — show the notice on every new session */
         function initialise() {
-            const acknowledged = readAcknowledgement();
-            const sessionDismissed = hasSessionDismissal();
-
-            if (acknowledged) {
-                /* Returning visitor — no notice, just the FAB */
+            const s = readSession();
+            if (s.dismissed || s.acknowledged) {
+                /* Already handled in this session — just show the FAB */
                 showFab();
                 return;
             }
-            if (sessionDismissed) {
-                /* Already dismissed in this session — no notice, just the FAB */
-                showFab();
-                return;
-            }
-            /* Genuine new visitor — show the notice and leave it open */
+            /* New session — show the notice */
             setTimeout(openNotice, 600);
         }
 
