@@ -427,75 +427,96 @@
         /* ============================================================
            COOKIE CONSENT — compact, non-blocking
            ============================================================ */
-        .ck-notice { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(24px); width: calc(100% - 40px); max-width: 720px; background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 16px; box-shadow: 0 24px 60px rgba(6, 40, 38, 0.18), 0 6px 18px rgba(6, 40, 38, 0.08); padding: 16px 18px; z-index: 10002; opacity: 0; visibility: hidden; transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease; }
+        .ck-notice,
+        .ck-settings,
+        .ck-toast { pointer-events: none; }
+        .ck-notice.is-open,
+        .ck-settings.is-open,
+        .ck-toast.is-open { pointer-events: auto; }
+
+        /* ===== FIRST-VISIT NOTICE (bottom-centred, non-blocking) ===== */
+        .ck-notice { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(16px); width: calc(100% - 32px); max-width: 640px; background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 16px; box-shadow: 0 20px 50px rgba(6, 40, 38, 0.16), 0 6px 18px rgba(6, 40, 38, 0.07); padding: 16px 18px; z-index: 10002; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease; }
         .ck-notice.is-open { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 
-        .ck-close { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%; border: none; background: transparent; color: var(--text-light); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background 0.15s ease, color 0.15s ease; }
+        .ck-close { position: absolute; top: 8px; right: 8px; width: 36px; height: 36px; border-radius: 50%; border: none; background: transparent; color: var(--text-light); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background 0.15s ease, color 0.15s ease; }
         .ck-close:hover { background: rgba(11, 94, 90, 0.06); color: var(--text-dark); }
-        .ck-close i { font-size: 0.85rem; }
+        .ck-close i { font-size: 0.9rem; pointer-events: none; }
 
-        .ck-row { display: flex; align-items: flex-start; gap: 12px; padding-right: 30px; }
-        .ck-shield { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+        .ck-row { display: flex; align-items: flex-start; gap: 12px; padding-right: 36px; }
+        .ck-shield { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
         .ck-text { flex: 1; min-width: 0; }
         .ck-title { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 3px; letter-spacing: -0.01em; }
         .ck-body { font-size: 0.82rem; line-height: 1.45; color: var(--text-soft); }
-        .ck-body a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .ck-body a { color: var(--primary); text-decoration: none; font-weight: 600; display: inline-block; }
         .ck-body a:hover { text-decoration: underline; }
 
-        .ck-actions { display: flex; gap: 8px; margin-top: 12px; justify-content: flex-end; }
-        .ck-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 18px; border-radius: 999px; font-family: inherit; font-size: 0.82rem; font-weight: 600; cursor: pointer; border: none; -webkit-tap-highlight-color: transparent; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease; white-space: nowrap; }
+        .ck-actions { display: flex; gap: 8px; margin-top: 12px; justify-content: flex-end; flex-wrap: wrap; }
+        .ck-btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; border-radius: 999px; font-family: inherit; font-size: 0.82rem; font-weight: 600; line-height: 1.2; cursor: pointer; border: none; -webkit-tap-highlight-color: transparent; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease; white-space: nowrap; min-height: 40px; }
+        .ck-btn > * { pointer-events: none; }
         .ck-btn-primary { background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%); color: #FFFFFF; box-shadow: 0 8px 18px rgba(11, 94, 90, 0.22), inset 0 1px 0 rgba(255,255,255,0.18); }
         .ck-btn-primary:active { transform: translateY(1px); box-shadow: 0 4px 10px rgba(11, 94, 90, 0.20); }
         .ck-btn-ghost { background: #FFFFFF; color: var(--primary); border: 1px solid rgba(11, 94, 90, 0.22); }
         .ck-btn-ghost:active { background: rgba(11, 94, 90, 0.06); }
 
-        .ck-settings { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(24px); width: calc(100% - 40px); max-width: 460px; background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 16px; box-shadow: 0 24px 60px rgba(6, 40, 38, 0.18), 0 6px 18px rgba(6, 40, 38, 0.08); padding: 18px 20px; z-index: 10003; opacity: 0; visibility: hidden; transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease; }
-        .ck-settings.is-open { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .ck-settings-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+        /* ===== SETTINGS POPOVER (desktop: anchored above FAB, right-aligned) ===== */
+        .ck-settings { position: fixed; right: 20px; bottom: calc(20px + 48px + 12px); width: 340px; max-width: calc(100vw - 40px); background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 16px; box-shadow: 0 20px 50px rgba(6, 40, 38, 0.18), 0 6px 18px rgba(6, 40, 38, 0.07); padding: 18px 18px 16px; z-index: 10003; opacity: 0; visibility: hidden; transform: translateY(12px) scale(0.98); transform-origin: bottom right; transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease; }
+        .ck-settings.is-open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+
+        .ck-settings-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; padding-right: 36px; }
         .ck-settings-head .ck-shield { width: 32px; height: 32px; font-size: 0.85rem; }
         .ck-settings-title { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); letter-spacing: -0.01em; }
-        .ck-settings-sub { font-size: 0.78rem; color: var(--text-light); line-height: 1.4; margin-bottom: 12px; }
-        .ck-cat { display: flex; align-items: center; gap: 12px; padding: 12px 12px; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 12px; background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); }
+        .ck-settings-sub { font-size: 0.78rem; color: var(--text-light); line-height: 1.4; margin-bottom: 14px; }
+        .ck-cat { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 12px; background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); }
         .ck-cat-icon { flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
         .ck-cat-text { flex: 1; min-width: 0; }
         .ck-cat-title { font-size: 0.85rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1px; }
         .ck-cat-desc { font-size: 0.72rem; color: var(--text-light); line-height: 1.35; }
         .ck-cat-state { flex-shrink: 0; font-size: 0.7rem; font-weight: 700; color: var(--primary); background: var(--primary-soft); padding: 4px 10px; border-radius: 999px; }
-        .ck-settings .ck-actions { justify-content: stretch; }
+
+        .ck-policy { margin-top: 14px; font-size: 0.72rem; color: var(--text-light); display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .ck-policy a { color: var(--primary); text-decoration: none; font-weight: 600; padding: 6px 4px; display: inline-block; }
+        .ck-policy a:hover { text-decoration: underline; }
+        .ck-policy .ck-dot { color: var(--text-faint); }
+
+        .ck-settings .ck-actions { margin-top: 14px; justify-content: stretch; }
         .ck-settings .ck-actions .ck-btn { flex: 1; }
 
-        .ck-toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(20px); background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.12); border-radius: 12px; box-shadow: 0 18px 40px rgba(19, 43, 48, 0.18), 0 4px 12px rgba(19, 43, 48, 0.06); padding: 10px 16px; display: inline-flex; align-items: center; gap: 10px; font-size: 0.82rem; font-weight: 500; color: var(--text-dark); z-index: 10005; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease; max-width: calc(100vw - 32px); }
+        /* ===== TOAST ===== */
+        .ck-toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(16px); background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.12); border-radius: 12px; box-shadow: 0 18px 40px rgba(19, 43, 48, 0.18), 0 4px 12px rgba(19, 43, 48, 0.06); padding: 10px 16px; display: inline-flex; align-items: center; gap: 10px; font-size: 0.82rem; font-weight: 500; color: var(--text-dark); z-index: 10005; opacity: 0; visibility: hidden; transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease; max-width: calc(100vw - 32px); }
         .ck-toast.is-open { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
         .ck-toast i { color: var(--primary); font-size: 0.9rem; }
 
-        .ck-fab { position: fixed; right: 16px; bottom: calc(96px + env(safe-area-inset-bottom)); width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(11, 94, 90, 0.14); background: #FFFFFF; color: var(--primary); display: none; align-items: center; justify-content: center; font-size: 0.95rem; cursor: pointer; box-shadow: 0 12px 26px rgba(19, 43, 48, 0.14), 0 2px 6px rgba(19, 43, 48, 0.06); z-index: 9000; -webkit-tap-highlight-color: transparent; }
+        /* ===== FLOATING REOPEN BUTTON ===== */
+        .ck-fab { position: fixed; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom)); width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(11, 94, 90, 0.14); background: #FFFFFF; color: var(--primary); display: none; align-items: center; justify-content: center; font-size: 1rem; cursor: pointer; box-shadow: 0 12px 26px rgba(19, 43, 48, 0.14), 0 2px 6px rgba(19, 43, 48, 0.06); z-index: 9000; -webkit-tap-highlight-color: transparent; padding: 0; }
         .ck-fab.is-visible { display: inline-flex; }
-        .ck-fab:active { transform: scale(0.95); box-shadow: 0 6px 14px rgba(19, 43, 48, 0.12); }
+        .ck-fab > i { pointer-events: none; }
+        .ck-fab:active { transform: scale(0.96); box-shadow: 0 6px 14px rgba(19, 43, 48, 0.12); }
 
-        @media (min-width: 769px) {
-            .ck-fab { bottom: 20px; right: 20px; }
-            .ck-notice { padding: 16px 20px; }
-            .ck-row { align-items: center; }
-            .ck-actions { margin-top: 12px; }
-        }
-
+        /* ============================================================
+           MOBILE OVERRIDES (≤768px)
+           ============================================================ */
         @media (max-width: 768px) {
-            .ck-notice { left: 10px; right: 10px; width: auto; max-width: none; transform: translateY(24px); bottom: calc(88px + env(safe-area-inset-bottom)); padding: 14px 14px 12px; border-radius: 14px; }
+            /* First-visit notice — compact bottom card above the mobile nav */
+            .ck-notice { left: 10px; right: 10px; width: auto; max-width: none; transform: translateY(16px); bottom: calc(88px + env(safe-area-inset-bottom)); padding: 14px 14px 12px; border-radius: 14px; }
             .ck-notice.is-open { transform: translateY(0); }
             .ck-close { top: 6px; right: 6px; }
-            .ck-row { padding-right: 26px; gap: 10px; }
-            .ck-shield { width: 32px; height: 32px; font-size: 0.85rem; }
+            .ck-row { padding-right: 32px; gap: 10px; }
+            .ck-shield { width: 34px; height: 34px; font-size: 0.9rem; }
             .ck-title { font-size: 0.9rem; }
             .ck-body { font-size: 0.78rem; line-height: 1.4; }
             .ck-actions { margin-top: 10px; flex-direction: column-reverse; }
-            .ck-btn { width: 100%; padding: 10px 16px; }
+            .ck-btn { width: 100%; padding: 11px 16px; }
 
-            .ck-settings { left: 10px; right: 10px; width: auto; max-width: none; transform: translateY(24px); bottom: calc(88px + env(safe-area-inset-bottom)); padding: 16px 14px 14px; border-radius: 14px; }
-            .ck-settings.is-open { transform: translateY(0); }
+            /* Settings panel — same bottom-card pattern as the notice */
+            .ck-settings { left: 10px; right: 10px; width: auto; max-width: none; bottom: calc(88px + env(safe-area-inset-bottom)); padding: 16px 14px 14px; border-radius: 14px; transform: translateY(16px) scale(1); transform-origin: bottom center; }
+            .ck-settings.is-open { transform: translateY(0) scale(1); }
             .ck-settings .ck-actions { flex-direction: row; }
 
+            /* Toast — above mobile nav */
             .ck-toast { bottom: calc(96px + env(safe-area-inset-bottom)); font-size: 0.78rem; }
-            .ck-fab { width: 38px; height: 38px; font-size: 0.85rem; right: 12px; bottom: calc(88px + env(safe-area-inset-bottom)); }
+
+            /* FAB — sits above mobile nav, right side */
+            .ck-fab { width: 40px; height: 40px; font-size: 0.9rem; right: 12px; bottom: calc(88px + env(safe-area-inset-bottom)); }
         }
 
         @media (max-width: 380px) {
@@ -523,7 +544,7 @@
         }
 
         /* ============================================================
-           MOBILE INTERFACE (≤768px)
+           MOBILE INTERFACE (≤768px) — existing site styles
            ============================================================ */
         @media (max-width: 768px) {
 
@@ -1206,7 +1227,7 @@
 
 <div id="modalOverlay" class="modal-overlay"><div class="modal" id="modal"><div id="modalIcon" class="modal-icon success"></div><h3 id="modalTitle">Booking Request Received</h3><p id="modalMessage">We've received your request and will contact you shortly to confirm availability and final details.</p><button class="modal-btn" id="modalCloseBtn">Got it</button></div></div>
 
-<!-- ===== COOKIE CONSENT (compact, non-blocking) ===== -->
+<!-- ===== COOKIE CONSENT ===== -->
 <div class="ck-notice" id="ckNotice" role="region" aria-label="Cookie notice">
     <button type="button" class="ck-close" id="ckClose" aria-label="Dismiss cookie notice"><i class="fas fa-times" aria-hidden="true"></i></button>
     <div class="ck-row">
@@ -1228,7 +1249,7 @@
         <div class="ck-shield"><i class="fas fa-gear" aria-hidden="true"></i></div>
         <div class="ck-settings-title">Cookie settings</div>
     </div>
-    <div class="ck-settings-sub">The website uses essential cookies only. There are no optional analytics or marketing cookies to manage.</div>
+    <div class="ck-settings-sub">We currently use essential cookies only.</div>
     <div class="ck-cat">
         <div class="ck-cat-icon"><i class="fas fa-lock" aria-hidden="true"></i></div>
         <div class="ck-cat-text">
@@ -1237,8 +1258,13 @@
         </div>
         <div class="ck-cat-state">Always on</div>
     </div>
+    <div class="ck-policy">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span class="ck-dot" aria-hidden="true">·</span>
+        <a href="terms.html">Terms of Service</a>
+    </div>
     <div class="ck-actions">
-        <button type="button" class="ck-btn ck-btn-primary" id="ckSettingsDone">Close</button>
+        <button type="button" class="ck-btn ck-btn-primary" id="ckSettingsDone">Done</button>
     </div>
 </div>
 
@@ -1251,7 +1277,6 @@
     <i class="fas fa-cookie-bite" aria-hidden="true"></i>
 </button>
 
-<!-- ===== MOBILE BOTTOM NAV ===== -->
 <div class="mobile-bottom-nav">
     <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
         <i class="fas fa-house"></i>
@@ -1391,13 +1416,18 @@
 
     /* ============================================================
        COOKIE CONSENT
-       Compact, non-blocking. Essential-only. Versioned storage.
-       X dismisses without forcing interaction, but records the
-       same acknowledgement as "Got it" so the notice is not
-       shown on every page load.
+       Two independent states:
+       1. Persistent acknowledgement (localStorage) — set by "Got it".
+       2. Session dismissal (sessionStorage) — set by the X button.
+
+       The first-visit notice auto-opens only when there is
+       neither a persistent acknowledgement nor a session
+       dismissal. It never blocks scrolling and never uses a
+       full-screen overlay.
        ============================================================ */
     (function () {
         const STORAGE_KEY = 'drsparkclean_cookie_consent';
+        const SESSION_KEY = 'drsparkclean_cookie_dismissed';
         const CONSENT_VERSION = 1;
 
         const notice = document.getElementById('ckNotice');
@@ -1412,10 +1442,17 @@
 
         if (!notice || !settings || !acceptBtn || !closeBtn || !settingsBtn || !settingsClose || !settingsDone || !toast || !fab) return;
 
-        function readConsent() {
+        function safeGet(storage, key) {
+            try { return storage.getItem(key); } catch (e) { return null; }
+        }
+        function safeSet(storage, key, value) {
+            try { storage.setItem(key, value); } catch (e) {}
+        }
+
+        function readAcknowledgement() {
+            const raw = safeGet(localStorage, STORAGE_KEY);
+            if (!raw) return null;
             try {
-                const raw = localStorage.getItem(STORAGE_KEY);
-                if (!raw) return null;
                 const parsed = JSON.parse(raw);
                 if (!parsed || typeof parsed !== 'object') return null;
                 if (parsed.version !== CONSENT_VERSION) return null;
@@ -1423,14 +1460,21 @@
             } catch (e) { return null; }
         }
 
-        function writeConsent() {
+        function writeAcknowledgement() {
             const data = {
                 version: CONSENT_VERSION,
                 essential: true,
                 timestamp: new Date().toISOString()
             };
-            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
+            safeSet(localStorage, STORAGE_KEY, JSON.stringify(data));
             try { window.dispatchEvent(new CustomEvent('cookieConsentChanged', { detail: data })); } catch (e) {}
+        }
+
+        function hasSessionDismissal() {
+            return safeGet(sessionStorage, SESSION_KEY) === '1';
+        }
+        function setSessionDismissal() {
+            safeSet(sessionStorage, SESSION_KEY, '1');
         }
 
         function showToast() {
@@ -1439,54 +1483,73 @@
             showToast._t = setTimeout(function () { toast.classList.remove('is-open'); }, 2500);
         }
 
-        function openNotice() {
-            notice.classList.add('is-open');
-        }
-        function closeNotice() {
-            notice.classList.remove('is-open');
-        }
+        function openNotice() { notice.classList.add('is-open'); }
+        function closeNotice() { notice.classList.remove('is-open'); }
         function openSettings() {
             settings.classList.add('is-open');
             setTimeout(function () { settingsDone.focus(); }, 60);
         }
-        function closeSettings() {
-            settings.classList.remove('is-open');
-        }
+        function closeSettings() { settings.classList.remove('is-open'); }
         function showFab() { fab.classList.add('is-visible'); }
 
-        function acknowledge() {
-            writeConsent();
+        /* "Got it" — persistent acknowledgement + session dismissal + toast */
+        acceptBtn.addEventListener('click', function () {
+            writeAcknowledgement();
+            setSessionDismissal();
             closeNotice();
             showFab();
             showToast();
-        }
+        });
 
-        acceptBtn.addEventListener('click', acknowledge);
-        closeBtn.addEventListener('click', acknowledge);
+        /* X — session-only dismissal, no persistent record */
+        closeBtn.addEventListener('click', function () {
+            setSessionDismissal();
+            closeNotice();
+            showFab();
+        });
 
+        /* "Cookie settings" from the first-visit notice — opens settings, records nothing */
         settingsBtn.addEventListener('click', function () {
             closeNotice();
             openSettings();
         });
 
-        settingsClose.addEventListener('click', closeSettings);
-        settingsDone.addEventListener('click', closeSettings);
+        settingsClose.addEventListener('click', function () {
+            closeSettings();
+            if (readAcknowledgement()) showFab();
+        });
+        settingsDone.addEventListener('click', function () {
+            closeSettings();
+            if (readAcknowledgement()) showFab();
+        });
 
+        /* FAB always opens Cookie Settings — never the first-visit notice */
         fab.addEventListener('click', openSettings);
 
         document.addEventListener('keydown', function (e) {
             if (e.key !== 'Escape') return;
-            if (settings.classList.contains('is-open')) { closeSettings(); return; }
+            if (settings.classList.contains('is-open')) { closeSettings(); if (readAcknowledgement()) showFab(); return; }
         });
 
-        document.addEventListener('DOMContentLoaded', function () {
-            const stored = readConsent();
-            if (!stored) {
-                setTimeout(function () { openNotice(); }, 800);
-            } else {
+        /* Initialisation */
+        function initialise() {
+            const acknowledged = readAcknowledgement();
+            if (acknowledged) {
                 showFab();
+                return;
             }
-        });
+            if (hasSessionDismissal()) {
+                showFab();
+                return;
+            }
+            setTimeout(openNotice, 600);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initialise);
+        } else {
+            initialise();
+        }
     })();
 
     const hamburger = document.getElementById('hamburger');
