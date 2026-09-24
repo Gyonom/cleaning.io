@@ -137,6 +137,7 @@
         .addon-checkbox input { width: 18px; height: 18px; accent-color: var(--primary); flex-shrink: 0; margin: 0; cursor: pointer; }
         .addon-icon { flex-shrink: 0; width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
         .addon-icon i { font-size: 0.9rem; }
+        .addon-check-mark { display: none; }
         .oven-icon { background: rgba(217,119,6,0.12); color: #D97706; }
         .extractor-icon { background: rgba(37,99,235,0.12); color: #2563EB; }
         .fridge-icon { background: rgba(5,150,105,0.12); color: #059669; }
@@ -203,7 +204,7 @@
         .m-carpet-group-title { font-size: 0.9rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
         .m-carpet-group-title i { color: var(--primary); font-size: 0.85rem; }
         .m-carpet-group .form-grid { margin-bottom: 0; }
-        .m-mobile-shell, .m-mobile-frame, .m-review-block, .m-show-more, .m-trust, .m-step-btn, .m-step-wrap-label, .m-accordion-chev, .m-accordion-toggle { display: none; }
+        .m-mobile-shell, .m-review-block, .m-show-more, .m-trust, .m-step-btn, .m-step-wrap-label, .m-accordion-chev, .m-accordion-toggle { display: none; }
         @media (max-width: 768px) {
             html, body { overflow-x: hidden; width: 100%; max-width: 100%; }
             .container { padding: 0 20px; }
@@ -216,47 +217,30 @@
             .booking-system { background: transparent; border: none; border-radius: 0; box-shadow: none; max-width: 100%; overflow: visible; }
             .booking-header { display: none; }
             .booking-divider { display: none; }
-            .booking-container { padding: 18px 16px 20px; background: transparent; max-width: 100%; box-sizing: border-box; }
-            .m-mobile-shell { display: block; padding: 2px 0 0; margin-bottom: 14px; }
-            .m-mobile-shell-top { display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-bottom: 0; }
+            .booking-container { padding: 0 4px; background: transparent; max-width: 100%; }
+            .m-mobile-shell { display: block; padding: 2px 0 0; margin-bottom: 0; }
+            .m-mobile-shell-top { display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-bottom: 14px; }
             .m-mobile-shell-back { display: inline-flex; align-items: center; gap: 5px; background: none; border: none; padding: 4px 0; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--text-soft); }
             .m-mobile-shell-back i { font-size: 0.72rem; color: var(--text-soft); }
 
-            .m-mobile-frame {
-                display: block;
-                background: #FFFFFF;
-                border: 1px solid rgba(11, 94, 90, 0.10);
-                border-radius: 14px;
-                overflow: hidden;
-                box-shadow: 0 4px 16px rgba(19, 43, 48, 0.05), 0 1px 3px rgba(19, 43, 48, 0.03);
-            }
-
             .m-mobile-bar {
-                min-height: 68px;
-                padding: 14px 12px;
-                margin: 0;
-                border-radius: 0;
                 background: linear-gradient(135deg, #075E58 0%, #053F3D 100%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-sizing: border-box;
+                border-radius: 10px 10px 0 0;
+                padding: 8px 12px;
+                margin-bottom: 16px;
             }
 
             .m-mobile-progress {
                 display: flex;
                 align-items: flex-start;
                 justify-content: center;
+                gap: 0;
                 width: 100%;
                 max-width: 250px;
                 margin: 0 auto;
             }
 
             .m-mobile-progress .bp-stage {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
                 gap: 3px;
             }
 
@@ -291,79 +275,210 @@
             }
 
             .m-mobile-progress .bp-connector {
-                flex: 0 0 26px;
+                flex: 0 0 auto;
                 width: 26px;
                 height: 1px;
                 background: rgba(255, 255, 255, 0.35);
-                margin: 9.5px 5px 0;
+                margin: 9px 5px 0;
                 align-self: flex-start;
+                max-width: none;
             }
+
+            /* ============================================================
+               MOBILE CONTROL SYSTEM — unified sizing, spacing, hierarchy
+               ============================================================ */
 
             .form-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 24px; }
             .form-group { margin-bottom: 0; }
             .form-group.full-width { grid-column: span 1; }
-            .form-group label { display: block; font-size: 13px; line-height: 1.25; font-weight: 650; margin-bottom: 6px; color: var(--text-dark); }
-            .form-group input, .form-group select, .form-group textarea { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-shadow: none; font-size: 16px; color: var(--text-dark); box-sizing: border-box; }
+            .form-group label { display: block; font-size: 13px; line-height: 1.25; font-weight: 650; margin-bottom: 6px; color: var(--text-dark); letter-spacing: -0.005em; }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-shadow: none; font-size: 16px; color: var(--text-dark); box-sizing: border-box; }
             .form-group textarea { height: auto; min-height: 96px; padding: 11px 13px; line-height: 1.5; }
-            .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(11,94,90,0.08); }
+            .form-group input:focus,
+            .form-group select:focus,
+            .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(11,94,90,0.08); outline: none; }
+
             .m-step-wrap { display: grid !important; grid-template-columns: 46px minmax(0, 1fr) 46px; align-items: stretch; height: 46px; min-height: 46px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; overflow: hidden; box-sizing: border-box; }
-            .m-step-btn { display: flex !important; align-items: center; justify-content: center; height: 44px; min-height: 44px; padding: 0; border: 0; background: #FFFFFF; color: var(--primary-dark); font-family: inherit; font-size: 17px; font-weight: 500; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+            .m-step-btn { display: flex !important; align-items: center; justify-content: center; height: 44px; min-height: 44px; padding: 0; border: 0; background: #FFFFFF; color: var(--primary-dark); font-family: inherit; font-size: 17px; font-weight: 500; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background 0.15s ease; }
             .m-step-btn:first-child { border-right: 1px solid rgba(11,94,90,0.10); }
             .m-step-btn:last-child { border-left: 1px solid rgba(11,94,90,0.10); }
-            .m-step-btn:active { background: #F5FAF9; }
+            .m-step-btn:active { background: #EAF6F4; }
             .m-step-wrap input[type="number"] { width: 100%; height: 44px; min-height: 44px; padding: 0; border: 0 !important; border-radius: 0 !important; background: #FFFFFF; box-shadow: none !important; text-align: center; font-size: 16px; font-weight: 650; color: var(--text-dark); -moz-appearance: textfield; }
             .m-step-wrap input[type="number"]:focus { outline: none; }
-            .m-step-wrap input[type="number"]::-webkit-outer-spin-button, .m-step-wrap input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-            .condition-title { display: block; font-size: 13px; line-height: 1.25; font-weight: 650; margin: 0 0 6px; color: var(--text-dark); }
+            .m-step-wrap input[type="number"]::-webkit-outer-spin-button,
+            .m-step-wrap input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+            .condition-title { display: block; font-size: 13px; line-height: 1.25; font-weight: 650; margin: 0 0 6px; color: var(--text-dark); letter-spacing: -0.005em; }
             .condition-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; margin: 0 0 24px; }
-            .condition-option { min-height: 46px; padding: 6px 6px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-shadow: none; text-align: center; cursor: pointer; transform: none; position: relative; }
+            .condition-option { min-height: 46px; padding: 6px 6px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-shadow: none; text-align: center; cursor: pointer; transform: none; position: relative; transition: background 0.15s ease, border-color 0.15s ease; }
             .condition-option:hover { transform: none; box-shadow: none; }
+            .condition-option:active { background: #F5FAF9; }
             .condition-option h4 { margin: 0; font-size: 12px; line-height: 1.15; font-weight: 650; letter-spacing: -0.01em; }
             .condition-option p { display: none; }
-            .condition-option.selected { border: 1.5px solid var(--primary); background: #EAF6F4; box-shadow: 0 0 0 2px rgba(11,94,90,0.06); }
-            .condition-option.selected::before, .condition-option.selected::after { display: none; }
-            .price-calculator { background: transparent; border: 0; box-shadow: none; padding: 0; margin: 30px 0 6px; border-radius: 0; }
-            .price-calculator h4 { font-size: 12px; line-height: 1.2; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-soft); margin: 0 0 12px; }
+            .condition-option.selected { border: 1.5px solid var(--primary); background: #EAF6F4; box-shadow: none; }
+            .condition-option.selected::before,
+            .condition-option.selected::after { display: none; }
+
+            .price-calculator { background: transparent; border: 0; box-shadow: none; padding: 0; margin: 24px 0 6px; border-radius: 0; }
+            .price-calculator h4 { font-size: 12px; line-height: 1.2; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-soft); margin: 0 0 10px; }
+
             .addons-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin-bottom: 4px; }
-            .addon-checkbox { min-height: 48px; padding: 7px 9px; gap: 7px; border: 1px solid rgba(11,94,90,0.12); border-radius: 10px; background: #FFFFFF; box-shadow: none; transform: none; align-items: center; }
-            .addon-checkbox:hover { transform: none; box-shadow: none; }
-            .addon-checkbox:has(input:checked) { border: 1.5px solid var(--primary); background: #EAF6F4; box-shadow: 0 0 0 2px rgba(11,94,90,0.06); }
-            .addon-checkbox input { order: 2; margin-left: auto; width: 18px; height: 18px; border-radius: 6px; accent-color: var(--primary); flex-shrink: 0; }
-            .addon-icon { width: 27px; height: 27px; border-radius: 8px; flex-shrink: 0; order: 0; }
-            .addon-icon i { font-size: 0.75rem; }
-            .addon-content { order: 1; flex: 1; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-            .addon-title { font-size: 11.5px; font-weight: 600; line-height: 1.15; white-space: normal; overflow: visible; text-overflow: unset; color: var(--text-dark); }
-            .addon-price { font-size: 11.5px; font-weight: 800; color: var(--primary); background: none; padding: 0; border-radius: 0; width: auto; }
+
+            .addon-checkbox {
+                position: relative;
+                display: grid;
+                grid-template-columns: 32px minmax(0, 1fr) 22px;
+                align-items: center;
+                column-gap: 10px;
+                min-height: 54px;
+                padding: 8px 10px;
+                border: 1px solid rgba(11,94,90,0.12);
+                border-radius: 10px;
+                background: #FFFFFF;
+                box-shadow: none;
+                transform: none;
+                cursor: pointer;
+                transition: background 0.15s ease, border-color 0.15s ease;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .addon-checkbox:hover { transform: none; box-shadow: none; border-color: rgba(11,94,90,0.20); }
+            .addon-checkbox:active { background: #F5FAF9; }
+            .addon-checkbox:has(input:checked) { border: 1.5px solid var(--primary); background: #EAF6F4; box-shadow: none; }
+
+            .addon-checkbox input[type="checkbox"] {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+                width: 1px; height: 1px;
+                margin: 0;
+            }
+
+            .addon-checkbox::after {
+                content: '';
+                grid-column: 3;
+                grid-row: 1;
+                width: 22px;
+                height: 22px;
+                border-radius: 6px;
+                border: 1.5px solid rgba(11,94,90,0.28);
+                background: #FFFFFF;
+                display: block;
+                box-sizing: border-box;
+                transition: background 0.15s ease, border-color 0.15s ease;
+                position: relative;
+            }
+
+            .addon-checkbox:has(input:checked)::after {
+                background: var(--primary);
+                border-color: var(--primary);
+            }
+
+            .addon-checkbox .addon-check-mark {
+                display: flex;
+                grid-column: 3;
+                grid-row: 1;
+                width: 22px;
+                height: 22px;
+                align-items: center;
+                justify-content: center;
+                color: #FFFFFF;
+                font-size: 11px;
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.15s ease;
+                z-index: 1;
+            }
+
+            .addon-checkbox:has(input:checked) .addon-check-mark { opacity: 1; }
+
+            .addon-icon {
+                grid-column: 1;
+                grid-row: 1;
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+            .addon-icon i { font-size: 0.8rem; }
+
+            .addon-content {
+                grid-column: 2;
+                grid-row: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 1px;
+                min-width: 0;
+            }
+
+            .addon-title {
+                font-size: 12px;
+                font-weight: 550;
+                line-height: 1.15;
+                white-space: normal;
+                overflow: visible;
+                text-overflow: unset;
+                color: var(--text-dark);
+            }
+
+            .addon-price {
+                font-size: 12px;
+                font-weight: 750;
+                line-height: 1.15;
+                color: var(--primary);
+                background: none;
+                padding: 0;
+                border-radius: 0;
+                width: auto;
+            }
+
             .m-addon-extra-mobile-hide { display: none !important; }
             .m-show-more { display: inline-flex !important; align-items: center; gap: 6px; padding: 8px 0; margin: 1px 0 4px; border: 0; background: none; color: var(--primary); font-family: inherit; font-size: 13px; font-weight: 650; cursor: pointer; -webkit-tap-highlight-color: transparent; }
             .m-show-more i { font-size: 0.7rem; transition: transform 0.2s ease; }
             .m-show-more.open i { transform: rotate(180deg); }
-            .total-display { min-height: 54px; padding: 10px 14px; border: 1px solid rgba(11,94,90,0.14); border-radius: 10px; background: #EAF6F4; box-shadow: none; margin: 30px 0 4px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+            .total-display { min-height: 54px; padding: 10px 14px; border: 1px solid rgba(11,94,90,0.14); border-radius: 10px; background: #EAF6F4; box-shadow: none; margin: 24px 0 4px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
             .total-display span:first-child { font-size: 13px; font-weight: 650; color: var(--text-dark); }
             .total-display .amount { font-size: 21px; line-height: 1; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.02em; }
+
             .info-note { font-size: 11.5px; padding: 8px 10px; margin-top: 8px; border-radius: 8px; background: rgba(11,94,90,0.05); text-align: left; line-height: 1.4; color: var(--text-light); }
-            .booking-navigation { flex-direction: column-reverse; margin-top: 22px; gap: 8px; }
-            .btn-next { width: 100%; border-radius: 10px !important; padding: 12px 18px; font-size: 14px; font-weight: 700; box-shadow: 0 4px 12px rgba(11,94,90,0.14); min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
-            .btn-next:hover { transform: none; }
-            .btn-prev { width: auto; align-self: center; background: transparent; border: none; box-shadow: none; padding: 8px 12px; font-size: 13px; font-weight: 500; color: var(--text-soft); min-height: auto; border-radius: 8px; }
-            .btn-prev i { font-size: 0.72rem; }
-            .btn-prev:hover { background: rgba(11,94,90,0.04); transform: none; }
-            .m-trust { display: flex !important; align-items: center; justify-content: center; gap: 6px; font-size: 11.5px; color: var(--text-light); margin-top: 14px; padding-bottom: 6px; text-align: center; line-height: 1.35; }
-            .m-trust i { color: var(--primary); font-size: 0.75rem; }
-            .m-carpet-group { border: 1px solid rgba(11,94,90,0.13); border-radius: 10px; background: #FFFFFF; margin-bottom: 8px; overflow: hidden; }
-            .m-carpet-group-title { display: flex !important; align-items: center; gap: 10px; min-height: 50px; padding: 8px 12px; cursor: pointer; -webkit-tap-highlight-color: transparent; background: #FFFFFF; border: none; width: 100%; font-family: inherit; text-align: left; margin-bottom: 0; color: var(--text-dark); }
-            .m-carpet-group-title > .m-carpet-icon { flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px; background: rgba(11,94,90,0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+
+            .m-carpet-group { border: 1px solid rgba(11,94,90,0.13); border-radius: 10px; background: #FFFFFF; margin-bottom: 10px; overflow: hidden; }
+
+            .m-carpet-group-title { display: flex !important; align-items: center; gap: 10px; min-height: 56px; padding: 10px 12px; cursor: pointer; -webkit-tap-highlight-color: transparent; background: #FFFFFF; border: none; width: 100%; font-family: inherit; text-align: left; margin-bottom: 0; color: var(--text-dark); transition: background 0.15s ease; }
+            .m-carpet-group-title:active { background: #F5FAF9; }
+            .m-carpet-group-title > .m-carpet-icon { flex-shrink: 0; width: 32px; height: 32px; border-radius: 8px; background: rgba(11,94,90,0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; }
+
             .m-carpet-group-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
-            .m-carpet-group-text > span:first-child { font-size: 13px; font-weight: 700; line-height: 1.2; }
+            .m-carpet-group-text > span:first-child { font-size: 13px; font-weight: 700; line-height: 1.2; letter-spacing: -0.005em; }
             .m-carpet-group-sub { font-size: 11.5px; color: var(--text-light); font-weight: 400; line-height: 1.25; }
+
             .m-accordion-chev { color: var(--text-light); font-size: 0.78rem; transition: transform 0.2s ease; flex-shrink: 0; display: inline-block !important; }
             .m-carpet-group.open .m-accordion-chev { transform: rotate(180deg); }
-            .m-carpet-group .form-grid { display: none; padding: 4px 10px 10px; margin-bottom: 0; gap: 8px; }
-            .m-carpet-group.open .form-grid { display: grid; }
-            .m-carpet-group .m-step-wrap { grid-template-columns: 40px minmax(0, 1fr) 40px; height: 44px; min-height: 44px; }
-            .m-carpet-group .m-step-btn, .m-carpet-group .m-step-wrap input[type="number"] { height: 42px; min-height: 42px; }
+
+            .m-carpet-group .form-grid { display: none; padding: 4px 12px 12px; margin-bottom: 0; gap: 0; }
+            .m-carpet-group.open .form-grid { display: block; }
+
+            .m-carpet-group .m-step-wrap { grid-template-columns: 46px minmax(0, 1fr) 46px; height: 46px; min-height: 46px; }
+            .m-carpet-group .m-step-btn,
+            .m-carpet-group .m-step-wrap input[type="number"] { height: 44px; min-height: 44px; }
+
+            .m-carpet-item { padding: 0; margin: 0 0 14px; }
+            .m-carpet-item:last-child { margin-bottom: 0; }
+            .m-carpet-item-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+            .m-carpet-item-name { font-size: 13px; font-weight: 550; line-height: 1.2; color: var(--text-dark); }
+            .m-carpet-item-price { font-size: 13px; font-weight: 700; line-height: 1.2; color: var(--primary); white-space: nowrap; }
+
             .org-area-options { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
-            .org-area-option { min-height: 46px; padding: 9px 12px; border-radius: 10px; box-shadow: none; font-size: 12px !important; }
+            .org-area-option { min-height: 46px; padding: 9px 12px; border-radius: 10px; box-shadow: none; font-size: 12px !important; transition: background 0.15s ease, border-color 0.15s ease; }
+            .org-area-option:active { background: #F5FAF9; }
+
             .m-review-block.active { display: block !important; }
             .m-review-section { background: #FFFFFF; border: 1px solid rgba(11,94,90,0.10); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
             .m-review-section-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
@@ -407,6 +522,17 @@
             #step3 .btn-next { min-height: 48px; height: 48px; padding: 0 18px; border-radius: 10px !important; font-size: 14px; font-weight: 700; }
             #step3 .btn-prev { padding: 7px 12px; font-size: 13px; }
             #step3 .m-trust { margin-top: 12px; padding-bottom: 4px; font-size: 11px; line-height: 1.3; }
+
+            .m-trust { display: flex !important; align-items: center; justify-content: center; gap: 6px; font-size: 11.5px; color: var(--text-light); margin-top: 14px; padding-bottom: 6px; text-align: center; line-height: 1.35; }
+            .m-trust i { color: var(--primary); font-size: 0.75rem; }
+
+            .btn-next { width: 100%; border-radius: 10px !important; padding: 12px 18px; font-size: 14px; font-weight: 700; box-shadow: 0 4px 12px rgba(11,94,90,0.14); min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
+            .btn-next:hover { transform: none; }
+            .btn-prev { width: auto; align-self: center; background: transparent; border: none; box-shadow: none; padding: 8px 12px; font-size: 13px; font-weight: 500; color: var(--text-soft); min-height: auto; border-radius: 8px; }
+            .btn-prev i { font-size: 0.72rem; }
+            .btn-prev:hover { background: rgba(11,94,90,0.04); transform: none; }
+
+            .booking-navigation { flex-direction: column-reverse; margin-top: 22px; gap: 8px; }
 
             footer { display: none; }
         }
@@ -458,10 +584,6 @@
                             <span id="mobileBackLabel">Change service</span>
                         </button>
                     </div>
-                </div>
-
-                <div class="m-mobile-frame">
-
                     <div class="m-mobile-bar">
                         <div class="m-mobile-progress" id="mobileProgress">
                             <div class="bp-stage active" data-stage="1">
@@ -480,106 +602,104 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="booking-header">
-                        <h3 id="stepTitleHeader" class="sr-only">Step 1 — Service Details</h3>
-                        <div class="booking-progress" id="bookingProgress">
-                            <div class="bp-stage active" data-stage="1">
-                                <div class="bp-circle"><i class="fas fa-home"></i></div>
-                                <span class="bp-label">Service Details</span>
-                            </div>
-                            <div class="bp-connector"></div>
-                            <div class="bp-stage" data-stage="2">
-                                <div class="bp-circle"><i class="fas fa-camera"></i></div>
-                                <span class="bp-label">Photos</span>
-                            </div>
-                            <div class="bp-connector"></div>
-                            <div class="bp-stage" data-stage="3">
-                                <div class="bp-circle"><i class="fas fa-user"></i></div>
-                                <span class="bp-label">Contact Details</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr class="booking-divider">
-
-                    <div class="booking-container">
-                        <div class="booking-step active" id="step1">
-                            <div id="dynamic-form-container"></div>
-                            <div class="booking-navigation">
-                                <a href="index.html" class="btn-prev"><i class="fas fa-arrow-left"></i> Change Service</a>
-                                <button class="btn-next" onclick="goToStep(2)">Continue <i class="fas fa-arrow-right"></i></button>
-                            </div>
-                            <div class="m-trust"><i class="fas fa-shield-alt"></i><span>Your details are used to process your booking request.</span></div>
-                        </div>
-                        <div class="booking-step" id="step2">
-                            <div class="form-group">
-                                <label>Upload Photos (Optional)</label>
-                                <div class="file-upload-area" id="booking-upload-area" role="button" tabindex="0">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <p>Click or drag images here</p>
-                                    <p style="color: var(--text-light); font-size: 0.75rem;">Upload up to 5 images. Photos help us assess the property.</p>
-                                    <input type="file" id="booking-upload" multiple accept="image/*" style="display: none;">
-                                    <div class="file-list" id="booking-file-list"></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Additional Notes</label>
-                                <textarea id="booking-notes" rows="2" placeholder="Please mention any access instructions, parking information, pets in the property, clutter or additional areas, special requests..."></textarea>
-                            </div>
-                            <div class="assessment-note"><i class="fas fa-clipboard-check"></i> Final price subject to review after site assessment</div>
-                            <div class="booking-navigation">
-                                <button class="btn-prev" onclick="goToStep(1)"><i class="fas fa-arrow-left"></i> Previous</button>
-                                <button class="btn-next" onclick="goToStep(3)">Continue <i class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-                        <div class="booking-step" id="step3">
-                            <div class="form-grid">
-                                <div class="form-group full-width" id="form-group-name">
-                                    <label>Full Name *</label>
-                                    <input type="text" id="booking-name" required>
-                                </div>
-                                <div class="form-group" id="form-group-phone">
-                                    <label>Phone Number *</label>
-                                    <input type="tel" id="booking-phone" required>
-                                </div>
-                                <div class="form-group" id="form-group-email">
-                                    <label>Email *</label>
-                                    <input type="email" id="booking-email" required>
-                                </div>
-                                <div class="form-group full-width address-postcode-group" id="form-group-address-postcode">
-                                    <label>Postcode *</label>
-                                    <div class="postcode-autocomplete-container" style="margin-bottom: 14px;">
-                                        <input type="text" id="booking-postcode" placeholder="Enter your postcode" autocomplete="off" required>
-                                        <div id="postcode-suggestions" class="postcode-suggestions"></div>
-                                    </div>
-                                    <label>Address *</label>
-                                    <input type="text" id="booking-address" placeholder="Add house/flat number before the address" required>
-                                    <small style="color: var(--text-light); font-size: 0.7rem; display: block; margin-top: 6px;"><i class="fas fa-info-circle"></i> Select your address, then add your house or flat number before it.</small>
-                                </div>
-                                <div class="form-group">
-                                    <label>Preferred Date</label>
-                                    <input type="date" id="booking-date">
-                                </div>
-                                <div class="form-group">
-                                    <label>Preferred Time</label>
-                                    <select id="booking-time">
-                                        <option>Morning (8am - 12pm)</option>
-                                        <option>Afternoon (12pm - 4pm)</option>
-                                        <option>Evening (4pm - 7pm)</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="booking-navigation">
-                                <button class="btn-prev" onclick="goToStep(2)"><i class="fas fa-arrow-left"></i> Previous</button>
-                                <button class="btn-next" onclick="submitBooking()">Submit Booking <i class="fas fa-check"></i></button>
-                            </div>
-                            <div class="m-trust"><i class="fas fa-shield-alt"></i><span>Your details are used to process your booking request.</span></div>
-                        </div>
-                    </div>
-
                 </div>
 
+                <div class="booking-header">
+                    <h3 id="stepTitleHeader" class="sr-only">Step 1 — Service Details</h3>
+                    <div class="booking-progress" id="bookingProgress">
+                        <div class="bp-stage active" data-stage="1">
+                            <div class="bp-circle"><i class="fas fa-home"></i></div>
+                            <span class="bp-label">Service Details</span>
+                        </div>
+                        <div class="bp-connector"></div>
+                        <div class="bp-stage" data-stage="2">
+                            <div class="bp-circle"><i class="fas fa-camera"></i></div>
+                            <span class="bp-label">Photos</span>
+                        </div>
+                        <div class="bp-connector"></div>
+                        <div class="bp-stage" data-stage="3">
+                            <div class="bp-circle"><i class="fas fa-user"></i></div>
+                            <span class="bp-label">Contact Details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="booking-divider">
+
+                <div class="booking-container">
+                    <div class="booking-step active" id="step1">
+                        <div id="dynamic-form-container"></div>
+                        <div class="booking-navigation">
+                            <a href="index.html" class="btn-prev"><i class="fas fa-arrow-left"></i> Change Service</a>
+                            <button class="btn-next" onclick="goToStep(2)">Continue <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <div class="m-trust"><i class="fas fa-shield-alt"></i><span>Your details are used to process your booking request.</span></div>
+                    </div>
+                    <div class="booking-step" id="step2">
+                        <div class="form-group">
+                            <label>Upload Photos (Optional)</label>
+                            <div class="file-upload-area" id="booking-upload-area" role="button" tabindex="0">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Click or drag images here</p>
+                                <p style="color: var(--text-light); font-size: 0.75rem;">Upload up to 5 images. Photos help us assess the property.</p>
+                                <input type="file" id="booking-upload" multiple accept="image/*" style="display: none;">
+                                <div class="file-list" id="booking-file-list"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Additional Notes</label>
+                            <textarea id="booking-notes" rows="2" placeholder="Please mention any access instructions, parking information, pets in the property, clutter or additional areas, special requests..."></textarea>
+                        </div>
+                        <div class="assessment-note"><i class="fas fa-clipboard-check"></i> Final price subject to review after site assessment</div>
+                        <div class="booking-navigation">
+                            <button class="btn-prev" onclick="goToStep(1)"><i class="fas fa-arrow-left"></i> Previous</button>
+                            <button class="btn-next" onclick="goToStep(3)">Continue <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="booking-step" id="step3">
+                        <div class="form-grid">
+                            <div class="form-group full-width" id="form-group-name">
+                                <label>Full Name *</label>
+                                <input type="text" id="booking-name" required>
+                            </div>
+                            <div class="form-group" id="form-group-phone">
+                                <label>Phone Number *</label>
+                                <input type="tel" id="booking-phone" required>
+                            </div>
+                            <div class="form-group" id="form-group-email">
+                                <label>Email *</label>
+                                <input type="email" id="booking-email" required>
+                            </div>
+                            <div class="form-group full-width address-postcode-group" id="form-group-address-postcode">
+                                <label>Postcode *</label>
+                                <div class="postcode-autocomplete-container" style="margin-bottom: 14px;">
+                                    <input type="text" id="booking-postcode" placeholder="Enter your postcode" autocomplete="off" required>
+                                    <div id="postcode-suggestions" class="postcode-suggestions"></div>
+                                </div>
+                                <label>Address *</label>
+                                <input type="text" id="booking-address" placeholder="Add house/flat number before the address" required>
+                                <small style="color: var(--text-light); font-size: 0.7rem; display: block; margin-top: 6px;"><i class="fas fa-info-circle"></i> Select your address, then add your house or flat number before it.</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Date</label>
+                                <input type="date" id="booking-date">
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Time</label>
+                                <select id="booking-time">
+                                    <option>Morning (8am - 12pm)</option>
+                                    <option>Afternoon (12pm - 4pm)</option>
+                                    <option>Evening (4pm - 7pm)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="booking-navigation">
+                            <button class="btn-prev" onclick="goToStep(2)"><i class="fas fa-arrow-left"></i> Previous</button>
+                            <button class="btn-next" onclick="submitBooking()">Submit Booking <i class="fas fa-check"></i></button>
+                        </div>
+                        <div class="m-trust"><i class="fas fa-shield-alt"></i><span>Your details are used to process your booking request.</span></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1074,13 +1194,105 @@
         }
         function addon(value, iconClass, icon, title, price, isExtra) {
             const extraClass = isExtra ? ' m-addon-extra-mobile-hide' : '';
-            return '<label class="addon-checkbox' + extraClass + '"><input type="checkbox" class="addon" value="' + value + '"><div class="addon-icon ' + iconClass + '"><i class="fas ' + icon + '"></i></div><div class="addon-content"><span class="addon-title">' + title + '</span><span class="addon-price">' + price + '</span></div></label>';
+            return '<label class="addon-checkbox' + extraClass + '"><input type="checkbox" class="addon" value="' + value + '"><div class="addon-icon ' + iconClass + '"><i class="fas ' + icon + '"></i></div><div class="addon-content"><span class="addon-title">' + title + '</span><span class="addon-price">' + price + '</span></div><span class="addon-check-mark"><i class="fas fa-check"></i></span></label>';
         }
         function getCarpetForm() {
             let html = '<div class="m-fill-part">';
-            html += '<div class="m-carpet-group open"><button type="button" class="m-carpet-group-title" onclick="toggleAccordionGroup(this)"><span class="m-carpet-icon"><i class="fas fa-rug"></i></span><span class="m-carpet-group-text"><span>Carpet Cleaning</span><span class="m-carpet-group-sub">£70 per room</span><span class="m-carpet-group-sub" id="m-carpet-sub-carpet"></span></span><i class="fas fa-chevron-down m-accordion-chev"></i></button><div class="form-grid"><div class="form-group"><label><i class="fas fa-rug"></i> Carpet Cleaning (per room) — £70</label>' + mStepWrap('carpet-rooms', 0) + '</div></div></div>';
-            html += '<div class="m-carpet-group"><button type="button" class="m-carpet-group-title" onclick="toggleAccordionGroup(this)"><span class="m-carpet-icon"><i class="fas fa-couch"></i></span><span class="m-carpet-group-text"><span>Upholstery Cleaning</span><span class="m-carpet-group-sub">Armchairs &amp; sofas</span><span class="m-carpet-group-sub" id="m-carpet-sub-upholstery"></span></span><i class="fas fa-chevron-down m-accordion-chev"></i></button><div class="form-grid"><div class="form-group"><label><i class="fas fa-chair"></i> Armchair — £45</label>' + mStepWrap('armchair', 0) + '</div><div class="form-group"><label><i class="fas fa-couch"></i> 2-Seater Sofa — £60</label>' + mStepWrap('sofa2', 0) + '</div><div class="form-group"><label><i class="fas fa-couch"></i> 3-Seater Sofa — £80</label>' + mStepWrap('sofa3', 0) + '</div><div class="form-group"><label><i class="fas fa-couch"></i> Corner Sofa — £100</label>' + mStepWrap('corner', 0) + '</div></div></div>';
-            html += '<div class="m-carpet-group"><button type="button" class="m-carpet-group-title" onclick="toggleAccordionGroup(this)"><span class="m-carpet-icon"><i class="fas fa-bed"></i></span><span class="m-carpet-group-text"><span>Mattress Cleaning</span><span class="m-carpet-group-sub">Single, double &amp; king</span><span class="m-carpet-group-sub" id="m-carpet-sub-mattress"></span></span><i class="fas fa-chevron-down m-accordion-chev"></i></button><div class="form-grid"><div class="form-group"><label><i class="fas fa-bed"></i> Single Mattress — £40</label>' + mStepWrap('mattress-single', 0) + '</div><div class="form-group"><label><i class="fas fa-bed"></i> Double Mattress — £50</label>' + mStepWrap('mattress-double', 0) + '</div><div class="form-group"><label><i class="fas fa-bed"></i> King Mattress — £60</label>' + mStepWrap('mattress-king', 0) + '</div></div></div>';
+            html += '<div class="m-carpet-group open">';
+            html += '<button type="button" class="m-carpet-group-title" onclick="toggleAccordionGroup(this)">'
+                 +    '<span class="m-carpet-icon"><i class="fas fa-rug"></i></span>'
+                 +    '<span class="m-carpet-group-text">'
+                 +       '<span>Carpet Cleaning</span>'
+                 +       '<span class="m-carpet-group-sub">£70 per room</span>'
+                 +       '<span class="m-carpet-group-sub" id="m-carpet-sub-carpet"></span>'
+                 +    '</span>'
+                 +    '<i class="fas fa-chevron-down m-accordion-chev"></i>'
+                 + '</button>';
+            html += '<div class="form-grid">';
+            html +=   '<div class="m-carpet-item">'
+                 +       '<div class="m-carpet-item-head">'
+                 +          '<span class="m-carpet-item-name">Carpet Cleaning (per room)</span>'
+                 +          '<span class="m-carpet-item-price">£70</span>'
+                 +       '</div>'
+                 +       mStepWrap('carpet-rooms', 0)
+                 +    '</div>';
+            html += '</div>';
+            html += '</div>';
+            html += '<div class="m-carpet-group">';
+            html += '<button type="button" class="m-carpet-group-title" onclick="toggleAccordionGroup(this)">'
+                 +    '<span class="m-carpet-icon"><i class="fas fa-couch"></i></span>'
+                 +    '<span class="m-carpet-group-text">'
+                 +       '<span>Upholstery Cleaning</span>'
+                 +       '<span class="m-carpet-group-sub">Armchairs &amp; sofas</span>'
+                 +       '<span class="m-carpet-group-sub" id="m-carpet-sub-upholstery"></span>'
+                 +    '</span>'
+                 +    '<i class="fas fa-chevron-down m-accordion-chev"></i>'
+                 + '</button>';
+            html += '<div class="form-grid">';
+            html +=   '<div class="m-carpet-item">'
+                 +       '<div class="m-carpet-item-head">'
+                 +          '<span class="m-carpet-item-name">Armchair</span>'
+                 +          '<span class="m-carpet-item-price">£45</span>'
+                 +       '</div>'
+                 +       mStepWrap('armchair', 0)
+                 +    '</div>';
+            html +=   '<div class="m-carpet-item">'
+                 +       '<div class="m-carpet-item-head">'
+                 +          '<span class="m-carpet-item-name">2-Seater Sofa</span>'
+                 +          '<span class="m-carpet-item-price">£60</span>'
+                 +       '</div>'
+                 +       mStepWrap('sofa2', 0)
+                 +    '</div>';
+            html +=   '<div class="m-carpet-item">'
+                 +       '<div class="m-carpet-item-head">'
+                 +          '<span class="m-carpet-item-name">3-Seater Sofa</span>'
+                 +          '<span class="m-carpet-item-price">£80</span>'
+                 +       '</div>'
+                 +       mStepWrap('sofa3', 0)
+                 +    '</div>';
+            html +=   '<div class="m-carpet-item">'
+                 +       '<div class="m-carpet-item-head">'
+                 +          '<span class="m-carpet-item-name">Corner Sofa</span>'
+                 +          '<span class="m-carpet-item-price">£100</span>'
+                 +       '</div>'
+                 +       mStepWrap('corner', 0)
+                 +    '</div>';
+            html += '</div>';
+            html += '</div>';
+            html += '<div class="m-carpet-group">';
+            html += '<button type="button" class="m-carpet-group-title" onclick="toggleAccordionGroup(this)">'
+                 +    '<span class="m-carpet-icon"><i class="fas fa-bed"></i></span>'
+                 +    '<span class="m-carpet-group-text">'
+                 +       '<span>Mattress Cleaning</span>'
+                 +       '<span class="m-carpet-group-sub">Single, double &amp; king</span>'
+                 +       '<span class="m-carpet-group-sub" id="m-carpet-sub-mattress"></span>'
+                 +    '</span>'
+                 +    '<i class="fas fa-chevron-down m-accordion-chev"></i>'
+                 + '</button>';
+            html += '<div class="form-grid">';
+            html +=   '<div class="m-carpet-item">'
+                 +       '<div class="m-carpet-item-head">'
+                 +          '<span class="m-carpet-item-name">Single Mattress</span>'
+                 +          '<span class="m-carpet-item-price">£40</span>'
+                 +       '</div>'
+                 +       mStepWrap('mattress-single', 0)
+                 +    '</div>';
+            html +=   '<div class="m-carpet-item">'
+                 +       '<div class="m-carpet-item-head">'
+                 +          '<span class="m-carpet-item-name">Double Mattress</span>'
+                 +          '<span class="m-carpet-item-price">£50</span>'
+                 +       '</div>'
+                 +       mStepWrap('mattress-double', 0)
+                 +    '</div>';
+            html +=   '<div class="m-carpet-item">'
+                 +       '<div class="m-carpet-item-head">'
+                 +          '<span class="m-carpet-item-name">King Mattress</span>'
+                 +          '<span class="m-carpet-item-price">£60</span>'
+                 +       '</div>'
+                 +       mStepWrap('mattress-king', 0)
+                 +    '</div>';
+            html += '</div>';
+            html += '</div>';
             html += '<div class="total-display"><span>Estimated Total:</span><span class="amount" id="carpet-total" data-value="0">£0</span></div>';
             html += '<div class="m-review-block" id="m-review-block"></div><button type="button" class="m-review-trigger m-fill-part" onclick="enterMobileReview()">Review selection <i class="fas fa-arrow-right"></i></button>';
             html += '</div>';
