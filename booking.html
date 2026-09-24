@@ -205,6 +205,78 @@
         .m-carpet-group-title i { color: var(--primary); font-size: 0.85rem; }
         .m-carpet-group .form-grid { margin-bottom: 0; }
         .m-mobile-shell, .m-mobile-back-row, .m-review-block, .m-show-more, .m-trust, .m-step-btn, .m-step-wrap-label, .m-accordion-chev, .m-accordion-toggle { display: none; }
+
+        /* Preferred appointment (mobile-only UI) — hidden by default on desktop */
+        .m-appt-group { display: none; }
+        .m-appt-row { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; background: #FFFFFF; border: 1px solid rgba(11,94,90,0.10); border-radius: 12px; cursor: pointer; text-align: left; font-family: inherit; transition: border-color 0.15s ease, background 0.15s ease; }
+        .m-appt-row + .m-appt-row { margin-top: 8px; }
+        .m-appt-row:hover { border-color: rgba(11,94,90,0.22); }
+        .m-appt-row:active { background: #F5FAF9; }
+        .m-appt-icon { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .m-appt-icon i { font-size: 0.85rem; }
+        .m-appt-icon.date { background: rgba(11,94,90,0.10); color: var(--primary); }
+        .m-appt-icon.time { background: rgba(11,94,90,0.10); color: var(--primary); }
+        .m-appt-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+        .m-appt-title { font-size: 13px; font-weight: 650; line-height: 1.2; color: var(--text-dark); }
+        .m-appt-sub { font-size: 12px; line-height: 1.25; color: var(--text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .m-appt-row.has-value .m-appt-sub { color: var(--text-soft); font-weight: 550; }
+        .m-appt-chev { flex-shrink: 0; color: var(--text-light); font-size: 0.75rem; }
+
+        /* Preference notice */
+        .m-appt-note { display: flex; align-items: flex-start; gap: 10px; margin-top: 12px; padding: 10px 12px; border-radius: 10px; background: #F4F8F7; border: 1px solid rgba(11,94,90,0.06); font-size: 12px; line-height: 1.4; color: var(--text-soft); }
+        .m-appt-note i { color: var(--primary); font-size: 0.75rem; margin-top: 2px; }
+
+        /* Bottom sheet */
+        .m-sheet-backdrop { position: fixed; inset: 0; background: rgba(9,26,26,0.55); opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s ease; z-index: 3000; }
+        .m-sheet-backdrop.active { opacity: 1; visibility: visible; }
+        .m-sheet { position: fixed; left: 0; right: 0; bottom: 0; background: #FFFFFF; border-radius: 22px 22px 0 0; box-shadow: 0 -18px 40px rgba(0,0,0,0.18); z-index: 3010; transform: translateY(100%); transition: transform 0.28s cubic-bezier(0.2,0.8,0.2,1); max-height: 88vh; display: flex; flex-direction: column; padding-bottom: env(safe-area-inset-bottom, 0px); }
+        .m-sheet.open { transform: translateY(0); }
+        .m-sheet-handle { flex-shrink: 0; width: 40px; height: 4px; border-radius: 999px; background: rgba(0,0,0,0.14); margin: 10px auto 0; }
+        .m-sheet-head { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; padding: 14px 18px 8px; }
+        .m-sheet-title { font-size: 16px; font-weight: 700; color: var(--text-dark); letter-spacing: -0.01em; }
+        .m-sheet-close { width: 32px; height: 32px; border-radius: 50%; border: 0; background: transparent; color: var(--text-dark); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+        .m-sheet-close:active { background: rgba(0,0,0,0.05); }
+        .m-sheet-body { flex: 1 1 auto; overflow-y: auto; padding: 4px 18px 12px; -webkit-overflow-scrolling: touch; }
+
+        /* Calendar */
+        .m-cal-head { display: flex; align-items: center; justify-content: space-between; padding: 6px 2px 10px; }
+        .m-cal-nav { width: 34px; height: 34px; border: 0; background: transparent; color: var(--primary-dark); border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+        .m-cal-nav:active { background: rgba(11,94,90,0.06); }
+        .m-cal-nav:disabled { opacity: 0.35; cursor: not-allowed; }
+        .m-cal-month { font-size: 14px; font-weight: 700; color: var(--text-dark); }
+        .m-cal-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; padding: 0 2px; margin-bottom: 4px; }
+        .m-cal-weekdays span { font-size: 11px; font-weight: 500; color: var(--text-light); text-align: center; padding: 6px 0; }
+        .m-cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; padding: 0 2px 6px; }
+        .m-cal-grid button { height: 40px; border: 0; background: transparent; border-radius: 50%; font-family: inherit; font-size: 14px; color: var(--text-dark); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+        .m-cal-grid button:hover:not(:disabled) { background: rgba(11,94,90,0.06); }
+        .m-cal-grid button.is-today { box-shadow: inset 0 0 0 1.5px rgba(11,94,90,0.45); }
+        .m-cal-grid button.is-selected { background: var(--primary); color: #FFFFFF; font-weight: 700; box-shadow: none; }
+        .m-cal-grid button:disabled { color: #C7CFD1; cursor: not-allowed; }
+        .m-cal-grid button.is-empty { visibility: hidden; pointer-events: none; }
+
+        /* Time options */
+        .m-time-list { display: flex; flex-direction: column; gap: 10px; padding: 6px 2px 4px; }
+        .m-time-option { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid rgba(11,94,90,0.10); border-radius: 12px; background: #FFFFFF; cursor: pointer; transition: border-color 0.15s ease, background 0.15s ease; font-family: inherit; text-align: left; width: 100%; }
+        .m-time-option:active { background: #F5FAF9; }
+        .m-time-option.is-selected { border-color: var(--primary); background: #EAF6F4; }
+        .m-time-icon { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .m-time-icon i { font-size: 0.85rem; }
+        .m-time-icon.morning { background: #FBEFD9; color: #C7871A; }
+        .m-time-icon.afternoon { background: #DDEEE7; color: #1F8A62; }
+        .m-time-icon.evening { background: #E2E0F5; color: #4B44A8; }
+        .m-time-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+        .m-time-title { font-size: 14px; font-weight: 650; color: var(--text-dark); line-height: 1.2; }
+        .m-time-sub { font-size: 12px; color: var(--text-light); line-height: 1.2; }
+        .m-time-radio { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid rgba(11,94,90,0.30); display: inline-flex; align-items: center; justify-content: center; }
+        .m-time-option.is-selected .m-time-radio { border-color: var(--primary); }
+        .m-time-option.is-selected .m-time-radio::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); }
+
+        /* Sheet confirm */
+        .m-sheet-foot { flex-shrink: 0; padding: 8px 18px 18px; }
+        .m-sheet-confirm { width: 100%; height: 48px; border: 0; border-radius: 10px; background: var(--primary); color: #FFFFFF; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer; transition: opacity 0.15s ease, background 0.15s ease; }
+        .m-sheet-confirm[disabled] { background: #C9D6D4; color: #FFFFFF; cursor: not-allowed; }
+        .m-sheet-confirm:not([disabled]):active { background: var(--primary-dark); }
+
         @media (max-width: 768px) {
             html, body { overflow-x: hidden; width: 100%; max-width: 100%; }
             .container { padding: 0 20px; }
@@ -215,7 +287,6 @@
             .nav-links { top: 64px; height: calc(100vh - 64px); }
             .booking-page { padding-top: 72px; padding-bottom: 24px; min-height: calc(100vh - 260px); }
 
-            /* booking-system IS the mobile card */
             .booking-system {
                 background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%);
                 border: 1px solid rgba(11,94,90,0.08);
@@ -228,12 +299,10 @@
             .booking-divider { display: none; }
             .booking-container { padding: 18px 18px 20px; background: transparent; max-width: 100%; }
 
-            /* Change service — mobile only, above the card */
             .m-mobile-back-row { display: block; margin: 0 0 8px; }
             .m-mobile-shell-back { display: inline-flex; align-items: center; gap: 5px; background: none; border: none; padding: 4px 0; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--text-soft); }
             .m-mobile-shell-back i { font-size: 0.72rem; color: var(--text-soft); }
 
-            /* Green header of the mobile card — flows into form body */
             .m-mobile-shell { display: block; padding: 0; margin: 0; }
             .m-mobile-bar {
                 background: linear-gradient(135deg, #075E58 0%, #053F3D 100%);
@@ -250,7 +319,6 @@
             .m-mobile-progress .bp-stage.done .bp-label { color: rgba(255,255,255,0.72); font-weight: 500; }
             .m-mobile-progress .bp-connector { flex: 1 1 auto; height: 1px; background: rgba(255,255,255,0.35); margin: 13px 6px 0; align-self: flex-start; min-width: 18px; max-width: none; }
 
-            /* Mobile control system — untouched */
             .form-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 24px; }
             .form-group { margin-bottom: 0; }
             .form-group.full-width { grid-column: span 1; }
@@ -374,6 +442,13 @@
             #step3 .btn-prev { padding: 7px 12px; font-size: 13px; }
             #step3 .m-trust { margin-top: 12px; padding-bottom: 4px; font-size: 11px; line-height: 1.3; }
 
+            /* Mobile appt block */
+            .m-appt-group { display: block; margin-bottom: 26px; }
+            .m-appt-heading { font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; letter-spacing: -0.01em; }
+            .m-appt-note { margin-bottom: 0; }
+            /* Hide desktop-only date/time group on mobile (the group containing native controls) */
+            #step3 .m-desktop-date-time { display: none !important; }
+
             .m-trust { display: flex !important; align-items: center; justify-content: center; gap: 6px; font-size: 11.5px; color: var(--text-light); margin-top: 14px; padding-bottom: 6px; text-align: center; line-height: 1.35; }
             .m-trust i { color: var(--primary); font-size: 0.75rem; }
 
@@ -426,7 +501,6 @@
     <div class="booking-page">
         <div class="container">
 
-            <!-- Change service — mobile only, sits ABOVE the booking card -->
             <div class="m-mobile-back-row">
                 <button type="button" class="m-mobile-shell-back" onclick="mobileBackAction()">
                     <i class="fas fa-chevron-left"></i>
@@ -436,7 +510,6 @@
 
             <div class="booking-system">
 
-                <!-- MOBILE-ONLY: green progress bar (top of the card) -->
                 <div class="m-mobile-shell">
                     <div class="m-mobile-bar">
                         <div class="m-mobile-progress" id="mobileProgress">
@@ -458,7 +531,6 @@
                     </div>
                 </div>
 
-                <!-- DESKTOP-ONLY: green header with progress -->
                 <div class="booking-header">
                     <h3 id="stepTitleHeader" class="sr-only">Step 1 — Service Details</h3>
                     <div class="booking-progress" id="bookingProgress">
@@ -481,7 +553,6 @@
 
                 <hr class="booking-divider">
 
-                <!-- CANONICAL form body — always visible -->
                 <div class="booking-container">
                     <div class="booking-step active" id="step1">
                         <div id="dynamic-form-container"></div>
@@ -536,17 +607,48 @@
                                 <input type="text" id="booking-address" placeholder="Add house/flat number before the address" required>
                                 <small style="color: var(--text-light); font-size: 0.7rem; display: block; margin-top: 6px;"><i class="fas fa-info-circle"></i> Select your address, then add your house or flat number before it.</small>
                             </div>
-                            <div class="form-group">
+
+                            <!-- Desktop-only native date/time controls (unchanged) -->
+                            <div class="form-group m-desktop-date-time">
                                 <label>Preferred Date</label>
                                 <input type="date" id="booking-date">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group m-desktop-date-time">
                                 <label>Preferred Time</label>
                                 <select id="booking-time">
+                                    <option value="" selected disabled>Select your preferred time</option>
                                     <option>Morning (8am - 12pm)</option>
                                     <option>Afternoon (12pm - 4pm)</option>
                                     <option>Evening (4pm - 7pm)</option>
                                 </select>
+                            </div>
+
+                            <!-- Mobile-only Preferred appointment UI -->
+                            <div class="form-group full-width m-appt-group">
+                                <div class="m-appt-heading">Preferred appointment</div>
+
+                                <button type="button" class="m-appt-row" id="m-appt-date-row" aria-haspopup="dialog" aria-controls="m-sheet">
+                                    <span class="m-appt-icon date"><i class="fas fa-calendar-alt"></i></span>
+                                    <span class="m-appt-text">
+                                        <span class="m-appt-title">Preferred date</span>
+                                        <span class="m-appt-sub" id="m-appt-date-sub">Choose a date</span>
+                                    </span>
+                                    <i class="fas fa-chevron-right m-appt-chev"></i>
+                                </button>
+
+                                <button type="button" class="m-appt-row" id="m-appt-time-row" aria-haspopup="dialog" aria-controls="m-sheet">
+                                    <span class="m-appt-icon time"><i class="fas fa-clock"></i></span>
+                                    <span class="m-appt-text">
+                                        <span class="m-appt-title">Preferred time</span>
+                                        <span class="m-appt-sub" id="m-appt-time-sub">Select preferred time</span>
+                                    </span>
+                                    <i class="fas fa-chevron-right m-appt-chev"></i>
+                                </button>
+
+                                <div class="m-appt-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Date and time are preferences. Your appointment will be confirmed after availability is reviewed.</span>
+                                </div>
                             </div>
                         </div>
                         <div class="booking-navigation">
@@ -558,6 +660,22 @@
                 </div>
 
             </div>
+        </div>
+    </div>
+
+    <!-- Shared bottom sheet (mobile only) -->
+    <div class="m-sheet-backdrop" id="m-sheet-backdrop" aria-hidden="true"></div>
+    <div class="m-sheet" id="m-sheet" role="dialog" aria-modal="true" aria-labelledby="m-sheet-title" hidden>
+        <div class="m-sheet-handle" aria-hidden="true"></div>
+        <div class="m-sheet-head">
+            <div class="m-sheet-title" id="m-sheet-title">Select a date</div>
+            <button type="button" class="m-sheet-close" id="m-sheet-close" aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="m-sheet-body" id="m-sheet-body"></div>
+        <div class="m-sheet-foot">
+            <button type="button" class="m-sheet-confirm" id="m-sheet-confirm" disabled>Confirm date</button>
         </div>
     </div>
 
@@ -1389,6 +1507,255 @@
                 }
             }
         });
+
+        // ============================================================
+        // Preferred appointment — shared bottom sheet (mobile only)
+        // Canonical values live in #booking-date and #booking-time.
+        // ============================================================
+        (function () {
+            const backdrop = document.getElementById('m-sheet-backdrop');
+            const sheet = document.getElementById('m-sheet');
+            const sheetTitle = document.getElementById('m-sheet-title');
+            const sheetBody = document.getElementById('m-sheet-body');
+            const sheetConfirm = document.getElementById('m-sheet-confirm');
+            const sheetClose = document.getElementById('m-sheet-close');
+            const dateRow = document.getElementById('m-appt-date-row');
+            const timeRow = document.getElementById('m-appt-time-row');
+            const dateSub = document.getElementById('m-appt-date-sub');
+            const timeSub = document.getElementById('m-appt-time-sub');
+            const dateInput = document.getElementById('booking-date'); // hidden canonical value
+            const timeInput = document.getElementById('booking-time'); // canonical select
+            if (!backdrop || !sheet || !sheetBody || !sheetConfirm || !dateRow || !timeRow) return;
+
+            const TIME_OPTIONS = [
+                { value: 'Morning (8am - 12pm)', title: 'Morning', sub: '8am – 12pm', icon: 'fa-sun', cls: 'morning' },
+                { value: 'Afternoon (12pm - 4pm)', title: 'Afternoon', sub: '12pm – 4pm', icon: 'fa-sun', cls: 'afternoon' },
+                { value: 'Evening (4pm - 7pm)', title: 'Evening', sub: '4pm – 7pm', icon: 'fa-moon', cls: 'evening' }
+            ];
+            const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            const MONTHS_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+            let mode = null;              // 'date' | 'time'
+            let lastFocused = null;       // element to restore focus to
+            let pendingDate = null;       // Date | null (draft, not committed)
+            let pendingTime = null;       // string | null (draft)
+            const today = new Date(); today.setHours(0,0,0,0);
+            let viewMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+
+            // Prefill drafts from existing canonical values
+            function syncDraftsFromCanonical() {
+                const v = (dateInput && dateInput.value) ? dateInput.value : '';
+                if (v) {
+                    const parts = v.split('-').map(Number);
+                    if (parts.length === 3 && !isNaN(parts[0])) {
+                        pendingDate = new Date(parts[0], parts[1] - 1, parts[2]);
+                        viewMonth = new Date(pendingDate.getFullYear(), pendingDate.getMonth(), 1);
+                    }
+                } else {
+                    pendingDate = null;
+                }
+                pendingTime = (timeInput && timeInput.value) ? timeInput.value : null;
+                renderRows();
+            }
+
+            function fmtDateLong(d) {
+                const dows = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+                return dows[d.getDay()] + ', ' + d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+            }
+            function pad2(n) { return String(n).padStart(2, '0'); }
+
+            function renderRows() {
+                if (pendingDate) {
+                    dateSub.textContent = fmtDateLong(pendingDate);
+                    dateRow.classList.add('has-value');
+                } else {
+                    dateSub.textContent = 'Choose a date';
+                    dateRow.classList.remove('has-value');
+                }
+                if (pendingTime) {
+                    timeSub.textContent = pendingTime;
+                    timeRow.classList.add('has-value');
+                } else {
+                    timeSub.textContent = 'Select preferred time';
+                    timeRow.classList.remove('has-value');
+                }
+            }
+
+            function trapFocus(e) {
+                if (e.key !== 'Tab') return;
+                const focusables = sheet.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                if (!focusables.length) return;
+                const first = focusables[0];
+                const last = focusables[focusables.length - 1];
+                if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+            }
+
+            function openSheet(which) {
+                mode = which;
+                lastFocused = document.activeElement;
+                syncDraftsFromCanonical();
+                if (mode === 'date') {
+                    sheetTitle.textContent = 'Select a date';
+                    sheetConfirm.textContent = 'Confirm date';
+                    sheetConfirm.disabled = !pendingDate;
+                    renderCalendar();
+                } else {
+                    sheetTitle.textContent = 'Select preferred time';
+                    sheetConfirm.textContent = 'Confirm time';
+                    sheetConfirm.disabled = !pendingTime;
+                    renderTimes();
+                }
+                backdrop.classList.add('active');
+                backdrop.setAttribute('aria-hidden', 'false');
+                sheet.hidden = false;
+                // next frame so transform transitions
+                requestAnimationFrame(() => sheet.classList.add('open'));
+                document.body.style.overflow = 'hidden';
+                document.addEventListener('keydown', onKeydown);
+                // focus first interactive in sheet
+                setTimeout(() => {
+                    const first = sheet.querySelector('.m-sheet-close');
+                    if (first) first.focus();
+                }, 60);
+            }
+
+            function closeSheet(apply) {
+                if (apply) {
+                    if (mode === 'date' && pendingDate) {
+                        dateInput.value = pendingDate.getFullYear() + '-' + pad2(pendingDate.getMonth() + 1) + '-' + pad2(pendingDate.getDate());
+                        dateInput.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+                    if (mode === 'time' && pendingTime) {
+                        timeInput.value = pendingTime;
+                        timeInput.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+                } else {
+                    // discard drafts; re-sync from canonical on next open
+                }
+                renderRows();
+                sheet.classList.remove('open');
+                backdrop.classList.remove('active');
+                backdrop.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                document.removeEventListener('keydown', onKeydown);
+                setTimeout(() => { sheet.hidden = true; }, 260);
+                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+                mode = null;
+            }
+
+            function onKeydown(e) {
+                if (e.key === 'Escape') { e.preventDefault(); closeSheet(false); return; }
+                trapFocus(e);
+            }
+
+            // Calendar ---------------------------------------------------
+            function renderCalendar() {
+                sheetBody.innerHTML = '';
+                const head = document.createElement('div');
+                head.className = 'm-cal-head';
+                const prev = document.createElement('button');
+                prev.type = 'button';
+                prev.className = 'm-cal-nav';
+                prev.setAttribute('aria-label', 'Previous month');
+                prev.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                const label = document.createElement('div');
+                label.className = 'm-cal-month';
+                label.textContent = MONTHS[viewMonth.getMonth()] + ' ' + viewMonth.getFullYear();
+                const next = document.createElement('button');
+                next.type = 'button';
+                next.className = 'm-cal-nav';
+                next.setAttribute('aria-label', 'Next month');
+                next.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                const minView = new Date(today.getFullYear(), today.getMonth(), 1);
+                prev.disabled = viewMonth <= minView;
+                prev.addEventListener('click', function () {
+                    viewMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() - 1, 1);
+                    renderCalendar();
+                });
+                next.addEventListener('click', function () {
+                    viewMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 1);
+                    renderCalendar();
+                });
+                head.appendChild(prev); head.appendChild(label); head.appendChild(next);
+                sheetBody.appendChild(head);
+
+                const wd = document.createElement('div');
+                wd.className = 'm-cal-weekdays';
+                ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(d => {
+                    const s = document.createElement('span'); s.textContent = d; wd.appendChild(s);
+                });
+                sheetBody.appendChild(wd);
+
+                const grid = document.createElement('div');
+                grid.className = 'm-cal-grid';
+                const firstDow = (viewMonth.getDay() + 6) % 7;
+                const daysInMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 0).getDate();
+                for (let i = 0; i < firstDow; i++) {
+                    const b = document.createElement('button'); b.type = 'button'; b.className = 'is-empty'; b.disabled = true;
+                    grid.appendChild(b);
+                }
+                for (let d = 1; d <= daysInMonth; d++) {
+                    const date = new Date(viewMonth.getFullYear(), viewMonth.getMonth(), d);
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.textContent = d;
+                    btn.setAttribute('aria-label', fmtDateLong(date));
+                    if (date < today) btn.disabled = true;
+                    if (date.getTime() === today.getTime()) btn.classList.add('is-today');
+                    if (pendingDate && date.getTime() === pendingDate.getTime()) btn.classList.add('is-selected');
+                    btn.addEventListener('click', function () {
+                        pendingDate = date;
+                        sheetConfirm.disabled = false;
+                        renderCalendar();
+                    });
+                    grid.appendChild(btn);
+                }
+                sheetBody.appendChild(grid);
+            }
+
+            // Time list --------------------------------------------------
+            function renderTimes() {
+                sheetBody.innerHTML = '';
+                const list = document.createElement('div');
+                list.className = 'm-time-list';
+                TIME_OPTIONS.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'm-time-option' + (pendingTime === opt.value ? ' is-selected' : '');
+                    btn.setAttribute('role', 'radio');
+                    btn.setAttribute('aria-checked', pendingTime === opt.value ? 'true' : 'false');
+                    btn.innerHTML =
+                        '<span class="m-time-icon ' + opt.cls + '"><i class="fas ' + opt.icon + '"></i></span>' +
+                        '<span class="m-time-text">' +
+                            '<span class="m-time-title">' + opt.title + '</span>' +
+                            '<span class="m-time-sub">' + opt.sub + '</span>' +
+                        '</span>' +
+                        '<span class="m-time-radio" aria-hidden="true"></span>';
+                    btn.addEventListener('click', function () {
+                        pendingTime = opt.value;
+                        sheetConfirm.disabled = false;
+                        renderTimes();
+                    });
+                    list.appendChild(btn);
+                });
+                sheetBody.appendChild(list);
+            }
+
+            // Wire events
+            dateRow.addEventListener('click', function () { openSheet('date'); });
+            timeRow.addEventListener('click', function () { openSheet('time'); });
+            sheetClose.addEventListener('click', function () { closeSheet(false); });
+            backdrop.addEventListener('click', function () { closeSheet(false); });
+            sheetConfirm.addEventListener('click', function () {
+                if (sheetConfirm.disabled) return;
+                closeSheet(true);
+            });
+
+            // Initial row state from any preexisting canonical values
+            syncDraftsFromCanonical();
+        })();
+
         window.updatePrice = updatePrice;
         window.selectCondition = selectCondition;
         window.goToStep = goToStep;
