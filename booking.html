@@ -211,14 +211,22 @@
             .booking-divider { display: none; }
             .booking-container { padding: 0 4px; background: transparent; max-width: 100%; }
             .m-mobile-shell { display: block; padding: 2px 0 14px; margin-bottom: 8px; }
-            .m-mobile-shell-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+            .m-mobile-shell-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
             .m-mobile-shell-back { display: inline-flex; align-items: center; gap: 5px; background: none; border: none; padding: 4px 0; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--text-soft); }
             .m-mobile-shell-back i { font-size: 0.72rem; color: var(--text-soft); }
             .m-mobile-shell-step { font-size: 12px; font-weight: 600; color: var(--text-light); white-space: nowrap; }
-            .m-mobile-shell-title { display: block; font-size: 22px; font-weight: 750; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 14px; color: var(--text-dark); }
-            .m-mobile-progress { display: flex; gap: 6px; width: 100%; margin-bottom: 6px; }
-            .m-mobile-progress .m-seg { flex: 1; height: 3px; border-radius: 999px; background: rgba(11,94,90,0.14); transition: background 0.25s ease; }
-            .m-mobile-progress .m-seg.done, .m-mobile-progress .m-seg.active { background: var(--primary); }
+            .m-mobile-shell-title { display: block; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.025em; margin: 6px 0 10px; color: var(--text-dark); }
+            .m-mobile-progress { display: none; }
+
+            /* Compact step indicator — icons only */
+            .m-step-indicator { display: flex; align-items: center; justify-content: center; gap: 0; margin: 4px 0 20px; width: 100%; max-width: 180px; margin-left: auto; margin-right: auto; }
+            .m-step-indicator .m-step-node { display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+            .m-step-indicator .m-step-circle { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(11,94,90,0.06); color: var(--text-light); font-size: 11px; line-height: 1; transition: background 0.25s ease, color 0.25s ease; }
+            .m-step-indicator .m-step-circle i { font-size: 11px; }
+            .m-step-indicator .m-step-node.active .m-step-circle { background: rgba(11,94,90,0.14); color: var(--primary-dark); }
+            .m-step-indicator .m-step-node.done .m-step-circle { background: rgba(11,94,90,0.06); color: var(--primary); }
+            .m-step-indicator .m-step-connector { flex: 1 1 auto; height: 1px; background: rgba(11,94,90,0.14); margin: 0 8px; min-width: 18px; }
+
             .form-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 24px; }
             .form-group { margin-bottom: 0; }
             .form-group.full-width { grid-column: span 1; }
@@ -297,13 +305,7 @@
             .m-review-trigger i { font-size: 0.72rem; }
             .m-fill-hidden { display: none !important; }
 
-            /* =========================================================
-               STEP 2 + STEP 3 — MOBILE PROPORTION CORRECTION
-               Shared across all six services (they live outside
-               #dynamic-form-container).
-               ========================================================= */
-
-            /* ---------- STEP 2: PHOTOS & NOTES ---------- */
+            /* STEP 2 + STEP 3 — mobile proportion correction (shared across all six services) */
             #step2 { padding-top: 0; }
             #step2 .form-group { margin-bottom: 18px; }
             #step2 .form-group label { margin-bottom: 7px; }
@@ -315,7 +317,6 @@
             #step2 .assessment-note { min-height: 0; margin: 20px 0 0; padding: 9px 11px; border-radius: 8px; font-size: 11.5px; line-height: 1.35; }
             #step2 .booking-navigation { margin-top: 20px; }
 
-            /* ---------- STEP 3: CONTACT DETAILS ---------- */
             #step3 { padding-top: 0; }
             #step3 .form-grid { display: grid; grid-template-columns: 1fr; gap: 0; margin: 0; }
             #step3 .form-group { margin: 0 0 14px; }
@@ -387,10 +388,23 @@
                         <span class="m-mobile-shell-step" id="mobileStepLabel">Step 1 of 3</span>
                     </div>
                     <div class="m-mobile-shell-title" id="mobileStepTitle">Service Details</div>
-                    <div class="m-mobile-progress" id="mobileProgressBar">
+                    <div class="m-mobile-progress" id="mobileProgressBar" aria-hidden="true">
                         <span class="m-seg active" data-seg="1"></span>
                         <span class="m-seg" data-seg="2"></span>
                         <span class="m-seg" data-seg="3"></span>
+                    </div>
+                    <div class="m-step-indicator" id="mobileStepIndicator">
+                        <div class="m-step-node active" data-step="1">
+                            <span class="m-step-circle"><i class="fas fa-home"></i></span>
+                        </div>
+                        <span class="m-step-connector" data-connector="1"></span>
+                        <div class="m-step-node" data-step="2">
+                            <span class="m-step-circle"><i class="fas fa-camera"></i></span>
+                        </div>
+                        <span class="m-step-connector" data-connector="2"></span>
+                        <div class="m-step-node" data-step="3">
+                            <span class="m-step-circle"><i class="fas fa-user"></i></span>
+                        </div>
                     </div>
                 </div>
                 <div class="booking-header">
@@ -875,12 +889,31 @@
             if (mTitle) mTitle.textContent = mMap[step] || ('Step ' + step);
             const mLabel = document.getElementById('mobileStepLabel');
             if (mLabel) mLabel.textContent = 'Step ' + step + ' of 3';
+
             document.querySelectorAll('#mobileProgressBar .m-seg').forEach(seg => {
                 const n = parseInt(seg.getAttribute('data-seg'));
                 seg.classList.remove('active', 'done');
                 if (n < step) seg.classList.add('done');
                 else if (n === step) seg.classList.add('active');
             });
+
+            const stepIcons = { 1: 'fa-home', 2: 'fa-camera', 3: 'fa-user' };
+            document.querySelectorAll('#mobileStepIndicator .m-step-node').forEach(node => {
+                const n = parseInt(node.getAttribute('data-step'));
+                const circle = node.querySelector('.m-step-circle');
+                node.classList.remove('active', 'done');
+                if (!circle) return;
+                if (n < step) {
+                    node.classList.add('done');
+                    circle.innerHTML = '<i class="fas fa-check"></i>';
+                } else if (n === step) {
+                    node.classList.add('active');
+                    circle.innerHTML = '<i class="fas ' + (stepIcons[n] || 'fa-circle') + '"></i>';
+                } else {
+                    circle.innerHTML = '<i class="fas ' + (stepIcons[n] || 'fa-circle') + '"></i>';
+                }
+            });
+
             const mBack = document.getElementById('mobileBackLabel');
             if (mBack) mBack.textContent = step === 1 ? 'Change service' : 'Back';
             if (step === 1 && typeof exitMobileReview === 'function') exitMobileReview();
