@@ -224,7 +224,9 @@
         .drp-chev { flex-shrink: 0; color: var(--text-light); font-size: 0.8rem; transition: transform 0.2s ease; }
         .drp.is-open .drp-chev { transform: rotate(180deg); color: var(--primary); }
 
-        .drp-panel { position: absolute; top: calc(100% + 6px); left: 0; right: 0; background: #FFFFFF; border: 1px solid rgba(11,94,90,0.14); border-radius: 12px; box-shadow: 0 14px 36px rgba(19,43,48,0.14), 0 3px 8px rgba(19,43,48,0.06); z-index: 60; max-height: 320px; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 6px; display: none; }
+        /* Panel: rendered fixed so it is never clipped by .booking-system { overflow: hidden }.
+           Top/left/width are set inline from getBoundingClientRect() when opening. */
+        .drp-panel { position: fixed; background: #FFFFFF; border: 1px solid rgba(11,94,90,0.14); border-radius: 12px; box-shadow: 0 14px 36px rgba(19,43,48,0.14), 0 3px 8px rgba(19,43,48,0.06); z-index: 3500; max-height: 320px; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 6px; display: none; will-change: transform, opacity; }
         .drp.is-open .drp-panel { display: block; animation: drpIn 0.14s ease; }
         @keyframes drpIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -304,6 +306,14 @@
         .m-sheet-confirm { width: 100%; height: 48px; border: 0; border-radius: 10px; background: var(--primary); color: #FFFFFF; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer; transition: opacity 0.15s ease, background 0.15s ease; }
         .m-sheet-confirm[disabled] { background: #C9D6D4; color: #FFFFFF; cursor: not-allowed; }
         .m-sheet-confirm:not([disabled]):active { background: var(--primary-dark); }
+
+        @media (min-width: 769px) {
+            .m-review-trigger,
+            .m-review-block,
+            .m-show-more,
+            .m-trust,
+            .m-appt-group { display: none !important; }
+        }
 
         @media (max-width: 768px) {
             html, body { overflow-x: hidden; width: 100%; max-width: 100%; }
@@ -504,7 +514,6 @@
             .booking-navigation { flex-direction: column-reverse; margin-top: 22px; gap: 8px; }
             footer { display: none; }
 
-            /* Mobile custom dropdown — match the mobile control system */
             .drp-trigger { min-height: 46px; height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; font-size: 14px; font-weight: 400; }
             .drp-trigger:focus-visible, .drp.is-open .drp-trigger { box-shadow: 0 0 0 3px rgba(11,94,90,0.08); }
             .drp-panel { max-height: 60vh; border-radius: 12px; padding: 6px; box-shadow: 0 16px 40px rgba(19,43,48,0.14), 0 3px 8px rgba(19,43,48,0.06); }
@@ -1193,7 +1202,6 @@
             setTimeout(() => {
                 document.querySelectorAll('#property-size, #extra-bathrooms, .addon, #carpet-rooms, #armchair, #sofa2, #sofa3, #corner, #mattress-single, #mattress-double, #mattress-king, #org-hours').forEach(el => el.addEventListener('input', updatePrice));
                 document.querySelectorAll('#property-size, .addon').forEach(el => el.addEventListener('change', updatePrice));
-                // Initialise custom dropdowns for any select inside the rendered form
                 if (window.drpInit) window.drpInit(container);
                 updatePrice();
                 updateMobileCarpetSummaries();
@@ -1557,13 +1565,7 @@
             }
         });
 
-        /* ============================================================
-           CUSTOM DROPDOWN — builds a clean styled panel on top of
-           each <select> without changing its value contract.
-           ============================================================ */
         (function () {
-            // Per-select config: whether to show a price on the right of the
-            // option, and which icons to use per option value.
             const DRP_CONFIG = {
                 'property-size': {
                     splitPrice: true,
@@ -1593,12 +1595,9 @@
                 }
             };
 
-            // Split "2 Bedrooms / 1 Bathroom — £270" into
-            // label = "2 Bedrooms / 1 Bathroom", price = "£270"
             function splitLabelAndPrice(text, cfg) {
                 let label = text, price = '';
                 if (cfg.splitPrice) {
-                    // Try em-dash split first, then hyphen
                     let idx = text.lastIndexOf('—');
                     if (idx === -1) idx = text.lastIndexOf(' - ');
                     if (idx > -1) {
@@ -1619,18 +1618,15 @@
 
                 const cfg = DRP_CONFIG[selectEl.id] || {};
 
-                // Wrapper
                 const wrap = document.createElement('div');
                 wrap.className = 'drp';
 
-                // Move the native select inside the wrapper and hide it
                 selectEl.parentNode.insertBefore(wrap, selectEl);
                 wrap.appendChild(selectEl);
                 selectEl.classList.add('drp-native');
                 selectEl.setAttribute('tabindex', '-1');
                 selectEl.setAttribute('aria-hidden', 'true');
 
-                // Trigger button
                 const trigger = document.createElement('button');
                 trigger.type = 'button';
                 trigger.className = 'drp-trigger';
@@ -1645,7 +1641,6 @@
                 trigger.appendChild(chev);
                 wrap.appendChild(trigger);
 
-                // Panel
                 const panel = document.createElement('div');
                 panel.className = 'drp-panel';
                 panel.setAttribute('role', 'listbox');
@@ -1668,6 +1663,34 @@
                     }
                 }
 
+                // Position the fixed panel based on the trigger's on-screen rect
+                function repositionPanel() {
+                    const r = trigger.getBoundingClientRect();
+                    const gap = 6;
+                    const viewportH = window.innerHeight;
+                    const viewportW = window.innerWidth;
+                    // Default: below the trigger
+                    let top = r.bottom + gap;
+                    let left = r.left;
+                    let width = r.width;
+                    // Flip above if too little space below and more space above
+                    const spaceBelow = viewportH - r.bottom - gap;
+                    const spaceAbove = r.top - gap;
+                    const desiredMax = Math.min(320, Math.max(180, spaceBelow));
+                    if (spaceBelow < 180 && spaceAbove > spaceBelow) {
+                        // Render above
+                        top = Math.max(gap, r.top - gap - Math.min(320, spaceAbove));
+                    }
+                    // Keep inside viewport horizontally
+                    if (left + width > viewportW - 8) {
+                        left = Math.max(8, viewportW - 8 - width);
+                    }
+                    panel.style.top = top + 'px';
+                    panel.style.left = left + 'px';
+                    panel.style.width = width + 'px';
+                    panel.style.maxHeight = Math.min(desiredMax, viewportH - 24) + 'px';
+                }
+
                 function renderPanel() {
                     panel.innerHTML = '';
                     const selectedValue = selectEl.value;
@@ -1679,7 +1702,6 @@
                         btn.setAttribute('aria-selected', opt.value === selectedValue ? 'true' : 'false');
                         btn.dataset.value = opt.value;
 
-                        // Icon (optional)
                         const iconName = cfg.icons && cfg.icons[opt.value] ? cfg.icons[opt.value] : '';
                         if (iconName) {
                             const ic = document.createElement('span');
@@ -1688,7 +1710,6 @@
                             btn.appendChild(ic);
                         }
 
-                        // Body (label + price)
                         const body = document.createElement('span');
                         body.className = 'drp-option-body';
                         const parts = splitLabelAndPrice(opt.text, cfg);
@@ -1704,7 +1725,6 @@
                         }
                         btn.appendChild(body);
 
-                        // Check
                         const chk = document.createElement('span');
                         chk.className = 'drp-option-check';
                         chk.innerHTML = '<i class="fas fa-check"></i>';
@@ -1729,14 +1749,15 @@
                 }
 
                 function open() {
-                    // Close any other open dropdown first
                     document.querySelectorAll('.drp.is-open').forEach(function (other) {
                         if (other !== wrap) other.classList.remove('is-open');
                     });
                     renderPanel();
                     wrap.classList.add('is-open');
                     trigger.setAttribute('aria-expanded', 'true');
-                    // Focus first option
+                    repositionPanel();
+                    window.addEventListener('scroll', repositionPanel, true);
+                    window.addEventListener('resize', repositionPanel);
                     const first = panel.querySelector('.drp-option');
                     if (first) first.focus();
                 }
@@ -1744,6 +1765,8 @@
                 function close() {
                     wrap.classList.remove('is-open');
                     trigger.setAttribute('aria-expanded', 'false');
+                    window.removeEventListener('scroll', repositionPanel, true);
+                    window.removeEventListener('resize', repositionPanel);
                 }
 
                 trigger.addEventListener('click', function (e) {
@@ -1778,8 +1801,6 @@
                     }
                 });
 
-                // Reflect external change events (e.g. our own selectValue, or
-                // any programmatic change) back into the trigger text
                 selectEl.addEventListener('change', renderTrigger);
 
                 renderTrigger();
@@ -1790,7 +1811,6 @@
                 root.querySelectorAll('select#property-size, select#post-property-type, select#post-size, select#com-frequency').forEach(buildDropdown);
             };
 
-            // Close on outside click
             document.addEventListener('click', function (e) {
                 if (!e.target.closest('.drp')) {
                     document.querySelectorAll('.drp.is-open').forEach(function (w) {
@@ -1801,7 +1821,6 @@
                 }
             });
 
-            // Close on Escape at document level
             document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape') {
                     document.querySelectorAll('.drp.is-open').forEach(function (w) {
