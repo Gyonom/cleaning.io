@@ -207,6 +207,39 @@
         .m-carpet-group .form-grid { margin-bottom: 0; }
         .m-mobile-shell, .m-mobile-back-row, .m-review-block, .m-show-more, .m-trust, .m-step-btn, .m-step-wrap-label, .m-accordion-chev, .m-accordion-toggle { display: none; }
 
+        /* ============================================================
+           CUSTOM DROPDOWN COMPONENT (.drp-*)
+           Presentation layer on top of the existing <select>.
+           The <select> is hidden but remains the source of truth.
+           ============================================================ */
+        .drp { position: relative; width: 100%; }
+        .drp-native { position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; margin: 0; }
+
+        .drp-trigger { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 46px; padding: 10px 14px; border: 1px solid rgba(11,94,90,0.13); border-radius: 14px; background: #FBFEFD; color: var(--text-dark); font-family: "Inter", sans-serif; font-size: 0.9rem; font-weight: 400; text-align: left; cursor: pointer; transition: border-color var(--transition), box-shadow var(--transition), background var(--transition); box-shadow: inset 0 1px 2px rgba(11,94,90,0.035), 0 1px 0 rgba(255,255,255,0.9); }
+        .drp-trigger:hover { border-color: rgba(11,94,90,0.22); }
+        .drp-trigger:focus-visible { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(11,94,90,0.10); background: #FFFFFF; }
+        .drp.is-open .drp-trigger { border-color: var(--primary); background: #FFFFFF; box-shadow: 0 0 0 4px rgba(11,94,90,0.10); }
+        .drp-trigger-text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-dark); }
+        .drp.is-placeholder .drp-trigger-text { color: var(--text-light); }
+        .drp-chev { flex-shrink: 0; color: var(--text-light); font-size: 0.8rem; transition: transform 0.2s ease; }
+        .drp.is-open .drp-chev { transform: rotate(180deg); color: var(--primary); }
+
+        .drp-panel { position: absolute; top: calc(100% + 6px); left: 0; right: 0; background: #FFFFFF; border: 1px solid rgba(11,94,90,0.14); border-radius: 12px; box-shadow: 0 14px 36px rgba(19,43,48,0.14), 0 3px 8px rgba(19,43,48,0.06); z-index: 60; max-height: 320px; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 6px; display: none; }
+        .drp.is-open .drp-panel { display: block; animation: drpIn 0.14s ease; }
+        @keyframes drpIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+        .drp-option { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; border: 0; background: transparent; border-radius: 8px; font-family: "Inter", sans-serif; font-size: 0.9rem; font-weight: 400; line-height: 1.3; color: var(--text-dark); text-align: left; cursor: pointer; transition: background 0.12s ease; }
+        .drp-option + .drp-option { margin-top: 2px; }
+        .drp-option:hover, .drp-option:focus-visible { background: rgba(11,94,90,0.05); outline: none; }
+        .drp-option.is-selected { background: #EAF6F4; }
+        .drp-option-icon { flex-shrink: 0; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; color: var(--primary); font-size: 0.82rem; }
+        .drp-option-body { flex: 1; min-width: 0; display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+        .drp-option-label { flex: 1; min-width: 0; color: var(--text-dark); font-size: 0.9rem; font-weight: 400; line-height: 1.3; }
+        .drp-option.is-selected .drp-option-label { font-weight: 500; }
+        .drp-option-price { flex-shrink: 0; color: var(--primary); font-size: 0.85rem; font-weight: 600; white-space: nowrap; }
+        .drp-option-check { flex-shrink: 0; width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; color: var(--primary); font-size: 0.75rem; opacity: 0; }
+        .drp-option.is-selected .drp-option-check { opacity: 1; }
+
         .m-appt-group { display: none; }
         .m-appt-row { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; background: #FFFFFF; border: 1px solid rgba(11,94,90,0.10); border-radius: 12px; cursor: pointer; text-align: left; font-family: inherit; transition: border-color 0.15s ease, background 0.15s ease; }
         .m-appt-row + .m-appt-row { margin-top: 8px; }
@@ -313,8 +346,6 @@
             .m-mobile-progress .bp-stage.active .bp-label { color: #FFFFFF; font-weight: 600; }
             .m-mobile-progress .bp-stage.done .bp-label { color: rgba(255,255,255,0.72); font-weight: 500; }
             .m-mobile-progress .bp-connector { flex: 1 1 auto; height: 1px; background: rgba(255,255,255,0.35); margin: 13px 6px 0; align-self: flex-start; min-width: 18px; max-width: none; }
-
-            /* ---------- Mobile typography hierarchy ---------- */
 
             .form-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 24px; }
             .form-group { margin-bottom: 0; }
@@ -472,6 +503,14 @@
 
             .booking-navigation { flex-direction: column-reverse; margin-top: 22px; gap: 8px; }
             footer { display: none; }
+
+            /* Mobile custom dropdown — match the mobile control system */
+            .drp-trigger { min-height: 46px; height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; font-size: 14px; font-weight: 400; }
+            .drp-trigger:focus-visible, .drp.is-open .drp-trigger { box-shadow: 0 0 0 3px rgba(11,94,90,0.08); }
+            .drp-panel { max-height: 60vh; border-radius: 12px; padding: 6px; box-shadow: 0 16px 40px rgba(19,43,48,0.14), 0 3px 8px rgba(19,43,48,0.06); }
+            .drp-option { padding: 10px 10px; font-size: 14px; }
+            .drp-option-label { font-size: 14px; }
+            .drp-option-price { font-size: 13px; }
         }
         @media (max-width: 380px) {
             .container { padding: 0 14px; }
@@ -1154,6 +1193,8 @@
             setTimeout(() => {
                 document.querySelectorAll('#property-size, #extra-bathrooms, .addon, #carpet-rooms, #armchair, #sofa2, #sofa3, #corner, #mattress-single, #mattress-double, #mattress-king, #org-hours').forEach(el => el.addEventListener('input', updatePrice));
                 document.querySelectorAll('#property-size, .addon').forEach(el => el.addEventListener('change', updatePrice));
+                // Initialise custom dropdowns for any select inside the rendered form
+                if (window.drpInit) window.drpInit(container);
                 updatePrice();
                 updateMobileCarpetSummaries();
             }, 50);
@@ -1516,238 +1557,260 @@
             }
         });
 
+        /* ============================================================
+           CUSTOM DROPDOWN — builds a clean styled panel on top of
+           each <select> without changing its value contract.
+           ============================================================ */
         (function () {
-            const backdrop = document.getElementById('m-sheet-backdrop');
-            const sheet = document.getElementById('m-sheet');
-            const sheetTitle = document.getElementById('m-sheet-title');
-            const sheetBody = document.getElementById('m-sheet-body');
-            const sheetConfirm = document.getElementById('m-sheet-confirm');
-            const sheetClose = document.getElementById('m-sheet-close');
-            const dateRow = document.getElementById('m-appt-date-row');
-            const timeRow = document.getElementById('m-appt-time-row');
-            const dateSub = document.getElementById('m-appt-date-sub');
-            const timeSub = document.getElementById('m-appt-time-sub');
-            const dateInput = document.getElementById('booking-date');
-            const timeInput = document.getElementById('booking-time');
-            if (!backdrop || !sheet || !sheetBody || !sheetConfirm || !dateRow || !timeRow) return;
-
-            const TIME_OPTIONS = [
-                { value: 'Morning (8am - 12pm)', title: 'Morning', sub: '8am – 12pm', icon: 'fa-sun', cls: 'morning' },
-                { value: 'Afternoon (12pm - 4pm)', title: 'Afternoon', sub: '12pm – 4pm', icon: 'fa-sun', cls: 'afternoon' },
-                { value: 'Evening (4pm - 7pm)', title: 'Evening', sub: '4pm – 7pm', icon: 'fa-moon', cls: 'evening' }
-            ];
-            const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-
-            let mode = null;
-            let lastFocused = null;
-            let pendingDate = null;
-            let pendingTime = null;
-            const today = new Date(); today.setHours(0,0,0,0);
-            let viewMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-
-            function syncDraftsFromCanonical() {
-                const v = (dateInput && dateInput.value) ? dateInput.value : '';
-                if (v) {
-                    const parts = v.split('-').map(Number);
-                    if (parts.length === 3 && !isNaN(parts[0])) {
-                        pendingDate = new Date(parts[0], parts[1] - 1, parts[2]);
-                        viewMonth = new Date(pendingDate.getFullYear(), pendingDate.getMonth(), 1);
+            // Per-select config: whether to show a price on the right of the
+            // option, and which icons to use per option value.
+            const DRP_CONFIG = {
+                'property-size': {
+                    splitPrice: true,
+                    placeholderRegex: /^Select /
+                },
+                'post-property-type': {
+                    splitPrice: false,
+                    icons: {
+                        'new': 'fa-home',
+                        'renovated': 'fa-screwdriver-wrench',
+                        'development': 'fa-city',
+                        'commercial': 'fa-briefcase'
                     }
-                } else {
-                    pendingDate = null;
+                },
+                'post-size': {
+                    splitPrice: true,
+                    stripPrefix: 'from £'
+                },
+                'com-frequency': {
+                    splitPrice: false,
+                    icons: {
+                        'oneoff': 'fa-calendar-day',
+                        'weekly': 'fa-calendar-week',
+                        'biweekly': 'fa-calendar-days',
+                        'monthly': 'fa-calendar'
+                    }
                 }
-                pendingTime = (timeInput && timeInput.value) ? timeInput.value : null;
-                renderRows();
+            };
+
+            // Split "2 Bedrooms / 1 Bathroom — £270" into
+            // label = "2 Bedrooms / 1 Bathroom", price = "£270"
+            function splitLabelAndPrice(text, cfg) {
+                let label = text, price = '';
+                if (cfg.splitPrice) {
+                    // Try em-dash split first, then hyphen
+                    let idx = text.lastIndexOf('—');
+                    if (idx === -1) idx = text.lastIndexOf(' - ');
+                    if (idx > -1) {
+                        label = text.slice(0, idx).trim();
+                        price = text.slice(idx + 1).replace(/^[\s—–-]+/, '').trim();
+                    }
+                }
+                if (cfg.stripPrefix && price) {
+                    price = price.replace(cfg.stripPrefix, '').trim();
+                    price = '£' + price;
+                }
+                return { label: label, price: price };
             }
 
-            function fmtDateLong(d) {
-                const dows = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-                return dows[d.getDay()] + ', ' + d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
-            }
-            function pad2(n) { return String(n).padStart(2, '0'); }
+            function buildDropdown(selectEl) {
+                if (!selectEl || selectEl.dataset.drpInit === '1') return;
+                selectEl.dataset.drpInit = '1';
 
-            function renderRows() {
-                if (pendingDate) {
-                    dateSub.textContent = fmtDateLong(pendingDate);
-                    dateRow.classList.add('has-value');
-                } else {
-                    dateSub.textContent = 'Choose a date';
-                    dateRow.classList.remove('has-value');
-                }
-                if (pendingTime) {
-                    timeSub.textContent = pendingTime;
-                    timeRow.classList.add('has-value');
-                } else {
-                    timeSub.textContent = 'Select preferred time';
-                    timeRow.classList.remove('has-value');
-                }
-            }
+                const cfg = DRP_CONFIG[selectEl.id] || {};
 
-            function trapFocus(e) {
-                if (e.key !== 'Tab') return;
-                const focusables = sheet.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-                if (!focusables.length) return;
-                const first = focusables[0];
-                const last = focusables[focusables.length - 1];
-                if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-                else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-            }
+                // Wrapper
+                const wrap = document.createElement('div');
+                wrap.className = 'drp';
 
-            function openSheet(which) {
-                mode = which;
-                lastFocused = document.activeElement;
-                syncDraftsFromCanonical();
-                if (mode === 'date') {
-                    sheetTitle.textContent = 'Select a date';
-                    sheetConfirm.textContent = 'Confirm date';
-                    sheetConfirm.disabled = !pendingDate;
-                    renderCalendar();
-                } else {
-                    sheetTitle.textContent = 'Select preferred time';
-                    sheetConfirm.textContent = 'Confirm time';
-                    sheetConfirm.disabled = !pendingTime;
-                    renderTimes();
+                // Move the native select inside the wrapper and hide it
+                selectEl.parentNode.insertBefore(wrap, selectEl);
+                wrap.appendChild(selectEl);
+                selectEl.classList.add('drp-native');
+                selectEl.setAttribute('tabindex', '-1');
+                selectEl.setAttribute('aria-hidden', 'true');
+
+                // Trigger button
+                const trigger = document.createElement('button');
+                trigger.type = 'button';
+                trigger.className = 'drp-trigger';
+                trigger.setAttribute('aria-haspopup', 'listbox');
+                trigger.setAttribute('aria-expanded', 'false');
+                const triggerText = document.createElement('span');
+                triggerText.className = 'drp-trigger-text';
+                const chev = document.createElement('i');
+                chev.className = 'fas fa-chevron-down drp-chev';
+                chev.setAttribute('aria-hidden', 'true');
+                trigger.appendChild(triggerText);
+                trigger.appendChild(chev);
+                wrap.appendChild(trigger);
+
+                // Panel
+                const panel = document.createElement('div');
+                panel.className = 'drp-panel';
+                panel.setAttribute('role', 'listbox');
+                wrap.appendChild(panel);
+
+                const options = Array.from(selectEl.options);
+
+                function currentLabelFor(opt) {
+                    return splitLabelAndPrice(opt.text, cfg).label;
                 }
-                backdrop.classList.add('active');
-                backdrop.setAttribute('aria-hidden', 'false');
-                sheet.hidden = false;
-                requestAnimationFrame(() => sheet.classList.add('open'));
-                document.body.style.overflow = 'hidden';
-                document.addEventListener('keydown', onKeydown);
-                setTimeout(() => {
-                    const first = sheet.querySelector('.m-sheet-close');
+
+                function renderTrigger() {
+                    const sel = selectEl.options[selectEl.selectedIndex];
+                    if (!sel || sel.value === '') {
+                        triggerText.textContent = sel ? sel.text : '';
+                        wrap.classList.add('is-placeholder');
+                    } else {
+                        triggerText.textContent = currentLabelFor(sel);
+                        wrap.classList.remove('is-placeholder');
+                    }
+                }
+
+                function renderPanel() {
+                    panel.innerHTML = '';
+                    const selectedValue = selectEl.value;
+                    options.forEach(function (opt) {
+                        const btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = 'drp-option' + (opt.value === selectedValue ? ' is-selected' : '');
+                        btn.setAttribute('role', 'option');
+                        btn.setAttribute('aria-selected', opt.value === selectedValue ? 'true' : 'false');
+                        btn.dataset.value = opt.value;
+
+                        // Icon (optional)
+                        const iconName = cfg.icons && cfg.icons[opt.value] ? cfg.icons[opt.value] : '';
+                        if (iconName) {
+                            const ic = document.createElement('span');
+                            ic.className = 'drp-option-icon';
+                            ic.innerHTML = '<i class="fas ' + iconName + '"></i>';
+                            btn.appendChild(ic);
+                        }
+
+                        // Body (label + price)
+                        const body = document.createElement('span');
+                        body.className = 'drp-option-body';
+                        const parts = splitLabelAndPrice(opt.text, cfg);
+                        const lbl = document.createElement('span');
+                        lbl.className = 'drp-option-label';
+                        lbl.textContent = parts.label;
+                        body.appendChild(lbl);
+                        if (parts.price) {
+                            const pr = document.createElement('span');
+                            pr.className = 'drp-option-price';
+                            pr.textContent = parts.price;
+                            body.appendChild(pr);
+                        }
+                        btn.appendChild(body);
+
+                        // Check
+                        const chk = document.createElement('span');
+                        chk.className = 'drp-option-check';
+                        chk.innerHTML = '<i class="fas fa-check"></i>';
+                        chk.setAttribute('aria-hidden', 'true');
+                        btn.appendChild(chk);
+
+                        btn.addEventListener('click', function (e) {
+                            e.stopPropagation();
+                            selectValue(opt.value);
+                        });
+
+                        panel.appendChild(btn);
+                    });
+                }
+
+                function selectValue(value) {
+                    selectEl.value = value;
+                    selectEl.dispatchEvent(new Event('change', { bubbles: true }));
+                    renderTrigger();
+                    close();
+                    trigger.focus();
+                }
+
+                function open() {
+                    // Close any other open dropdown first
+                    document.querySelectorAll('.drp.is-open').forEach(function (other) {
+                        if (other !== wrap) other.classList.remove('is-open');
+                    });
+                    renderPanel();
+                    wrap.classList.add('is-open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                    // Focus first option
+                    const first = panel.querySelector('.drp-option');
                     if (first) first.focus();
-                }, 60);
-            }
+                }
 
-            function closeSheet(apply) {
-                if (apply) {
-                    if (mode === 'date' && pendingDate) {
-                        dateInput.value = pendingDate.getFullYear() + '-' + pad2(pendingDate.getMonth() + 1) + '-' + pad2(pendingDate.getDate());
-                        dateInput.dispatchEvent(new Event('change', { bubbles: true }));
+                function close() {
+                    wrap.classList.remove('is-open');
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
+
+                trigger.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    if (wrap.classList.contains('is-open')) close(); else open();
+                });
+
+                trigger.addEventListener('keydown', function (e) {
+                    if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        open();
                     }
-                    if (mode === 'time' && pendingTime) {
-                        timeInput.value = pendingTime;
-                        timeInput.dispatchEvent(new Event('change', { bubbles: true }));
+                });
+
+                panel.addEventListener('keydown', function (e) {
+                    const items = Array.from(panel.querySelectorAll('.drp-option'));
+                    const currentIdx = items.indexOf(document.activeElement);
+                    if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        const next = items[Math.min(currentIdx + 1, items.length - 1)];
+                        if (next) next.focus();
+                    } else if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        const prev = items[Math.max(currentIdx - 1, 0)];
+                        if (prev) prev.focus();
+                    } else if (e.key === 'Escape') {
+                        e.preventDefault();
+                        close();
+                        trigger.focus();
+                    } else if (e.key === 'Tab') {
+                        close();
                     }
-                }
-                renderRows();
-                sheet.classList.remove('open');
-                backdrop.classList.remove('active');
-                backdrop.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-                document.removeEventListener('keydown', onKeydown);
-                setTimeout(() => { sheet.hidden = true; }, 260);
-                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
-                mode = null;
+                });
+
+                // Reflect external change events (e.g. our own selectValue, or
+                // any programmatic change) back into the trigger text
+                selectEl.addEventListener('change', renderTrigger);
+
+                renderTrigger();
             }
 
-            function onKeydown(e) {
-                if (e.key === 'Escape') { e.preventDefault(); closeSheet(false); return; }
-                trapFocus(e);
-            }
+            window.drpInit = function (scope) {
+                const root = scope || document;
+                root.querySelectorAll('select#property-size, select#post-property-type, select#post-size, select#com-frequency').forEach(buildDropdown);
+            };
 
-            function renderCalendar() {
-                sheetBody.innerHTML = '';
-                const head = document.createElement('div');
-                head.className = 'm-cal-head';
-                const prev = document.createElement('button');
-                prev.type = 'button';
-                prev.className = 'm-cal-nav';
-                prev.setAttribute('aria-label', 'Previous month');
-                prev.innerHTML = '<i class="fas fa-chevron-left"></i>';
-                const label = document.createElement('div');
-                label.className = 'm-cal-month';
-                label.textContent = MONTHS[viewMonth.getMonth()] + ' ' + viewMonth.getFullYear();
-                const next = document.createElement('button');
-                next.type = 'button';
-                next.className = 'm-cal-nav';
-                next.setAttribute('aria-label', 'Next month');
-                next.innerHTML = '<i class="fas fa-chevron-right"></i>';
-                const minView = new Date(today.getFullYear(), today.getMonth(), 1);
-                prev.disabled = viewMonth <= minView;
-                prev.addEventListener('click', function () {
-                    viewMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() - 1, 1);
-                    renderCalendar();
-                });
-                next.addEventListener('click', function () {
-                    viewMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 1);
-                    renderCalendar();
-                });
-                head.appendChild(prev); head.appendChild(label); head.appendChild(next);
-                sheetBody.appendChild(head);
-
-                const wd = document.createElement('div');
-                wd.className = 'm-cal-weekdays';
-                ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(d => {
-                    const s = document.createElement('span'); s.textContent = d; wd.appendChild(s);
-                });
-                sheetBody.appendChild(wd);
-
-                const grid = document.createElement('div');
-                grid.className = 'm-cal-grid';
-                const firstDow = (viewMonth.getDay() + 6) % 7;
-                const daysInMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 0).getDate();
-                for (let i = 0; i < firstDow; i++) {
-                    const b = document.createElement('button'); b.type = 'button'; b.className = 'is-empty'; b.disabled = true;
-                    grid.appendChild(b);
-                }
-                for (let d = 1; d <= daysInMonth; d++) {
-                    const date = new Date(viewMonth.getFullYear(), viewMonth.getMonth(), d);
-                    const btn = document.createElement('button');
-                    btn.type = 'button';
-                    btn.textContent = d;
-                    btn.setAttribute('aria-label', fmtDateLong(date));
-                    if (date < today) btn.disabled = true;
-                    if (date.getTime() === today.getTime()) btn.classList.add('is-today');
-                    if (pendingDate && date.getTime() === pendingDate.getTime()) btn.classList.add('is-selected');
-                    btn.addEventListener('click', function () {
-                        pendingDate = date;
-                        sheetConfirm.disabled = false;
-                        renderCalendar();
+            // Close on outside click
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.drp')) {
+                    document.querySelectorAll('.drp.is-open').forEach(function (w) {
+                        w.classList.remove('is-open');
+                        const t = w.querySelector('.drp-trigger');
+                        if (t) t.setAttribute('aria-expanded', 'false');
                     });
-                    grid.appendChild(btn);
                 }
-                sheetBody.appendChild(grid);
-            }
-
-            function renderTimes() {
-                sheetBody.innerHTML = '';
-                const list = document.createElement('div');
-                list.className = 'm-time-list';
-                TIME_OPTIONS.forEach(opt => {
-                    const btn = document.createElement('button');
-                    btn.type = 'button';
-                    btn.className = 'm-time-option' + (pendingTime === opt.value ? ' is-selected' : '');
-                    btn.setAttribute('role', 'radio');
-                    btn.setAttribute('aria-checked', pendingTime === opt.value ? 'true' : 'false');
-                    btn.innerHTML =
-                        '<span class="m-time-icon ' + opt.cls + '"><i class="fas ' + opt.icon + '"></i></span>' +
-                        '<span class="m-time-text">' +
-                            '<span class="m-time-title">' + opt.title + '</span>' +
-                            '<span class="m-time-sub">' + opt.sub + '</span>' +
-                        '</span>' +
-                        '<span class="m-time-radio" aria-hidden="true"></span>';
-                    btn.addEventListener('click', function () {
-                        pendingTime = opt.value;
-                        sheetConfirm.disabled = false;
-                        renderTimes();
-                    });
-                    list.appendChild(btn);
-                });
-                sheetBody.appendChild(list);
-            }
-
-            dateRow.addEventListener('click', function () { openSheet('date'); });
-            timeRow.addEventListener('click', function () { openSheet('time'); });
-            sheetClose.addEventListener('click', function () { closeSheet(false); });
-            backdrop.addEventListener('click', function () { closeSheet(false); });
-            sheetConfirm.addEventListener('click', function () {
-                if (sheetConfirm.disabled) return;
-                closeSheet(true);
             });
 
-            syncDraftsFromCanonical();
+            // Close on Escape at document level
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.drp.is-open').forEach(function (w) {
+                        w.classList.remove('is-open');
+                        const t = w.querySelector('.drp-trigger');
+                        if (t) t.setAttribute('aria-expanded', 'false');
+                    });
+                }
+            });
         })();
 
         window.updatePrice = updatePrice;
