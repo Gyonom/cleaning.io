@@ -207,7 +207,6 @@
         .m-carpet-group .form-grid { margin-bottom: 0; }
         .m-mobile-shell, .m-mobile-back-row, .m-review-block, .m-show-more, .m-trust, .m-step-btn, .m-step-wrap-label, .m-accordion-chev, .m-accordion-toggle { display: none; }
 
-        /* Preferred appointment (mobile-only UI) — hidden by default on desktop */
         .m-appt-group { display: none; }
         .m-appt-row { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; background: #FFFFFF; border: 1px solid rgba(11,94,90,0.10); border-radius: 12px; cursor: pointer; text-align: left; font-family: inherit; transition: border-color 0.15s ease, background 0.15s ease; }
         .m-appt-row + .m-appt-row { margin-top: 8px; }
@@ -223,11 +222,9 @@
         .m-appt-row.has-value .m-appt-sub { color: var(--text-soft); font-weight: 550; }
         .m-appt-chev { flex-shrink: 0; color: var(--text-light); font-size: 0.75rem; }
 
-        /* Preference notice */
         .m-appt-note { display: flex; align-items: flex-start; gap: 10px; margin-top: 12px; padding: 10px 12px; border-radius: 10px; background: #F4F8F7; border: 1px solid rgba(11,94,90,0.06); font-size: 12px; line-height: 1.4; color: var(--text-soft); }
         .m-appt-note i { color: var(--primary); font-size: 0.75rem; margin-top: 2px; }
 
-        /* Bottom sheet */
         .m-sheet-backdrop { position: fixed; inset: 0; background: rgba(9,26,26,0.55); opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s ease; z-index: 3000; }
         .m-sheet-backdrop.active { opacity: 1; visibility: visible; }
         .m-sheet { position: fixed; left: 0; right: 0; bottom: 0; background: #FFFFFF; border-radius: 22px 22px 0 0; box-shadow: 0 -18px 40px rgba(0,0,0,0.18); z-index: 3010; transform: translateY(100%); transition: transform 0.28s cubic-bezier(0.2,0.8,0.2,1); max-height: 88vh; display: flex; flex-direction: column; padding-bottom: env(safe-area-inset-bottom, 0px); }
@@ -239,7 +236,6 @@
         .m-sheet-close:active { background: rgba(0,0,0,0.05); }
         .m-sheet-body { flex: 1 1 auto; overflow-y: auto; padding: 4px 18px 12px; -webkit-overflow-scrolling: touch; }
 
-        /* Calendar */
         .m-cal-head { display: flex; align-items: center; justify-content: space-between; padding: 6px 2px 10px; }
         .m-cal-nav { width: 34px; height: 34px; border: 0; background: transparent; color: var(--primary-dark); border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
         .m-cal-nav:active { background: rgba(11,94,90,0.06); }
@@ -255,7 +251,6 @@
         .m-cal-grid button:disabled { color: #C7CFD1; cursor: not-allowed; }
         .m-cal-grid button.is-empty { visibility: hidden; pointer-events: none; }
 
-        /* Time options */
         .m-time-list { display: flex; flex-direction: column; gap: 10px; padding: 6px 2px 4px; }
         .m-time-option { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid rgba(11,94,90,0.10); border-radius: 12px; background: #FFFFFF; cursor: pointer; transition: border-color 0.15s ease, background 0.15s ease; font-family: inherit; text-align: left; width: 100%; }
         .m-time-option:active { background: #F5FAF9; }
@@ -272,7 +267,6 @@
         .m-time-option.is-selected .m-time-radio { border-color: var(--primary); }
         .m-time-option.is-selected .m-time-radio::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); }
 
-        /* Sheet confirm */
         .m-sheet-foot { flex-shrink: 0; padding: 8px 18px 18px; }
         .m-sheet-confirm { width: 100%; height: 48px; border: 0; border-radius: 10px; background: var(--primary); color: #FFFFFF; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer; transition: opacity 0.15s ease, background 0.15s ease; }
         .m-sheet-confirm[disabled] { background: #C9D6D4; color: #FFFFFF; cursor: not-allowed; }
@@ -328,11 +322,11 @@
             .form-group label,
             #step3 .form-group label,
             #step3 #form-group-address-postcode label:nth-of-type(2),
-            .condition-title { display: block; font-size: 12.5px; line-height: 1.2; font-weight: 500; letter-spacing: -0.002em; color: var(--text-dark); margin: 0 0 6px; }
+            .condition-title { display: block; font-size: 13px; line-height: 1.25; font-weight: 600; letter-spacing: -0.002em; color: var(--text-dark); margin: 0 0 6px; }
 
             .form-group input,
             .form-group select,
-            .form-group textarea { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-shadow: none; font-size: 15px; font-weight: 400; line-height: 1.4; color: var(--text-dark); box-sizing: border-box; }
+            .form-group textarea { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-shadow: none; font-size: 14px; font-weight: 400; line-height: 1.4; color: var(--text-dark); box-sizing: border-box; }
             .form-group textarea { height: auto; min-height: 96px; padding: 11px 13px; line-height: 1.45; }
             .form-group input:focus,
             .form-group select:focus,
@@ -343,7 +337,7 @@
             .m-step-btn:first-child { border-right: 1px solid rgba(11,94,90,0.10); }
             .m-step-btn:last-child { border-left: 1px solid rgba(11,94,90,0.10); }
             .m-step-btn:active { background: #EAF6F4; }
-            .m-step-wrap input[type="number"] { width: 100%; height: 44px; min-height: 44px; padding: 0; border: 0 !important; border-radius: 0 !important; background: #FFFFFF; box-shadow: none !important; text-align: center; font-size: 15px; font-weight: 400; color: var(--text-dark); -moz-appearance: textfield; }
+            .m-step-wrap input[type="number"] { width: 100%; height: 44px; min-height: 44px; padding: 0; border: 0 !important; border-radius: 0 !important; background: #FFFFFF; box-shadow: none !important; text-align: center; font-size: 14px; font-weight: 400; color: var(--text-dark); -moz-appearance: textfield; }
             .m-step-wrap input[type="number"]:focus { outline: none; }
             .m-step-wrap input[type="number"]::-webkit-outer-spin-button, .m-step-wrap input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
@@ -356,7 +350,6 @@
             .condition-option.selected { border: 1.5px solid var(--primary); background: #EAF6F4; box-shadow: none; }
             .condition-option.selected::before, .condition-option.selected::after { display: none; }
 
-            /* Mobile-only condition shorthand — display swap, desktop unaffected */
             .condition-option .m-cond-long { display: none; }
             .condition-option .m-cond-short { display: inline; }
 
@@ -439,7 +432,7 @@
             #step3 { padding-top: 0; }
             #step3 .form-grid { display: grid; grid-template-columns: 1fr; gap: 0; margin: 0; }
             #step3 .form-group { margin: 0 0 14px; }
-            #step3 .form-group input, #step3 .form-group select { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-sizing: border-box; font-size: 15px; font-weight: 400; }
+            #step3 .form-group input, #step3 .form-group select { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-sizing: border-box; font-size: 14px; font-weight: 400; }
             #step3 #form-group-name { margin-bottom: 14px; }
             #step3 #form-group-phone { margin-bottom: 14px; }
             #step3 #form-group-email { margin-bottom: 26px; }
@@ -454,7 +447,6 @@
             #step3 .btn-prev { padding: 7px 12px; font-size: 12.5px; }
             #step3 .m-trust { margin-top: 12px; padding-bottom: 4px; font-size: 11px; line-height: 1.4; }
 
-            /* Mobile appt block */
             .m-appt-group { display: block; margin-bottom: 26px; }
             .m-appt-heading { font-size: 14px; font-weight: 600; line-height: 1.25; color: var(--text-dark); margin-bottom: 10px; letter-spacing: -0.01em; }
             .m-appt-note { margin-bottom: 0; }
@@ -627,7 +619,6 @@
                                 <small style="color: var(--text-light); font-size: 0.7rem; display: block; margin-top: 6px;"><i class="fas fa-info-circle"></i> Select your address, then add your house or flat number before it.</small>
                             </div>
 
-                            <!-- Desktop-only native date/time controls (unchanged) -->
                             <div class="form-group m-desktop-date-time">
                                 <label>Preferred Date</label>
                                 <input type="date" id="booking-date">
@@ -642,7 +633,6 @@
                                 </select>
                             </div>
 
-                            <!-- Mobile-only Preferred appointment UI -->
                             <div class="form-group full-width m-appt-group">
                                 <div class="m-appt-heading">Preferred appointment</div>
 
@@ -682,7 +672,6 @@
         </div>
     </div>
 
-    <!-- Shared bottom sheet (mobile only) -->
     <div class="m-sheet-backdrop" id="m-sheet-backdrop" aria-hidden="true"></div>
     <div class="m-sheet" id="m-sheet" role="dialog" aria-modal="true" aria-labelledby="m-sheet-title" hidden>
         <div class="m-sheet-handle" aria-hidden="true"></div>
@@ -1527,10 +1516,6 @@
             }
         });
 
-        // ============================================================
-        // Preferred appointment — shared bottom sheet (mobile only)
-        // Canonical values live in #booking-date and #booking-time.
-        // ============================================================
         (function () {
             const backdrop = document.getElementById('m-sheet-backdrop');
             const sheet = document.getElementById('m-sheet');
@@ -1542,8 +1527,8 @@
             const timeRow = document.getElementById('m-appt-time-row');
             const dateSub = document.getElementById('m-appt-date-sub');
             const timeSub = document.getElementById('m-appt-time-sub');
-            const dateInput = document.getElementById('booking-date'); // hidden canonical value
-            const timeInput = document.getElementById('booking-time'); // canonical select
+            const dateInput = document.getElementById('booking-date');
+            const timeInput = document.getElementById('booking-time');
             if (!backdrop || !sheet || !sheetBody || !sheetConfirm || !dateRow || !timeRow) return;
 
             const TIME_OPTIONS = [
@@ -1552,16 +1537,14 @@
                 { value: 'Evening (4pm - 7pm)', title: 'Evening', sub: '4pm – 7pm', icon: 'fa-moon', cls: 'evening' }
             ];
             const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-            const MONTHS_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-            let mode = null;              // 'date' | 'time'
-            let lastFocused = null;       // element to restore focus to
-            let pendingDate = null;       // Date | null (draft, not committed)
-            let pendingTime = null;       // string | null (draft)
+            let mode = null;
+            let lastFocused = null;
+            let pendingDate = null;
+            let pendingTime = null;
             const today = new Date(); today.setHours(0,0,0,0);
             let viewMonth = new Date(today.getFullYear(), today.getMonth(), 1);
 
-            // Prefill drafts from existing canonical values
             function syncDraftsFromCanonical() {
                 const v = (dateInput && dateInput.value) ? dateInput.value : '';
                 if (v) {
@@ -1628,11 +1611,9 @@
                 backdrop.classList.add('active');
                 backdrop.setAttribute('aria-hidden', 'false');
                 sheet.hidden = false;
-                // next frame so transform transitions
                 requestAnimationFrame(() => sheet.classList.add('open'));
                 document.body.style.overflow = 'hidden';
                 document.addEventListener('keydown', onKeydown);
-                // focus first interactive in sheet
                 setTimeout(() => {
                     const first = sheet.querySelector('.m-sheet-close');
                     if (first) first.focus();
@@ -1649,8 +1630,6 @@
                         timeInput.value = pendingTime;
                         timeInput.dispatchEvent(new Event('change', { bubbles: true }));
                     }
-                } else {
-                    // discard drafts; re-sync from canonical on next open
                 }
                 renderRows();
                 sheet.classList.remove('open');
@@ -1668,7 +1647,6 @@
                 trapFocus(e);
             }
 
-            // Calendar ---------------------------------------------------
             function renderCalendar() {
                 sheetBody.innerHTML = '';
                 const head = document.createElement('div');
@@ -1733,7 +1711,6 @@
                 sheetBody.appendChild(grid);
             }
 
-            // Time list --------------------------------------------------
             function renderTimes() {
                 sheetBody.innerHTML = '';
                 const list = document.createElement('div');
@@ -1761,7 +1738,6 @@
                 sheetBody.appendChild(list);
             }
 
-            // Wire events
             dateRow.addEventListener('click', function () { openSheet('date'); });
             timeRow.addEventListener('click', function () { openSheet('time'); });
             sheetClose.addEventListener('click', function () { closeSheet(false); });
@@ -1771,7 +1747,6 @@
                 closeSheet(true);
             });
 
-            // Initial row state from any preexisting canonical values
             syncDraftsFromCanonical();
         })();
 
