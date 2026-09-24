@@ -315,57 +315,39 @@
             .m-mobile-progress .bp-circle { width: 26px; height: 26px; font-size: 11px; border-width: 1.5px; }
             .m-mobile-progress .bp-circle i { font-size: 11px; }
             .m-mobile-progress .bp-label { display: block; font-size: 10px; line-height: 1.15; font-weight: 500; color: rgba(255,255,255,0.72); letter-spacing: 0; white-space: nowrap; margin-top: 0; }
-            .m-mobile-progress .bp-stage.active .bp-label { color: #FFFFFF; font-weight: 600; }
+            .m-mobile-progress .bp-stage.active .bp-label { color: #FFFFFF; font-weight: 650; }
             .m-mobile-progress .bp-stage.done .bp-label { color: rgba(255,255,255,0.72); font-weight: 500; }
             .m-mobile-progress .bp-connector { flex: 1 1 auto; height: 1px; background: rgba(255,255,255,0.35); margin: 13px 6px 0; align-self: flex-start; min-width: 18px; max-width: none; }
 
-            /* ---------- Mobile typography hierarchy ---------- */
-
-            /* Level 2 — Field labels */
+            .form-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 24px; }
             .form-group { margin-bottom: 0; }
             .form-group.full-width { grid-column: span 1; }
-            .form-group label,
-            #step3 .form-group label,
-            #step3 #form-group-address-postcode label:nth-of-type(2),
-            .condition-title { display: block; font-size: 12.5px; line-height: 1.2; font-weight: 500; letter-spacing: -0.002em; color: var(--text-dark); margin: 0 0 6px; }
-
-            /* Level 4 — Input/select values */
-            .form-group input,
-            .form-group select,
-            .form-group textarea { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-shadow: none; font-size: 15px; font-weight: 400; line-height: 1.4; color: var(--text-dark); box-sizing: border-box; }
-            .form-group textarea { height: auto; min-height: 96px; padding: 11px 13px; line-height: 1.45; }
-            .form-group input:focus,
-            .form-group select:focus,
-            .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(11,94,90,0.08); outline: none; }
-
-            /* Placeholder + unselected select value — quieter */
-            .form-group input::placeholder,
-            .form-group textarea::placeholder { color: var(--text-light); font-weight: 400; opacity: 1; }
-            #step3 select#booking-time:invalid { color: var(--text-light); font-weight: 400; }
-            #step3 select#booking-time:valid { color: var(--text-dark); font-weight: 400; }
+            .form-group label { display: block; font-size: 13px; line-height: 1.25; font-weight: 650; margin-bottom: 6px; color: var(--text-dark); letter-spacing: -0.005em; }
+            .form-group input, .form-group select, .form-group textarea { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-shadow: none; font-size: 16px; color: var(--text-dark); box-sizing: border-box; }
+            .form-group textarea { height: auto; min-height: 96px; padding: 11px 13px; line-height: 1.5; }
+            .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(11,94,90,0.08); outline: none; }
 
             .m-step-wrap { display: grid !important; grid-template-columns: 46px minmax(0, 1fr) 46px; align-items: stretch; height: 46px; min-height: 46px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; overflow: hidden; box-sizing: border-box; }
-            .m-step-btn { display: flex !important; align-items: center; justify-content: center; height: 44px; min-height: 44px; padding: 0; border: 0; background: #FFFFFF; color: var(--primary-dark); font-family: inherit; font-size: 17px; font-weight: 400; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background 0.15s ease; }
+            .m-step-btn { display: flex !important; align-items: center; justify-content: center; height: 44px; min-height: 44px; padding: 0; border: 0; background: #FFFFFF; color: var(--primary-dark); font-family: inherit; font-size: 17px; font-weight: 500; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background 0.15s ease; }
             .m-step-btn:first-child { border-right: 1px solid rgba(11,94,90,0.10); }
             .m-step-btn:last-child { border-left: 1px solid rgba(11,94,90,0.10); }
             .m-step-btn:active { background: #EAF6F4; }
-            .m-step-wrap input[type="number"] { width: 100%; height: 44px; min-height: 44px; padding: 0; border: 0 !important; border-radius: 0 !important; background: #FFFFFF; box-shadow: none !important; text-align: center; font-size: 15px; font-weight: 400; color: var(--text-dark); -moz-appearance: textfield; }
+            .m-step-wrap input[type="number"] { width: 100%; height: 44px; min-height: 44px; padding: 0; border: 0 !important; border-radius: 0 !important; background: #FFFFFF; box-shadow: none !important; text-align: center; font-size: 16px; font-weight: 650; color: var(--text-dark); -moz-appearance: textfield; }
             .m-step-wrap input[type="number"]:focus { outline: none; }
             .m-step-wrap input[type="number"]::-webkit-outer-spin-button, .m-step-wrap input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
-            /* Level 3 — Choice/item names */
+            .condition-title { display: block; font-size: 13px; line-height: 1.25; font-weight: 650; margin: 0 0 6px; color: var(--text-dark); letter-spacing: -0.005em; }
             .condition-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; margin: 0 0 24px; }
             .condition-option { min-height: 46px; padding: 6px 6px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-shadow: none; text-align: center; cursor: pointer; transform: none; position: relative; transition: background 0.15s ease, border-color 0.15s ease; }
             .condition-option:hover { transform: none; box-shadow: none; }
             .condition-option:active { background: #F5FAF9; }
-            .condition-option h4 { margin: 0; font-size: 12.5px; line-height: 1.2; font-weight: 500; letter-spacing: -0.005em; color: var(--text-dark); }
+            .condition-option h4 { margin: 0; font-size: 12px; line-height: 1.15; font-weight: 650; letter-spacing: -0.01em; }
             .condition-option p { display: none; }
             .condition-option.selected { border: 1.5px solid var(--primary); background: #EAF6F4; box-shadow: none; }
             .condition-option.selected::before, .condition-option.selected::after { display: none; }
 
-            /* Level 1 — Section heading */
             .price-calculator { background: transparent; border: 0; box-shadow: none; padding: 0; margin: 24px 0 6px; border-radius: 0; }
-            .price-calculator h4 { font-size: 13px; line-height: 1.25; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); margin: 0 0 10px; }
+            .price-calculator h4 { font-size: 12px; line-height: 1.2; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-soft); margin: 0 0 10px; }
 
             .addons-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin-bottom: 4px; }
             .addon-checkbox { position: relative; display: grid; grid-template-columns: 32px minmax(0, 1fr) 22px; align-items: center; column-gap: 10px; min-height: 54px; padding: 8px 10px; border: 1px solid rgba(11,94,90,0.12); border-radius: 10px; background: #FFFFFF; box-shadow: none; transform: none; cursor: pointer; transition: background 0.15s ease, border-color 0.15s ease; -webkit-tap-highlight-color: transparent; }
@@ -380,30 +362,26 @@
             .addon-icon { grid-column: 1; grid-row: 1; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
             .addon-icon i { font-size: 0.8rem; }
             .addon-content { grid-column: 2; grid-row: 1; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-            .addon-title { font-size: 12px; font-weight: 500; line-height: 1.2; white-space: normal; overflow: visible; text-overflow: unset; color: var(--text-dark); }
-            .addon-price { font-size: 12px; font-weight: 600; line-height: 1.2; color: var(--primary); background: none; padding: 0; border-radius: 0; width: auto; }
+            .addon-title { font-size: 12px; font-weight: 550; line-height: 1.15; white-space: normal; overflow: visible; text-overflow: unset; color: var(--text-dark); }
+            .addon-price { font-size: 12px; font-weight: 750; line-height: 1.15; color: var(--primary); background: none; padding: 0; border-radius: 0; width: auto; }
 
             .m-addon-extra-mobile-hide { display: none !important; }
-            .m-show-more { display: inline-flex !important; align-items: center; gap: 6px; padding: 8px 0; margin: 1px 0 4px; border: 0; background: none; color: var(--primary); font-family: inherit; font-size: 12.5px; font-weight: 500; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+            .m-show-more { display: inline-flex !important; align-items: center; gap: 6px; padding: 8px 0; margin: 1px 0 4px; border: 0; background: none; color: var(--primary); font-family: inherit; font-size: 13px; font-weight: 650; cursor: pointer; -webkit-tap-highlight-color: transparent; }
             .m-show-more i { font-size: 0.7rem; transition: transform 0.2s ease; }
             .m-show-more.open i { transform: rotate(180deg); }
 
-            /* Level 7 — Total */
             .total-display { min-height: 54px; padding: 10px 14px; border: 1px solid rgba(11,94,90,0.14); border-radius: 10px; background: #EAF6F4; box-shadow: none; margin: 24px 0 4px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-            .total-display span:first-child { font-size: 13px; font-weight: 500; color: var(--text-soft); line-height: 1.25; }
+            .total-display span:first-child { font-size: 13px; font-weight: 650; color: var(--text-dark); }
             .total-display .amount { font-size: 21px; line-height: 1; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.02em; }
+            .info-note { font-size: 11.5px; padding: 8px 10px; margin-top: 8px; border-radius: 8px; background: rgba(11,94,90,0.05); text-align: left; line-height: 1.4; color: var(--text-light); }
 
-            /* Level 5 — Supporting */
-            .info-note { font-size: 11px; font-weight: 400; line-height: 1.4; padding: 8px 10px; margin-top: 8px; border-radius: 8px; background: rgba(11,94,90,0.05); text-align: left; color: var(--text-light); }
-
-            /* Carpet card */
             .m-carpet-group { border: 1px solid rgba(11,94,90,0.13); border-radius: 10px; background: #FFFFFF; margin-bottom: 10px; overflow: hidden; }
             .m-carpet-group-title { display: flex !important; align-items: center; gap: 10px; min-height: 56px; padding: 10px 12px; cursor: pointer; -webkit-tap-highlight-color: transparent; background: #FFFFFF; border: none; width: 100%; font-family: inherit; text-align: left; margin-bottom: 0; color: var(--text-dark); transition: background 0.15s ease; }
             .m-carpet-group-title:active { background: #F5FAF9; }
             .m-carpet-group-title > .m-carpet-icon { flex-shrink: 0; width: 32px; height: 32px; border-radius: 8px; background: rgba(11,94,90,0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; }
             .m-carpet-group-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
-            .m-carpet-group-text > span:first-child { font-size: 13px; font-weight: 600; line-height: 1.25; letter-spacing: -0.005em; color: var(--text-dark); }
-            .m-carpet-group-sub { font-size: 11px; font-weight: 400; color: var(--text-light); line-height: 1.3; }
+            .m-carpet-group-text > span:first-child { font-size: 13px; font-weight: 700; line-height: 1.2; letter-spacing: -0.005em; }
+            .m-carpet-group-sub { font-size: 11.5px; color: var(--text-light); font-weight: 400; line-height: 1.25; }
             .m-accordion-chev { color: var(--text-light); font-size: 0.78rem; transition: transform 0.2s ease; flex-shrink: 0; display: inline-block !important; }
             .m-carpet-group.open .m-accordion-chev { transform: rotate(180deg); }
             .m-carpet-group .form-grid { display: none; padding: 4px 12px 12px; margin-bottom: 0; gap: 0; }
@@ -413,95 +391,85 @@
             .m-carpet-item { padding: 0; margin: 0 0 14px; }
             .m-carpet-item:last-child { margin-bottom: 0; }
             .m-carpet-item-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
-            .m-carpet-item-name { font-size: 12.5px; font-weight: 500; line-height: 1.25; color: var(--text-dark); }
-            .m-carpet-item-price { font-size: 12px; font-weight: 600; line-height: 1.2; color: var(--primary); white-space: nowrap; }
+            .m-carpet-item-name { font-size: 13px; font-weight: 550; line-height: 1.2; color: var(--text-dark); }
+            .m-carpet-item-price { font-size: 13px; font-weight: 700; line-height: 1.2; color: var(--primary); white-space: nowrap; }
 
             .org-area-options { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
-            .org-area-option { min-height: 46px; padding: 9px 12px; border-radius: 10px; box-shadow: none; font-size: 12.5px !important; font-weight: 500 !important; color: var(--text-dark) !important; transition: background 0.15s ease, border-color 0.15s ease; }
+            .org-area-option { min-height: 46px; padding: 9px 12px; border-radius: 10px; box-shadow: none; font-size: 12px !important; transition: background 0.15s ease, border-color 0.15s ease; }
             .org-area-option:active { background: #F5FAF9; }
 
             .m-review-block.active { display: block !important; }
             .m-review-section { background: #FFFFFF; border: 1px solid rgba(11,94,90,0.10); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
             .m-review-section-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
-            .m-review-label { font-size: 10.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); }
-            .m-review-edit { background: none; border: none; color: var(--primary); font-family: inherit; font-size: 12px; font-weight: 500; padding: 2px 0; cursor: pointer; }
-            .m-review-value { font-size: 13px; font-weight: 400; color: var(--text-dark); line-height: 1.45; }
-            .m-review-list { list-style: none; margin: 0; padding: 0; font-size: 12.5px; font-weight: 400; color: var(--text-dark); }
+            .m-review-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-soft); }
+            .m-review-edit { background: none; border: none; color: var(--primary); font-family: inherit; font-size: 12px; font-weight: 600; padding: 2px 0; cursor: pointer; }
+            .m-review-value { font-size: 13px; color: var(--text-dark); line-height: 1.45; }
+            .m-review-list { list-style: none; margin: 0; padding: 0; font-size: 13px; color: var(--text-dark); }
             .m-review-list li { display: flex; justify-content: space-between; gap: 10px; padding: 3px 0; line-height: 1.35; }
-            .m-review-list li span:last-child { font-weight: 600; color: var(--primary); white-space: nowrap; }
-            .m-review-trigger { display: inline-flex !important; align-items: center; gap: 5px; background: none; border: none; color: var(--primary); font-family: inherit; font-size: 12.5px; font-weight: 500; padding: 10px 0 2px; cursor: pointer; }
+            .m-review-list li span:last-child { font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+            .m-review-trigger { display: inline-flex !important; align-items: center; gap: 5px; background: none; border: none; color: var(--primary); font-family: inherit; font-size: 13px; font-weight: 650; padding: 10px 0 2px; cursor: pointer; }
             .m-review-trigger i { font-size: 0.72rem; }
             .m-fill-hidden { display: none !important; }
 
-            /* Step 2 */
             #step2 { padding-top: 0; }
             #step2 .form-group { margin-bottom: 18px; }
             #step2 .form-group label { margin-bottom: 7px; }
             #step2 .file-upload-area { min-height: 0; padding: 18px 14px; border-radius: 10px; }
             #step2 .file-upload-area i { font-size: 1.25rem; margin-bottom: 5px; }
-            #step2 .file-upload-area p { margin: 0; font-size: 13px; line-height: 1.4; color: var(--text-dark); }
-            #step2 .file-upload-area p:last-of-type { margin-top: 3px; font-size: 11.5px !important; line-height: 1.4; color: var(--text-light) !important; }
+            #step2 .file-upload-area p { margin: 0; font-size: 13px; line-height: 1.35; }
+            #step2 .file-upload-area p:last-of-type { margin-top: 3px; font-size: 11.5px !important; line-height: 1.35; }
             #step2 textarea { min-height: 108px; height: 108px; padding: 11px 13px; line-height: 1.45; }
-            #step2 .assessment-note { min-height: 0; margin: 20px 0 0; padding: 9px 11px; border-radius: 8px; font-size: 11.5px; font-weight: 400; line-height: 1.4; }
+            #step2 .assessment-note { min-height: 0; margin: 20px 0 0; padding: 9px 11px; border-radius: 8px; font-size: 11.5px; line-height: 1.35; }
             #step2 .booking-navigation { margin-top: 20px; }
 
-            /* Step 3 */
             #step3 { padding-top: 0; }
             #step3 .form-grid { display: grid; grid-template-columns: 1fr; gap: 0; margin: 0; }
             #step3 .form-group { margin: 0 0 14px; }
-            #step3 .form-group input, #step3 .form-group select { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-sizing: border-box; font-size: 15px; font-weight: 400; }
+            #step3 .form-group label { margin: 0 0 6px; font-size: 13px; line-height: 1.2; font-weight: 650; }
+            #step3 .form-group input, #step3 .form-group select { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-sizing: border-box; font-size: 16px; }
             #step3 #form-group-name { margin-bottom: 14px; }
             #step3 #form-group-phone { margin-bottom: 14px; }
             #step3 #form-group-email { margin-bottom: 26px; }
             #step3 #form-group-address-postcode { margin-bottom: 26px; }
             #step3 .postcode-autocomplete-container { margin-bottom: 14px !important; }
-            #step3 #form-group-address-postcode small { margin-top: 6px !important; font-size: 11px !important; font-weight: 400 !important; line-height: 1.4; color: var(--text-light) !important; }
+            #step3 #form-group-address-postcode label:nth-of-type(2) { margin-top: 0; }
+            #step3 #form-group-address-postcode small { margin-top: 6px !important; font-size: 11px !important; line-height: 1.35; color: var(--text-light) !important; }
             #step3 #form-group-address-postcode + .form-group { margin-top: 0; }
             #step3 .form-group:has(#booking-date) { margin-bottom: 14px; }
             #step3 .form-group:has(#booking-time) { margin-bottom: 26px; }
             #step3 .booking-navigation { margin-top: 26px; gap: 8px; }
-            #step3 .btn-next { min-height: 48px; height: 48px; padding: 0 18px; border-radius: 10px !important; font-size: 14px; font-weight: 600; }
-            #step3 .btn-prev { padding: 7px 12px; font-size: 12.5px; }
-            #step3 .m-trust { margin-top: 12px; padding-bottom: 4px; font-size: 11px; line-height: 1.4; }
+            #step3 .btn-next { min-height: 48px; height: 48px; padding: 0 18px; border-radius: 10px !important; font-size: 14px; font-weight: 700; }
+            #step3 .btn-prev { padding: 7px 12px; font-size: 13px; }
+            #step3 .m-trust { margin-top: 12px; padding-bottom: 4px; font-size: 11px; line-height: 1.3; }
 
-            /* Preferred appointment */
+            /* Mobile appt block */
             .m-appt-group { display: block; margin-bottom: 26px; }
-            .m-appt-heading { font-size: 14px; font-weight: 600; line-height: 1.25; color: var(--text-dark); margin-bottom: 10px; letter-spacing: -0.01em; }
+            .m-appt-heading { font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; letter-spacing: -0.01em; }
             .m-appt-note { margin-bottom: 0; }
+            /* Hide desktop-only date/time group on mobile (the group containing native controls) */
             #step3 .m-desktop-date-time { display: none !important; }
 
-            .m-trust { display: flex !important; align-items: center; justify-content: center; gap: 6px; font-size: 11px; font-weight: 400; color: var(--text-light); margin-top: 14px; padding-bottom: 6px; text-align: center; line-height: 1.4; }
+            .m-trust { display: flex !important; align-items: center; justify-content: center; gap: 6px; font-size: 11.5px; color: var(--text-light); margin-top: 14px; padding-bottom: 6px; text-align: center; line-height: 1.35; }
             .m-trust i { color: var(--primary); font-size: 0.75rem; }
 
-            .btn-next { width: 100%; border-radius: 10px !important; padding: 12px 18px; font-size: 14px; font-weight: 600; box-shadow: 0 4px 12px rgba(11,94,90,0.14); min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
+            .btn-next { width: 100%; border-radius: 10px !important; padding: 12px 18px; font-size: 14px; font-weight: 700; box-shadow: 0 4px 12px rgba(11,94,90,0.14); min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
             .btn-next:hover { transform: none; }
-            .btn-prev { width: auto; align-self: center; background: transparent; border: none; box-shadow: none; padding: 8px 12px; font-size: 12.5px; font-weight: 500; color: var(--text-soft); min-height: auto; border-radius: 8px; }
+            .btn-prev { width: auto; align-self: center; background: transparent; border: none; box-shadow: none; padding: 8px 12px; font-size: 13px; font-weight: 500; color: var(--text-soft); min-height: auto; border-radius: 8px; }
             .btn-prev i { font-size: 0.72rem; }
             .btn-prev:hover { background: rgba(11,94,90,0.04); transform: none; }
 
             .booking-navigation { flex-direction: column-reverse; margin-top: 22px; gap: 8px; }
             footer { display: none; }
-
-            /* Mobile appt rows — typography */
-            .m-appt-title { font-size: 13px; font-weight: 500; line-height: 1.25; color: var(--text-dark); }
-            .m-appt-sub { font-size: 12px; font-weight: 400; line-height: 1.3; color: var(--text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-            .m-appt-row.has-value .m-appt-sub { color: var(--text-soft); font-weight: 400; }
-            .m-appt-note { font-size: 11.5px; font-weight: 400; line-height: 1.45; color: var(--text-light); }
-
-            /* Mobile sheet typography */
-            .m-sheet-title { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
-            .m-time-title { font-size: 14px; font-weight: 500; }
-            .m-time-sub { font-size: 12px; font-weight: 400; color: var(--text-light); }
-            .m-sheet-confirm { font-size: 14px; font-weight: 600; }
         }
         @media (max-width: 380px) {
             .container { padding: 0 14px; }
             .condition-option { min-height: 62px; padding: 7px 3px; }
-            .condition-option h4 { font-size: 11.5px; }
+            .condition-option h4 { font-size: 10.5px; }
+            .condition-option p { font-size: 9px; }
             .addon-checkbox { min-height: 46px; padding: 6px 8px; }
             .addon-icon { width: 24px; height: 24px; border-radius: 7px; }
-            .addon-title { font-size: 11.5px; }
-            .addon-price { font-size: 11.5px; }
+            .addon-title { font-size: 11px; }
+            .addon-price { font-size: 11px; }
             .m-step-wrap { grid-template-columns: 40px minmax(0, 1fr) 40px; }
         }
     </style>
@@ -1555,8 +1523,8 @@
             const timeRow = document.getElementById('m-appt-time-row');
             const dateSub = document.getElementById('m-appt-date-sub');
             const timeSub = document.getElementById('m-appt-time-sub');
-            const dateInput = document.getElementById('booking-date');
-            const timeInput = document.getElementById('booking-time');
+            const dateInput = document.getElementById('booking-date'); // hidden canonical value
+            const timeInput = document.getElementById('booking-time'); // canonical select
             if (!backdrop || !sheet || !sheetBody || !sheetConfirm || !dateRow || !timeRow) return;
 
             const TIME_OPTIONS = [
@@ -1565,14 +1533,16 @@
                 { value: 'Evening (4pm - 7pm)', title: 'Evening', sub: '4pm – 7pm', icon: 'fa-moon', cls: 'evening' }
             ];
             const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            const MONTHS_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-            let mode = null;
-            let lastFocused = null;
-            let pendingDate = null;
-            let pendingTime = null;
+            let mode = null;              // 'date' | 'time'
+            let lastFocused = null;       // element to restore focus to
+            let pendingDate = null;       // Date | null (draft, not committed)
+            let pendingTime = null;       // string | null (draft)
             const today = new Date(); today.setHours(0,0,0,0);
             let viewMonth = new Date(today.getFullYear(), today.getMonth(), 1);
 
+            // Prefill drafts from existing canonical values
             function syncDraftsFromCanonical() {
                 const v = (dateInput && dateInput.value) ? dateInput.value : '';
                 if (v) {
@@ -1639,9 +1609,11 @@
                 backdrop.classList.add('active');
                 backdrop.setAttribute('aria-hidden', 'false');
                 sheet.hidden = false;
+                // next frame so transform transitions
                 requestAnimationFrame(() => sheet.classList.add('open'));
                 document.body.style.overflow = 'hidden';
                 document.addEventListener('keydown', onKeydown);
+                // focus first interactive in sheet
                 setTimeout(() => {
                     const first = sheet.querySelector('.m-sheet-close');
                     if (first) first.focus();
@@ -1658,6 +1630,8 @@
                         timeInput.value = pendingTime;
                         timeInput.dispatchEvent(new Event('change', { bubbles: true }));
                     }
+                } else {
+                    // discard drafts; re-sync from canonical on next open
                 }
                 renderRows();
                 sheet.classList.remove('open');
@@ -1675,6 +1649,7 @@
                 trapFocus(e);
             }
 
+            // Calendar ---------------------------------------------------
             function renderCalendar() {
                 sheetBody.innerHTML = '';
                 const head = document.createElement('div');
@@ -1739,6 +1714,7 @@
                 sheetBody.appendChild(grid);
             }
 
+            // Time list --------------------------------------------------
             function renderTimes() {
                 sheetBody.innerHTML = '';
                 const list = document.createElement('div');
@@ -1766,6 +1742,7 @@
                 sheetBody.appendChild(list);
             }
 
+            // Wire events
             dateRow.addEventListener('click', function () { openSheet('date'); });
             timeRow.addEventListener('click', function () { openSheet('time'); });
             sheetClose.addEventListener('click', function () { closeSheet(false); });
@@ -1775,6 +1752,7 @@
                 closeSheet(true);
             });
 
+            // Initial row state from any preexisting canonical values
             syncDraftsFromCanonical();
         })();
 
