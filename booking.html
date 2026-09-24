@@ -224,8 +224,6 @@
         .drp-chev { flex-shrink: 0; color: var(--text-light); font-size: 0.8rem; transition: transform 0.2s ease; }
         .drp.is-open .drp-chev { transform: rotate(180deg); color: var(--primary); }
 
-        /* Panel: rendered fixed so it is never clipped by .booking-system { overflow: hidden }.
-           Top/left/width are set inline from getBoundingClientRect() when opening. */
         .drp-panel { position: fixed; background: #FFFFFF; border: 1px solid rgba(11,94,90,0.14); border-radius: 12px; box-shadow: 0 14px 36px rgba(19,43,48,0.14), 0 3px 8px rgba(19,43,48,0.06); z-index: 3500; max-height: 320px; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 6px; display: none; will-change: transform, opacity; }
         .drp.is-open .drp-panel { display: block; animation: drpIn 0.14s ease; }
         @keyframes drpIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
@@ -1575,9 +1573,6 @@
                     }
                 }
 
-                // Position the fixed panel based on the trigger's on-screen rect.
-                // Clamp width to viewport and both edges so the panel can never
-                // create horizontal document overflow.
                 function repositionPanel() {
                     const r = trigger.getBoundingClientRect();
                     const gap = 6;
@@ -1593,7 +1588,6 @@
                     if (spaceBelow < 180 && spaceAbove > spaceBelow) {
                         top = Math.max(gap, r.top - gap - Math.min(320, spaceAbove));
                     }
-                    // Clamp both edges
                     if (left + width > viewportW - safeMargin) {
                         left = viewportW - safeMargin - width;
                     }
@@ -1671,7 +1665,6 @@
                     wrap.classList.add('is-open');
                     trigger.setAttribute('aria-expanded', 'true');
                     repositionPanel();
-                    window.addEventListener('scroll', repositionPanel, true);
                     window.addEventListener('resize', repositionPanel);
                     const first = panel.querySelector('.drp-option');
                     if (first) first.focus();
@@ -1680,7 +1673,6 @@
                 function close() {
                     wrap.classList.remove('is-open');
                     trigger.setAttribute('aria-expanded', 'false');
-                    window.removeEventListener('scroll', repositionPanel, true);
                     window.removeEventListener('resize', repositionPanel);
                 }
 
@@ -1745,6 +1737,240 @@
                     });
                 }
             });
+        })();
+
+        (function () {
+            const backdrop = document.getElementById('m-sheet-backdrop');
+            const sheet = document.getElementById('m-sheet');
+            const sheetTitle = document.getElementById('m-sheet-title');
+            const sheetBody = document.getElementById('m-sheet-body');
+            const sheetConfirm = document.getElementById('m-sheet-confirm');
+            const sheetClose = document.getElementById('m-sheet-close');
+            const dateRow = document.getElementById('m-appt-date-row');
+            const timeRow = document.getElementById('m-appt-time-row');
+            const dateSub = document.getElementById('m-appt-date-sub');
+            const timeSub = document.getElementById('m-appt-time-sub');
+            const dateInput = document.getElementById('booking-date');
+            const timeInput = document.getElementById('booking-time');
+            if (!backdrop || !sheet || !sheetBody || !sheetConfirm || !dateRow || !timeRow) return;
+
+            const TIME_OPTIONS = [
+                { value: 'Morning (8am - 12pm)', title: 'Morning', sub: '8am – 12pm', icon: 'fa-sun', cls: 'morning' },
+                { value: 'Afternoon (12pm - 4pm)', title: 'Afternoon', sub: '12pm – 4pm', icon: 'fa-sun', cls: 'afternoon' },
+                { value: 'Evening (4pm - 7pm)', title: 'Evening', sub: '4pm – 7pm', icon: 'fa-moon', cls: 'evening' }
+            ];
+            const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+            let mode = null;
+            let lastFocused = null;
+            let pendingDate = null;
+            let pendingTime = null;
+            const today = new Date(); today.setHours(0,0,0,0);
+            let viewMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+
+            function syncDraftsFromCanonical() {
+                const v = (dateInput && dateInput.value) ? dateInput.value : '';
+                if (v) {
+                    const parts = v.split('-').map(Number);
+                    if (parts.length === 3 && !isNaN(parts[0])) {
+                        pendingDate = new Date(parts[0], parts[1] - 1, parts[2]);
+                        viewMonth = new Date(pendingDate.getFullYear(), pendingDate.getMonth(), 1);
+                    }
+                } else {
+                    pendingDate = null;
+                }
+                pendingTime = (timeInput && timeInput.value) ? timeInput.value : null;
+                renderRows();
+            }
+
+            function fmtDateLong(d) {
+                const dows = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+                return dows[d.getDay()] + ', ' + d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+            }
+            function pad2(n) { return String(n).padStart(2, '0'); }
+
+            function renderRows() {
+                if (pendingDate) {
+                    dateSub.textContent = fmtDateLong(pendingDate);
+                    dateRow.classList.add('has-value');
+                } else {
+                    dateSub.textContent = 'Choose a date';
+                    dateRow.classList.remove('has-value');
+                }
+                if (pendingTime) {
+                    timeSub.textContent = pendingTime;
+                    timeRow.classList.add('has-value');
+                } else {
+                    timeSub.textContent = 'Select preferred time';
+                    timeRow.classList.remove('has-value');
+                }
+            }
+
+            function trapFocus(e) {
+                if (e.key !== 'Tab') return;
+                const focusables = sheet.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                if (!focusables.length) return;
+                const first = focusables[0];
+                const last = focusables[focusables.length - 1];
+                if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+            }
+
+            function openSheet(which) {
+                mode = which;
+                lastFocused = document.activeElement;
+                syncDraftsFromCanonical();
+                if (mode === 'date') {
+                    sheetTitle.textContent = 'Select a date';
+                    sheetConfirm.textContent = 'Confirm date';
+                    sheetConfirm.disabled = !pendingDate;
+                    renderCalendar();
+                } else {
+                    sheetTitle.textContent = 'Select preferred time';
+                    sheetConfirm.textContent = 'Confirm time';
+                    sheetConfirm.disabled = !pendingTime;
+                    renderTimes();
+                }
+                backdrop.classList.add('active');
+                backdrop.setAttribute('aria-hidden', 'false');
+                sheet.hidden = false;
+                requestAnimationFrame(() => sheet.classList.add('open'));
+                document.body.style.overflow = 'hidden';
+                document.addEventListener('keydown', onKeydown);
+                setTimeout(() => {
+                    const first = sheet.querySelector('.m-sheet-close');
+                    if (first) first.focus();
+                }, 60);
+            }
+
+            function closeSheet(apply) {
+                if (apply) {
+                    if (mode === 'date' && pendingDate) {
+                        dateInput.value = pendingDate.getFullYear() + '-' + pad2(pendingDate.getMonth() + 1) + '-' + pad2(pendingDate.getDate());
+                        dateInput.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+                    if (mode === 'time' && pendingTime) {
+                        timeInput.value = pendingTime;
+                        timeInput.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+                }
+                renderRows();
+                sheet.classList.remove('open');
+                backdrop.classList.remove('active');
+                backdrop.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                document.removeEventListener('keydown', onKeydown);
+                setTimeout(() => { sheet.hidden = true; }, 260);
+                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+                mode = null;
+            }
+
+            function onKeydown(e) {
+                if (e.key === 'Escape') { e.preventDefault(); closeSheet(false); return; }
+                trapFocus(e);
+            }
+
+            function renderCalendar() {
+                sheetBody.innerHTML = '';
+                const head = document.createElement('div');
+                head.className = 'm-cal-head';
+                const prev = document.createElement('button');
+                prev.type = 'button';
+                prev.className = 'm-cal-nav';
+                prev.setAttribute('aria-label', 'Previous month');
+                prev.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                const label = document.createElement('div');
+                label.className = 'm-cal-month';
+                label.textContent = MONTHS[viewMonth.getMonth()] + ' ' + viewMonth.getFullYear();
+                const next = document.createElement('button');
+                next.type = 'button';
+                next.className = 'm-cal-nav';
+                next.setAttribute('aria-label', 'Next month');
+                next.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                const minView = new Date(today.getFullYear(), today.getMonth(), 1);
+                prev.disabled = viewMonth <= minView;
+                prev.addEventListener('click', function () {
+                    viewMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() - 1, 1);
+                    renderCalendar();
+                });
+                next.addEventListener('click', function () {
+                    viewMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 1);
+                    renderCalendar();
+                });
+                head.appendChild(prev); head.appendChild(label); head.appendChild(next);
+                sheetBody.appendChild(head);
+
+                const wd = document.createElement('div');
+                wd.className = 'm-cal-weekdays';
+                ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(d => {
+                    const s = document.createElement('span'); s.textContent = d; wd.appendChild(s);
+                });
+                sheetBody.appendChild(wd);
+
+                const grid = document.createElement('div');
+                grid.className = 'm-cal-grid';
+                const firstDow = (viewMonth.getDay() + 6) % 7;
+                const daysInMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 0).getDate();
+                for (let i = 0; i < firstDow; i++) {
+                    const b = document.createElement('button'); b.type = 'button'; b.className = 'is-empty'; b.disabled = true;
+                    grid.appendChild(b);
+                }
+                for (let d = 1; d <= daysInMonth; d++) {
+                    const date = new Date(viewMonth.getFullYear(), viewMonth.getMonth(), d);
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.textContent = d;
+                    btn.setAttribute('aria-label', fmtDateLong(date));
+                    if (date < today) btn.disabled = true;
+                    if (date.getTime() === today.getTime()) btn.classList.add('is-today');
+                    if (pendingDate && date.getTime() === pendingDate.getTime()) btn.classList.add('is-selected');
+                    btn.addEventListener('click', function () {
+                        pendingDate = date;
+                        sheetConfirm.disabled = false;
+                        renderCalendar();
+                    });
+                    grid.appendChild(btn);
+                }
+                sheetBody.appendChild(grid);
+            }
+
+            function renderTimes() {
+                sheetBody.innerHTML = '';
+                const list = document.createElement('div');
+                list.className = 'm-time-list';
+                TIME_OPTIONS.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'm-time-option' + (pendingTime === opt.value ? ' is-selected' : '');
+                    btn.setAttribute('role', 'radio');
+                    btn.setAttribute('aria-checked', pendingTime === opt.value ? 'true' : 'false');
+                    btn.innerHTML =
+                        '<span class="m-time-icon ' + opt.cls + '"><i class="fas ' + opt.icon + '"></i></span>' +
+                        '<span class="m-time-text">' +
+                            '<span class="m-time-title">' + opt.title + '</span>' +
+                            '<span class="m-time-sub">' + opt.sub + '</span>' +
+                        '</span>' +
+                        '<span class="m-time-radio" aria-hidden="true"></span>';
+                    btn.addEventListener('click', function () {
+                        pendingTime = opt.value;
+                        sheetConfirm.disabled = false;
+                        renderTimes();
+                    });
+                    list.appendChild(btn);
+                });
+                sheetBody.appendChild(list);
+            }
+
+            dateRow.addEventListener('click', function () { openSheet('date'); });
+            timeRow.addEventListener('click', function () { openSheet('time'); });
+            sheetClose.addEventListener('click', function () { closeSheet(false); });
+            backdrop.addEventListener('click', function () { closeSheet(false); });
+            sheetConfirm.addEventListener('click', function () {
+                if (sheetConfirm.disabled) return;
+                closeSheet(true);
+            });
+
+            syncDraftsFromCanonical();
         })();
 
         window.updatePrice = updatePrice;
