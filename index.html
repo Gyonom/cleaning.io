@@ -425,56 +425,82 @@
         .rating-divider { width: 1px; height: 24px; background: #E5E7EB; }
 
         /* ============================================================
-           COOKIE CONSENT COMPONENT
+           COOKIE CONSENT — compact, non-blocking
            ============================================================ */
-        .ck-backdrop { position: fixed; inset: 0; background: rgba(6, 40, 38, 0.55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); z-index: 10001; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s ease; }
-        .ck-backdrop.is-open { opacity: 1; visibility: visible; }
+        .ck-notice { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(24px); width: calc(100% - 40px); max-width: 720px; background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 16px; box-shadow: 0 24px 60px rgba(6, 40, 38, 0.18), 0 6px 18px rgba(6, 40, 38, 0.08); padding: 16px 18px; z-index: 10002; opacity: 0; visibility: hidden; transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease; }
+        .ck-notice.is-open { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 
-        .ck-modal { position: fixed; inset: 0; z-index: 10002; display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
-        .ck-modal.is-open { display: flex; }
-        .ck-card { position: relative; width: 100%; max-width: 440px; background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 20px; box-shadow: 0 30px 80px rgba(6, 40, 38, 0.28), 0 6px 20px rgba(6, 40, 38, 0.10); padding: 28px 24px 22px; text-align: center; max-height: calc(100vh - 40px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
-        .ck-logo { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; }
-        .ck-logo-img { width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 18px; flex-shrink: 0; }
-        .ck-logo-text { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
-        .ck-logo-primary { font-family: "Playfair Display", serif; font-size: 14px; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.01em; }
-        .ck-logo-secondary { font-family: "Inter", sans-serif; font-size: 8px; font-weight: 500; color: var(--text-light); letter-spacing: 0.22em; text-transform: uppercase; margin-top: 2px; }
-        .ck-shield { width: 56px; height: 56px; border-radius: 50%; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 22px; margin: 4px auto 14px; }
-        .ck-title { font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; letter-spacing: -0.02em; line-height: 1.2; }
-        .ck-body { font-size: 0.88rem; color: var(--text-soft); line-height: 1.55; margin-bottom: 12px; }
+        .ck-close { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%; border: none; background: transparent; color: var(--text-light); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background 0.15s ease, color 0.15s ease; }
+        .ck-close:hover { background: rgba(11, 94, 90, 0.06); color: var(--text-dark); }
+        .ck-close i { font-size: 0.85rem; }
+
+        .ck-row { display: flex; align-items: flex-start; gap: 12px; padding-right: 30px; }
+        .ck-shield { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+        .ck-text { flex: 1; min-width: 0; }
+        .ck-title { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 3px; letter-spacing: -0.01em; }
+        .ck-body { font-size: 0.82rem; line-height: 1.45; color: var(--text-soft); }
         .ck-body a { color: var(--primary); text-decoration: none; font-weight: 600; }
         .ck-body a:hover { text-decoration: underline; }
-        .ck-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-        .ck-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 46px; padding: 12px 20px; border-radius: 10px; font-family: inherit; font-size: 0.92rem; font-weight: 600; cursor: pointer; border: none; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease; -webkit-tap-highlight-color: transparent; }
-        .ck-btn-primary { background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%); color: #FFFFFF; box-shadow: 0 10px 24px rgba(11, 94, 90, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.20); }
-        .ck-btn-primary:active { transform: translateY(1px); box-shadow: 0 6px 14px rgba(11, 94, 90, 0.20); }
-        .ck-btn-ghost { background: transparent; color: var(--primary); border: 1px solid rgba(11, 94, 90, 0.22); }
+
+        .ck-actions { display: flex; gap: 8px; margin-top: 12px; justify-content: flex-end; }
+        .ck-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 18px; border-radius: 999px; font-family: inherit; font-size: 0.82rem; font-weight: 600; cursor: pointer; border: none; -webkit-tap-highlight-color: transparent; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease; white-space: nowrap; }
+        .ck-btn-primary { background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%); color: #FFFFFF; box-shadow: 0 8px 18px rgba(11, 94, 90, 0.22), inset 0 1px 0 rgba(255,255,255,0.18); }
+        .ck-btn-primary:active { transform: translateY(1px); box-shadow: 0 4px 10px rgba(11, 94, 90, 0.20); }
+        .ck-btn-ghost { background: #FFFFFF; color: var(--primary); border: 1px solid rgba(11, 94, 90, 0.22); }
         .ck-btn-ghost:active { background: rgba(11, 94, 90, 0.06); }
 
-        .ck-subtitle { font-size: 0.9rem; color: var(--text-soft); line-height: 1.5; margin-bottom: 18px; text-align: left; }
-        .ck-row { display: flex; align-items: flex-start; gap: 12px; padding: 14px 14px; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 12px; background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); text-align: left; }
-        .ck-row-icon { flex-shrink: 0; width: 34px; height: 34px; border-radius: 9px; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
-        .ck-row-text { flex: 1; min-width: 0; }
-        .ck-row-title { font-size: 0.9rem; font-weight: 700; color: var(--text-dark); margin-bottom: 2px; }
-        .ck-row-desc { font-size: 0.78rem; color: var(--text-light); line-height: 1.4; }
-        .ck-row-state { flex-shrink: 0; align-self: center; font-size: 0.72rem; font-weight: 700; color: var(--primary); background: var(--primary-soft); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+        .ck-settings { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(24px); width: calc(100% - 40px); max-width: 460px; background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 16px; box-shadow: 0 24px 60px rgba(6, 40, 38, 0.18), 0 6px 18px rgba(6, 40, 38, 0.08); padding: 18px 20px; z-index: 10003; opacity: 0; visibility: hidden; transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease; }
+        .ck-settings.is-open { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .ck-settings-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+        .ck-settings-head .ck-shield { width: 32px; height: 32px; font-size: 0.85rem; }
+        .ck-settings-title { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); letter-spacing: -0.01em; }
+        .ck-settings-sub { font-size: 0.78rem; color: var(--text-light); line-height: 1.4; margin-bottom: 12px; }
+        .ck-cat { display: flex; align-items: center; gap: 12px; padding: 12px 12px; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 12px; background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); }
+        .ck-cat-icon { flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+        .ck-cat-text { flex: 1; min-width: 0; }
+        .ck-cat-title { font-size: 0.85rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1px; }
+        .ck-cat-desc { font-size: 0.72rem; color: var(--text-light); line-height: 1.35; }
+        .ck-cat-state { flex-shrink: 0; font-size: 0.7rem; font-weight: 700; color: var(--primary); background: var(--primary-soft); padding: 4px 10px; border-radius: 999px; }
+        .ck-settings .ck-actions { justify-content: stretch; }
+        .ck-settings .ck-actions .ck-btn { flex: 1; }
 
-        .ck-toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(20px); background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.12); border-radius: 12px; box-shadow: 0 18px 40px rgba(19, 43, 48, 0.18), 0 4px 12px rgba(19, 43, 48, 0.06); padding: 12px 18px; display: inline-flex; align-items: center; gap: 10px; font-size: 0.85rem; font-weight: 500; color: var(--text-dark); z-index: 10005; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease; max-width: calc(100vw - 32px); }
+        .ck-toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(20px); background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.12); border-radius: 12px; box-shadow: 0 18px 40px rgba(19, 43, 48, 0.18), 0 4px 12px rgba(19, 43, 48, 0.06); padding: 10px 16px; display: inline-flex; align-items: center; gap: 10px; font-size: 0.82rem; font-weight: 500; color: var(--text-dark); z-index: 10005; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease; max-width: calc(100vw - 32px); }
         .ck-toast.is-open { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .ck-toast i { color: var(--primary); font-size: 0.95rem; }
+        .ck-toast i { color: var(--primary); font-size: 0.9rem; }
 
-        .ck-fab { position: fixed; right: 16px; bottom: calc(96px + env(safe-area-inset-bottom)); width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(11, 94, 90, 0.14); background: #FFFFFF; color: var(--primary); display: none; align-items: center; justify-content: center; font-size: 1rem; cursor: pointer; box-shadow: 0 12px 26px rgba(19, 43, 48, 0.14), 0 2px 6px rgba(19, 43, 48, 0.06); z-index: 9000; transition: transform 0.15s ease, box-shadow 0.15s ease; -webkit-tap-highlight-color: transparent; }
+        .ck-fab { position: fixed; right: 16px; bottom: calc(96px + env(safe-area-inset-bottom)); width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(11, 94, 90, 0.14); background: #FFFFFF; color: var(--primary); display: none; align-items: center; justify-content: center; font-size: 0.95rem; cursor: pointer; box-shadow: 0 12px 26px rgba(19, 43, 48, 0.14), 0 2px 6px rgba(19, 43, 48, 0.06); z-index: 9000; -webkit-tap-highlight-color: transparent; }
         .ck-fab.is-visible { display: inline-flex; }
         .ck-fab:active { transform: scale(0.95); box-shadow: 0 6px 14px rgba(19, 43, 48, 0.12); }
 
         @media (min-width: 769px) {
             .ck-fab { bottom: 20px; right: 20px; }
+            .ck-notice { padding: 16px 20px; }
+            .ck-row { align-items: center; }
+            .ck-actions { margin-top: 12px; }
         }
+
         @media (max-width: 768px) {
-            .ck-card { padding: 24px 20px 20px; border-radius: 18px; }
-            .ck-toast { bottom: calc(96px + env(safe-area-inset-bottom)); }
+            .ck-notice { left: 10px; right: 10px; width: auto; max-width: none; transform: translateY(24px); bottom: calc(88px + env(safe-area-inset-bottom)); padding: 14px 14px 12px; border-radius: 14px; }
+            .ck-notice.is-open { transform: translateY(0); }
+            .ck-close { top: 6px; right: 6px; }
+            .ck-row { padding-right: 26px; gap: 10px; }
+            .ck-shield { width: 32px; height: 32px; font-size: 0.85rem; }
+            .ck-title { font-size: 0.9rem; }
+            .ck-body { font-size: 0.78rem; line-height: 1.4; }
+            .ck-actions { margin-top: 10px; flex-direction: column-reverse; }
+            .ck-btn { width: 100%; padding: 10px 16px; }
+
+            .ck-settings { left: 10px; right: 10px; width: auto; max-width: none; transform: translateY(24px); bottom: calc(88px + env(safe-area-inset-bottom)); padding: 16px 14px 14px; border-radius: 14px; }
+            .ck-settings.is-open { transform: translateY(0); }
+            .ck-settings .ck-actions { flex-direction: row; }
+
+            .ck-toast { bottom: calc(96px + env(safe-area-inset-bottom)); font-size: 0.78rem; }
+            .ck-fab { width: 38px; height: 38px; font-size: 0.85rem; right: 12px; bottom: calc(88px + env(safe-area-inset-bottom)); }
         }
+
         @media (max-width: 380px) {
-            .ck-card { padding: 20px 16px 16px; }
+            .ck-notice { padding: 12px 12px 10px; }
+            .ck-body { font-size: 0.75rem; }
         }
 
         /* ============================================================
@@ -952,7 +978,6 @@
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
 <header>
     <nav class="container">
         <a href="index.html" class="logo">
@@ -971,60 +996,41 @@
     </nav>
 </header>
 
-<!-- ===== HERO ===== -->
 <section class="hero" id="home">
     <div class="hero-static-bg"></div>
     <div class="hero-overlay"></div>
 
     <div class="container hero-content hero-desktop-content">
-
         <span class="hero-eyebrow">A cleaner, happier home</span>
-
         <h1>Deep Cleaning,<br>Done Right.</h1>
-
-        <p>
-            We take care of the cleaning and organising, leaving your space sparkling and perfectly in place.
-        </p>
-
+        <p>We take care of the cleaning and organising, leaving your space sparkling and perfectly in place.</p>
         <p class="hero-location">
             <i class="fas fa-location-dot" aria-hidden="true"></i>
             <span>Serving Birmingham &amp; surrounding areas</span>
         </p>
-
         <div class="hero-buttons">
-            <a href="index.html#book" class="btn btn-white">
-                Book a Deep Clean <i class="fas fa-arrow-right"></i>
-            </a>
+            <a href="index.html#book" class="btn btn-white">Book a Deep Clean <i class="fas fa-arrow-right"></i></a>
             <a href="#services" class="btn btn-outline">Explore Services</a>
         </div>
     </div>
 
     <div class="container hero-content mobile-hero-content">
-
         <h1>Deep Cleaning,<br>Done Right.</h1>
-
-        <p class="mobile-hero-copy">
-            We take care of the cleaning and organising, leaving your space sparkling and perfectly in place.
-        </p>
-
+        <p class="mobile-hero-copy">We take care of the cleaning and organising, leaving your space sparkling and perfectly in place.</p>
         <div class="mobile-hero-actions">
             <a href="index.html#book" class="mobile-hero-cta">
                 <span class="cta-label">Book Deep Clean</span>
-                <span class="mobile-hero-arrow" aria-hidden="true">
-                    <i class="fas fa-arrow-right"></i>
-                </span>
+                <span class="mobile-hero-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
             </a>
             <a href="#contact" class="mobile-contact-cta">
                 <i class="fas fa-phone" aria-hidden="true"></i>
                 <span>Contact Us</span>
             </a>
         </div>
-
         <p class="mobile-hero-location">
             <i class="fas fa-location-dot" aria-hidden="true"></i>
             <span>Birmingham &amp; surrounding areas</span>
         </p>
-
         <div class="mobile-hero-trust">
             <div class="trust-item">
                 <i class="fas fa-shield-alt" aria-hidden="true"></i>
@@ -1041,11 +1047,9 @@
                 <span>Trusted Local<br>Service</span>
             </div>
         </div>
-
     </div>
 </section>
 
-<!-- ===== TRUST CARDS (desktop only) ===== -->
 <div class="trust-strip">
     <div class="trust-cards-container">
         <div class="trust-cards-grid">
@@ -1072,10 +1076,8 @@
     </div>
 </div>
 
-<!-- ===== SERVICES (desktop only) ===== -->
 <section id="services"><div class="container"><h2 class="services-heading">Our <span class="primary">Services</span></h2><p class="section-subhead">Professional, reliable, and tailored to your space. Each service comes with our 100% satisfaction guarantee.</p><div class="services-wrapper"><div class="services-grid"><div class="service-card" onclick="goToBookingPage('residential')" role="button" tabindex="0"><div class="service-image"><img src="Res.png" alt="Professional residential cleaning" loading="lazy"></div><div class="service-content"><h3>Residential Cleaning</h3><p>Deep cleaning that leaves your home spotless, refreshed, and stress-free.</p><div class="service-price">£200 <small>starting from</small></div><button class="btn-service" onclick="event.stopPropagation(); goToBookingPage('residential')">Book Now</button></div></div><div class="service-card" onclick="goToBookingPage('tenancy')" role="button" tabindex="0"><div class="service-image"><img src="End.png" alt="End of tenancy cleaning" loading="lazy"></div><div class="service-content"><h3>End of Tenancy</h3><p>Detailed deep clean to help secure your deposit and meet agency standards.</p><div class="service-price">£210 <small>starting from</small></div><button class="btn-service" onclick="event.stopPropagation(); goToBookingPage('tenancy')">Book Now</button></div></div><div class="service-card" onclick="goToBookingPage('carpet')" role="button" tabindex="0"><div class="service-image"><img src="carpet.png" alt="Carpet cleaning" loading="lazy"></div><div class="service-content"><h3>Carpet &amp; Upholstery</h3><p>Deep stain removal and fabric cleaning to restore freshness and comfort.</p><div class="service-price">£70 <small>per room</small></div><button class="btn-service" onclick="event.stopPropagation(); goToBookingPage('carpet')">Book Now</button></div></div><div class="service-card" onclick="goToBookingPage('post')" role="button" tabindex="0"><div class="service-image"><img src="post.png" alt="Post construction cleaning" loading="lazy"></div><div class="service-content"><h3>Post-Construction</h3><p>New build or renovation? We handle dust, debris, and residue so you can move in safely.</p><div class="service-price">£200 <small>starting from</small></div><button class="btn-service" onclick="event.stopPropagation(); goToBookingPage('post')">Request Quote</button></div></div><div class="service-card" onclick="goToBookingPage('commercial')" role="button" tabindex="0"><div class="service-image"><img src="9.png" alt="Commercial cleaning" loading="lazy"></div><div class="service-content"><h3>Commercial Cleaning</h3><p>Deep, reliable cleaning for a spotless and professional workspace.</p><div class="service-price">From £200</div><button class="btn-service" onclick="event.stopPropagation(); goToBookingPage('commercial')">Request Quote</button></div></div><div class="service-card" onclick="goToBookingPage('organisation')" role="button" tabindex="0"><div class="service-image"><img src="19.png" alt="Home organisation" loading="lazy"></div><div class="service-content"><h3>Home Organisation</h3><p>Declutter and organise your space for peace of mind. Wardrobes, pantries, garages and more.</p><div class="service-price">£45 <small>/hour</small></div><button class="btn-service" onclick="event.stopPropagation(); goToBookingPage('organisation')">Book Now</button></div></div></div></div></div></section>
 
-<!-- ===== BOOKING ===== -->
 <section id="book"><div class="container"><h2 class="section-title">Book Your <span class="primary">Service</span></h2><p class="section-subhead">Choose a service below to start your booking. Your estimated price will be calculated on the next page.</p><div class="booking-system"><div class="booking-header"><h3>Select Your Service</h3></div>
     <hr class="booking-divider">
     <div class="booking-container">
@@ -1083,7 +1085,6 @@
         <div class="service-selector"><div class="service-option" onclick="goToBookingPage('residential')" role="button" tabindex="0"><i class="fas fa-home"></i><h4>Residential Cleaning</h4><p>Regular &amp; deep cleaning</p></div><div class="service-option" onclick="goToBookingPage('tenancy')" role="button" tabindex="0"><i class="fas fa-key"></i><h4>End of Tenancy</h4><p>Move-in/out cleaning</p></div><div class="service-option" onclick="goToBookingPage('carpet')" role="button" tabindex="0"><i class="fas fa-couch"></i><h4>Carpet &amp; Upholstery</h4><p>Fabric deep cleaning</p></div><div class="service-option" onclick="goToBookingPage('post')" role="button" tabindex="0"><i class="fas fa-hard-hat"></i><h4>Post-Construction</h4><p>Builders clean</p></div><div class="service-option" onclick="goToBookingPage('commercial')" role="button" tabindex="0"><i class="fas fa-building"></i><h4>Commercial Cleaning</h4><p>Office &amp; business</p></div><div class="service-option" onclick="goToBookingPage('organisation')" role="button" tabindex="0"><i class="fas fa-warehouse"></i><h4>Home Organisation</h4><p>Declutter &amp; organise</p></div></div>
     </div></div></div></section>
 
-<!-- ===== PRICING ===== -->
 <section id="pricing" class="pricing-section"><div class="container"><div class="pricing-container">
     <h2 class="section-title">Transparent <span class="primary">Pricing</span></h2>
     <p class="section-subhead">Fixed rates, no hidden fees. Know exactly what you'll pay before you book.</p>
@@ -1119,7 +1120,6 @@
     </div>
 </div></div></section>
 
-<!-- ===== RATING ===== -->
 <div class="container">
     <div class="rating-wrapper">
         <div class="rating-container">
@@ -1133,7 +1133,6 @@
     </div>
 </div>
 
-<!-- ===== CONTACT ===== -->
 <section id="contact"><div class="container"><h2 class="section-title">Get In <span class="primary">Touch</span></h2><div class="contact-grid"><div class="contact-info"><h3>Contact Information</h3>
     <a href="tel:+447786912425" class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div class="contact-text"><h4>Phone</h4><p>+44 07786 912425</p></div></a>
     <a href="mailto:info@drsparkclean.co.uk" class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-text"><h4>Email</h4><p>info@drsparkclean.co.uk</p></div></a>
@@ -1185,7 +1184,6 @@
     </div>
 </div></div></section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
     <div class="container">
         <div class="footer-grid">
@@ -1206,54 +1204,41 @@
     </div>
 </footer>
 
-<!-- ===== MODAL ===== -->
 <div id="modalOverlay" class="modal-overlay"><div class="modal" id="modal"><div id="modalIcon" class="modal-icon success"></div><h3 id="modalTitle">Booking Request Received</h3><p id="modalMessage">We've received your request and will contact you shortly to confirm availability and final details.</p><button class="modal-btn" id="modalCloseBtn">Got it</button></div></div>
 
-<!-- ===== COOKIE CONSENT ===== -->
-<div class="ck-backdrop" id="ckBackdrop" aria-hidden="true"></div>
-
-<div class="ck-modal" id="ckModal" role="dialog" aria-modal="true" aria-labelledby="ckTitle" aria-hidden="true">
-    <div class="ck-card" id="ckCard">
-        <div class="ck-logo">
-            <div class="ck-logo-img"><i class="fas fa-house-chimney" aria-hidden="true"></i></div>
-            <div class="ck-logo-text">
-                <span class="ck-logo-primary">Dr Sparkclean</span>
-                <span class="ck-logo-secondary">Services Ltd</span>
-            </div>
-        </div>
+<!-- ===== COOKIE CONSENT (compact, non-blocking) ===== -->
+<div class="ck-notice" id="ckNotice" role="region" aria-label="Cookie notice">
+    <button type="button" class="ck-close" id="ckClose" aria-label="Dismiss cookie notice"><i class="fas fa-times" aria-hidden="true"></i></button>
+    <div class="ck-row">
         <div class="ck-shield"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
-        <h2 class="ck-title" id="ckTitle">Your privacy matters</h2>
-        <p class="ck-body">We use essential cookies to make our website work. We currently do not use optional analytics or marketing cookies. <a href="privacy-policy.html">Learn more in our Privacy Policy →</a></p>
-        <div class="ck-actions">
-            <button type="button" class="ck-btn ck-btn-primary" id="ckAcceptBtn">Got it</button>
-            <button type="button" class="ck-btn ck-btn-ghost" id="ckSettingsBtn">Cookie settings</button>
+        <div class="ck-text">
+            <div class="ck-title">Your privacy matters</div>
+            <div class="ck-body">We use essential cookies to make our site work. We don't use analytics or marketing cookies. <a href="privacy-policy.html">Learn more in our Privacy Policy →</a></div>
         </div>
+    </div>
+    <div class="ck-actions">
+        <button type="button" class="ck-btn ck-btn-ghost" id="ckSettingsBtn">Cookie settings</button>
+        <button type="button" class="ck-btn ck-btn-primary" id="ckAcceptBtn">Got it</button>
     </div>
 </div>
 
-<div class="ck-modal" id="ckSettingsModal" role="dialog" aria-modal="true" aria-labelledby="ckSettingsTitle" aria-hidden="true">
-    <div class="ck-card" id="ckSettingsCard">
-        <div class="ck-logo">
-            <div class="ck-logo-img"><i class="fas fa-house-chimney" aria-hidden="true"></i></div>
-            <div class="ck-logo-text">
-                <span class="ck-logo-primary">Dr Sparkclean</span>
-                <span class="ck-logo-secondary">Services Ltd</span>
-            </div>
-        </div>
+<div class="ck-settings" id="ckSettings" role="region" aria-label="Cookie settings">
+    <button type="button" class="ck-close" id="ckSettingsClose" aria-label="Close cookie settings"><i class="fas fa-times" aria-hidden="true"></i></button>
+    <div class="ck-settings-head">
         <div class="ck-shield"><i class="fas fa-gear" aria-hidden="true"></i></div>
-        <h2 class="ck-title" id="ckSettingsTitle">Cookie settings</h2>
-        <p class="ck-subtitle">The website currently uses essential cookies only. There are no optional analytics or marketing cookies to manage.</p>
-        <div class="ck-row">
-            <div class="ck-row-icon"><i class="fas fa-lock" aria-hidden="true"></i></div>
-            <div class="ck-row-text">
-                <div class="ck-row-title">Essential cookies</div>
-                <div class="ck-row-desc">Required for the website to function correctly.</div>
-            </div>
-            <div class="ck-row-state">Always on</div>
+        <div class="ck-settings-title">Cookie settings</div>
+    </div>
+    <div class="ck-settings-sub">The website uses essential cookies only. There are no optional analytics or marketing cookies to manage.</div>
+    <div class="ck-cat">
+        <div class="ck-cat-icon"><i class="fas fa-lock" aria-hidden="true"></i></div>
+        <div class="ck-cat-text">
+            <div class="ck-cat-title">Essential cookies</div>
+            <div class="ck-cat-desc">Required for the website to function correctly.</div>
         </div>
-        <div class="ck-actions">
-            <button type="button" class="ck-btn ck-btn-primary" id="ckSettingsCloseBtn">Close</button>
-        </div>
+        <div class="ck-cat-state">Always on</div>
+    </div>
+    <div class="ck-actions">
+        <button type="button" class="ck-btn ck-btn-primary" id="ckSettingsDone">Close</button>
     </div>
 </div>
 
@@ -1286,7 +1271,6 @@
     </a>
 </div>
 
-<!-- ===== JAVASCRIPT ===== -->
 <script>
     const POWER_AUTOMATE_CONTACT_URL = 'https://default9677c98995364c8db14d72fa9aa124.c6.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/fb50c4acfdf54c0ba264b90575ab2066/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=hRi8Alynd175wTvKPspOx90LpusD_IKShrAROJpdMhA';
 
@@ -1407,22 +1391,26 @@
 
     /* ============================================================
        COOKIE CONSENT
-       Essential-only. Versioned storage.
+       Compact, non-blocking. Essential-only. Versioned storage.
+       X dismisses without forcing interaction, but records the
+       same acknowledgement as "Got it" so the notice is not
+       shown on every page load.
        ============================================================ */
     (function () {
         const STORAGE_KEY = 'drsparkclean_cookie_consent';
         const CONSENT_VERSION = 1;
 
-        const backdrop = document.getElementById('ckBackdrop');
-        const modal = document.getElementById('ckModal');
-        const settingsModal = document.getElementById('ckSettingsModal');
+        const notice = document.getElementById('ckNotice');
+        const settings = document.getElementById('ckSettings');
         const acceptBtn = document.getElementById('ckAcceptBtn');
+        const closeBtn = document.getElementById('ckClose');
         const settingsBtn = document.getElementById('ckSettingsBtn');
-        const settingsCloseBtn = document.getElementById('ckSettingsCloseBtn');
+        const settingsClose = document.getElementById('ckSettingsClose');
+        const settingsDone = document.getElementById('ckSettingsDone');
         const toast = document.getElementById('ckToast');
         const fab = document.getElementById('ckFab');
 
-        if (!backdrop || !modal || !settingsModal || !acceptBtn || !settingsBtn || !settingsCloseBtn || !toast || !fab) return;
+        if (!notice || !settings || !acceptBtn || !closeBtn || !settingsBtn || !settingsClose || !settingsDone || !toast || !fab) return;
 
         function readConsent() {
             try {
@@ -1432,9 +1420,7 @@
                 if (!parsed || typeof parsed !== 'object') return null;
                 if (parsed.version !== CONSENT_VERSION) return null;
                 return parsed;
-            } catch (e) {
-                return null;
-            }
+            } catch (e) { return null; }
         }
 
         function writeConsent() {
@@ -1444,81 +1430,59 @@
                 timestamp: new Date().toISOString()
             };
             try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
-            try {
-                window.dispatchEvent(new CustomEvent('cookieConsentChanged', { detail: data }));
-            } catch (e) {}
+            try { window.dispatchEvent(new CustomEvent('cookieConsentChanged', { detail: data })); } catch (e) {}
         }
 
         function showToast() {
             toast.classList.add('is-open');
             clearTimeout(showToast._t);
-            showToast._t = setTimeout(function () {
-                toast.classList.remove('is-open');
-            }, 2500);
+            showToast._t = setTimeout(function () { toast.classList.remove('is-open'); }, 2500);
         }
 
-        function openModal() {
-            backdrop.classList.add('is-open');
-            modal.classList.add('is-open');
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-            setTimeout(function () { acceptBtn.focus(); }, 60);
+        function openNotice() {
+            notice.classList.add('is-open');
         }
-
-        function closeModal() {
-            backdrop.classList.remove('is-open');
-            modal.classList.remove('is-open');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
+        function closeNotice() {
+            notice.classList.remove('is-open');
         }
-
         function openSettings() {
-            settingsModal.classList.add('is-open');
-            settingsModal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-            setTimeout(function () { settingsCloseBtn.focus(); }, 60);
+            settings.classList.add('is-open');
+            setTimeout(function () { settingsDone.focus(); }, 60);
         }
-
         function closeSettings() {
-            settingsModal.classList.remove('is-open');
-            settingsModal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
+            settings.classList.remove('is-open');
         }
-
         function showFab() { fab.classList.add('is-visible'); }
 
-        acceptBtn.addEventListener('click', function () {
+        function acknowledge() {
             writeConsent();
-            closeModal();
+            closeNotice();
             showFab();
             showToast();
-        });
+        }
+
+        acceptBtn.addEventListener('click', acknowledge);
+        closeBtn.addEventListener('click', acknowledge);
 
         settingsBtn.addEventListener('click', function () {
+            closeNotice();
             openSettings();
         });
 
-        settingsCloseBtn.addEventListener('click', function () {
-            closeSettings();
-        });
+        settingsClose.addEventListener('click', closeSettings);
+        settingsDone.addEventListener('click', closeSettings);
 
-        fab.addEventListener('click', function () {
-            openSettings();
-        });
-
-        settingsModal.addEventListener('click', function (e) {
-            if (e.target === settingsModal) closeSettings();
-        });
+        fab.addEventListener('click', openSettings);
 
         document.addEventListener('keydown', function (e) {
             if (e.key !== 'Escape') return;
-            if (settingsModal.classList.contains('is-open')) { closeSettings(); return; }
+            if (settings.classList.contains('is-open')) { closeSettings(); return; }
         });
 
         document.addEventListener('DOMContentLoaded', function () {
             const stored = readConsent();
             if (!stored) {
-                setTimeout(function () { openModal(); }, 800);
+                setTimeout(function () { openNotice(); }, 800);
             } else {
                 showFab();
             }
