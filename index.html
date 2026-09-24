@@ -53,9 +53,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
-        /* ============================================================
-           ORIGINAL DESKTOP CSS — untouched
-           ============================================================ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
@@ -229,7 +226,6 @@
         @media (max-width: 768px) { .hero p { font-size: 0.9rem; margin-bottom: 1.5rem; } }
         .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
 
-        /* Hide mobile-only hero elements on desktop */
         .hero-eyebrow,
         .hero-location,
         .mobile-hero-content,
@@ -417,17 +413,6 @@
         .modal p { color: var(--text-soft); font-size: 0.85rem; margin-bottom: 24px; }
         .modal-btn { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 10px 24px; border-radius: 999px; font-weight: 600; cursor: pointer; }
 
-        /* ===== COOKIE ===== */
-        .cookie-consent { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 -8px 24px rgba(0,0,0,0.08); padding: 14px 20px; z-index: 10000; transform: translateY(100%); transition: transform 0.3s ease; border-top: 3px solid var(--primary); }
-        .cookie-consent.show { transform: translateY(0); }
-        .cookie-content { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
-        .cookie-text { flex: 1; font-size: 0.8rem; color: var(--text-soft); }
-        .cookie-buttons { display: flex; gap: 10px; }
-        .cookie-btn { padding: 6px 16px; border-radius: 999px; font-weight: 600; font-size: 0.75rem; cursor: pointer; border: none; }
-        .cookie-btn-accept { background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%); color: white; box-shadow: 0 14px 28px rgba(11, 94, 90, 0.22), inset 0 1px 0 rgba(255,255,255,0.20); }
-        .cookie-btn-accept:hover { transform: translateY(-2px); box-shadow: 0 20px 38px rgba(11, 94, 90, 0.30), inset 0 1px 0 rgba(255,255,255,0.22); }
-        .cookie-btn-decline { background: #f0f0f0; color: var(--text-dark); }
-
         .loading-spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: white; animation: spin 0.6s linear infinite; margin-right: 6px; }
         @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -438,6 +423,59 @@
         .rating-main { font-weight: 700; font-size: 0.8rem; color: var(--text-dark); }
         .rating-sub { font-size: 0.65rem; color: var(--text-light); }
         .rating-divider { width: 1px; height: 24px; background: #E5E7EB; }
+
+        /* ============================================================
+           COOKIE CONSENT COMPONENT
+           ============================================================ */
+        .ck-backdrop { position: fixed; inset: 0; background: rgba(6, 40, 38, 0.55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); z-index: 10001; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s ease; }
+        .ck-backdrop.is-open { opacity: 1; visibility: visible; }
+
+        .ck-modal { position: fixed; inset: 0; z-index: 10002; display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+        .ck-modal.is-open { display: flex; }
+        .ck-card { position: relative; width: 100%; max-width: 440px; background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 20px; box-shadow: 0 30px 80px rgba(6, 40, 38, 0.28), 0 6px 20px rgba(6, 40, 38, 0.10); padding: 28px 24px 22px; text-align: center; max-height: calc(100vh - 40px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+        .ck-logo { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+        .ck-logo-img { width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 18px; flex-shrink: 0; }
+        .ck-logo-text { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
+        .ck-logo-primary { font-family: "Playfair Display", serif; font-size: 14px; font-weight: 800; color: var(--primary-dark); letter-spacing: -0.01em; }
+        .ck-logo-secondary { font-family: "Inter", sans-serif; font-size: 8px; font-weight: 500; color: var(--text-light); letter-spacing: 0.22em; text-transform: uppercase; margin-top: 2px; }
+        .ck-shield { width: 56px; height: 56px; border-radius: 50%; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 22px; margin: 4px auto 14px; }
+        .ck-title { font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; letter-spacing: -0.02em; line-height: 1.2; }
+        .ck-body { font-size: 0.88rem; color: var(--text-soft); line-height: 1.55; margin-bottom: 12px; }
+        .ck-body a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .ck-body a:hover { text-decoration: underline; }
+        .ck-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        .ck-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 46px; padding: 12px 20px; border-radius: 10px; font-family: inherit; font-size: 0.92rem; font-weight: 600; cursor: pointer; border: none; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease; -webkit-tap-highlight-color: transparent; }
+        .ck-btn-primary { background: linear-gradient(180deg, #14746D 0%, #0B5E5A 52%, #064442 100%); color: #FFFFFF; box-shadow: 0 10px 24px rgba(11, 94, 90, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.20); }
+        .ck-btn-primary:active { transform: translateY(1px); box-shadow: 0 6px 14px rgba(11, 94, 90, 0.20); }
+        .ck-btn-ghost { background: transparent; color: var(--primary); border: 1px solid rgba(11, 94, 90, 0.22); }
+        .ck-btn-ghost:active { background: rgba(11, 94, 90, 0.06); }
+
+        .ck-subtitle { font-size: 0.9rem; color: var(--text-soft); line-height: 1.5; margin-bottom: 18px; text-align: left; }
+        .ck-row { display: flex; align-items: flex-start; gap: 12px; padding: 14px 14px; border: 1px solid rgba(11, 94, 90, 0.10); border-radius: 12px; background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); text-align: left; }
+        .ck-row-icon { flex-shrink: 0; width: 34px; height: 34px; border-radius: 9px; background: var(--primary-soft); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+        .ck-row-text { flex: 1; min-width: 0; }
+        .ck-row-title { font-size: 0.9rem; font-weight: 700; color: var(--text-dark); margin-bottom: 2px; }
+        .ck-row-desc { font-size: 0.78rem; color: var(--text-light); line-height: 1.4; }
+        .ck-row-state { flex-shrink: 0; align-self: center; font-size: 0.72rem; font-weight: 700; color: var(--primary); background: var(--primary-soft); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+
+        .ck-toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(20px); background: #FFFFFF; border: 1px solid rgba(11, 94, 90, 0.12); border-radius: 12px; box-shadow: 0 18px 40px rgba(19, 43, 48, 0.18), 0 4px 12px rgba(19, 43, 48, 0.06); padding: 12px 18px; display: inline-flex; align-items: center; gap: 10px; font-size: 0.85rem; font-weight: 500; color: var(--text-dark); z-index: 10005; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease; max-width: calc(100vw - 32px); }
+        .ck-toast.is-open { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .ck-toast i { color: var(--primary); font-size: 0.95rem; }
+
+        .ck-fab { position: fixed; right: 16px; bottom: calc(96px + env(safe-area-inset-bottom)); width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(11, 94, 90, 0.14); background: #FFFFFF; color: var(--primary); display: none; align-items: center; justify-content: center; font-size: 1rem; cursor: pointer; box-shadow: 0 12px 26px rgba(19, 43, 48, 0.14), 0 2px 6px rgba(19, 43, 48, 0.06); z-index: 9000; transition: transform 0.15s ease, box-shadow 0.15s ease; -webkit-tap-highlight-color: transparent; }
+        .ck-fab.is-visible { display: inline-flex; }
+        .ck-fab:active { transform: scale(0.95); box-shadow: 0 6px 14px rgba(19, 43, 48, 0.12); }
+
+        @media (min-width: 769px) {
+            .ck-fab { bottom: 20px; right: 20px; }
+        }
+        @media (max-width: 768px) {
+            .ck-card { padding: 24px 20px 20px; border-radius: 18px; }
+            .ck-toast { bottom: calc(96px + env(safe-area-inset-bottom)); }
+        }
+        @media (max-width: 380px) {
+            .ck-card { padding: 20px 16px 16px; }
+        }
 
         /* ============================================================
            MOBILE-ONLY ELEMENTS — hidden at base
@@ -482,7 +520,6 @@
             section { padding: 34px 0; }
             section[id] { scroll-margin-top: 76px; }
 
-            /* ---------- HEADER ---------- */
             nav { height: 64px; }
             .logo-icon img { height: 36px; }
             .logo-primary { font-size: 0.95rem; }
@@ -509,7 +546,6 @@
                 font-weight: 700; text-align: center;
             }
 
-            /* ---------- HERO ---------- */
             .hero {
                 height: auto;
                 min-height: 560px;
@@ -551,7 +587,6 @@
             .hero-location { display: none !important; }
             .hero-buttons { display: none !important; }
 
-            /* ===== RAISE THE UPPER CONTENT BLOCK ===== */
             .mobile-hero-content h1,
             .mobile-hero-actions,
             .mobile-hero-location {
@@ -559,7 +594,6 @@
                 top: -34px;
             }
 
-            /* Headline */
             .mobile-hero-content h1 {
                 color: #FFFFFF;
                 font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -572,12 +606,10 @@
                 text-shadow: 0 2px 12px rgba(0, 0, 0, 0.24);
             }
 
-            /* Supporting copy — HIDDEN on mobile */
             .mobile-hero-copy {
                 display: none !important;
             }
 
-            /* Two-button pill row */
             .mobile-hero-actions {
                 display: flex;
                 align-items: center;
@@ -586,7 +618,6 @@
                 flex-wrap: nowrap;
             }
 
-            /* BOTH BUTTONS — matched size */
             .mobile-hero-cta,
             .mobile-contact-cta {
                 display: inline-flex;
@@ -603,7 +634,6 @@
                 text-decoration: none;
             }
 
-            /* BOOK */
             .mobile-hero-cta {
                 gap: 7px;
                 background: #FFFFFF;
@@ -619,7 +649,6 @@
                 letter-spacing: -0.01em;
             }
 
-            /* Small arrow circle inside the pill */
             .mobile-hero-arrow {
                 display: inline-flex;
                 align-items: center;
@@ -636,7 +665,6 @@
                 color: #0B5E5A;
             }
 
-            /* CONTACT — same size as Book */
             .mobile-contact-cta {
                 gap: 7px;
                 border: 1px solid rgba(255, 255, 255, 0.65);
@@ -651,7 +679,6 @@
                 color: #FFFFFF;
             }
 
-            /* Location — with breathing space below */
             .mobile-hero-location {
                 display: flex;
                 align-items: center;
@@ -669,7 +696,6 @@
                 color: #F5B84B;
             }
 
-            /* Trust row */
             .mobile-hero-trust {
                 display: grid;
                 grid-template-columns: 1fr 1px 1fr 1px 1fr;
@@ -706,11 +732,9 @@
                 align-self: center;
             }
 
-            /* ---------- HIDE 4-ITEM STRIP + SERVICES ---------- */
             .trust-strip { display: none !important; }
             #services { display: none !important; }
 
-            /* ---------- BOOKING ---------- */
             #book {
                 padding: 34px 0 32px !important;
                 background: linear-gradient(
@@ -771,7 +795,6 @@
             .service-option h4 { margin: 0 0 4px; text-align: center; font-size: 0.75rem; line-height: 1.2; font-weight: 700; }
             .service-option p { margin: 0; text-align: center; color: var(--text-light); font-size: 0.62rem; line-height: 1.3; }
 
-            /* ---------- PRICING ---------- */
             .pricing-section { padding: 32px 0 !important; }
             .pricing-container {
                 max-width: none; margin: 0; padding: 0;
@@ -825,7 +848,6 @@
                 font-size: 0.67rem;
             }
 
-            /* ---------- ADD-ONS ---------- */
             .addons-heading { margin: 26px 0 12px; text-align: left; font-size: 1.08rem; }
             .addons-showcase { display: none; }
             .mobile-addons-list {
@@ -836,14 +858,12 @@
                 border-radius: 10px;
             }
 
-            /* ---------- RATING ---------- */
             .rating-wrapper { margin: 8px 0 14px; }
             .rating-container { gap: 9px; padding: 9px 12px; border-radius: 9px; box-shadow: none; }
             .rating-stars { font-size: 0.72rem; }
             .rating-main { font-size: 0.7rem; }
             .rating-sub { font-size: 0.59rem; }
 
-            /* ---------- CONTACT ---------- */
             #contact { padding: 34px 0 !important; }
             #contact .section-title { margin-bottom: 18px; text-align: left; font-size: 1.65rem; }
             .contact-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -868,7 +888,6 @@
             .input-icon-wrapper .input-icon { left: 12px; font-size: 0.85rem; }
             .contact-submit-btn { min-height: 44px; border-radius: 10px; font-size: 0.88rem; }
 
-            /* ---------- FOOTER ---------- */
             footer { padding: 28px 0 calc(96px + env(safe-area-inset-bottom)); }
             .footer-grid { grid-template-columns: 1fr; gap: 22px; margin-bottom: 24px; }
             .footer-logo { margin-bottom: 8px; font-size: 1.15rem; }
@@ -879,19 +898,6 @@
             .footer-links li { margin-bottom: 6px; font-size: 0.76rem; }
             .footer-bottom { padding-top: 14px; font-size: 0.7rem; }
 
-            /* ---------- COOKIE ---------- */
-            .cookie-consent {
-                left: 10px; right: 10px;
-                bottom: calc(88px + env(safe-area-inset-bottom));
-                flex-direction: column;
-                align-items: stretch;
-                padding: 12px;
-                border-radius: 10px;
-            }
-            .cookie-buttons { width: 100%; }
-            .cookie-btn { flex: 1; border-radius: 8px; }
-
-            /* ---------- MOBILE BOTTOM NAV ---------- */
             .mobile-bottom-nav {
                 position: fixed;
                 left: 10px;
@@ -931,9 +937,6 @@
             }
         }
 
-        /* ============================================================
-           VERY SMALL SCREENS (≤480px)
-           ============================================================ */
         @media (max-width: 480px) {
             .hero { min-height: 540px; }
             .mobile-hero-content h1 { font-size: 1.75rem; max-width: 270px; }
@@ -973,7 +976,6 @@
     <div class="hero-static-bg"></div>
     <div class="hero-overlay"></div>
 
-    <!-- DESKTOP hero content -->
     <div class="container hero-content hero-desktop-content">
 
         <span class="hero-eyebrow">A cleaner, happier home</span>
@@ -997,7 +999,6 @@
         </div>
     </div>
 
-    <!-- MOBILE hero content -->
     <div class="container hero-content mobile-hero-content">
 
         <h1>Deep Cleaning,<br>Done Right.</h1>
@@ -1209,12 +1210,61 @@
 <div id="modalOverlay" class="modal-overlay"><div class="modal" id="modal"><div id="modalIcon" class="modal-icon success"></div><h3 id="modalTitle">Booking Request Received</h3><p id="modalMessage">We've received your request and will contact you shortly to confirm availability and final details.</p><button class="modal-btn" id="modalCloseBtn">Got it</button></div></div>
 
 <!-- ===== COOKIE CONSENT ===== -->
-<div id="cookieConsent" class="cookie-consent">
-    <div class="cookie-content">
-        <div class="cookie-text">🍪 We use essential cookies to make our site work. By using our site, you accept our <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.</div>
-        <div class="cookie-buttons"><button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline</button><button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept</button></div>
+<div class="ck-backdrop" id="ckBackdrop" aria-hidden="true"></div>
+
+<div class="ck-modal" id="ckModal" role="dialog" aria-modal="true" aria-labelledby="ckTitle" aria-hidden="true">
+    <div class="ck-card" id="ckCard">
+        <div class="ck-logo">
+            <div class="ck-logo-img"><i class="fas fa-house-chimney" aria-hidden="true"></i></div>
+            <div class="ck-logo-text">
+                <span class="ck-logo-primary">Dr Sparkclean</span>
+                <span class="ck-logo-secondary">Services Ltd</span>
+            </div>
+        </div>
+        <div class="ck-shield"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
+        <h2 class="ck-title" id="ckTitle">Your privacy matters</h2>
+        <p class="ck-body">We use essential cookies to make our website work. We currently do not use optional analytics or marketing cookies. <a href="privacy-policy.html">Learn more in our Privacy Policy →</a></p>
+        <div class="ck-actions">
+            <button type="button" class="ck-btn ck-btn-primary" id="ckAcceptBtn">Got it</button>
+            <button type="button" class="ck-btn ck-btn-ghost" id="ckSettingsBtn">Cookie settings</button>
+        </div>
     </div>
 </div>
+
+<div class="ck-modal" id="ckSettingsModal" role="dialog" aria-modal="true" aria-labelledby="ckSettingsTitle" aria-hidden="true">
+    <div class="ck-card" id="ckSettingsCard">
+        <div class="ck-logo">
+            <div class="ck-logo-img"><i class="fas fa-house-chimney" aria-hidden="true"></i></div>
+            <div class="ck-logo-text">
+                <span class="ck-logo-primary">Dr Sparkclean</span>
+                <span class="ck-logo-secondary">Services Ltd</span>
+            </div>
+        </div>
+        <div class="ck-shield"><i class="fas fa-gear" aria-hidden="true"></i></div>
+        <h2 class="ck-title" id="ckSettingsTitle">Cookie settings</h2>
+        <p class="ck-subtitle">The website currently uses essential cookies only. There are no optional analytics or marketing cookies to manage.</p>
+        <div class="ck-row">
+            <div class="ck-row-icon"><i class="fas fa-lock" aria-hidden="true"></i></div>
+            <div class="ck-row-text">
+                <div class="ck-row-title">Essential cookies</div>
+                <div class="ck-row-desc">Required for the website to function correctly.</div>
+            </div>
+            <div class="ck-row-state">Always on</div>
+        </div>
+        <div class="ck-actions">
+            <button type="button" class="ck-btn ck-btn-primary" id="ckSettingsCloseBtn">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="ck-toast" id="ckToast" role="status" aria-live="polite">
+    <i class="fas fa-circle-check" aria-hidden="true"></i>
+    <span>Your cookie preferences are saved.</span>
+</div>
+
+<button type="button" class="ck-fab" id="ckFab" aria-label="Cookie settings" title="Cookie settings">
+    <i class="fas fa-cookie-bite" aria-hidden="true"></i>
+</button>
 
 <!-- ===== MOBILE BOTTOM NAV ===== -->
 <div class="mobile-bottom-nav">
@@ -1236,7 +1286,7 @@
     </a>
 </div>
 
-<!-- ===== JAVASCRIPT (untouched) ===== -->
+<!-- ===== JAVASCRIPT ===== -->
 <script>
     const POWER_AUTOMATE_CONTACT_URL = 'https://default9677c98995364c8db14d72fa9aa124.c6.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/fb50c4acfdf54c0ba264b90575ab2066/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=hRi8Alynd175wTvKPspOx90LpusD_IKShrAROJpdMhA';
 
@@ -1355,10 +1405,125 @@
         }
     });
 
-    function acceptCookies() { localStorage.setItem('cookieConsent', 'accepted'); document.getElementById('cookieConsent').classList.remove('show'); }
-    function declineCookies() { localStorage.setItem('cookieConsent', 'declined'); document.getElementById('cookieConsent').classList.remove('show'); }
-    function checkCookieConsent() { if (!localStorage.getItem('cookieConsent')) { setTimeout(() => { const consentBanner = document.getElementById('cookieConsent'); if (consentBanner) consentBanner.classList.add('show'); }, 1000); } }
-    document.addEventListener('DOMContentLoaded', checkCookieConsent);
+    /* ============================================================
+       COOKIE CONSENT
+       Essential-only. Versioned storage.
+       ============================================================ */
+    (function () {
+        const STORAGE_KEY = 'drsparkclean_cookie_consent';
+        const CONSENT_VERSION = 1;
+
+        const backdrop = document.getElementById('ckBackdrop');
+        const modal = document.getElementById('ckModal');
+        const settingsModal = document.getElementById('ckSettingsModal');
+        const acceptBtn = document.getElementById('ckAcceptBtn');
+        const settingsBtn = document.getElementById('ckSettingsBtn');
+        const settingsCloseBtn = document.getElementById('ckSettingsCloseBtn');
+        const toast = document.getElementById('ckToast');
+        const fab = document.getElementById('ckFab');
+
+        if (!backdrop || !modal || !settingsModal || !acceptBtn || !settingsBtn || !settingsCloseBtn || !toast || !fab) return;
+
+        function readConsent() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (!raw) return null;
+                const parsed = JSON.parse(raw);
+                if (!parsed || typeof parsed !== 'object') return null;
+                if (parsed.version !== CONSENT_VERSION) return null;
+                return parsed;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function writeConsent() {
+            const data = {
+                version: CONSENT_VERSION,
+                essential: true,
+                timestamp: new Date().toISOString()
+            };
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
+            try {
+                window.dispatchEvent(new CustomEvent('cookieConsentChanged', { detail: data }));
+            } catch (e) {}
+        }
+
+        function showToast() {
+            toast.classList.add('is-open');
+            clearTimeout(showToast._t);
+            showToast._t = setTimeout(function () {
+                toast.classList.remove('is-open');
+            }, 2500);
+        }
+
+        function openModal() {
+            backdrop.classList.add('is-open');
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            setTimeout(function () { acceptBtn.focus(); }, 60);
+        }
+
+        function closeModal() {
+            backdrop.classList.remove('is-open');
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        function openSettings() {
+            settingsModal.classList.add('is-open');
+            settingsModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            setTimeout(function () { settingsCloseBtn.focus(); }, 60);
+        }
+
+        function closeSettings() {
+            settingsModal.classList.remove('is-open');
+            settingsModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        function showFab() { fab.classList.add('is-visible'); }
+
+        acceptBtn.addEventListener('click', function () {
+            writeConsent();
+            closeModal();
+            showFab();
+            showToast();
+        });
+
+        settingsBtn.addEventListener('click', function () {
+            openSettings();
+        });
+
+        settingsCloseBtn.addEventListener('click', function () {
+            closeSettings();
+        });
+
+        fab.addEventListener('click', function () {
+            openSettings();
+        });
+
+        settingsModal.addEventListener('click', function (e) {
+            if (e.target === settingsModal) closeSettings();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key !== 'Escape') return;
+            if (settingsModal.classList.contains('is-open')) { closeSettings(); return; }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const stored = readConsent();
+            if (!stored) {
+                setTimeout(function () { openModal(); }, 800);
+            } else {
+                showFab();
+            }
+        });
+    })();
 
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
@@ -1407,4 +1572,3 @@
 
 </body>
 </html>
-```
