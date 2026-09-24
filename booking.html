@@ -204,8 +204,7 @@
         .m-carpet-group-title { font-size: 0.9rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
         .m-carpet-group-title i { color: var(--primary); font-size: 0.85rem; }
         .m-carpet-group .form-grid { margin-bottom: 0; }
-        .m-mobile-shell, .m-review-block, .m-show-more, .m-trust, .m-step-btn, .m-step-wrap-label, .m-accordion-chev, .m-accordion-toggle { display: none; }
-
+        .m-mobile-shell, .m-mobile-back-row, .m-review-block, .m-show-more, .m-trust, .m-step-btn, .m-step-wrap-label, .m-accordion-chev, .m-accordion-toggle { display: none; }
         @media (max-width: 768px) {
             html, body { overflow-x: hidden; width: 100%; max-width: 100%; }
             .container { padding: 0 20px; }
@@ -216,7 +215,7 @@
             .nav-links { top: 64px; height: calc(100vh - 64px); }
             .booking-page { padding-top: 72px; padding-bottom: 24px; min-height: calc(100vh - 260px); }
 
-            /* booking-system IS the mobile card now */
+            /* booking-system IS the mobile card */
             .booking-system {
                 background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%);
                 border: 1px solid rgba(11,94,90,0.08);
@@ -229,27 +228,29 @@
             .booking-divider { display: none; }
             .booking-container { padding: 18px 18px 20px; background: transparent; max-width: 100%; }
 
-            .m-mobile-shell { display: block; padding: 0; margin-bottom: 0; }
-            .m-mobile-shell-top { display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-bottom: 8px; padding: 14px 18px 0; }
+            /* Change service — mobile only, above the card */
+            .m-mobile-back-row { display: block; margin: 0 0 8px; }
             .m-mobile-shell-back { display: inline-flex; align-items: center; gap: 5px; background: none; border: none; padding: 4px 0; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--text-soft); }
             .m-mobile-shell-back i { font-size: 0.72rem; color: var(--text-soft); }
 
+            /* Green header of the mobile card — flows into form body */
+            .m-mobile-shell { display: block; padding: 0; margin: 0; }
             .m-mobile-bar {
                 background: linear-gradient(135deg, #075E58 0%, #053F3D 100%);
                 border-radius: 0;
-                padding: 10px 14px;
+                padding: 14px 12px 12px;
                 margin: 0;
             }
-            .m-mobile-progress { display: flex; align-items: flex-start; justify-content: center; gap: 0; width: 100%; max-width: 260px; margin: 0 auto; }
-            .m-mobile-progress .bp-stage { gap: 4px; }
-            .m-mobile-progress .bp-circle { width: 22px; height: 22px; font-size: 9px; border-width: 1.25px; }
-            .m-mobile-progress .bp-circle i { font-size: 9px; }
-            .m-mobile-progress .bp-label { display: block; font-size: 9px; line-height: 1.1; font-weight: 500; color: rgba(255,255,255,0.72); letter-spacing: 0; white-space: nowrap; margin-top: 0; }
+            .m-mobile-progress { display: flex; align-items: flex-start; justify-content: center; gap: 0; width: 100%; max-width: 300px; margin: 0 auto; }
+            .m-mobile-progress .bp-stage { gap: 6px; flex: 0 0 auto; }
+            .m-mobile-progress .bp-circle { width: 26px; height: 26px; font-size: 11px; border-width: 1.5px; }
+            .m-mobile-progress .bp-circle i { font-size: 11px; }
+            .m-mobile-progress .bp-label { display: block; font-size: 10px; line-height: 1.15; font-weight: 500; color: rgba(255,255,255,0.72); letter-spacing: 0; white-space: nowrap; margin-top: 0; }
             .m-mobile-progress .bp-stage.active .bp-label { color: #FFFFFF; font-weight: 650; }
             .m-mobile-progress .bp-stage.done .bp-label { color: rgba(255,255,255,0.72); font-weight: 500; }
-            .m-mobile-progress .bp-connector { flex: 0 0 auto; width: 26px; height: 1px; background: rgba(255,255,255,0.35); margin: 10px 5px 0; align-self: flex-start; max-width: none; }
+            .m-mobile-progress .bp-connector { flex: 1 1 auto; height: 1px; background: rgba(255,255,255,0.35); margin: 13px 6px 0; align-self: flex-start; min-width: 18px; max-width: none; }
 
-            /* Mobile control system */
+            /* Mobile control system — untouched */
             .form-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 24px; }
             .form-group { margin-bottom: 0; }
             .form-group.full-width { grid-column: span 1; }
@@ -424,16 +425,19 @@
 
     <div class="booking-page">
         <div class="container">
+
+            <!-- Change service — mobile only, sits ABOVE the booking card -->
+            <div class="m-mobile-back-row">
+                <button type="button" class="m-mobile-shell-back" onclick="mobileBackAction()">
+                    <i class="fas fa-chevron-left"></i>
+                    <span id="mobileBackLabel">Change service</span>
+                </button>
+            </div>
+
             <div class="booking-system">
 
-                <!-- MOBILE-ONLY: back link + green progress bar -->
+                <!-- MOBILE-ONLY: green progress bar (top of the card) -->
                 <div class="m-mobile-shell">
-                    <div class="m-mobile-shell-top">
-                        <button type="button" class="m-mobile-shell-back" onclick="mobileBackAction()">
-                            <i class="fas fa-chevron-left"></i>
-                            <span id="mobileBackLabel">Change service</span>
-                        </button>
-                    </div>
                     <div class="m-mobile-bar">
                         <div class="m-mobile-progress" id="mobileProgress">
                             <div class="bp-stage active" data-stage="1">
