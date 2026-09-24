@@ -203,7 +203,7 @@
         .m-carpet-group-title { font-size: 0.9rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
         .m-carpet-group-title i { color: var(--primary); font-size: 0.85rem; }
         .m-carpet-group .form-grid { margin-bottom: 0; }
-        .m-mobile-shell, .m-review-block, .m-show-more, .m-trust, .m-step-btn, .m-step-wrap-label, .m-accordion-chev, .m-accordion-toggle { display: none; }
+        .m-mobile-shell, .m-mobile-frame, .m-review-block, .m-show-more, .m-trust, .m-step-btn, .m-step-wrap-label, .m-accordion-chev, .m-accordion-toggle { display: none; }
         @media (max-width: 768px) {
             html, body { overflow-x: hidden; width: 100%; max-width: 100%; }
             .container { padding: 0 20px; }
@@ -216,30 +216,47 @@
             .booking-system { background: transparent; border: none; border-radius: 0; box-shadow: none; max-width: 100%; overflow: visible; }
             .booking-header { display: none; }
             .booking-divider { display: none; }
-            .booking-container { padding: 0 4px; background: transparent; max-width: 100%; }
-            .m-mobile-shell { display: block; padding: 2px 0 0; margin-bottom: 0; }
-            .m-mobile-shell-top { display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-bottom: 14px; }
+            .booking-container { padding: 18px 16px 20px; background: transparent; max-width: 100%; box-sizing: border-box; }
+            .m-mobile-shell { display: block; padding: 2px 0 0; margin-bottom: 14px; }
+            .m-mobile-shell-top { display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-bottom: 0; }
             .m-mobile-shell-back { display: inline-flex; align-items: center; gap: 5px; background: none; border: none; padding: 4px 0; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--text-soft); }
             .m-mobile-shell-back i { font-size: 0.72rem; color: var(--text-soft); }
 
+            .m-mobile-frame {
+                display: block;
+                background: #FFFFFF;
+                border: 1px solid rgba(11, 94, 90, 0.10);
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 4px 16px rgba(19, 43, 48, 0.05), 0 1px 3px rgba(19, 43, 48, 0.03);
+            }
+
             .m-mobile-bar {
+                min-height: 68px;
+                padding: 14px 12px;
+                margin: 0;
+                border-radius: 0;
                 background: linear-gradient(135deg, #075E58 0%, #053F3D 100%);
-                border-radius: 10px 10px 0 0;
-                padding: 8px 12px;
-                margin-bottom: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
             }
 
             .m-mobile-progress {
                 display: flex;
                 align-items: flex-start;
                 justify-content: center;
-                gap: 0;
                 width: 100%;
                 max-width: 250px;
                 margin: 0 auto;
             }
 
             .m-mobile-progress .bp-stage {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
                 gap: 3px;
             }
 
@@ -274,13 +291,12 @@
             }
 
             .m-mobile-progress .bp-connector {
-                flex: 0 0 auto;
+                flex: 0 0 26px;
                 width: 26px;
                 height: 1px;
                 background: rgba(255, 255, 255, 0.35);
-                margin: 9px 5px 0;
+                margin: 9.5px 5px 0;
                 align-self: flex-start;
-                max-width: none;
             }
 
             .form-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 24px; }
@@ -442,6 +458,10 @@
                             <span id="mobileBackLabel">Change service</span>
                         </button>
                     </div>
+                </div>
+
+                <div class="m-mobile-frame">
+
                     <div class="m-mobile-bar">
                         <div class="m-mobile-progress" id="mobileProgress">
                             <div class="bp-stage active" data-stage="1">
@@ -460,104 +480,106 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="booking-header">
-                    <h3 id="stepTitleHeader" class="sr-only">Step 1 — Service Details</h3>
-                    <div class="booking-progress" id="bookingProgress">
-                        <div class="bp-stage active" data-stage="1">
-                            <div class="bp-circle"><i class="fas fa-home"></i></div>
-                            <span class="bp-label">Service Details</span>
-                        </div>
-                        <div class="bp-connector"></div>
-                        <div class="bp-stage" data-stage="2">
-                            <div class="bp-circle"><i class="fas fa-camera"></i></div>
-                            <span class="bp-label">Photos</span>
-                        </div>
-                        <div class="bp-connector"></div>
-                        <div class="bp-stage" data-stage="3">
-                            <div class="bp-circle"><i class="fas fa-user"></i></div>
-                            <span class="bp-label">Contact Details</span>
+                    <div class="booking-header">
+                        <h3 id="stepTitleHeader" class="sr-only">Step 1 — Service Details</h3>
+                        <div class="booking-progress" id="bookingProgress">
+                            <div class="bp-stage active" data-stage="1">
+                                <div class="bp-circle"><i class="fas fa-home"></i></div>
+                                <span class="bp-label">Service Details</span>
+                            </div>
+                            <div class="bp-connector"></div>
+                            <div class="bp-stage" data-stage="2">
+                                <div class="bp-circle"><i class="fas fa-camera"></i></div>
+                                <span class="bp-label">Photos</span>
+                            </div>
+                            <div class="bp-connector"></div>
+                            <div class="bp-stage" data-stage="3">
+                                <div class="bp-circle"><i class="fas fa-user"></i></div>
+                                <span class="bp-label">Contact Details</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <hr class="booking-divider">
+                    <hr class="booking-divider">
 
-                <div class="booking-container">
-                    <div class="booking-step active" id="step1">
-                        <div id="dynamic-form-container"></div>
-                        <div class="booking-navigation">
-                            <a href="index.html" class="btn-prev"><i class="fas fa-arrow-left"></i> Change Service</a>
-                            <button class="btn-next" onclick="goToStep(2)">Continue <i class="fas fa-arrow-right"></i></button>
-                        </div>
-                        <div class="m-trust"><i class="fas fa-shield-alt"></i><span>Your details are used to process your booking request.</span></div>
-                    </div>
-                    <div class="booking-step" id="step2">
-                        <div class="form-group">
-                            <label>Upload Photos (Optional)</label>
-                            <div class="file-upload-area" id="booking-upload-area" role="button" tabindex="0">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                <p>Click or drag images here</p>
-                                <p style="color: var(--text-light); font-size: 0.75rem;">Upload up to 5 images. Photos help us assess the property.</p>
-                                <input type="file" id="booking-upload" multiple accept="image/*" style="display: none;">
-                                <div class="file-list" id="booking-file-list"></div>
+                    <div class="booking-container">
+                        <div class="booking-step active" id="step1">
+                            <div id="dynamic-form-container"></div>
+                            <div class="booking-navigation">
+                                <a href="index.html" class="btn-prev"><i class="fas fa-arrow-left"></i> Change Service</a>
+                                <button class="btn-next" onclick="goToStep(2)">Continue <i class="fas fa-arrow-right"></i></button>
                             </div>
+                            <div class="m-trust"><i class="fas fa-shield-alt"></i><span>Your details are used to process your booking request.</span></div>
                         </div>
-                        <div class="form-group">
-                            <label>Additional Notes</label>
-                            <textarea id="booking-notes" rows="2" placeholder="Please mention any access instructions, parking information, pets in the property, clutter or additional areas, special requests..."></textarea>
-                        </div>
-                        <div class="assessment-note"><i class="fas fa-clipboard-check"></i> Final price subject to review after site assessment</div>
-                        <div class="booking-navigation">
-                            <button class="btn-prev" onclick="goToStep(1)"><i class="fas fa-arrow-left"></i> Previous</button>
-                            <button class="btn-next" onclick="goToStep(3)">Continue <i class="fas fa-arrow-right"></i></button>
-                        </div>
-                    </div>
-                    <div class="booking-step" id="step3">
-                        <div class="form-grid">
-                            <div class="form-group full-width" id="form-group-name">
-                                <label>Full Name *</label>
-                                <input type="text" id="booking-name" required>
-                            </div>
-                            <div class="form-group" id="form-group-phone">
-                                <label>Phone Number *</label>
-                                <input type="tel" id="booking-phone" required>
-                            </div>
-                            <div class="form-group" id="form-group-email">
-                                <label>Email *</label>
-                                <input type="email" id="booking-email" required>
-                            </div>
-                            <div class="form-group full-width address-postcode-group" id="form-group-address-postcode">
-                                <label>Postcode *</label>
-                                <div class="postcode-autocomplete-container" style="margin-bottom: 14px;">
-                                    <input type="text" id="booking-postcode" placeholder="Enter your postcode" autocomplete="off" required>
-                                    <div id="postcode-suggestions" class="postcode-suggestions"></div>
+                        <div class="booking-step" id="step2">
+                            <div class="form-group">
+                                <label>Upload Photos (Optional)</label>
+                                <div class="file-upload-area" id="booking-upload-area" role="button" tabindex="0">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Click or drag images here</p>
+                                    <p style="color: var(--text-light); font-size: 0.75rem;">Upload up to 5 images. Photos help us assess the property.</p>
+                                    <input type="file" id="booking-upload" multiple accept="image/*" style="display: none;">
+                                    <div class="file-list" id="booking-file-list"></div>
                                 </div>
-                                <label>Address *</label>
-                                <input type="text" id="booking-address" placeholder="Add house/flat number before the address" required>
-                                <small style="color: var(--text-light); font-size: 0.7rem; display: block; margin-top: 6px;"><i class="fas fa-info-circle"></i> Select your address, then add your house or flat number before it.</small>
                             </div>
                             <div class="form-group">
-                                <label>Preferred Date</label>
-                                <input type="date" id="booking-date">
+                                <label>Additional Notes</label>
+                                <textarea id="booking-notes" rows="2" placeholder="Please mention any access instructions, parking information, pets in the property, clutter or additional areas, special requests..."></textarea>
                             </div>
-                            <div class="form-group">
-                                <label>Preferred Time</label>
-                                <select id="booking-time">
-                                    <option>Morning (8am - 12pm)</option>
-                                    <option>Afternoon (12pm - 4pm)</option>
-                                    <option>Evening (4pm - 7pm)</option>
-                                </select>
+                            <div class="assessment-note"><i class="fas fa-clipboard-check"></i> Final price subject to review after site assessment</div>
+                            <div class="booking-navigation">
+                                <button class="btn-prev" onclick="goToStep(1)"><i class="fas fa-arrow-left"></i> Previous</button>
+                                <button class="btn-next" onclick="goToStep(3)">Continue <i class="fas fa-arrow-right"></i></button>
                             </div>
                         </div>
-                        <div class="booking-navigation">
-                            <button class="btn-prev" onclick="goToStep(2)"><i class="fas fa-arrow-left"></i> Previous</button>
-                            <button class="btn-next" onclick="submitBooking()">Submit Booking <i class="fas fa-check"></i></button>
+                        <div class="booking-step" id="step3">
+                            <div class="form-grid">
+                                <div class="form-group full-width" id="form-group-name">
+                                    <label>Full Name *</label>
+                                    <input type="text" id="booking-name" required>
+                                </div>
+                                <div class="form-group" id="form-group-phone">
+                                    <label>Phone Number *</label>
+                                    <input type="tel" id="booking-phone" required>
+                                </div>
+                                <div class="form-group" id="form-group-email">
+                                    <label>Email *</label>
+                                    <input type="email" id="booking-email" required>
+                                </div>
+                                <div class="form-group full-width address-postcode-group" id="form-group-address-postcode">
+                                    <label>Postcode *</label>
+                                    <div class="postcode-autocomplete-container" style="margin-bottom: 14px;">
+                                        <input type="text" id="booking-postcode" placeholder="Enter your postcode" autocomplete="off" required>
+                                        <div id="postcode-suggestions" class="postcode-suggestions"></div>
+                                    </div>
+                                    <label>Address *</label>
+                                    <input type="text" id="booking-address" placeholder="Add house/flat number before the address" required>
+                                    <small style="color: var(--text-light); font-size: 0.7rem; display: block; margin-top: 6px;"><i class="fas fa-info-circle"></i> Select your address, then add your house or flat number before it.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label>Preferred Date</label>
+                                    <input type="date" id="booking-date">
+                                </div>
+                                <div class="form-group">
+                                    <label>Preferred Time</label>
+                                    <select id="booking-time">
+                                        <option>Morning (8am - 12pm)</option>
+                                        <option>Afternoon (12pm - 4pm)</option>
+                                        <option>Evening (4pm - 7pm)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="booking-navigation">
+                                <button class="btn-prev" onclick="goToStep(2)"><i class="fas fa-arrow-left"></i> Previous</button>
+                                <button class="btn-next" onclick="submitBooking()">Submit Booking <i class="fas fa-check"></i></button>
+                            </div>
+                            <div class="m-trust"><i class="fas fa-shield-alt"></i><span>Your details are used to process your booking request.</span></div>
                         </div>
-                        <div class="m-trust"><i class="fas fa-shield-alt"></i><span>Your details are used to process your booking request.</span></div>
                     </div>
+
                 </div>
+
             </div>
         </div>
     </div>
