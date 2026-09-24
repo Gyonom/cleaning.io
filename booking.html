@@ -205,7 +205,7 @@
         .m-carpet-group-title { font-size: 0.9rem; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
         .m-carpet-group-title i { color: var(--primary); font-size: 0.85rem; }
         .m-carpet-group .form-grid { margin-bottom: 0; }
-        .m-mobile-shell, .m-mobile-back-row, .m-review-block, .m-show-more, .m-trust, .m-step-btn, .m-step-wrap-label, .m-accordion-chev, .m-accordion-toggle { display: none; }
+        .m-mobile-shell, .m-mobile-back-row, .m-show-more, .m-trust, .m-step-btn, .m-step-wrap-label, .m-accordion-chev, .m-accordion-toggle { display: none; }
 
         /* ============================================================
            CUSTOM DROPDOWN COMPONENT (.drp-*)
@@ -308,8 +308,6 @@
         .m-sheet-confirm:not([disabled]):active { background: var(--primary-dark); }
 
         @media (min-width: 769px) {
-            .m-review-trigger,
-            .m-review-block,
             .m-show-more,
             .m-trust,
             .m-appt-group { display: none !important; }
@@ -367,7 +365,7 @@
 
             .form-group input,
             .form-group select,
-            .form-group textarea { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-shadow: none; font-size: 14px; font-weight: 400; line-height: 1.4; color: var(--text-dark); box-sizing: border-box; }
+            .form-group textarea { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-shadow: none; font-size: 16px; font-weight: 400; line-height: 1.4; color: var(--text-dark); box-sizing: border-box; }
             .form-group textarea { height: auto; min-height: 96px; padding: 11px 13px; line-height: 1.45; }
             .form-group input:focus,
             .form-group select:focus,
@@ -378,7 +376,7 @@
             .m-step-btn:first-child { border-right: 1px solid rgba(11,94,90,0.10); }
             .m-step-btn:last-child { border-left: 1px solid rgba(11,94,90,0.10); }
             .m-step-btn:active { background: #EAF6F4; }
-            .m-step-wrap input[type="number"] { width: 100%; height: 44px; min-height: 44px; padding: 0; border: 0 !important; border-radius: 0 !important; background: #FFFFFF; box-shadow: none !important; text-align: center; font-size: 14px; font-weight: 400; color: var(--text-dark); -moz-appearance: textfield; }
+            .m-step-wrap input[type="number"] { width: 100%; height: 44px; min-height: 44px; padding: 0; border: 0 !important; border-radius: 0 !important; background: #FFFFFF; box-shadow: none !important; text-align: center; font-size: 16px; font-weight: 400; color: var(--text-dark); -moz-appearance: textfield; }
             .m-step-wrap input[type="number"]:focus { outline: none; }
             .m-step-wrap input[type="number"]::-webkit-outer-spin-button, .m-step-wrap input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
@@ -446,19 +444,6 @@
             .org-area-option { min-height: 46px; padding: 9px 12px; border-radius: 10px; box-shadow: none; font-size: 12.5px !important; font-weight: 500 !important; color: var(--text-dark) !important; transition: background 0.15s ease, border-color 0.15s ease; }
             .org-area-option:active { background: #F5FAF9; }
 
-            .m-review-block.active { display: block !important; }
-            .m-review-section { background: #FFFFFF; border: 1px solid rgba(11,94,90,0.10); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
-            .m-review-section-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
-            .m-review-label { font-size: 10.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); }
-            .m-review-edit { background: none; border: none; color: var(--primary); font-family: inherit; font-size: 12px; font-weight: 500; padding: 2px 0; cursor: pointer; }
-            .m-review-value { font-size: 13px; font-weight: 400; color: var(--text-dark); line-height: 1.45; }
-            .m-review-list { list-style: none; margin: 0; padding: 0; font-size: 12.5px; font-weight: 400; color: var(--text-dark); }
-            .m-review-list li { display: flex; justify-content: space-between; gap: 10px; padding: 3px 0; line-height: 1.35; }
-            .m-review-list li span:last-child { font-weight: 600; color: var(--primary); white-space: nowrap; }
-            .m-review-trigger { display: inline-flex !important; align-items: center; gap: 5px; background: none; border: none; color: var(--primary); font-family: inherit; font-size: 12.5px; font-weight: 500; padding: 10px 0 2px; cursor: pointer; }
-            .m-review-trigger i { font-size: 0.72rem; }
-            .m-fill-hidden { display: none !important; }
-
             #step2 { padding-top: 0; }
             #step2 .form-group { margin-bottom: 18px; }
             #step2 .form-group label { margin-bottom: 7px; }
@@ -473,7 +458,7 @@
             #step3 { padding-top: 0; }
             #step3 .form-grid { display: grid; grid-template-columns: 1fr; gap: 0; margin: 0; }
             #step3 .form-group { margin: 0 0 14px; }
-            #step3 .form-group input, #step3 .form-group select { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-sizing: border-box; font-size: 14px; font-weight: 400; }
+            #step3 .form-group input, #step3 .form-group select { width: 100%; height: 46px; min-height: 46px; padding: 0 13px; border: 1px solid rgba(11,94,90,0.16); border-radius: 10px; background: #FFFFFF; box-sizing: border-box; font-size: 16px; font-weight: 400; }
             #step3 #form-group-name { margin-bottom: 14px; }
             #step3 #form-group-phone { margin-bottom: 14px; }
             #step3 #form-group-email { margin-bottom: 26px; }
@@ -1041,75 +1026,6 @@
                 el.textContent = parts.length ? parts.join(', ') : '';
             });
         }
-        function buildMobileReview() {
-            if (selectedService === 'residential' || selectedService === 'tenancy') {
-                const propSel = document.getElementById('property-size');
-                const propText = propSel && propSel.value ? propSel.options[propSel.selectedIndex].text : 'Not selected';
-                const baths = parseInt(document.getElementById('extra-bathrooms')?.value) || 0;
-                const condLabels = { light: 'Lightly Used', average: 'Average Condition', heavy: 'Heavily Soiled' };
-                const cond = selectedCondition ? (condLabels[selectedCondition] || selectedCondition) : 'Not selected';
-                const addonRows = [];
-                document.querySelectorAll('.addon:checked').forEach(a => {
-                    const wrap = a.closest('.addon-checkbox');
-                    const t = wrap?.querySelector('.addon-title')?.textContent || '';
-                    const p = wrap?.querySelector('.addon-price')?.textContent || '';
-                    addonRows.push('<li><span>' + t + '</span><span>' + p + '</span></li>');
-                });
-                const total = document.getElementById('estimated-total')?.textContent || '£0';
-                let html = '';
-                html += '<div class="m-review-section"><div class="m-review-section-head"><div class="m-review-label">Your Property</div><button type="button" class="m-review-edit" onclick="exitMobileReview()">Edit</button></div><div class="m-review-value">' + propText + '<br>Extra bathrooms: ' + baths + '</div></div>';
-                html += '<div class="m-review-section"><div class="m-review-section-head"><div class="m-review-label">Property Condition</div><button type="button" class="m-review-edit" onclick="exitMobileReview()">Edit</button></div><div class="m-review-value">' + cond + '</div></div>';
-                if (addonRows.length) {
-                    html += '<div class="m-review-section"><div class="m-review-section-head"><div class="m-review-label">Add-Ons</div><button type="button" class="m-review-edit" onclick="exitMobileReview()">Edit</button></div><ul class="m-review-list">' + addonRows.join('') + '</ul></div>';
-                }
-                html += '<div class="total-display"><span>Estimated total</span><span class="amount">' + total + '</span></div>';
-                return html;
-            }
-            if (selectedService === 'carpet') {
-                const rows = [
-                    { id: 'carpet-rooms', label: 'Carpet', price: 70 },
-                    { id: 'armchair', label: 'Armchair', price: 45 },
-                    { id: 'sofa2', label: '2-Seater Sofa', price: 60 },
-                    { id: 'sofa3', label: '3-Seater Sofa', price: 80 },
-                    { id: 'corner', label: 'Corner Sofa', price: 100 },
-                    { id: 'mattress-single', label: 'Single Mattress', price: 40 },
-                    { id: 'mattress-double', label: 'Double Mattress', price: 50 },
-                    { id: 'mattress-king', label: 'King Mattress', price: 60 }
-                ];
-                const items = [];
-                rows.forEach(r => {
-                    const v = parseInt(document.getElementById(r.id)?.value) || 0;
-                    if (v > 0) items.push('<li><span>' + v + ' × ' + r.label + '</span><span>£' + (v * r.price) + '</span></li>');
-                });
-                const total = document.getElementById('carpet-total')?.textContent || '£0';
-                let html = '<div class="m-review-section"><div class="m-review-section-head"><div class="m-review-label">Selected Items</div><button type="button" class="m-review-edit" onclick="exitMobileReview()">Edit</button></div>';
-                html += items.length ? '<ul class="m-review-list">' + items.join('') + '</ul>' : '<div class="m-review-value">No items selected yet.</div>';
-                html += '</div>';
-                html += '<div class="total-display"><span>Estimated total</span><span class="amount">' + total + '</span></div>';
-                return html;
-            }
-            return '';
-        }
-        function enterMobileReview() {
-            const block = document.getElementById('m-review-block');
-            if (!block) return;
-            block.innerHTML = buildMobileReview();
-            block.classList.add('active');
-            document.querySelectorAll('.m-fill-part').forEach(el => el.classList.add('m-fill-hidden'));
-            const trig = document.querySelector('.m-review-trigger');
-            if (trig) trig.classList.add('m-fill-hidden');
-        }
-        function exitMobileReview() {
-            const block = document.getElementById('m-review-block');
-            if (block) { block.classList.remove('active'); block.innerHTML = ''; }
-            document.querySelectorAll('.m-fill-part').forEach(el => el.classList.remove('m-fill-hidden'));
-            const trig = document.querySelector('.m-review-trigger');
-            if (trig) trig.classList.remove('m-fill-hidden');
-        }
-        function refreshMobileReview() {
-            const block = document.getElementById('m-review-block');
-            if (block && block.classList.contains('active')) block.innerHTML = buildMobileReview();
-        }
         function goToStep(step) {
             currentStep = step;
             for (let i = 1; i <= 3; i++) {
@@ -1140,7 +1056,6 @@
 
             const mBack = document.getElementById('mobileBackLabel');
             if (mBack) mBack.textContent = step === 1 ? 'Change service' : 'Back';
-            if (step === 1 && typeof exitMobileReview === 'function') exitMobileReview();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         function updatePrice() {
@@ -1178,13 +1093,11 @@
                     totalEl.setAttribute('data-value', total);
                 }
             }
-            if (typeof refreshMobileReview === 'function') refreshMobileReview();
         }
         function selectCondition(condition, element) {
             selectedCondition = condition;
             document.querySelectorAll('.condition-option').forEach(opt => opt.classList.remove('selected'));
             if (element) element.classList.add('selected');
-            if (typeof refreshMobileReview === 'function') refreshMobileReview();
         }
         function loadServiceForm() {
             const container = document.getElementById('dynamic-form-container');
@@ -1212,10 +1125,10 @@
             return '<div class="m-step-wrap"><button type="button" class="m-step-btn" onclick="mStepCounter(\'' + inputId + '\', -1, ' + min + ')">−</button><input type="number" id="' + inputId + '" min="' + min + '" value="' + min + '"><button type="button" class="m-step-btn" onclick="mStepCounter(\'' + inputId + '\', 1, ' + min + ')">+</button></div>';
         }
         function getResidentialForm() {
-            return '<div class="form-grid m-fill-part"><div class="form-group"><label>Property Size</label><select id="property-size"><option value="" selected>Select property size (optional)</option><option value="135">Kitchen Only (No Appliances) — £135</option><option value="200">Studio (1 Bathroom) — £200</option><option value="230">1 Bedroom / 1 Bathroom — £230</option><option value="270">2 Bedrooms / 1 Bathroom — £270</option><option value="330">3 Bedrooms / 1 Bathroom — £330</option><option value="415">4 Bedrooms / 1 Bathroom — £415</option><option value="490">5 Bedrooms / 1 Bathroom — £490</option><option value="570">6 Bedrooms / 1 Bathroom — £570</option></select></div><div class="form-group"><label>Extra Bathrooms (£45 each)</label>' + mStepWrap('extra-bathrooms', 0) + '</div></div>' + getConditionBlock() + getAddonsBlock('£0') + '<div class="m-review-block" id="m-review-block"></div><button type="button" class="m-review-trigger m-fill-part" onclick="enterMobileReview()">Review selection <i class="fas fa-arrow-right"></i></button>';
+            return '<div class="form-grid m-fill-part"><div class="form-group"><label>Property Size</label><select id="property-size"><option value="" selected>Select property size (optional)</option><option value="135">Kitchen Only (No Appliances) — £135</option><option value="200">Studio (1 Bathroom) — £200</option><option value="230">1 Bedroom / 1 Bathroom — £230</option><option value="270">2 Bedrooms / 1 Bathroom — £270</option><option value="330">3 Bedrooms / 1 Bathroom — £330</option><option value="415">4 Bedrooms / 1 Bathroom — £415</option><option value="490">5 Bedrooms / 1 Bathroom — £490</option><option value="570">6 Bedrooms / 1 Bathroom — £570</option></select></div><div class="form-group"><label>Extra Bathrooms (£45 each)</label>' + mStepWrap('extra-bathrooms', 0) + '</div></div>' + getConditionBlock() + getAddonsBlock('£0');
         }
         function getTenancyForm() {
-            return '<div class="form-grid m-fill-part"><div class="form-group"><label>Property Size</label><select id="property-size"><option value="" selected>Select property size (optional)</option><option value="135">Kitchen Only (No Appliances) — £135</option><option value="210">Studio (1 Bathroom) — £210</option><option value="250">1 Bedroom / 1 Bathroom — £250</option><option value="300">2 Bedrooms / 1 Bathroom — £300</option><option value="360">3 Bedrooms / 1 Bathroom — £360</option><option value="450">4 Bedrooms / 1 Bathroom — £450</option></select></div><div class="form-group"><label>Extra Bathrooms (£45 each)</label>' + mStepWrap('extra-bathrooms', 0) + '</div></div>' + getConditionBlock() + getAddonsBlock('£0') + '<div class="m-review-block" id="m-review-block"></div><button type="button" class="m-review-trigger m-fill-part" onclick="enterMobileReview()">Review selection <i class="fas fa-arrow-right"></i></button>';
+            return '<div class="form-grid m-fill-part"><div class="form-group"><label>Property Size</label><select id="property-size"><option value="" selected>Select property size (optional)</option><option value="135">Kitchen Only (No Appliances) — £135</option><option value="210">Studio (1 Bathroom) — £210</option><option value="250">1 Bedroom / 1 Bathroom — £250</option><option value="300">2 Bedrooms / 1 Bathroom — £300</option><option value="360">3 Bedrooms / 1 Bathroom — £360</option><option value="450">4 Bedrooms / 1 Bathroom — £450</option></select></div><div class="form-group"><label>Extra Bathrooms (£45 each)</label>' + mStepWrap('extra-bathrooms', 0) + '</div></div>' + getConditionBlock() + getAddonsBlock('£0');
         }
         function getConditionBlock() {
             return '<div class="form-group full-width m-fill-part"><label class="condition-title">Property Condition</label><div class="condition-options"><div class="condition-option" onclick="selectCondition(\'light\', this)" role="button" tabindex="0"><h4><span class="m-cond-long">Lightly Used</span><span class="m-cond-short">Light</span></h4><p>Minimal wear and tear</p></div><div class="condition-option" onclick="selectCondition(\'average\', this)" role="button" tabindex="0"><h4><span class="m-cond-long">Average Condition</span><span class="m-cond-short">Average</span></h4><p>Normal everyday use</p></div><div class="condition-option" onclick="selectCondition(\'heavy\', this)" role="button" tabindex="0"><h4><span class="m-cond-long">Heavily Soiled</span><span class="m-cond-short">Heavy</span></h4><p>Requires extra attention</p></div></div></div>';
@@ -1326,7 +1239,6 @@
             html += '</div>';
             html += '</div>';
             html += '<div class="total-display"><span>Estimated Total:</span><span class="amount" id="carpet-total" data-value="0">£0</span></div>';
-            html += '<div class="m-review-block" id="m-review-block"></div><button type="button" class="m-review-trigger m-fill-part" onclick="enterMobileReview()">Review selection <i class="fas fa-arrow-right"></i></button>';
             html += '</div>';
             return html;
         }
@@ -1663,27 +1575,30 @@
                     }
                 }
 
-                // Position the fixed panel based on the trigger's on-screen rect
+                // Position the fixed panel based on the trigger's on-screen rect.
+                // Clamp width to viewport and both edges so the panel can never
+                // create horizontal document overflow.
                 function repositionPanel() {
                     const r = trigger.getBoundingClientRect();
                     const gap = 6;
                     const viewportH = window.innerHeight;
                     const viewportW = window.innerWidth;
-                    // Default: below the trigger
-                    let top = r.bottom + gap;
+                    const safeMargin = 8;
+                    let width = Math.min(r.width, viewportW - safeMargin * 2);
                     let left = r.left;
-                    let width = r.width;
-                    // Flip above if too little space below and more space above
+                    let top = r.bottom + gap;
                     const spaceBelow = viewportH - r.bottom - gap;
                     const spaceAbove = r.top - gap;
                     const desiredMax = Math.min(320, Math.max(180, spaceBelow));
                     if (spaceBelow < 180 && spaceAbove > spaceBelow) {
-                        // Render above
                         top = Math.max(gap, r.top - gap - Math.min(320, spaceAbove));
                     }
-                    // Keep inside viewport horizontally
-                    if (left + width > viewportW - 8) {
-                        left = Math.max(8, viewportW - 8 - width);
+                    // Clamp both edges
+                    if (left + width > viewportW - safeMargin) {
+                        left = viewportW - safeMargin - width;
+                    }
+                    if (left < safeMargin) {
+                        left = safeMargin;
                     }
                     panel.style.top = top + 'px';
                     panel.style.left = left + 'px';
@@ -1839,8 +1754,6 @@
         window.mStepCounter = mStepCounter;
         window.toggleAccordionGroup = toggleAccordionGroup;
         window.toggleAddonMore = toggleAddonMore;
-        window.enterMobileReview = enterMobileReview;
-        window.exitMobileReview = exitMobileReview;
         window.mobileBackAction = mobileBackAction;
     </script>
 </body>
