@@ -1140,6 +1140,19 @@
             return '<label class="addon-checkbox' + extraClass + '"><input type="checkbox" class="addon" value="' + value + '"><div class="addon-icon ' + iconClass + '"><i class="fas ' + icon + '"></i></div><div class="addon-content"><span class="addon-title">' + title + '</span><span class="addon-price">' + price + '</span></div><span class="addon-check-mark"><i class="fas fa-check"></i></span></label>';
         }
         function getCarpetForm() {
+            if (window.matchMedia('(min-width: 769px)').matches) {
+                return '<div class="form-grid">'
+                     + numberField('carpet-rooms', 'fa-carpet', 'Carpet Cleaning (per room) — £70')
+                     + numberField('armchair', 'fa-chair', 'Armchair — £45')
+                     + numberField('sofa2', 'fa-couch', '2-Seater Sofa — £60')
+                     + numberField('sofa3', 'fa-couch', '3-Seater Sofa — £80')
+                     + numberField('corner', 'fa-couch', 'Corner Sofa — £100')
+                     + numberField('mattress-single', 'fa-bed', 'Single Mattress — £40')
+                     + numberField('mattress-double', 'fa-bed', 'Double Mattress — £50')
+                     + numberField('mattress-king', 'fa-bed', 'King Mattress — £60')
+                     + '</div>'
+                     + '<div class="total-display"><span>Estimated Total:</span><span class="amount" id="carpet-total" data-value="0">£0</span></div>';
+            }
             let html = '<div class="m-fill-part">';
             html += '<div class="m-carpet-group open">';
             html += '<button type="button" class="m-carpet-group-title" onclick="toggleAccordionGroup(this)">'
@@ -1239,6 +1252,9 @@
             html += '<div class="total-display"><span>Estimated Total:</span><span class="amount" id="carpet-total" data-value="0">£0</span></div>';
             html += '</div>';
             return html;
+        }
+        function numberField(id, icon, label) {
+            return '<div class="form-group"><label><i class="fas ' + icon + '"></i> ' + label + '</label><input type="number" id="' + id + '" min="0" value="0"></div>';
         }
         function getPostConstructionForm() {
             return '<div class="form-grid"><div class="form-group full-width"><label><i class="fas fa-hard-hat"></i> Property Type</label><select id="post-property-type"><option value="">Select property type</option><option value="new">Newly built home</option><option value="renovated">Renovated property</option><option value="development">Property development</option><option value="commercial">Commercial renovation</option></select></div><div class="form-group"><label><i class="fas fa-ruler-combined"></i> Property Size</label><select id="post-size"><option value="">Select size</option><option value="small">Small property / apartment — from £200</option><option value="medium">Medium (2–3 bedrooms) — from £300</option><option value="large">Large (4+ bedrooms) — from £450</option></select></div><div class="form-group"><label><i class="fas fa-tools"></i> Project Type</label><input type="text" id="post-project-type" placeholder="e.g., Full renovation"></div></div>';
