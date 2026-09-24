@@ -224,36 +224,64 @@
 
             .m-mobile-bar {
                 background: linear-gradient(135deg, #075E58 0%, #053F3D 100%);
-                border-radius: 14px 14px 0 0;
-                padding: 14px 18px;
-                margin-bottom: 20px;
+                border-radius: 10px 10px 0 0;
+                padding: 8px 12px;
+                margin-bottom: 16px;
             }
 
             .m-mobile-progress {
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: center;
                 gap: 0;
                 width: 100%;
-                max-width: 220px;
+                max-width: 250px;
                 margin: 0 auto;
             }
 
-            .m-mobile-progress .bp-circle {
-                width: 30px;
-                height: 30px;
-                font-size: 12px;
+            .m-mobile-progress .bp-stage {
+                gap: 3px;
             }
 
-            .m-mobile-progress .bp-circle i { font-size: 12px; }
+            .m-mobile-progress .bp-circle {
+                width: 20px;
+                height: 20px;
+                font-size: 8px;
+                border-width: 1.25px;
+            }
+
+            .m-mobile-progress .bp-circle i { font-size: 8px; }
+
+            .m-mobile-progress .bp-label {
+                display: block;
+                font-size: 8px;
+                line-height: 1;
+                font-weight: 500;
+                color: rgba(255, 255, 255, 0.68);
+                letter-spacing: 0;
+                white-space: nowrap;
+                margin-top: 0;
+            }
+
+            .m-mobile-progress .bp-stage.active .bp-label {
+                color: #FFFFFF;
+                font-weight: 650;
+            }
+
+            .m-mobile-progress .bp-stage.done .bp-label {
+                color: rgba(255, 255, 255, 0.68);
+                font-weight: 500;
+            }
 
             .m-mobile-progress .bp-connector {
-                margin: 0 8px;
-                margin-top: 15px;
-                max-width: 60px;
+                flex: 0 0 auto;
+                width: 26px;
+                height: 1px;
+                background: rgba(255, 255, 255, 0.35);
+                margin: 9px 5px 0;
+                align-self: flex-start;
+                max-width: none;
             }
-
-            .m-mobile-progress .bp-label { display: none; }
 
             .form-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 24px; }
             .form-group { margin-bottom: 0; }
@@ -418,14 +446,17 @@
                         <div class="m-mobile-progress" id="mobileProgress">
                             <div class="bp-stage active" data-stage="1">
                                 <div class="bp-circle"><i class="fas fa-home"></i></div>
+                                <span class="bp-label">Service Details</span>
                             </div>
                             <div class="bp-connector"></div>
                             <div class="bp-stage" data-stage="2">
                                 <div class="bp-circle"><i class="fas fa-camera"></i></div>
+                                <span class="bp-label">Photos</span>
                             </div>
                             <div class="bp-connector"></div>
                             <div class="bp-stage" data-stage="3">
                                 <div class="bp-circle"><i class="fas fa-user"></i></div>
+                                <span class="bp-label">Contact Details</span>
                             </div>
                         </div>
                     </div>
