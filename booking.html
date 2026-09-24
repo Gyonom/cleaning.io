@@ -88,12 +88,19 @@
         }
         .booking-page { padding-top: 110px; padding-bottom: 40px; min-height: calc(100vh - 400px); }
         .booking-system { background: linear-gradient(180deg, #FFFFFF 0%, #F8FCFB 100%); border: 1px solid rgba(11,94,90,0.08); border-radius: 28px; box-shadow: 0 22px 48px rgba(19,43,48,0.07), 0 4px 12px rgba(19,43,48,0.035); width: 100%; max-width: 1000px; margin: 0 auto; overflow: hidden; }
-        .booking-header { background: radial-gradient(circle at 12% 0%, rgba(255,255,255,0.12), transparent 30%), linear-gradient(135deg, #075E58 0%, #053F3D 100%); display: flex; justify-content: space-between; align-items: center; padding: 24px 36px; flex-wrap: wrap; gap: 12px; }
+        .booking-header { background: radial-gradient(circle at 12% 0%, rgba(255,255,255,0.12), transparent 30%), linear-gradient(135deg, #075E58 0%, #053F3D 100%); display: flex; justify-content: center; align-items: center; padding: 20px 36px; flex-wrap: wrap; gap: 12px; }
         .booking-header h3 { margin: 0; font-size: 1.4rem; color: white; letter-spacing: -0.035em; }
-        .booking-progress { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-        .progress-step { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.2); border: 1.5px solid rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; color: white; transition: var(--transition); }
-        .progress-step.active { background: white; border-color: white; color: var(--primary-dark); box-shadow: 0 0 0 2px rgba(255,255,255,0.3); }
-        .progress-step.completed { background: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.6); color: white; }
+        .booking-progress { display: flex; align-items: center; justify-content: center; gap: 0; width: 100%; max-width: 520px; }
+        .bp-stage { display: flex; flex-direction: column; align-items: center; gap: 6px; flex-shrink: 0; }
+        .bp-circle { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: transparent; border: 1.5px solid rgba(255, 255, 255, 0.55); color: #FFFFFF; font-size: 14px; transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease; }
+        .bp-circle i { font-size: 14px; }
+        .bp-label { font-size: 11px; line-height: 1.2; font-weight: 500; color: rgba(255, 255, 255, 0.78); white-space: nowrap; letter-spacing: 0; transition: color 0.25s ease, font-weight 0.25s ease; }
+        .bp-connector { flex: 1 1 auto; height: 1px; background: rgba(255, 255, 255, 0.35); margin: 0 10px; align-self: flex-start; margin-top: 19px; max-width: 120px; }
+        .bp-stage.active .bp-circle { background: #FFFFFF; border-color: #FFFFFF; color: var(--primary-dark); }
+        .bp-stage.active .bp-label { color: #FFFFFF; font-weight: 600; }
+        .bp-stage.done .bp-circle { background: transparent; border-color: rgba(255, 255, 255, 0.55); color: #FFFFFF; }
+        .bp-stage.done .bp-label { color: rgba(255, 255, 255, 0.78); font-weight: 500; }
+        .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
         .booking-divider { height: 2px; width: 100%; background-color: #D1D5DB; margin: 0; border: none; }
         .booking-container { padding: 28px 32px; width: 100%; background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(245,250,249,0.96) 100%); }
         .booking-step { display: none; }
@@ -210,22 +217,43 @@
             .booking-header { display: none; }
             .booking-divider { display: none; }
             .booking-container { padding: 0 4px; background: transparent; max-width: 100%; }
-            .m-mobile-shell { display: block; padding: 2px 0 14px; margin-bottom: 8px; }
-            .m-mobile-shell-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+            .m-mobile-shell { display: block; padding: 2px 0 0; margin-bottom: 0; }
+            .m-mobile-shell-top { display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-bottom: 14px; }
             .m-mobile-shell-back { display: inline-flex; align-items: center; gap: 5px; background: none; border: none; padding: 4px 0; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--text-soft); }
             .m-mobile-shell-back i { font-size: 0.72rem; color: var(--text-soft); }
-            .m-mobile-shell-step { font-size: 12px; font-weight: 600; color: var(--text-light); white-space: nowrap; }
-            .m-mobile-shell-title { display: block; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.025em; margin: 6px 0 10px; color: var(--text-dark); }
-            .m-mobile-progress { display: none; }
 
-            /* Compact step indicator — icons only */
-            .m-step-indicator { display: flex; align-items: center; justify-content: center; gap: 0; margin: 4px 0 20px; width: 100%; max-width: 180px; margin-left: auto; margin-right: auto; }
-            .m-step-indicator .m-step-node { display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
-            .m-step-indicator .m-step-circle { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(11,94,90,0.06); color: var(--text-light); font-size: 11px; line-height: 1; transition: background 0.25s ease, color 0.25s ease; }
-            .m-step-indicator .m-step-circle i { font-size: 11px; }
-            .m-step-indicator .m-step-node.active .m-step-circle { background: rgba(11,94,90,0.14); color: var(--primary-dark); }
-            .m-step-indicator .m-step-node.done .m-step-circle { background: rgba(11,94,90,0.06); color: var(--primary); }
-            .m-step-indicator .m-step-connector { flex: 1 1 auto; height: 1px; background: rgba(11,94,90,0.14); margin: 0 8px; min-width: 18px; }
+            .m-mobile-bar {
+                background: linear-gradient(135deg, #075E58 0%, #053F3D 100%);
+                border-radius: 14px 14px 0 0;
+                padding: 14px 18px;
+                margin-bottom: 20px;
+            }
+
+            .m-mobile-progress {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0;
+                width: 100%;
+                max-width: 220px;
+                margin: 0 auto;
+            }
+
+            .m-mobile-progress .bp-circle {
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+            }
+
+            .m-mobile-progress .bp-circle i { font-size: 12px; }
+
+            .m-mobile-progress .bp-connector {
+                margin: 0 8px;
+                margin-top: 15px;
+                max-width: 60px;
+            }
+
+            .m-mobile-progress .bp-label { display: none; }
 
             .form-grid { grid-template-columns: 1fr; gap: 14px; margin-bottom: 24px; }
             .form-group { margin-bottom: 0; }
@@ -305,7 +333,6 @@
             .m-review-trigger i { font-size: 0.72rem; }
             .m-fill-hidden { display: none !important; }
 
-            /* STEP 2 + STEP 3 — mobile proportion correction (shared across all six services) */
             #step2 { padding-top: 0; }
             #step2 .form-group { margin-bottom: 18px; }
             #step2 .form-group label { margin-bottom: 7px; }
@@ -379,43 +406,53 @@
     <div class="booking-page">
         <div class="container">
             <div class="booking-system">
+
                 <div class="m-mobile-shell">
                     <div class="m-mobile-shell-top">
                         <button type="button" class="m-mobile-shell-back" onclick="mobileBackAction()">
                             <i class="fas fa-chevron-left"></i>
                             <span id="mobileBackLabel">Change service</span>
                         </button>
-                        <span class="m-mobile-shell-step" id="mobileStepLabel">Step 1 of 3</span>
                     </div>
-                    <div class="m-mobile-shell-title" id="mobileStepTitle">Service Details</div>
-                    <div class="m-mobile-progress" id="mobileProgressBar" aria-hidden="true">
-                        <span class="m-seg active" data-seg="1"></span>
-                        <span class="m-seg" data-seg="2"></span>
-                        <span class="m-seg" data-seg="3"></span>
-                    </div>
-                    <div class="m-step-indicator" id="mobileStepIndicator">
-                        <div class="m-step-node active" data-step="1">
-                            <span class="m-step-circle"><i class="fas fa-home"></i></span>
-                        </div>
-                        <span class="m-step-connector" data-connector="1"></span>
-                        <div class="m-step-node" data-step="2">
-                            <span class="m-step-circle"><i class="fas fa-camera"></i></span>
-                        </div>
-                        <span class="m-step-connector" data-connector="2"></span>
-                        <div class="m-step-node" data-step="3">
-                            <span class="m-step-circle"><i class="fas fa-user"></i></span>
+                    <div class="m-mobile-bar">
+                        <div class="m-mobile-progress" id="mobileProgress">
+                            <div class="bp-stage active" data-stage="1">
+                                <div class="bp-circle"><i class="fas fa-home"></i></div>
+                            </div>
+                            <div class="bp-connector"></div>
+                            <div class="bp-stage" data-stage="2">
+                                <div class="bp-circle"><i class="fas fa-camera"></i></div>
+                            </div>
+                            <div class="bp-connector"></div>
+                            <div class="bp-stage" data-stage="3">
+                                <div class="bp-circle"><i class="fas fa-user"></i></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="booking-header">
-                    <h3 id="stepTitleHeader">Step 1 — Service Details</h3>
-                    <div class="booking-progress">
-                        <div class="progress-step active" id="step1-indicator">1</div>
-                        <div class="progress-step" id="step2-indicator">2</div>
-                        <div class="progress-step" id="step3-indicator">3</div>
+                    <h3 id="stepTitleHeader" class="sr-only">Step 1 — Service Details</h3>
+                    <div class="booking-progress" id="bookingProgress">
+                        <div class="bp-stage active" data-stage="1">
+                            <div class="bp-circle"><i class="fas fa-home"></i></div>
+                            <span class="bp-label">Service Details</span>
+                        </div>
+                        <div class="bp-connector"></div>
+                        <div class="bp-stage" data-stage="2">
+                            <div class="bp-circle"><i class="fas fa-camera"></i></div>
+                            <span class="bp-label">Photos</span>
+                        </div>
+                        <div class="bp-connector"></div>
+                        <div class="bp-stage" data-stage="3">
+                            <div class="bp-circle"><i class="fas fa-user"></i></div>
+                            <span class="bp-label">Contact Details</span>
+                        </div>
                     </div>
                 </div>
+
                 <hr class="booking-divider">
+
                 <div class="booking-container">
                     <div class="booking-step active" id="step1">
                         <div id="dynamic-form-container"></div>
@@ -873,34 +910,17 @@
             currentStep = step;
             for (let i = 1; i <= 3; i++) {
                 document.getElementById('step' + i)?.classList.remove('active');
-                document.getElementById('step' + i + '-indicator')?.classList.remove('active', 'completed');
             }
             document.getElementById('step' + step)?.classList.add('active');
-            for (let i = 1; i <= step; i++) {
-                const indicator = document.getElementById('step' + i + '-indicator');
-                if (!indicator) continue;
-                if (i < step) indicator.classList.add('completed');
-                else indicator.classList.add('active');
-            }
-            const stepTitles = { 1: 'Step 1 — Service Details', 2: 'Step 2 — Photos & Notes', 3: 'Step 3 — Contact Details' };
-            document.getElementById('stepTitleHeader').textContent = stepTitles[step] || ('Step ' + step);
-            const mMap = { 1: 'Service Details', 2: 'Photos & Notes', 3: 'Contact Details' };
-            const mTitle = document.getElementById('mobileStepTitle');
-            if (mTitle) mTitle.textContent = mMap[step] || ('Step ' + step);
-            const mLabel = document.getElementById('mobileStepLabel');
-            if (mLabel) mLabel.textContent = 'Step ' + step + ' of 3';
 
-            document.querySelectorAll('#mobileProgressBar .m-seg').forEach(seg => {
-                const n = parseInt(seg.getAttribute('data-seg'));
-                seg.classList.remove('active', 'done');
-                if (n < step) seg.classList.add('done');
-                else if (n === step) seg.classList.add('active');
-            });
+            const stepTitles = { 1: 'Step 1 — Service Details', 2: 'Step 2 — Photos & Notes', 3: 'Step 3 — Contact Details' };
+            const titleEl = document.getElementById('stepTitleHeader');
+            if (titleEl) titleEl.textContent = stepTitles[step] || ('Step ' + step);
 
             const stepIcons = { 1: 'fa-home', 2: 'fa-camera', 3: 'fa-user' };
-            document.querySelectorAll('#mobileStepIndicator .m-step-node').forEach(node => {
-                const n = parseInt(node.getAttribute('data-step'));
-                const circle = node.querySelector('.m-step-circle');
+            document.querySelectorAll('#bookingProgress .bp-stage, #mobileProgress .bp-stage').forEach(node => {
+                const n = parseInt(node.getAttribute('data-stage'));
+                const circle = node.querySelector('.bp-circle');
                 node.classList.remove('active', 'done');
                 if (!circle) return;
                 if (n < step) {
