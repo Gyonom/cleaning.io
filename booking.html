@@ -514,6 +514,60 @@
             .addon-price { font-size: 11.5px; }
             .m-step-wrap { grid-template-columns: 40px minmax(0, 1fr) 40px; }
         }
+
+        /* ============================================================
+           Desktop-only refinement — booking form surface hierarchy
+           Scope: booking.html .booking-system descendants only.
+           Does not affect header, footer, mobile (≤768px), or any
+           other page. Only border visibility, subtle tonal shifts
+           and restrained focus states — no layout, spacing,
+           typography, radius or structural changes.
+           ============================================================ */
+        @media (min-width: 769px) {
+            /* Layer 4 — inputs, selects, textareas: clearer boundaries */
+            .booking-system .form-group input,
+            .booking-system .form-group select,
+            .booking-system .form-group textarea {
+                border-color: rgba(19, 43, 48, 0.22);
+            }
+
+            /* Layer 4 — custom dropdown trigger: matches input treatment */
+            .booking-system .drp-trigger {
+                border-color: rgba(19, 43, 48, 0.22);
+            }
+
+            /* Layer 4 — add-on cards: clearer boundaries */
+            .booking-system .addon-checkbox {
+                border-color: rgba(19, 43, 48, 0.16);
+            }
+
+            /* Layer 4 — condition cards: clearer boundaries */
+            .booking-system .condition-option {
+                border-color: rgba(19, 43, 48, 0.16);
+            }
+
+            /* Layer 4 — organisation area cards: clearer boundaries */
+            .booking-system .org-area-option {
+                border-color: rgba(19, 43, 48, 0.18);
+            }
+
+            /* Layer 3 — Optional Add-Ons panel: subtle tonal separation */
+            .booking-system .price-calculator {
+                background: linear-gradient(180deg, #FCFEFD 0%, #F0F7F6 100%);
+                border-color: rgba(19, 43, 48, 0.12);
+            }
+
+            /* Layer 3 — Estimated Total bar: firmer containment */
+            .booking-system .total-display {
+                border-color: rgba(11, 94, 90, 0.22);
+            }
+
+            /* Layer 5 — condition card keyboard focus: brand colour */
+            .booking-system .condition-option:focus-visible {
+                outline: 2px solid var(--primary);
+                outline-offset: 3px;
+            }
+        }
     </style>
 </head>
 <body>
